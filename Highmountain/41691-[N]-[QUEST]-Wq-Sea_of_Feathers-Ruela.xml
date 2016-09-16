@@ -1,0 +1,220 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>[A-Quest] Sea of Feathers WorldQuest Ruela</Name>
+
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+
+	<SellGrey>true</SellGrey>
+	<SellWhite>true</SellWhite>
+	<SellGreen>true</SellGreen>
+	<SellBlue>true</SellBlue>
+	<SellPurple>false</SellPurple>
+
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+
+	<TargetElites>true</TargetElites>
+
+	
+
+	<QuestOrder>
+	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			
+
+    public class WorldQuestData
+    {
+        public int ID;
+        public string Name;
+        public DateTime ExpireTime;
+    }
+
+
+    public static class WorldQuestInfo
+    {
+        static List<WorldQuestData> _cache = new List<WorldQuestData>();
+        static internal bool _dirty = true;
+        static internal bool _setup = false;
+
+        static WorldQuestInfo()
+        {
+            Setup();
+        }
+
+        public static void Setup()
+        {
+            if (_setup)
+                return;
+
+            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+
+            UpdateWorldQuests();
+            _setup = true;
+        }
+
+        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+        {
+            _dirty = true;
+        }
+
+        public static bool HasWorldQuest(int questid)
+        {
+            UpdateWorldQuests();
+
+            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+
+            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+                return false;
+            return true;
+        }
+
+        public static void UpdateWorldQuests()
+        {
+            if (!_dirty)
+                return;
+            _cache = new List<WorldQuestData>();
+            
+            var player = StyxWoW.Me;
+            int BrokenIslesMapArea = 1007;
+
+            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+            
+            var NumZones = int.Parse(ret[0]);
+
+            for (int i = 1; i <= NumZones; ++i)
+            {
+                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+
+                var ZoneID = int.Parse(ret[0]);
+                var ZoneName = ret[1];
+                var ZoneDepth = int.Parse(ret[2]);
+
+                if (ZoneDepth > 1) //Do not look at subzones
+                {
+                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+                    continue;
+                }
+
+                string ToRun = string.Format(@"     local questids = {{}};
+
+                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+
+                                                    if taskInfo then
+				                                                    for i, info in ipairs(taskInfo) do
+					                                                    if HaveQuestData(info.questId) then
+						                                                    if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+                                                                                    table.insert(questids, info.questId);
+							                                                    end
+						                                                    end
+					                                                    end
+				                                                    end
+                                                   return unpack(questids);
+                                                ", ZoneID, BrokenIslesMapArea);
+
+                ret = Lua.GetReturnValues(ToRun);
+
+                foreach (var q in ret)
+                {
+                    int questid = int.Parse(q);
+
+                    //TimeLeft is in minutes
+                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+
+                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+
+                    var data = new WorldQuestData();
+                    data.ID = questid;
+                    data.Name = QuestInfo[0];
+                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+                    _cache.Add(data);
+                }
+            }
+
+            _dirty = false;
+        }
+
+        public static bool IsWorldQuest(int questid)
+        {
+            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+
+            var ret = Lua.GetReturnValues(lua);
+
+            if (ret[3] == null)
+                return false;
+            return true;
+        }
+    }
+
+
+				]]>
+			</CustomBehavior>
+	
+
+
+		
+		<While Condition="WorldQuestInfo.HasWorldQuest(41691)" >
+				<!-- Get in range of quest to activate -->
+				<RunTo X="5509.761" Y="4668.169" Z="652.2643"   /> 
+				
+				<PickUp Nav="Fly" QuestName="Sea of Feathers" QuestId="41691" GiverName="" GiverId="" />
+				<Objective QuestName="Sea of Feathers" QuestId="41691" Type="KillMob" Nav="Fly" MobId="95310" KillCount="6" />
+				<Objective QuestName="Sea of Feathers" QuestId="41691" Type="UseObject" Nav="Fly" ObjectId="243401" UseCount="4" />
+				<Objective QuestName="Sea of Feathers" QuestId="41691" Type="KillMob" Nav="Fly" MobId="95270" KillCount="4" />
+				<TurnIn Nav="Fly" QuestName="Sea of Feathers" QuestId="41691" TurnInName="" TurnInId="" />
+				
+</While>
+		
+		<While Condition="WorldQuestInfo.HasWorldQuest(41691)" >	
+			
+			<RunTo X="5509.761" Y="4668.169" Z="652.2643"   />		
+						
+			<CustomBehavior File="InteractWith" MobId="243401" QuestId="41691"   NumOfTimes="4"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41691)" >
+				<HuntingGrounds>
+					<Hotspot X="1903.417" Y="7428.335" Z="2.924076" />
+					<Hotspot X="1854.549" Y="7424.924" Z="3.05874" />
+					<Hotspot X="1794.509" Y="7435.075" Z="0.8050519" />
+					<Hotspot X="1753.543" Y="7437.295" Z="1.249659" />
+					<Hotspot X="1792.103" Y="7401.776" Z="6.392099" />
+					<Hotspot X="1848.388" Y="7341.205" Z="7.969378" />
+					<Hotspot X="1840.757" Y="7475.094" Z="1.455669" />
+				
+				</HuntingGrounds>
+				
+				<AvoidMobs>
+					<Mob Name="Gornoth the Lost" Entry="103656" />
+				</AvoidMobs>
+		
+				
+			</CustomBehavior>			
+			
+			
+			
+			<CustomBehavior File="KillUntilComplete" MobIds="95310,95270" QuestId="41691">
+				<HuntingGrounds>
+					<Hotspot X="5529.691" Y="4707.486" Z="662.5468" />
+					<Hotspot X="5522.116" Y="4776.451" Z="659.5942" />
+					<Hotspot X="5586.662" Y="4785.537" Z="666.7359" />
+					<Hotspot X="5631.132" Y="4777.021" Z="673.3987" />
+					<Hotspot X="5637.303" Y="4721.793" Z="675.4059" />
+					<Hotspot X="5578.015" Y="4694.863" Z="661.3638" />
+				</HuntingGrounds>
+				
+				<AvoidMobs>
+					<Mob Name="Gornoth the Lost" Entry="103656" />
+				</AvoidMobs>
+				
+			</CustomBehavior>
+			
+			
+</While>
+
+<CustomBehavior	File="UseItem" ItemId="243401" WaitTime="2000" />		
+	
+	</QuestOrder>
+</HBProfile>
