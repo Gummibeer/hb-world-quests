@@ -1,33 +1,59 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../../Schemas/QuestProfileSchema.xsd"
 		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- Modified by tomten2 -->
+	  <Name>Emissary turnin</Name>
+	  <MinLevel>110</MinLevel>
+	  <MaxLevel>1001</MaxLevel>
 
-  <Name>Emissary turnin</Name>
-  <MinLevel>110</MinLevel>
-  <MaxLevel>1001</MaxLevel>
+	  <MinDurability>0.3</MinDurability>
+	  <MinFreeBagSlots>3</MinFreeBagSlots>
 
-  <MinDurability>0.3</MinDurability>
-  <MinFreeBagSlots>3</MinFreeBagSlots>
+	  <!-- NB: Honorbuddy sells before mailing -->
+	  <SellGrey>true</SellGrey>
+	  <SellWhite>true</SellWhite>
+	  <SellGreen>true</SellGreen>
+	  <SellBlue>true</SellBlue>
+	  <SellPurple>false</SellPurple>
 
-  <!-- NB: Honorbuddy sells before mailing -->
-  <SellGrey>true</SellGrey>
-  <SellWhite>true</SellWhite>
-  <SellGreen>true</SellGreen>
-  <SellBlue>true</SellBlue>
-  <SellPurple>false</SellPurple>
-
-  <MailGrey>false</MailGrey>
-  <MailWhite>true</MailWhite>
-  <MailGreen>true</MailGreen>
-  <MailBlue>true</MailBlue>
-  <MailPurple>true</MailPurple>
+	  <MailGrey>false</MailGrey>
+	  <MailWhite>true</MailWhite>
+	  <MailGreen>true</MailGreen>
+	  <MailBlue>true</MailBlue>
+	  <MailPurple>true</MailPurple>
 
 
 	<QuestOrder>
-<TurnIn QuestName="The Wardens" QuestId="42422" TurnInName="Marin Bladewing" TurnInId="107379" X="-1441.083" Y="6656.882" Z="12.00175" />
-<TurnIn QuestName="Court of Farondis" QuestId="42420" TurnInName="Veridis Fallon" TurnInId="107376" X="-8.559865" Y="6736.977" Z="55.58721" />
-<TurnIn QuestName="The Dreamweavers" QuestId="42170" TurnInName="Sylvia Hartshorn" TurnInId="106901" X="2274.2" Y="6592.066" Z="138.8777" />
+	
+		<!-- The wardens Emissary -->
+		<If Condition="HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)" >
+			<MoveTo DestName="Marin Bladewing" X="-1441.083" Y="6656.882" Z="12.00175" />
+				<TurnIn QuestName="The Wardens" QuestId="42422" TurnInName="Marin Bladewing" TurnInId="107379" X="-1441.083" Y="6656.882" Z="12.00175" />
+		</If>
+		
+		
+		<!-- Court of Farondis Emissary -->
+		<If Condition="HasQuest(42420) &amp;&amp; IsQuestCompleted(42420)" >
+			<MoveTo DestName="Veridis Fallon" X="-8.559865" Y="6736.977" Z="55.58721" />
+				<TurnIn QuestName="Court of Farondis" QuestId="42420" TurnInName="Veridis Fallon" TurnInId="107376" X="-8.559865" Y="6736.977" Z="55.58721" />
+		</If>
+		
+		
+		<!-- The Dreamweavers Emissary -->
+		<If Condition="HasQuest(42170) &amp;&amp; IsQuestCompleted(42170)" >
+			<MoveTo DestName="Sylvia Hartshorn" X="2274.2" Y="6592.066" Z="138.8777" />
+				<TurnIn QuestName="The Dreamweavers" QuestId="42170" TurnInName="Sylvia Hartshorn" TurnInId="106901" X="2274.2" Y="6592.066" Z="138.8777" />
+		</If>
+		
+		
+		<!-- The Nightfallen Emissary -- NPC Position changes based on rep but bot should hopefully navigate to it anyhow. -->
+		<If Condition="HasQuest(42421) &amp;&amp; IsQuestCompleted(42421)" >
+			<MoveTo DestName="First Arcanist Thalyssra" X="1714.924" Y="4631.012" Z="124.0055"   />
+				<TurnIn QuestName="The Nightfallen" QuestId="42421" TurnInName="First Arcanist Thalyssra" TurnInId="97140" X="1714.924" Y="4631.012" Z="124.0055"  />
+		</If>
+		
+		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished with Emissary TurnIn, loading autoloader last time!&quot;);" />
+		<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+		
 	</QuestOrder>
-
-
 </HBProfile>
 
