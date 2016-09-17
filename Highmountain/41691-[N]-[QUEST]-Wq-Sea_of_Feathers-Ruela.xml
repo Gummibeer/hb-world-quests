@@ -17,7 +17,7 @@
 	<MailBlue>true</MailBlue>
 	<MailPurple>true</MailPurple>
 
-	<TargetElites>true</TargetElites>
+	<TargetElites>false</TargetElites>
 
 	
 
@@ -155,7 +155,10 @@
 				]]>
 			</CustomBehavior>
 	
-
+				
+				<AvoidMobs>
+					<Mob Name="Gornoth the Lost" Entry="103656" />
+				</AvoidMobs>
 
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41691)" >
@@ -176,19 +179,12 @@
 						
 			<CustomBehavior File="InteractWith" MobId="243401" QuestId="41691"   NumOfTimes="4"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41691)" >
 				<HuntingGrounds>
-					<Hotspot X="1903.417" Y="7428.335" Z="2.924076" />
-					<Hotspot X="1854.549" Y="7424.924" Z="3.05874" />
-					<Hotspot X="1794.509" Y="7435.075" Z="0.8050519" />
-					<Hotspot X="1753.543" Y="7437.295" Z="1.249659" />
-					<Hotspot X="1792.103" Y="7401.776" Z="6.392099" />
-					<Hotspot X="1848.388" Y="7341.205" Z="7.969378" />
-					<Hotspot X="1840.757" Y="7475.094" Z="1.455669" />
+<Hotspot X="5357.96" Y="4784.073" Z="659.6285" />
+<Hotspot X="5552.139" Y="4753.381" Z="665.9286" />
+<Hotspot X="5596.368" Y="4691.941" Z="665.7458" />
 				
 				</HuntingGrounds>
-				
-				<AvoidMobs>
-					<Mob Name="Gornoth the Lost" Entry="103656" />
-				</AvoidMobs>
+
 		
 				
 			</CustomBehavior>			
