@@ -176,5 +176,8 @@
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 
-	</QuestOrder>
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 43629-[N]-[QUEST]-WANTED-Kiranys-Duskwhisper-WiN, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
 </HBProfile>
