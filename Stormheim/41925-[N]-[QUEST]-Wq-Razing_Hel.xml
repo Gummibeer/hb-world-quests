@@ -151,11 +151,11 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
 </While>
-<While Condition="Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 140192).CooldownTimeLeft.TotalMilliseconds > 0" >
-	<CustomBehavior File="WaitTimer" WaitTime="2000" />
-</While>
-<CustomBehavior	File="UseItem" ItemId="140192" WaitTime="2000" />	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Razing Hel, loading auto-loader!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="autoloader" RememberProfile="true" />
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
