@@ -45,7 +45,7 @@
 		</If>
 		
 		
-		<!-- The Nightfallen Emissary -- NPC Position changes based on rep but bot should hopefully navigate to it anyhow. -->
+		<!-- The Nightfallen Emissary NPC Position changes based on rep but bot should hopefully navigate to it anyhow. -->
 		<If Condition="HasQuest(42421) &amp;&amp; IsQuestCompleted(42421)" >
 			<MoveTo DestName="First Arcanist Thalyssra" X="1714.924" Y="4631.012" Z="124.0055"   />
 				<TurnIn QuestName="The Nightfallen" QuestId="42421" TurnInName="First Arcanist Thalyssra" TurnInId="97140" X="1714.924" Y="4631.012" Z="124.0055"  />
