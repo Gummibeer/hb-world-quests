@@ -161,5 +161,8 @@
 <!-- Cant use whistle in the cave.
 <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 -->
-						</QuestOrder>
-					</HBProfile>
+						
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Stonebinder_Bounty-Codex, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
+</HBProfile>
