@@ -155,6 +155,6 @@
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41964] Poisoned Waters - WiN!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../valshara-auto" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 						</QuestOrder>
 					</HBProfile>
