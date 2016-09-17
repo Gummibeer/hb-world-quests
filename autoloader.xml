@@ -229,9 +229,9 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(43607)">
+<If Condition="WorldQuestInfo.HasWorldQuest(43607) || WorldQuestInfo.HasWorldQuest(43426)" >	
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Brogozog-Zinner!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-WANTED Brogozog-Zinner" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43607-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43428)">
