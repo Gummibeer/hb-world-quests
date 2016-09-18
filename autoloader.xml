@@ -228,27 +228,36 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN" RememberProfile="true" />
 </If>
-
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43607)" >	
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Brogozog-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43607-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="true" />
 </If>
-
+</If>
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43426)" >	
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Brogozog-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43426-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="true" />
 </If>
-
-<If Condition="WorldQuestInfo.HasWorldQuest(43428)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner" RememberProfile="true" />
 </If>
-
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43428)">
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner" RememberProfile="true" />
+</If>
+</If>
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43609)">
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43609-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43609[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner" RememberProfile="true" />
+</If>
+</If>
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(42620)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Arcavellus-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-WANTED_Arcavellus-WiN" RememberProfile="true" />
 </If>
-
+</If>
 <If Condition="WorldQuestInfo.HasWorldQuest(41435)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner" RememberProfile="true" />

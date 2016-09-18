@@ -155,33 +155,35 @@
 				]]>
 			</CustomBehavior>
 	
-		
-		<While Condition="WorldQuestInfo.HasWorldQuest(43428)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="568.3079" Y="6983.24" Z="178.7833" /> 
-				<PickUp Nav="Fly" QuestName="WANTED: Doomlord Kazrok" QuestId="43428" GiverName="" GiverId="" />
+<!--
+<PickUp Nav="Fly" QuestName="WANTED: Doomlord Kazrok" QuestId="43609" GiverName="" GiverId="" />
+<Objective QuestName="WANTED: Doomlord Kazrok" QuestId="43609" Type="KillMob" Nav="Fly" MobId="91579" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="WANTED: Doomlord Kazrok" QuestId="43609" TurnInName="" TurnInId="" />
 
-				<Objective QuestName="WANTED: Doomlord Kazrok" QuestId="43428" Type="KillMob" Nav="Fly" MobId="91579" KillCount="1" />
+<Vendor Name="Doomlord Kazrok" Entry="91579" Type="Repair" Nav="Fly" X="561.64" Y="6989.046" Z="179.5101" />
 
-				<TurnIn Nav="Fly" QuestName="WANTED: Doomlord Kazrok" QuestId="43428" TurnInName="" TurnInId="" />
-
-
-
+-->
+<While Condition="WorldQuestInfo.HasWorldQuest(43609)" >
+	<!-- Get in range of quest to activate -->
+	<RunTo X="568.3079" Y="6983.24" Z="178.7833" />
+	<PickUp Nav="Fly" QuestName="WANTED: Doomlord Kazrok" QuestId="43609" GiverName="" GiverId="" />
+	<Objective QuestName="WANTED: Doomlord Kazrok" QuestId="43609" Type="KillMob" Nav="Fly" MobId="91579" KillCount="1" />
+	<TurnIn Nav="Fly" QuestName="WANTED: Doomlord Kazrok" QuestId="43609" TurnInName="" TurnInId="" />
 </While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(43428)" >	
-				<RunTo X="568.3079" Y="6983.24" Z="178.7833" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="91579" QuestId="43428">
-				<HuntingGrounds>
-					<Hotspot X="568.3079" Y="6983.24" Z="178.7833" />
-				</HuntingGrounds>
-			</CustomBehavior>
-		</While>
-	
-	
+<While Condition="WorldQuestInfo.HasWorldQuest(43609)" >
+	<RunTo X="568.3079" Y="6983.24" Z="178.7833" />
+	<CustomBehavior File="KillUntilComplete" MobIds="91579" QuestId="43609">
+		<HuntingGrounds>
+			<Hotspot X="568.3079" Y="6983.24" Z="178.7833" />
+		</HuntingGrounds>
+	</CustomBehavior>
+</While>
+
+
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+	<CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	
+
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
