@@ -294,7 +294,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42119)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-A_Cleansing_Cocktai-WiNl!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42119-[N]-[QUEST]-A_Cleansing_Cocktail-WiN" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42119-[N]-[QUEST]-Wq-A_Cleansing_Cocktail-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="doDanger">
