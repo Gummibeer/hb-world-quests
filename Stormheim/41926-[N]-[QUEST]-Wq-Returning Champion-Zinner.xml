@@ -155,7 +155,12 @@
 				]]>
 			</CustomBehavior>
 	
-		
+<!--
+<Vendor Name="Felskorn Raider" Entry="108306" Type="Repair" Nav="Fly" X="3409.978" Y="2428.722" Z="241.0467" />
+<Vendor Name="Bloodtotem Skirmisher" Entry="108289" Type="Repair" Nav="Fly" X="3413.757" Y="2431.811" Z="241.2613" />
+
+-->
+	
 		<While Condition="WorldQuestInfo.HasWorldQuest(41926)" >
 				<!-- Get in range of quest to activate -->
 				<RunTo X="3333.74" Y="2491.774" Z="258.64" /> 
@@ -166,20 +171,29 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41926)" >	
-				<RunTo X="3333.74" Y="2491.774" Z="258.64" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="108306, 108289, 108283 " QuestId="41926">
-				<HuntingGrounds>
-					<Hotspot X="3333.74" Y="2491.774" Z="258.64" />
-					<Hotspot X="3413.926" Y="2533.332" Z="272.9696" />
-					<Hotspot X="3489.657" Y="2481.641" Z="265.9431" />
-					<Hotspot X="3561.677" Y="2500.981" Z="275.446" />
-					<Hotspot X="3581.451" Y="2410.686" Z="274.8643" />
-					<Hotspot X="3370.833" Y="2401.736" Z="241.9627" />
-					<Hotspot X="3452.199" Y="2448.299" Z="250.3674" />
+				<RunTo X="3333.74" Y="2491.774" Z="258.64" />
+				
+				
+					<CustomBehavior File="InteractWith" NumOfTimes="13" QuestId="41926" TerminateWhen="IsQuestCompleted(41926)">
+		<HuntingGrounds>
+<Hotspot X="2254.566" Y="6833.607" Z="119.8187" />
+<Hotspot X="2143.868" Y="6858.059" Z="102.6098" />
+<Hotspot X="2117.691" Y="6896.333" Z="92.03596" />
+<Hotspot X="2171.211" Y="6896.655" Z="104.4865" />
+<Hotspot X="2215.741" Y="6841.834" Z="112.779" />
+<Hotspot X="2277.484" Y="6809.455" Z="124.5197" />
+<Hotspot X="3362.431" Y="2424.786" Z="242.671" />
+		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="108306" Priority="300" PursueWhen="!IsObjectiveComplete(3, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="108289" Priority="200" PursueWhen="!IsObjectiveComplete(2, 41926)" />
+			<PursueUnit Id="108283" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
+	</CustomBehavior>
+				
+				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
-
-				</HuntingGrounds>
-			</CustomBehavior>
 		</While>
 	
 	
