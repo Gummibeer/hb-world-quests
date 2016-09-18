@@ -166,160 +166,137 @@ return true;
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41560)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Felhide-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
 <If Condition="WorldQuestInfo.HasWorldQuest(41520)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Felwort-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41570)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Felhide-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41512)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Felwort-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42021)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Investigation at Mak'rana-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Investigation at Mak'rana-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42101)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Language_of_the_Lost-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Language_of_the_Lost-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42211)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Leodraths_Kin-Codex!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42211-[N]-[QUEST]-Wq-Leodraths_Kin-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42105)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Mixology-Mix-up-Aszuna-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Mixology-Mix-up-Aszuna-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42123)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41927)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Ruining the Runewood-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Ruining the Runewood-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41551)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Slab of Bacon-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Slab of Bacon-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41552)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Slab_of_Bacon2-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Slab_of_Bacon2-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42018)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN" RememberProfile="true" />
 </If>
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43607)" >	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Brogozog-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43607-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="true" />
 </If>
 </If>
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43426)" >	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Brogozog-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43426-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="true" />
 </If>
 </If>
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43428)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="true" />
 </If>
 </If>
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43609)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43609-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43609-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="true" />
 </If>
 </If>
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(42620)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Arcavellus-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-WANTED_Arcavellus-WiN" RememberProfile="true" />
 </If>
 </If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41435)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41483)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41483-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41483-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41496)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41496-[N]-[QUEST]-Wq-Raw Leystone Seams-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41496-[N]-[QUEST]-Wq-Raw Leystone Seams-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43805)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43805-[N]-[QUEST]-Wq-Aquatic-Assassination-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43805-[N]-[QUEST]-Wq-Aquatic-Assassination-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(44190)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 44190-[N]-[QUEST]-Wq-DANGER Jade Darkhaven-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44190-[N]-[QUEST]-Wq-DANGER Jade Darkhaven-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43614)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wanted Vorthax-Pellepylly!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wanted Vorthax-Pellepylly" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42119)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-A_Cleansing_Cocktai-WiNl!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42119-[N]-[QUEST]-Wq-A_Cleansing_Cocktail-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(44193)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-DANGER Sea King Tildross-WiN_super_dangerous!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-DANGER Sea King Tildross-WiN_super_dangerous" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(43072)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-DANGER The Whisperer-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-DANGER The Whisperer-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42014)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 42014-[N]-[QUEST]-Wq-A_Tainted_Vintage-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42014-[N]-[QUEST]-Wq-A_Tainted_Vintage-WiN" RememberProfile="true" />
 </If>
 
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42275)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 42275-[N]-[QUEST]-Wq-Not_On_My_Watch-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42275-[N]-[QUEST]-Wq-Not_On_My_Watch-WiN" RememberProfile="true" />
 </If>
 
@@ -345,124 +322,103 @@ return true;
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41685)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41691)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41691-[N]-[QUEST]-Wq-Sea_of_Feathers-Ruela!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41691-[N]-[QUEST]-Wq-Sea_of_Feathers-Ruela" RememberProfile="true" />
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41818)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41818-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41818-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41844)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41844-[N]-[QUEST]-Wq-WANTED Sekhan-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41844-[N]-[QUEST]-Wq-WANTED Sekhan-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43616)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43616-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43616-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(44291)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 44291-[N]-[QUEST]-Wq-WANTED_Crawshuk_the_Hungry!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="44291-[N]-[QUEST]-Wq-WANTED_Crawshuk_the_Hungry" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41705)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41026)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Back to the Shadows-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Back to the Shadows-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41622)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41095)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Critical Crops-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41095-[N]-[QUEST]-Wq-Critical_Crops-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(41703)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-DANGER_Ormagrogg-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-DANGER_Ormagrogg-WiN" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41024)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Dirge of the Dead-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Dirge of the Dead-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(39424)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Everything-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Everything-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41228)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Foxflower_Cluster-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Foxflower_Cluster-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41416)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(40920)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Stonebinder_Bounty-Codex!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Stonebinder_Bounty-Codex" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41237)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Supplies Needed Stonehide Leather-Zinner-BUY 40 lether from ah-!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Supplies Needed Stonehide Leather-Zinner-BUY 40 lether from ah-" RememberProfile="true" />
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(44289)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Arru-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-WANTED Arru-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41819)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Gurbog da Basher-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-WANTED Gurbog da Basher-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43619)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41821)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41821-[N]-[QUEST]-Wq-WANTED Shara Felbreath-WiN" RememberProfile="true" />
 </If>
 </If>
@@ -476,35 +432,29 @@ return true;
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43450)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41824)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_ArruNew-Quest-ID41824-Codex!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-WANTED_ArruNew-Quest-ID41824-Codex" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(40978)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 40978-[N]-[QUEST]-Wq-Bears-Behaving-Badly-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40978-[N]-[QUEST]-Wq-Bears-Behaving-Badly-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41428)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41428-[N]-[QUEST]-Wq-Unstable-Portal-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41428-[N]-[QUEST]-Wq-Unstable-Portal-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41550)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41550-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41550-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41550)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN" RememberProfile="true" />
 </If>
 
@@ -522,101 +472,85 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Stormheim...&quot;);" />
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43963)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Vampirates-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43455)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43427)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43625)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Nameless King-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43434)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Fathnyr-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-WANTED_Fathnyr-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41925)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Razing_Hel!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41925-[N]-[QUEST]-Wq-Razing_Hel" RememberProfile="true" />
 </If>
+
 <!--
 <If Condition="WorldQuestInfo.HasWorldQuest(41950)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Cry_More_Thunder!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="true" />
 </If>
 -->
+
 <If Condition="WorldQuestInfo.HasWorldQuest(43436)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Glimar_Ironfist!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43452)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Isel_the_Hammer!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43452-[N]-[QUEST]-Wq-WANTED_Isel_the_Hammer" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43628)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41308)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Border Reinforcements-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41938)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Brothers of Skovald-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(42798)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-DANGER Huntress Estrid-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-DANGER Huntress Estrid-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(42964)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-DANGER-Lagertha-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41794)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Drakestalker-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-Drakestalker-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41926)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Returning Champion-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41926-[N]-[QUEST]-Wq-Returning Champion-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41927)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41949)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-The_Drekirjar_Return-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-The_Drekirjar_Return-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41984)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-The-Creeping-Mist-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-Zinner" RememberProfile="true" />
 </If>
 
@@ -633,50 +567,41 @@ return true;
 
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44002)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Undersea_Survey-Codex!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\[N]-[QUEST]-Wq-Undersea_Survey-Codex" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44017)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42795)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Sanaar-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\[N]-[QUEST]-Wq-WANTED Sanaar-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43435)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43435-[N]-[QUEST]-Wq-The Battle Rages On-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\43435-[N]-[QUEST]-Wq-The Battle Rages On-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44010)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 44010-[N]-[QUEST]-Wq-WANTED Oreth the Vile-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44010-[N]-[QUEST]-Wq-WANTED Oreth the Vile-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(44121)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42169)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Left for Dead-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\[N]-[QUEST]-Wq-Left for Dead-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44015)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Mal'Dreth the Corruptor-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\[N]-[QUEST]-Wq-Mal'Dreth the Corruptor-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43607)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Guardian_Thorel!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="true" />
 </If>
 </If>
@@ -692,115 +617,93 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Valshara...&quot;);" />
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42076)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Shadowfen_Village-Win!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Shadowfen_Village-Win" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44305)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Bahagar-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44300)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Seersei-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-WANTED Seersei-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43758)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Wherever I May Gloam-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Wherever I May Gloam-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41965)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 41965-[N]-[QUEST]-Wq-Lunarwing-Liberation-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41965-[N]-[QUEST]-Wq-Lunarwing-Liberation-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42150)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Kaldelar_Naga_Instructions-Ruela!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN" RememberProfile="true" />
 </If>
-
+<!--
 <If Condition="WorldQuestInfo.HasWorldQuest(43183)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Starstalker_Point-Ruela!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43183-[N]-[QUEST]-Wq-Starstalker_Point-Ruela" RememberProfile="true" />
-</If>
+</If>-->
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43459)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Thondrax!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43459-[N]-[QUEST]-Wq-WANTED_Thondrax" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43629)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-WANTED-Kiranys-Duskwhisper-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44033)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Aw_Nuts-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Aw_Nuts-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42087)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Green Horror-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Green Horror-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43332)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Grell_in_a_Handbasket-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43332-[N]-[QUEST]-Wq-Grell_in_a_Handbasket-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42028)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Into_the_Nightmare-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Into_the_Nightmare-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42145)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Out_of_the_Woodwork-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42145-[N]-[QUEST]-Wq-Out_of_the_Woodwork-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43336)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Purge of the Nightmare-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Purge of the Nightmare-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43324)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Rage_of_the_Owlbeasts-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Rage_of_the_Owlbeasts-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41964)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Poisoned_Waters-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41964-[N]-[QUEST]-Wq-Poisoned_Waters-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43610)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Infernal_Lord-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43610-[N]-[QUEST]-Wq-WANTED_Infernal_Lord-WiN" RememberProfile="true" />
 </If>
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42124)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Hags_and_Hexes-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42124-[N]-[QUEST]-Wq-Hags_and_Hexes-WiN" RememberProfile="true" />
 </If>
 <!--
 <If Condition="WorldQuestInfo.HasWorldQuest(43738)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Coastal_Gloom-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43738-[N]-[QUEST]-Coastal_Gloom-WiN" RememberProfile="true" />
 </If>
 -->
 <If Condition="WorldQuestInfo.HasWorldQuest(41518)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Felwort-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41518-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(44303)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 44303-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\44303-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN" RememberProfile="true" />
 </If>
 </If>
@@ -811,7 +714,6 @@ return true;
 <!-- Emissary turnin -->
 			
 <If Condition="(HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)) || (HasQuest(42420) &amp;&amp; IsQuestCompleted(42420)) || (HasQuest(42170) &amp;&amp; IsQuestCompleted(42170)) || (HasQuest(42421) &amp;&amp; IsQuestCompleted(42421))">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader - Emissary TurnIn]: Loading profile &quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Emissary\[N]-[QUEST]-Emissary turnin-Zinner" RememberProfile="true" />
 </If>
 
