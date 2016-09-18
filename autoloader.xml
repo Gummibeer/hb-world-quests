@@ -679,7 +679,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43332)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Grell_in_a_Handbasket-WiN!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Grell_in_a_Handbasket-WiN" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43332-[N]-[QUEST]-Grell_in_a_Handbasket-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42028)">

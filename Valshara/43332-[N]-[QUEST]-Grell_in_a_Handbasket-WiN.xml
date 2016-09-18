@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] Grell in a Handbasket - Win</Name>
+	<Name>[43332] Grell in a Handbasket - Win</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -114,8 +114,8 @@
 								}
 								]]>
 							</CustomBehavior>
-<While Condition="WorldQuestInfo.HasWorldQuest(43332)" >
-	<!-- Get in range of quest to activate -->
+<!--<While Condition="WorldQuestInfo.HasWorldQuest(43332)" >
+	 Get in range of quest to activate 
 	<RunTo X="2145.833" Y="5963.139" Z="148.5135" />
 <PickUp Nav="Fly" QuestName="Grell in a Handbasket" QuestId="43332" GiverName="" GiverId="" />
 <Objective QuestName="Grell in a Handbasket" QuestId="43332" Type="KillMob" Nav="Fly" MobId="109045" KillCount="10" />
@@ -125,7 +125,7 @@
 </While>
 
 
-<!--
+
 <Vendor Name="Wildeyed Undergrell" Entry="109045" Type="Repair" Nav="Fly" X="2167.151" Y="5937.689" Z="152.717" />
 <GameObject Name="Moist Grizzleberries" Entry="251946" X="2165.228" Y="5914.829" Z="152.1598" />
 <WoWUnit Name="Enderkind" Entry="109073" X="2337.438" Y="5849.542" Z="162.1205" />
@@ -133,39 +133,29 @@
 Might need to add a run to a safe place to cast the whistle - whistle cast is interrupted and then the bot runs back instead of teleports.
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43332)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43332] Grell in a Handbasket - WiN!&quot;);" />
 	<RunTo X="2145.833" Y="5963.139" Z="148.5135" />
-
-	<CustomBehavior File="InteractWith" MobIds="251946" NumOfTimes="8" QuestId="43332" QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 43332)">
+	<CustomBehavior File="InteractWith" NumOfTimes="19" QuestId="43332" TerminateWhen="IsQuestCompleted(43332)">
 		<HuntingGrounds>
+<Hotspot X="2337.438" Y="5849.542" Z="162.1205" />
 <Hotspot X="2223.485" Y="5910.117" Z="157.6812" />
 <Hotspot X="2294.644" Y="5870.859" Z="162.3896" />
 <Hotspot X="2323.129" Y="5860.502" Z="162.1201" />
-
+<Hotspot X="2250.891" Y="5839.834" Z="159.8536" />
 		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="109073" Priority="300" PursueWhen="!IsObjectiveComplete(3, 43332) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueGameObject Id="251946" Priority="200" PursueWhen="!IsObjectiveComplete(2, 43332) &amp;&amp; (GAMEOBJECT.IsValid)" />
+			<PursueUnit Id="109045" Priority="100" PursueWhen="!IsObjectiveComplete(1, 43332) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
 	</CustomBehavior>
-	
-		<CustomBehavior File="KillUntilComplete" MobIds="109073" QuestId="43332"  QuestObjectiveIndex="3" TerminateWhen="IsObjectiveComplete(3, 43332)">
-		<HuntingGrounds>
-
-<Hotspot X="2337.438" Y="5849.542" Z="162.1205" />
-		</HuntingGrounds>
-	</CustomBehavior>
-			<CustomBehavior File="KillUntilComplete" MobIds="109045" QuestId="43332"  QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 43332)">
-		<HuntingGrounds>
-<Hotspot X="2294.644" Y="5870.859" Z="162.3896" />
-<Hotspot X="2323.129" Y="5860.502" Z="162.1201" />
-		</HuntingGrounds>
-	</CustomBehavior>
-
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-
 </While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43332] Grell in a Handbasket - WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
-</QuestOrder>
-</HBProfile>
+						</QuestOrder>
+					</HBProfile>
