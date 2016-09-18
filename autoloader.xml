@@ -303,6 +303,27 @@ return true;
 </If>
 
 
+<If Condition="WorldQuestInfo.HasWorldQuest(42014)">
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 42014-[N]-[QUEST]-Wq-A_Tainted_Vintage-WiN!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42014-[N]-[QUEST]-Wq-A_Tainted_Vintage-WiN" RememberProfile="true" />
+</If>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Highmountain -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Highmountain...&quot;);" />
 
