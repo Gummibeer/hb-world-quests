@@ -165,13 +165,23 @@
 
 				<TurnIn Nav="Fly" QuestName="The Creeping Mists" QuestId="41984" TurnInName="" TurnInId="" />
 
-
+<!--
+<Vendor Name="Cursebound Captain" Entry="105710" Type="Repair" Nav="Fly" X="3562.05" Y="1487.106" Z="5.300533" />
+-->
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41984)" >	
-				<RunTo X="3366.133" Y="1568.511" Z="10.98311" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="105502, 105710" QuestId="41984">
-				<HuntingGrounds>
+				<RunTo X="3366.133" Y="1568.511" Z="10.98311" />
+				
+	<CustomBehavior File="KillUntilComplete" MobIds="105710" QuestId="41984">
+<HuntingGrounds>
+<Hotspot X="3562.338" Y="1508.874" Z="5.328483" />
+</HuntingGrounds>
+</CustomBehavior>
+			
+					<CustomBehavior File="InteractWith" NumOfTimes="13" QuestId="41984" TerminateWhen="IsQuestCompleted(41984)">
+		<HuntingGrounds>
+			<Hotspot X="3563.802" Y="1518.61" Z="5.316961" />
 					<Hotspot X="3366.133" Y="1568.511" Z="10.98311" />
 <Hotspot X="3507.324" Y="1547.151" Z="5.278144" />
 <Hotspot X="3483.54" Y="1592.042" Z="5.940928" />
@@ -187,9 +197,14 @@
 <Hotspot X="3492.746" Y="1546.955" Z="5.209016" />
 <Hotspot X="3476.646" Y="1554.536" Z="5.110464" />
 
-
-				</HuntingGrounds>
-			</CustomBehavior>
+		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="105502" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41984) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
+	</CustomBehavior>
+				
+<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />

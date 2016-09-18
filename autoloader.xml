@@ -562,7 +562,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41984)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-The-Creeping-Mist-Zinner!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-The-Creeping-Mist-Zinner" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41568)">
