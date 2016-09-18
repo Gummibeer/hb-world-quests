@@ -309,6 +309,10 @@ return true;
 </If>
 
 
+<If Condition="WorldQuestInfo.HasWorldQuest(42275)">
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 42275-[N]-[QUEST]-Wq-Not_On_My_Watch-WiN!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42275-[N]-[QUEST]-Wq-Not_On_My_Watch-WiN" RememberProfile="true" />
+</If>
 
 
 
