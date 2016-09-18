@@ -173,35 +173,26 @@
 		<While Condition="WorldQuestInfo.HasWorldQuest(41984)" >	
 				<RunTo X="3366.133" Y="1568.511" Z="10.98311" />
 				
-	<CustomBehavior File="KillUntilComplete" MobIds="105710" QuestId="41984">
-<HuntingGrounds>
-<Hotspot X="3562.338" Y="1508.874" Z="5.328483" />
-</HuntingGrounds>
-</CustomBehavior>
-			
-					<CustomBehavior File="InteractWith" NumOfTimes="13" QuestId="41984" TerminateWhen="IsQuestCompleted(41984)">
+	<CustomBehavior File="KillUntilComplete" MobIds="105710, 105502" QuestId="41984">
 		<HuntingGrounds>
-			<Hotspot X="3563.802" Y="1518.61" Z="5.316961" />
-					<Hotspot X="3366.133" Y="1568.511" Z="10.98311" />
-<Hotspot X="3507.324" Y="1547.151" Z="5.278144" />
-<Hotspot X="3483.54" Y="1592.042" Z="5.940928" />
-<Hotspot X="3485.527" Y="1619.756" Z="5.468304" />
-<Hotspot X="3494.676" Y="1621.498" Z="5.454447" />
-<Hotspot X="3420.88" Y="1606.927" Z="9.605018" />
-<Hotspot X="3386.248" Y="1639.905" Z="9.931944" />
-<Hotspot X="3334.044" Y="1536.205" Z="23.75394" />
-<Hotspot X="3562.046" Y="1532.173" Z="5.303388" />
-<Hotspot X="3562.906" Y="1489.7" Z="5.350976" />
-<Hotspot X="3564.093" Y="1513.288" Z="5.323004" />
-<Hotspot X="3539.938" Y="1544.698" Z="5.298002" />
-<Hotspot X="3492.746" Y="1546.955" Z="5.209016" />
-<Hotspot X="3476.646" Y="1554.536" Z="5.110464" />
-
+			<Hotspot X="3562.338" Y="1508.874" Z="5.328483" />
+			<Hotspot X="3507.324" Y="1547.151" Z="5.278144" />
+			<Hotspot X="3483.54" Y="1592.042" Z="5.940928" />
+			<Hotspot X="3485.527" Y="1619.756" Z="5.468304" />
+			<Hotspot X="3494.676" Y="1621.498" Z="5.454447" />
+			<Hotspot X="3420.88" Y="1606.927" Z="9.605018" />
+			<Hotspot X="3386.248" Y="1639.905" Z="9.931944" />
+			<Hotspot X="3334.044" Y="1536.205" Z="23.75394" />
+			<Hotspot X="3562.046" Y="1532.173" Z="5.303388" />
+			<Hotspot X="3562.906" Y="1489.7" Z="5.350976" />
+			<Hotspot X="3564.093" Y="1513.288" Z="5.323004" />
+			<Hotspot X="3539.938" Y="1544.698" Z="5.298002" />
+			<Hotspot X="3492.746" Y="1546.955" Z="5.209016" />
+			<Hotspot X="3476.646" Y="1554.536" Z="5.110464" />
 		</HuntingGrounds>
-		<PursuitList>
-			<PursueUnit Id="105502" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41984) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		</PursuitList>
 	</CustomBehavior>
+
+
 				
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
