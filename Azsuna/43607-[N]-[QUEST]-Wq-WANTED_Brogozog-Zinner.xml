@@ -154,7 +154,9 @@
 
 				]]>
 			</CustomBehavior>
-	
+<!--
+You have to talk to a dude named Tehd Shoemaker (Entry ID: 91097 Faction ID:1770 Position -233.04, 5923.01, 165.95) It's a simple interaction, he asks if you'll stand with him and you just say sure, then a few seconds later the mob spawns. Hope this helps!
+-->		
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43607)" >
 				<!-- Get in range of quest to activate -->
