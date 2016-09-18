@@ -156,22 +156,22 @@
 			</CustomBehavior>
 	
 		
-		<While Condition="WorldQuestInfo.HasWorldQuest(43607) || WorldQuestInfo.HasWorldQuest(43426)" >
+		<While Condition="WorldQuestInfo.HasWorldQuest(43607)" >
 				<!-- Get in range of quest to activate -->
 				<RunTo X="-231.2169" Y="5929.425" Z="165.9509" /> 
-				<PickUp Nav="Fly" QuestName="WANTED: Brogozog" QuestId="43607, 43426" GiverName="" GiverId="" />
+				<PickUp Nav="Fly" QuestName="WANTED: Brogozog" QuestId="43607" GiverName="" GiverId="" />
 
-				<Objective QuestName="WANTED: Brogozog" QuestId="43607, 43426" Type="KillMob" Nav="Fly" MobId="91100" KillCount="1" />
+				<Objective QuestName="WANTED: Brogozog" QuestId="43607" Type="KillMob" Nav="Fly" MobId="91100" KillCount="1" />
 
-				<TurnIn Nav="Fly" QuestName="WANTED: Brogozog" QuestId="43607, 43426" TurnInName="" TurnInId="" />
+				<TurnIn Nav="Fly" QuestName="WANTED: Brogozog" QuestId="43607" TurnInName="" TurnInId="" />
 
 
 
 
 </While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(43607) || WorldQuestInfo.HasWorldQuest(43426)" >	
+		<While Condition="WorldQuestInfo.HasWorldQuest(43607)" >	
 				<RunTo X="-231.2169" Y="5929.425" Z="165.9509" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="91100" QuestId="43607, 43426">
+			<CustomBehavior File="KillUntilComplete" MobIds="91100" QuestId="43607">
 				<HuntingGrounds>
 					<Hotspot X="-231.2169" Y="5929.425" Z="165.9509" />
 				</HuntingGrounds>
