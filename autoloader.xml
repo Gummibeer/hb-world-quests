@@ -753,12 +753,12 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Hags_and_Hexes-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42124-[N]-[QUEST]-Wq-Hags_and_Hexes-WiN" RememberProfile="true" />
 </If>
-
+<!--
 <If Condition="WorldQuestInfo.HasWorldQuest(43738)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Coastal_Gloom-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43738-[N]-[QUEST]-Coastal_Gloom-WiN" RememberProfile="true" />
 </If>
-
+-->
 <If Condition="WorldQuestInfo.HasWorldQuest(41518)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Felwort-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41518-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
