@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] A Cleansing Cocktail - Win</Name>
+	<Name>[42119] A Cleansing Cocktail - Win</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -114,8 +114,9 @@
 								}
 								]]>
 							</CustomBehavior>
+<!--
 <While Condition="WorldQuestInfo.HasWorldQuest(42119)" >
-	<!-- Get in range of quest to activate -->
+
 	<RunTo X="462.1674" Y="6761.314" Z="89.73258" />
 <PickUp Nav="Fly" QuestName="A Cleansing Cocktail" QuestId="42119" GiverName="" GiverId="" />
 <Objective QuestName="A Cleansing Cocktail" QuestId="42119" Type="CollectItem" Nav="Fly" ItemId="136860" CollectCount="7" />
@@ -124,50 +125,42 @@
 </While>
 
 
-<!--
+
 <Vendor Name="Llothien Grizzly" Entry="90134" Type="Repair" Nav="Fly" X="426.625" Y="6934.635" Z="101.1977" />
 <Vendor Name="Cliffwing Hippogryph" Entry="89386" Type="Repair" Nav="Fly" X="301.091" Y="7055.09" Z="110.8192" />
 <GameObject Name="Cliffwing Hippogryph Egg" Entry="249704" X="129.0642" Y="6984.13" Z="65.82938" />
-
+<GameObject Name="Cliffwing Hippogryph Egg" Entry="249704" X="153.5313" Y="7066.058" Z="61.91515" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42119)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42119] A Cleansing Cocktail - WiN!&quot;);" />
 	<RunTo X="462.1674" Y="6761.314" Z="89.73258" />
-	<CustomBehavior File="InteractWith" MobIds="249704" NumOfTimes="7" QuestId="42119" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 42119)">
+	<CustomBehavior File="InteractWith" NumOfTimes="12" MobState="Dead" QuestId="42119" TerminateWhen="IsQuestCompleted(42119)">
 		<HuntingGrounds>
 			<Hotspot X="298.7737" Y="6922.395" Z="89.35289" />
-<Hotspot X="146.8626" Y="6929.854" Z="78.60299" />
-<Hotspot X="137.4769" Y="6974.668" Z="71.05595" />
-<Hotspot X="150.6636" Y="7057.732" Z="63.08843" />
+			<Hotspot X="146.8626" Y="6929.854" Z="78.60299" />
+			<Hotspot X="137.4769" Y="6974.668" Z="71.05595" />
+			<Hotspot X="150.6636" Y="7057.732" Z="63.08843" />
+			<Hotspot X="335.5302" Y="6908.253" Z="91.09377" />
+			<Hotspot X="284.509" Y="6953.439" Z="88.31677" />
+			<Hotspot X="267.9576" Y="7026.504" Z="83.53165" />
+			<Hotspot X="222.5972" Y="7049.65" Z="75.31095" />
+			<Hotspot X="161.8048" Y="7039.15" Z="66.5415" />
+			<Hotspot X="183.2489" Y="7146.554" Z="52.92727" />
+			<Hotspot X="341.2527" Y="7125.638" Z="101.0368" />
+			<Hotspot X="403.3325" Y="7078.957" Z="117.3237" />
+			<Hotspot X="427.5143" Y="6996.18" Z="111.2353" />
 		</HuntingGrounds>
+		<PursuitList>
+			<PursueGameObject Id="249704" Priority="1" PursueWhen="!IsObjectiveComplete(1, 42119) &amp;&amp; (GAMEOBJECT.IsValid)" />
+			<PursueUnit Id="90134" Priority="2" PursueWhen="!IsObjectiveComplete(2, 42119) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
 	</CustomBehavior>
-	
-	<CustomBehavior File="KillUntilComplete" MobIds="90134" QuestId="42119" TerminateWhen="IsObjectiveComplete(2, 42119)">
-		<HuntingGrounds>
-
-<Hotspot X="335.5302" Y="6908.253" Z="91.09377" />
-<Hotspot X="284.509" Y="6953.439" Z="88.31677" />
-<Hotspot X="267.9576" Y="7026.504" Z="83.53165" />
-<Hotspot X="222.5972" Y="7049.65" Z="75.31095" />
-<Hotspot X="161.8048" Y="7039.15" Z="66.5415" />
-<Hotspot X="183.2489" Y="7146.554" Z="52.92727" />
-
-<Hotspot X="341.2527" Y="7125.638" Z="101.0368" />
-<Hotspot X="403.3325" Y="7078.957" Z="117.3237" />
-<Hotspot X="427.5143" Y="6996.18" Z="111.2353" />
-			<!-- return to start -->
-<Hotspot X="335.5302" Y="6908.253" Z="91.09377" />
-		</HuntingGrounds>
-	</CustomBehavior>
-	
-
-<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
-</QuestOrder>
-</HBProfile>
+						</QuestOrder>
+					</HBProfile>
