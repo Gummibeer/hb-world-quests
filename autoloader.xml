@@ -469,7 +469,7 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41550-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(40980)">
+<If Condition="WorldQuestInfo.HasWorldQuest(41550)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN" RememberProfile="true" />
 </If>
@@ -763,6 +763,14 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Felwort-WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41518-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44303)">
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 44303-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN-WiN!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\44303-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN" RememberProfile="true" />
+</If>
+</If>
+
 
 
 
