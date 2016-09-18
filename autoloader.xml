@@ -360,7 +360,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41095)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Critical Crops-Zinner!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Critical Crops-Zinner" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41095-[N]-[QUEST]-Wq-Critical_Crops-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="doDanger">
