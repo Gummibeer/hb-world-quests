@@ -689,7 +689,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42145)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Out_of_the_Woodwork-WiN!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Valshara\[N]-[QUEST]-Wq-Out_of_the_Woodwork-WiN" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\42145-[N]-[QUEST]-Wq-Out_of_the_Woodwork-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43336)">
