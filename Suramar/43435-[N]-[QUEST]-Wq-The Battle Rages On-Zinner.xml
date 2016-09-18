@@ -166,13 +166,13 @@
 
 </While>
 <!--
-<Vendor Name="Nightborne Siegecaster" Entry="101783" Type="Repair" Nav="Fly" X="2794.796" Y="5169.561" Z="174.5486" />
-<Vendor Name="Nightborne Infiltrator" Entry="101784" Type="Repair" Nav="Fly" X="2765.307" Y="5115.525" Z="174.6444" />
-
+<Vendor Name="Nightborne Infiltrator" Entry="101784" Type="Repair" Nav="Fly" X="2755.442" Y="5099.038" Z="174.5798" />
+<Vendor Name="Nightborne Siegecaster" Entry="101783" Type="Repair" Nav="Fly" X="2762.835" Y="5114.068" Z="174.6448" />
 -->
+
 		<While Condition="WorldQuestInfo.HasWorldQuest(43435)" >	
 				<RunTo X="2738.498" Y="5115.393" Z="172.0688" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="110535, 101783, 101784" QuestId="43435">
+			<CustomBehavior File="KillUntilComplete" MobIds="101783, 101784, 110535" QuestId="43435">
 				<HuntingGrounds>
 					<Hotspot X="2771.883" Y="5096.075" Z="174.6628" />
 					<Hotspot X="2746.25" Y="5073.953" Z="174.6441" />
