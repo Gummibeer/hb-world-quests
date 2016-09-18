@@ -573,7 +573,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41308)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Border Reinforcements-Zinner!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Stormheim\[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41938)">
