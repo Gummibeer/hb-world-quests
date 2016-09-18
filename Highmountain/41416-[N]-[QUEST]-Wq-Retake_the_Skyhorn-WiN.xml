@@ -131,19 +131,19 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41416)" >
 	<RunTo X="4695.513" Y="3970.179" Z="872.8948" />
-	<CustomBehavior File="KillUntilComplete" MobIds="104311,104310" QuestId="41416"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41416)">
-
+	<CustomBehavior File="InteractWith" NumOfTimes="20" TerminateWhen="IsQuestCompleted(41416)" >
 		<HuntingGrounds>
-<Hotspot X="4600.93" Y="4087.079" Z="967.2239" />
+<Hotspot X="4594.021" Y="4082.618" Z="967.3236" />
 		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="104302" Priority="100" PursueWhen="!IsObjectiveComplete(2,41416)  &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="104311" PursueWhen="!IsObjectiveComplete(1,41416) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+			<PursueUnit Id="104310" PursueWhen="!IsObjectiveComplete(1,41416) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+		</PursuitList>
 	</CustomBehavior>
 	
-		<CustomBehavior File="KillUntilComplete" MobIds="104302" QuestId="41416"  QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 41416)">
-
-		<HuntingGrounds>
-<Hotspot X="4652.843" Y="4032.102" Z="928.5092" />
-		</HuntingGrounds>
-	</CustomBehavior>
+	
+	
 	
 	
 

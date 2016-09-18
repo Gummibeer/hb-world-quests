@@ -387,7 +387,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41416)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(40920)">
