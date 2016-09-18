@@ -243,13 +243,13 @@ return true;
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43428)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="true" />
 </If>
 </If>
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43609)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile 43609-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43609-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43609-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="true" />
 </If>
 </If>
 <If Condition="doWanted">
