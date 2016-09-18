@@ -154,7 +154,7 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;[WORLD QUESTS AUTO-LOADER - Credits: Zinner, WiN, Pellepylly, Codex, Ruela, tsatsa]&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Azsuna...&quot;);" />
 
-<If Condition="doWanted">
+<If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(43027)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="true" />
 </If></If>
