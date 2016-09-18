@@ -196,7 +196,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42211)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Leodraths_Kin-Codex!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\[N]-[QUEST]-Wq-Leodraths_Kin-Codex" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42211-[N]-[QUEST]-Wq-Leodraths_Kin-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42105)">
