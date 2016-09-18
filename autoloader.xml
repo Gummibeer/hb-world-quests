@@ -619,6 +619,20 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\[N]-[QUEST]-Wq-Mal'Dreth the Corruptor-Zinner" RememberProfile="true" />
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43607)">
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED_Guardian_Thorel!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="true" />
+</If>
+</If>
+
+
+
+
+
+
+
+
 <!-- Valshara -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Valshara...&quot;);" />
 
