@@ -427,6 +427,13 @@ return true;
 </If>
 
 <If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(41821)">
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41821-[N]-[QUEST]-Wq-WANTED Shara Felbreath-WiN" RememberProfile="true" />
+</If>
+</If>
+
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41838)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-WANTED Slumber-Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\[N]-[QUEST]-Wq-WANTED Slumber-Zinner" RememberProfile="true" />
