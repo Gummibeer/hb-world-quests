@@ -140,6 +140,13 @@
 		</HuntingGrounds>
 	</CustomBehavior>
 
+		<CustomBehavior File="CollectItem" ItemId="248041" NumOfTimes="1" QuestId="41568" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 41568)">
+		<HuntingGrounds>
+<Hotspot X="4358.588" Y="1659.509" Z="3.475671" />
+
+		</HuntingGrounds>
+	</CustomBehavior>
+
 
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
