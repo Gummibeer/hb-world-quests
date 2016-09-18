@@ -699,7 +699,7 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43629)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-WANTED-Kiranys-Duskwhisper-WiN!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="Valshara\43629-[N]-[QUEST]-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44033)">
