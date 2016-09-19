@@ -150,8 +150,17 @@ return true;
 </CustomBehavior>
 
 
-<!-- Azsuna -->
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;[WORLD QUESTS AUTO-LOADER - Credits: Zinner, WiN, Pellepylly, Codex, Ruela, tsatsa]&quot;);" />
+<!-- Initial messages --> 
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;-=[WORLD QUESTS AUTO-LOADER]=-&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;[Credits: Zinner, WiN, Pellepylly, Codex, Ruela, tsatsa, tomten2]&quot;);" />
+ <!--
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Moving to nearest flight master...&quot;);" />
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="12000" />
+</If>
+
+ Azsuna -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Azsuna...&quot;);" />
 
 <If Condition="doDanger">
