@@ -552,6 +552,11 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41926-[N]-[QUEST]-Wq-Returning Champion-Zinner" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41534)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41534-[N]-[QUEST]-Wq-Brambly_Fjarnskaggl-WiN" RememberProfile="true" />
+</If>
+
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41927)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="true" />
 </If>
