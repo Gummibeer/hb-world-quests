@@ -469,10 +469,12 @@ return true;
 
 <!-- Stormheim -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Stormheim...&quot;);" />
-
+<!--
+removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(43963)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="true" />
 </If>
+-->
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43455)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner" RememberProfile="true" />
