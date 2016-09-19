@@ -189,7 +189,7 @@
 		<PursuitList>
 			<PursueUnit Id="108306" Priority="300" PursueWhen="!IsObjectiveComplete(3, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
 			<PursueUnit Id="108289" Priority="200" PursueWhen="!IsObjectiveComplete(2, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-			<PursueUnit Id="108283" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="108283" Priority="300" PursueWhen="!IsObjectiveComplete(1, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
 		</PursuitList>
 	</CustomBehavior>
 				
