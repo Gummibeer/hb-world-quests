@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] The Drekirjar Return - Win</Name>
+	<Name>[41949] The Drekirjar Return - Win</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -114,57 +114,72 @@
 								}
 								]]>
 							</CustomBehavior>
-<While Condition="WorldQuestInfo.HasWorldQuest(41949)" >
-	<!-- Get in range of quest to activate -->
-	<RunTo X="2106.318" Y="2408.017" Z="479.4256" />
+
+
+<!--
 <PickUp Nav="Fly" QuestName="The Drekirjar Return" QuestId="41949" GiverName="" GiverId="" />
 <Objective QuestName="The Drekirjar Return" QuestId="41949" Type="KillMob" Nav="Fly" MobId="91566" KillCount="8" />
 <Objective QuestName="The Drekirjar Return" QuestId="41949" Type="KillMob" Nav="Fly" MobId="92128" KillCount="9" />
 <TurnIn Nav="Fly" QuestName="The Drekirjar Return" QuestId="41949" TurnInName="" TurnInId="" />
 
-
-</While>
-
-<!--
 <Vendor Name="Felskorn Subduer" Entry="91759" Type="Repair" Nav="Fly" X="2033.662" Y="2410.366" Z="481.3768" />
 <Vendor Name="Felskorn Pilferer" Entry="92128" Type="Repair" Nav="Fly" X="1944.064" Y="2639.944" Z="462.7575" />
 <Vendor Name="Felskorn Executioner" Entry="91566" Type="Repair" Nav="Fly" X="2026.691" Y="2536.643" Z="487.2657" />
 <Vendor Name="Felskorn Trapper" Entry="91244" Type="Repair" Nav="Fly" X="2025.479" Y="2479.106" Z="487.5708" />
-<Vendor Name="Felskorn Trapper" Entry="91244" Type="Repair" Nav="Fly" X="2045.738" Y="2475.883" Z="484.5887" />
+
+<Vendor Name="Felskorn Pilferer" Entry="92128" Type="Repair" Nav="Fly" X="2056.92" Y="2345.963" Z="473.7766" />
+<Vendor Name="Vethir" Entry="108685" Type="Repair" Nav="Fly" X="2692.471" Y="2859.063" Z="310.1436" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41949)" >
-	<RunTo X="2106.318" Y="2408.017" Z="479.4256" />
-			<CustomBehavior File="KillUntilComplete" MobIds="92128" QuestId="41949" QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41949)">
+
+<If Condition="Me.IsHorde">
+<RunTo 	X="2874.881" Y="2441.083" Z="241.8241"/>
+<CustomBehavior File="InteractWith" MobId="108685" InteractByGossipOptions="1" X="2874.881" Y="2441.083" Z="241.8241"/>
+</If>
+<If Condition="Me.IsAlliance">
+	<RunTo X="2704.695" Y="2862.823" Z="309.4366" />
+<CustomBehavior File="InteractWith" MobId="108685" InteractByGossipOptions="1" X="2692.471" Y="2859.063" Z="310.1436" />
+</If>
+<CustomBehavior File="WaitTimer" WaitTime="65000" />
+<RunTo X="2165.661" Y="2430.613" Z="482.2003" />
+<CustomBehavior File="InteractWith" MobId="91983" X="2127.415" Y="2410.403" Z="478.9173" />
+<CustomBehavior File="WaitTimer" WaitTime="5000" />
+<RunTo X="2121.796" Y="2410.557" Z="479.7381" />
+
+	<CustomBehavior File="InteractWith" NumOfTimes="17" MobState="Dead" QuestId="41949" TerminateWhen="IsQuestCompleted(41949)">
 		<HuntingGrounds>
-<Hotspot X="2054.635" Y="2345.799" Z="473.9116" />
-<Hotspot X="2066.286" Y="2437.36" Z="482.4846" />
-<Hotspot X="1991.239" Y="2612.91" Z="485.508" />
-<Hotspot X="1952.95" Y="2645.889" Z="461.6182" />
-<Hotspot X="1948.796" Y="2677.448" Z="470.7735" />
-<Hotspot X="2079.936" Y="2659.727" Z="472.3663" />
-		</HuntingGrounds>
-	</CustomBehavior>
-	
-	<CustomBehavior File="KillUntilComplete" MobIds="91566,91244" QuestId="41949" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 41949)">
-		<HuntingGrounds>
-<Hotspot X="2057.919" Y="2431.302" Z="481.6402" />
-<Hotspot X="1979.372" Y="2481.894" Z="481.2492" />
-<Hotspot X="2002.98" Y="2531.63" Z="487.0048" />
+<Hotspot X="2073.256" Y="2346.555" Z="472.5007" />
+<Hotspot X="2029.755" Y="2428.461" Z="482.2848" />
+<Hotspot X="2011.213" Y="2523.074" Z="487.2264" />
+<Hotspot X="2076.168" Y="2632.162" Z="470.9943" />
+<Hotspot X="2024.936" Y="2621.136" Z="467.5757" />
+<Hotspot X="1953.278" Y="2649.649" Z="461.8869" />
+<Hotspot X="2060.685" Y="2648.056" Z="492.0901" />
+
 
 		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="91244" Priority="1" PursueWhen="!IsObjectiveComplete(2, 41949) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="91566" Priority="1" PursueWhen="!IsObjectiveComplete(2, 41949) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="92128" Priority="2" PursueWhen="!IsObjectiveComplete(2, 41949) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
 	</CustomBehavior>
+	
+
+
 	
 	
 
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-
+<RunTo X="2010.842" Y="2549.77" Z="487.548" />
 </While>
+
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest The Drekirjar Return - WiN!, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
