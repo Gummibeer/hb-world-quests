@@ -552,11 +552,12 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41984)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-Zinner" RememberProfile="true" />
 </If>
-
+<!--
+needs testing - reported errors
 <If Condition="WorldQuestInfo.HasWorldQuest(41568)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41568-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
-
+-->
 <If Condition="WorldQuestInfo.HasWorldQuest(41556)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
 </If>
