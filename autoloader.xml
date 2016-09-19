@@ -607,11 +607,11 @@ needs testing - reported errors
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous" RememberProfile="true" />
 </If>
 </If>
-<!--
+<!-- back in after testing -->
 <If Condition="WorldQuestInfo.HasWorldQuest(42169)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\42169-[N]-[QUEST]-Wq-Left for Dead-Zinner" RememberProfile="true" />
 </If>
--->
+
 <If Condition="WorldQuestInfo.HasWorldQuest(44015)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44015-[N]-[QUEST]-Wq-Mal'Dreth the Corruptor-Zinner" RememberProfile="true" />
 </If>
