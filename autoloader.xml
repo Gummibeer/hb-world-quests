@@ -505,12 +505,12 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41925-[N]-[QUEST]-Wq-Razing_Hel" RememberProfile="true" />
 </If>
 
-<!--
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41950)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Cry_More_Thunder!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="true" />
 </If>
--->
+
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43436)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="true" />

@@ -149,8 +149,15 @@
 			</CustomBehavior>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41950)" >
 			<!-- Get in range of quest to activate -->
-			<RunTo X="2877.135" Y="2425.791" Z="242.1035" />
-			<CustomBehavior File="InteractWith" MobId="108685" InteractByGossipOptions="4" X="2874.881" Y="2441.083" Z="241.8241"/>
+			<If Condition="Me.IsHorde">
+<RunTo 	X="2874.881" Y="2441.083" Z="241.8241"/>
+<CustomBehavior File="InteractWith" MobId="108685" InteractByGossipOptions="4" X="2874.881" Y="2441.083" Z="241.8241"/>
+</If>
+<If Condition="Me.IsAlliance">
+	<RunTo X="2704.695" Y="2862.823" Z="309.4366" />
+<CustomBehavior File="InteractWith" MobId="108685" InteractByGossipOptions="4" X="2692.471" Y="2859.063" Z="310.1436" />
+</If>
+
 			<CustomBehavior File="WaitTimer" WaitTime="3500" />
 			<CustomBehavior File="Vehicles\NoControlVehicle" QuestId="41950" TargetId1="92367" TargetId2="92359" TargetId3="92361" TargetId5="92375" TargetIdSecondary="92312" AttackButton="1" AttackButtonSecondary="2" OftenToUse="650" VehicleId="91767" MaxRange="200" />
 			<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
