@@ -128,9 +128,20 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41964)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41964] Poisoned Waters - WiN!&quot;);" />
 	<RunTo X="3363.818" Y="5494.546" Z="326.6273" />
+	
+			<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="IsObjectiveComplete(1, 41964)" >
+		<HuntingGrounds>
+			<Hotspot X="3331.068" Y="5468.076" Z="328.8635" />
+		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="106340" PursueWhen="!IsObjectiveComplete(1, 41964) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
+	</CustomBehavior>
+	
+	
 	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="IsQuestCompleted(41964)" >
 		<HuntingGrounds>
-<Hotspot X="3331.068" Y="5468.076" Z="328.8635" />
+
 <Hotspot X="3375.033" Y="5501.542" Z="321.6831" />
 <Hotspot X="3400.883" Y="5613.604" Z="310.1653" />
 <Hotspot X="3492.856" Y="5639.385" Z="307.5357" />
@@ -144,7 +155,6 @@
 		<PursuitList>
 			<PursueGameObject Id="249703" Priority="100" PursueWhen="!IsObjectiveComplete(2,41964)" />
 			<PursueUnit Id="106331" PursueWhen="!IsObjectiveComplete(3,41964) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-			<PursueUnit Id="106340" PursueWhen="!IsObjectiveComplete(1,41964) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 
 		</PursuitList>
 	</CustomBehavior>
