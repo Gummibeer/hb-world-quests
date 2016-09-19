@@ -373,7 +373,9 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41622)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="true" />
 </If>
-
+<If Condition="WorldQuestInfo.HasWorldQuest(41416)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN" RememberProfile="true" />
+</If>
 <If Condition="WorldQuestInfo.HasWorldQuest(41095)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41095-[N]-[QUEST]-Wq-Critical_Crops-WiN" RememberProfile="true" />
 </If>
@@ -396,9 +398,7 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41228-[N]-[QUEST]-Wq-Foxflower_Cluster-WiN" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(41416)">
-<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN" RememberProfile="true" />
-</If>
+
 
 <If Condition="WorldQuestInfo.HasWorldQuest(40920)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40920-[N]-[QUEST]-Wq-Stonebinder_Bounty-Codex" RememberProfile="true" />
