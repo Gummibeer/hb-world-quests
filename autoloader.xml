@@ -279,7 +279,7 @@ return true;
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43614)">
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43614-[N]-[QUEST]-Wanted Vorthax-Pellepylly" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43614-[N]-[QUEST]-Wq-WANTED_Vorthax-Pellepylly" RememberProfile="true" />
 </If>
 </If>
 
