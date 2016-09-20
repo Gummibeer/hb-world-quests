@@ -739,6 +739,12 @@ needs testing - reported errors
 </If>
 </If>
 
+<If Condition="doDanger">
+<If Condition="WorldQuestInfo.HasWorldQuest(43347)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43347-[N]-[QUEST]-Wq-DANGER_Rabxach-WiN" RememberProfile="true" />
+</If>
+</If>
+
 
 <!-- Emissary turnin -->
 			
