@@ -170,7 +170,8 @@
 		</While>
 		<CustomBehavior File="Hooks\Avoid" AvoidName="Ravaging Whirl" Command="Remove" />
 	
-	
+	<RunTo X="2817.374" Y="1450.015" Z="23.25588" />
+
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
