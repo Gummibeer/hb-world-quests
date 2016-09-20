@@ -631,6 +631,11 @@ needs testing - reported errors
 </If>
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44028)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\44028-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-WiN" RememberProfile="true" />
+</If>
+</If>
 
 
 
