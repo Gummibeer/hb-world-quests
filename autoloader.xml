@@ -45,7 +45,7 @@
 <QuestOrder>
 
 <!-- Settings: -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = false;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 
 
@@ -417,6 +417,12 @@ return true;
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41819)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41819-[N]-[QUEST]-Wq-WANTED Gurbog da Basher-Zinner" RememberProfile="true" />
+</If>
+</If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43618)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\43618-[N]-[QUEST]-Wq-WANTED_Gurbog_da_Basher-Zinner" RememberProfile="true" />
 </If>
 </If>
 
