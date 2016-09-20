@@ -733,7 +733,11 @@ needs testing - reported errors
 </If>
 </If>
 
-
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44298)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\44298-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN" RememberProfile="true" />
+</If>
+</If>
 
 
 <!-- Emissary turnin -->
