@@ -571,11 +571,11 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(41927)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="true" />
 </If>
-<!-- Updated to Alliace/Horder + Talk + Grapple 
+<!-- Updated to Alliace/Horder + Talk + Grapple-->
 <If Condition="WorldQuestInfo.HasWorldQuest(41949)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-WiN" RememberProfile="true" />
 </If>
--->
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41984)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN" RememberProfile="true" />
 </If>
