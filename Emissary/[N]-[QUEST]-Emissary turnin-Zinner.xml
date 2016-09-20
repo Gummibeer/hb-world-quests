@@ -23,6 +23,15 @@
 
 
 	<QuestOrder>
+		<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+		<CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+		</If>
+		
+		<!-- Highmountain Tribes -->
+		<If Condition="HasQuest(42233) &amp;&amp; IsQuestCompleted(42233)" >
+			<MoveTo DestName="Thunder Totem" X="4156.51" Y="4374.45" Z="768.16" />
+				<TurnIn QuestName="Highmountain Tribes" QuestId="42233" TurnInName="Ransa Greyfeather" TurnInId="106902" X="4112.049" Y="4445.559" Z="768.3433" />
+		</If>
 	
 		<!-- The wardens Emissary -->
 		<If Condition="HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)" >
