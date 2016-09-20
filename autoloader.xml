@@ -632,13 +632,13 @@ needs testing - reported errors
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="true" />
 </If>
 </If>
-
+<!--
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(44028)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44028-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-WiN" RememberProfile="true" />
 </If>
 </If>
-
+-->
 
 
 
