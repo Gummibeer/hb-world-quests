@@ -333,11 +333,11 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41685)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner" RememberProfile="true" />
 </If>
-<!--
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41691)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41691-[N]-[QUEST]-Wq-Sea_of_Feathers-Ruela" RememberProfile="true" />
 </If>
--->
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41818)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41818-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="true" />

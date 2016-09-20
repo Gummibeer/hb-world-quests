@@ -154,17 +154,41 @@
 
 				]]>
 			</CustomBehavior>
-	
+<!--	
 				
 				<AvoidMobs>
 					<Mob Name="Gornoth the Lost" Entry="103656" />
 				</AvoidMobs>
-
+				<Vendor Name="Bewitched Bear" Entry="95270" Type="Repair" Nav="Fly" X="5316.949" Y="4775.325" Z="657.8928" />
+				<GameObject Name="Harpy Egg" Entry="243401" X="5523.321" Y="4737.516" Z="666.2391" />
+-->
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41691)" >
 				<!-- Get in range of quest to activate -->
 				<RunTo X="5509.761" Y="4668.169" Z="652.2643"   /> 
-				
+
+
+	<CustomBehavior File="InteractWith" NumOfTimes="17" MobState="Dead" QuestId="41691" TerminateWhen="IsQuestCompleted(41691)">
+		<HuntingGrounds>
+<Hotspot X="5357.96" Y="4784.073" Z="659.6285" />
+<Hotspot X="5552.139" Y="4753.381" Z="665.9286" />
+<Hotspot X="5596.368" Y="4691.941" Z="665.7458" />
+					<Hotspot X="5529.691" Y="4707.486" Z="662.5468" />
+					<Hotspot X="5522.116" Y="4776.451" Z="659.5942" />
+					<Hotspot X="5586.662" Y="4785.537" Z="666.7359" />
+					<Hotspot X="5631.132" Y="4777.021" Z="673.3987" />
+					<Hotspot X="5637.303" Y="4721.793" Z="675.4059" />
+					<Hotspot X="5578.015" Y="4694.863" Z="661.3638" />
+		</HuntingGrounds>
+		<PursuitList>
+						<PursueUnit Id="95310" Priority="1" PursueWhen="!IsObjectiveComplete(1, 41691) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueGameObject Id="243401" PursueWhen="!IsObjectiveComplete(2, 41691) &amp;&amp; GAMEOBJECT.IsValid"/>
+	<!--		<PursueUnit Id="243401" Priority="1" PursueWhen="!IsObjectiveComplete(2, 41691) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" /> -->
+			<PursueUnit Id="95270" Priority="2" PursueWhen="!IsObjectiveComplete(3, 41691) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
+	</CustomBehavior>
+
+<!--				
 				<PickUp Nav="Fly" QuestName="Sea of Feathers" QuestId="41691" GiverName="" GiverId="" />
 				<Objective QuestName="Sea of Feathers" QuestId="41691" Type="KillMob" Nav="Fly" MobId="95310" KillCount="6" />
 				<Objective QuestName="Sea of Feathers" QuestId="41691" Type="UseObject" Nav="Fly" ObjectId="243401" UseCount="4" />
@@ -206,6 +230,7 @@
 				</AvoidMobs>
 				
 			</CustomBehavior>
+			-->
 							<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 			
