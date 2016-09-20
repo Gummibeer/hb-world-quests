@@ -311,7 +311,9 @@ return true;
 
 
 
-
+<If Condition="WorldQuestInfo.HasWorldQuest(41896)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41896-[N]-[QUEST]-Wq-Operation_Murloc_Freedom-WiN" RememberProfile="true" />
+</If>
 
 
 
