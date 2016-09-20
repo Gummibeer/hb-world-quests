@@ -13,7 +13,7 @@
 	<MailGreen>true</MailGreen>
 	<MailBlue>true</MailBlue>
 	<MailPurple>true</MailPurple>
-	<TargetElites>true</TargetElites>
+	<TargetElites>false</TargetElites>
 	<QuestOrder>
 		<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 			public class WorldQuestData
@@ -133,10 +133,14 @@
 
 
 </While>
-
+<!--
+<Vendor Name="Eredar Shadowguard" Entry="102728" Type="Repair" Nav="Fly" X="5002.695" Y="5878.669" Z="47.10438" />
+<Vendor Name="Felborn Phantasm" Entry="101807" Type="Repair" Nav="Fly" X="4845.292" Y="5760.187" Z="45.61049" />
+<Vendor Name="Feltotem Bloodsinger" Entry="101700" Type="Repair" Nav="Fly" X="4850.789" Y="5754.151" Z="46.00066" />
+-->
 <While Condition="WorldQuestInfo.HasWorldQuest(41026)" >
 	<RunTo X="4941.16" Y="5814.221" Z="30.54214" />
-	<CustomBehavior File="KillUntilComplete" MobIds="102729" NumOfTimes="4" QuestId="41026"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41026)">
+	<CustomBehavior File="KillUntilComplete" MobIds="102729, 102728" NumOfTimes="4" QuestId="41026"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41026)">
 		<HuntingGrounds>
 <Hotspot X="4941.16" Y="5814.221" Z="30.54214" />
 <Hotspot X="4902.845" Y="5775.22" Z="38.09363" />
@@ -152,7 +156,7 @@
 <Hotspot X="4985.375" Y="5823.951" Z="45.41983" />
 		</HuntingGrounds>
 	</CustomBehavior>
-<CustomBehavior File="KillUntilComplete" MobIds="102251, 102729" QuestId="41026" TerminateWhen="IsObjectiveComplete(1, 41026)">
+<CustomBehavior File="KillUntilComplete" MobIds="102251, 102729, 102728, 101700" QuestId="41026" TerminateWhen="IsObjectiveComplete(1, 41026)">
 		<HuntingGrounds>
 <Hotspot X="4902.845" Y="5775.22" Z="38.09363" />
 <Hotspot X="4875.608" Y="5815.991" Z="41.35971" />
