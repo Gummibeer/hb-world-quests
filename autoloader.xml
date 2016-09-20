@@ -149,11 +149,16 @@ return true;
 ]]>
 </CustomBehavior>
 
-
 <!-- Initial messages --> 
-
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;-=[WORLD QUESTS AUTO-LOADER]=-&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;[Credits: Zinner, WiN, Pellepylly, Codex, Ruela, tsatsa, tomten2]&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            [WORLD QUESTS AUTO-LOADER]            |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| Credits: Zinner, WiN, Pellepylly, Codex, Ruela,  |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|         tsatsa, tomten2 and many more            |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                  |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|      DELETE WOW AND HB CACHE FOLDERS BEFORE      |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|             LAUNCHING THE AUTOLOADER             |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
+<CustomBehavior File="WaitTimer" WaitTime="3000" />
  <!--
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Moving to nearest flight master...&quot;);" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
@@ -161,7 +166,8 @@ return true;
 </If>
 
  Azsuna -->
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Azsuna...&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Azsuna...&quot;);" />
+<CustomBehavior File="WaitTimer" WaitTime="2000" />
 
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(43027)">
@@ -326,7 +332,8 @@ return true;
 
 
 <!-- Highmountain -->
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Highmountain...&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Highmountain...&quot;);" />
+<CustomBehavior File="WaitTimer" WaitTime="2000" />
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41789)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN" RememberProfile="true" />
@@ -485,7 +492,8 @@ return true;
 
 
 <!-- Stormheim -->
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Stormheim...&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Stormheim...&quot;);" />
+<CustomBehavior File="WaitTimer" WaitTime="2000" />
 <!--
 removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(43963)">
@@ -590,8 +598,8 @@ needs testing - reported errors
 </If>
 
 <!-- Suramar -->
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Suramar...&quot;);" />
-
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Suramar...&quot;);" />
+<CustomBehavior File="WaitTimer" WaitTime="2000" />
 
 <If Condition="WorldQuestInfo.HasWorldQuest(44002)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44002-[N]-[QUEST]-Wq-Undersea_Survey-Codex" RememberProfile="true" />
@@ -646,7 +654,8 @@ needs testing - reported errors
 
 
 <!-- Valshara -->
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Checking available world quests in Valshara...&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Valshara...&quot;);" />
+<CustomBehavior File="WaitTimer" WaitTime="2000" />
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42076)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win" RememberProfile="true" />
@@ -755,11 +764,21 @@ needs testing - reported errors
 
 <!-- Emissary turnin -->
 			
-<If Condition="(HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)) || (HasQuest(42420) &amp;&amp; IsQuestCompleted(42420)) || (HasQuest(42170) &amp;&amp; IsQuestCompleted(42170)) || (HasQuest(42421) &amp;&amp; IsQuestCompleted(42421))">
+<If Condition="(HasQuest(42233) &amp;&amp; IsQuestCompleted(42233)) || (HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)) || (HasQuest(42420) &amp;&amp; IsQuestCompleted(42420)) || (HasQuest(42170) &amp;&amp; IsQuestCompleted(42170)) || (HasQuest(42421) &amp;&amp; IsQuestCompleted(42421))">
 <CustomBehavior File="LoadProfile" ProfileName="Emissary\[N]-[QUEST]-Emissary turnin-Zinner" RememberProfile="true" />
 </If>
 
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;No more world quests available, reload the autoloader in a while...&quot;);" />
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| No more world quests available, manually reload  |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|    the autoloader in a while (or use HBRelog)    |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                  |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| A CODED WQ WAS NOT COMPLETED?                    |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| -IF YOU ARE IN DALARAN, MOVE TO ANY BROKEN ISLES |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                    LOCATION                      |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| -IF YOU ARE IN ANY BROKEN ISLES LOCATION EXCEPT  |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            DALARAN, MOVE TO DALARAN              |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
 
 </QuestOrder>
 </HBProfile>
