@@ -353,6 +353,12 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41818-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="true" />
 </If>
 </If>
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44292)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\44292-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="true" />
+</If>
+</If>
+
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41844)">
