@@ -48,7 +48,7 @@
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 
-
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 public class WorldQuestData
 {
@@ -322,11 +322,11 @@ return true;
 </If>
 
 
-
+<If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(41896)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41896-[N]-[QUEST]-Wq-Operation_Murloc_Freedom-WiN" RememberProfile="true" />
 </If>
-
+</If>
 
 
 
@@ -492,13 +492,13 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41550)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN" RememberProfile="true" />
 </If>
-
+<!--
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(41091)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="true" />
 </If>
 </If>
-
+-->
 <If Condition="WorldQuestInfo.HasWorldQuest(42183)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42183-[N]-[QUEST]-Wq-To_Battle-WiN" RememberProfile="true" />
 </If>
