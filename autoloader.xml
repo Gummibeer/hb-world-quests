@@ -45,8 +45,8 @@
 <QuestOrder>
 
 <!-- Settings: -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = false;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = false;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 
 
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
@@ -482,7 +482,11 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN" RememberProfile="true" />
 </If>
 
-
+<If Condition="doDanger">
+<If Condition="WorldQuestInfo.HasWorldQuest(41091)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="true" />
+</If>
+</If>
 
 
 
