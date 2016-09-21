@@ -45,8 +45,8 @@
 <QuestOrder>
 
 <!-- Settings: -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = false;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = false;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 
 
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
@@ -543,19 +543,28 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="true" />
 </If>
 
-
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43436)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="true" />
 </If>
+</If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43622)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="true" />
+</If>
+</If>
+
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43452)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43452-[N]-[QUEST]-Wq-WANTED_Isel_the_Hammer" RememberProfile="true" />
 </If>
-
+</If>
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43628)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="true" />
 </If>
-
+</If>
 <If Condition="WorldQuestInfo.HasWorldQuest(41308)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="true" />
 </If>
@@ -620,23 +629,24 @@ needs testing - reported errors
 <If Condition="WorldQuestInfo.HasWorldQuest(44002)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44002-[N]-[QUEST]-Wq-Undersea_Survey-Codex" RememberProfile="true" />
 </If>
-
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(44017)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44017-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner" RememberProfile="true" />
 </If>
-
+</If>
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(42795)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\42795-[N]-[QUEST]-Wq-WANTED Sanaar-Zinner" RememberProfile="true" />
 </If>
-
+</If>
 <If Condition="WorldQuestInfo.HasWorldQuest(43435)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\43435-[N]-[QUEST]-Wq-The Battle Rages On-Zinner" RememberProfile="true" />
 </If>
-
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(44010)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44010-[N]-[QUEST]-Wq-WANTED Oreth the Vile-Zinner" RememberProfile="true" />
 </If>
-
+</If>
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(44121)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous" RememberProfile="true" />
