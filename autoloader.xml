@@ -492,13 +492,13 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41550)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN" RememberProfile="true" />
 </If>
-<!--
+
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(41091)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="true" />
 </If>
 </If>
--->
+
 <If Condition="WorldQuestInfo.HasWorldQuest(42183)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42183-[N]-[QUEST]-Wq-To_Battle-WiN" RememberProfile="true" />
 </If>
