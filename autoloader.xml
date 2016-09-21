@@ -180,6 +180,11 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43615-[N]-[QUEST]-Wq-WANTED_Warbringer_Moxna-WiN" RememberProfile="true" />
 </If>
 </If>
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43431)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43431-[N]-[QUEST]-Wq-WANTED_Warbringer_Moxna-WiN" RememberProfile="true" />
+</If>
+</If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41560)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41560-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
