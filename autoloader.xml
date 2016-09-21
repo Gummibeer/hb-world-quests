@@ -159,13 +159,14 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|             LAUNCHING THE AUTOLOADER             |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="3000" />
- <!--
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;Moving to nearest flight master...&quot;);" />
+ 
+ <!-- Use whistle before checking available WQ -->
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Moving to nearest flight master before questing...&quot;);" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="12000" />
+    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="15000" />
 </If>
 
- Azsuna -->
+<!--  Azsuna -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Azsuna...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
 
