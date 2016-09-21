@@ -499,8 +499,9 @@ return true;
 </If>
 </If>
 
-
-
+<If Condition="WorldQuestInfo.HasWorldQuest(42183)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\42183-[N]-[QUEST]-Wq-To_Battle-WiN" RememberProfile="true" />
+</If>
 
 
 
