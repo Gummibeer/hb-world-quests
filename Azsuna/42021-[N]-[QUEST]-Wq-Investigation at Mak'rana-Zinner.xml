@@ -160,7 +160,8 @@
 <WoWUnit Name="Queen's Reprisal Sailor" Entry="89289" X="-859.3785" Y="5779.018" Z="2.760871" />
 <WoWUnit Name="Mak'rana Warrior" Entry="89053" X="-958.7239" Y="5750.437" Z="17.87345" />
 <WoWUnit Name="Bitterbrine Venomer" Entry="89283" X="-908.0399" Y="5747.297" Z="0.6768832" />
-
+<WoWUnit Name="Queen Kraklaa" Entry="89287" X="-988.7172" Y="5614.802" Z="6.323411" />
+<WoWUnit Name="Oublion" Entry="89350" X="-999.2727" Y="5629.169" Z="6.278834" />
 				<Objective QuestName="Investigation at Mak'rana" QuestId="42021" Type="KillMob" MobId="113643" KillCount="6" />
 				<Objective QuestName="Investigation at Mak'rana" QuestId="42021" Type="KillMob" MobId="113644" KillCount="6" />
 				<Objective QuestName="Investigation at Mak'rana" QuestId="42021" Type="KillMob" MobId="89350" KillCount="1" />
@@ -168,6 +169,17 @@
 -->	
 		<While Condition="WorldQuestInfo.HasWorldQuest(42021)" >	
 				<RunTo X="-807.3775" Y="5985.783" Z="0.07228883" />
+
+
+			<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="IsObjectiveComplete(4, 42021)" >
+		<HuntingGrounds>
+			<Hotspot X="-999.2727" Y="5629.169" Z="6.278834" />
+		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="89350" PursueWhen="!IsObjectiveComplete(4, 42021) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
+	</CustomBehavior>
+
 				
 		<CustomBehavior File="InteractWith" NumOfTimes="20" TerminateWhen="IsQuestCompleted(42021)" >
 			<HuntingGrounds>
