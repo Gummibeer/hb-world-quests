@@ -47,7 +47,6 @@
 <!-- Settings: -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
-
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 public class WorldQuestData
@@ -534,10 +533,11 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43434-[N]-[QUEST]-Wq-WANTED_Fathnyr-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(41925)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41925-[N]-[QUEST]-Wq-Razing_Hel" RememberProfile="true" />
 </If>
-
+</If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41950)">
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Cry_More_Thunder!&quot;);" />
