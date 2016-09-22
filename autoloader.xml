@@ -793,7 +793,9 @@ needs testing - reported errors
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43347-[N]-[QUEST]-Wq-DANGER_Rabxach-WiN" RememberProfile="true" />
 </If>
 </If>
-
+<If Condition="WorldQuestInfo.HasWorldQuest(41992)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\41992-[N]-[QUEST]-Wq-Twisted_Ash-WiN" RememberProfile="true" />
+</If>
 
 <!-- Emissary turnin -->
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;==========EMISSARY CHECK==========&quot;);" />		
