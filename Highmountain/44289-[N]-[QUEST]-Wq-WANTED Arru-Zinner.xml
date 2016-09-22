@@ -176,7 +176,7 @@
 			</CustomBehavior>
 		</While>
 	
-	
+	<RunTo 	X="4605.862" Y="4246.441" Z="819.8669" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
