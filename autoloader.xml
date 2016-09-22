@@ -796,7 +796,7 @@ needs testing - reported errors
 
 
 <!-- Emissary turnin -->
-			
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;==========EMISSARY CHECK==========&quot;);" />		
 <If Condition="(HasQuest(42233) &amp;&amp; IsQuestCompleted(42233)) || (HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)) || (HasQuest(42420) &amp;&amp; IsQuestCompleted(42420)) || (HasQuest(42170) &amp;&amp; IsQuestCompleted(42170)) || (HasQuest(42421) &amp;&amp; IsQuestCompleted(42421))">
 <CustomBehavior File="LoadProfile" ProfileName="Emissary\[N]-[QUEST]-Emissary turnin-Zinner" RememberProfile="true" />
 </If>
