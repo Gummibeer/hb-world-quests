@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[44305] WANTED: Bahagar WorldQuest Zinner</Name>
+	<Name>[44301] WANTED: Bahagar WorldQuest Zinner</Name>
 
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
@@ -156,22 +156,22 @@
 			</CustomBehavior>
 	
 		
-		<While Condition="WorldQuestInfo.HasWorldQuest(44305)" >
+		<While Condition="WorldQuestInfo.HasWorldQuest(44301)" >
 				<!-- Get in range of quest to activate -->
 				<RunTo X="1719.415" Y="7105.069" Z="73.16143" /> 
-				<PickUp Nav="Fly" QuestName="WANTED: Bahagar" QuestId="44305" GiverName="" GiverId="" />
+				<PickUp Nav="Fly" QuestName="WANTED: Bahagar" QuestId="44301" GiverName="" GiverId="" />
 
-				<Objective QuestName="WANTED: Bahagar" QuestId="44305" Type="KillMob" Nav="Fly" MobId="110562" KillCount="1" />
+				<Objective QuestName="WANTED: Bahagar" QuestId="44301" Type="KillMob" Nav="Fly" MobId="110562" KillCount="1" />
 
-				<TurnIn Nav="Fly" QuestName="WANTED: Bahagar" QuestId="44305" TurnInName="" TurnInId="" />
+				<TurnIn Nav="Fly" QuestName="WANTED: Bahagar" QuestId="44301" TurnInName="" TurnInId="" />
 
 
 
 
 </While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(44305)" >	
+		<While Condition="WorldQuestInfo.HasWorldQuest(44301)" >	
 				<RunTo X="1719.415" Y="7105.069" Z="73.16143" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="110562" QuestId="44305">
+			<CustomBehavior File="KillUntilComplete" MobIds="110562" QuestId="44301">
 				<HuntingGrounds>
 					<Hotspot X="1719.415" Y="7105.069" Z="73.16143" />
 				</HuntingGrounds>

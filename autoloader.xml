@@ -687,15 +687,21 @@ needs testing - reported errors
 <If Condition="WorldQuestInfo.HasWorldQuest(42076)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win" RememberProfile="true" />
 </If>
-
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44301)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\44301-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="true" />
+</If>
+</If>
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(44305)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="true" />
 </If>
-
+</If>
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(44300)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\44300-[N]-[QUEST]-Wq-WANTED Seersei-Zinner" RememberProfile="true" />
 </If>
-
+</If>
 <If Condition="WorldQuestInfo.HasWorldQuest(43758)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43758-[N]-[QUEST]-Wq-Wherever I May Gloam-Zinner" RememberProfile="true" />
 </If>
