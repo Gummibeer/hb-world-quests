@@ -164,22 +164,17 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41965)" >
 	<RunTo X="2029.949" Y="6626.144" Z="84.34957" />
-		<CustomBehavior File="KillUntilComplete" MobIds="93444" QuestId="41965" TerminateWhen="IsObjectiveComplete(3, 41965)">
+				<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="IsObjectiveComplete(3, 41965)" >
 		<HuntingGrounds>
 <Hotspot X="1978.535" Y="6578.545" Z="77.02016" />
 		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="93444" PursueWhen="!IsObjectiveComplete(3, 41965) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
 	</CustomBehavior>
 	
-				<CustomBehavior File="InteractWith" MobIds="93489" QuestId="41965"  NumOfTimes="8" TerminateWhen="IsObjectiveComplete(1, 41965)">
-				<HuntingGrounds>
-<Hotspot X="1989.112" Y="6704.925" Z="74.27997" />
-<Hotspot X="1936.84" Y="6656.384" Z="75.84156" />
-<Hotspot X="1863.962" Y="6623.967" Z="74.78177" />
-<Hotspot X="1805.49" Y="6577.72" Z="74.4251" />
-<Hotspot X="1912.48" Y="6574.791" Z="74.4779" />
-				</HuntingGrounds>
-			</CustomBehavior>
-	<CustomBehavior File="KillUntilComplete" QuestId="41965" MobIds="91474, 91472" TerminateWhen="IsObjectiveComplete(2, 41965)">
+
+	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="IsQuestCompleted(41965)" >
 		<HuntingGrounds>
 <Hotspot X="1989.112" Y="6704.925" Z="74.27997" />
 <Hotspot X="1936.84" Y="6656.384" Z="75.84156" />
@@ -187,7 +182,14 @@
 <Hotspot X="1805.49" Y="6577.72" Z="74.4251" />
 <Hotspot X="1912.48" Y="6574.791" Z="74.4779" />
 		</HuntingGrounds>
+		<PursuitList>
+
+			<PursueUnit Id="93489" PursueWhen="!IsObjectiveComplete(1,41965) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<PursueUnit Id="91474" PursueWhen="!IsObjectiveComplete(2,41965) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<PursueUnit Id="91472" PursueWhen="!IsObjectiveComplete(2,41965) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+		</PursuitList>
 	</CustomBehavior>
+
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
