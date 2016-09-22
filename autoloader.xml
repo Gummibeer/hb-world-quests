@@ -199,11 +199,11 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41512)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41512-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
-
+<!--
 <If Condition="WorldQuestInfo.HasWorldQuest(42021)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42021-[N]-[QUEST]-Wq-Investigation at Mak'rana-Zinner" RememberProfile="true" />
 </If>
-
+-->
 <If Condition="WorldQuestInfo.HasWorldQuest(42101)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42101-[N]-[QUEST]-Wq-Language_of_the_Lost-WiN" RememberProfile="true" />
 </If>
