@@ -374,7 +374,11 @@ return true;
 <!-- Highmountain -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Highmountain...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
-
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(41227)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41227-[H]-QUEST-Wq-Warden_Tower_Assault_Cordanas_Apex-Staal" RememberProfile="true" />
+</If>
+</If>
 <If Condition="WorldQuestInfo.HasWorldQuest(41789)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN" RememberProfile="true" />
 </If>
