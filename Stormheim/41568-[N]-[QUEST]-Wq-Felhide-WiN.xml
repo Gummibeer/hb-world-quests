@@ -115,13 +115,6 @@
 								]]>
 							</CustomBehavior>
 							
-<While Condition="WorldQuestInfo.HasWorldQuest(41568)" >
-	<!-- Get in range of quest to activate -->
-	<RunTo X="4375.103" Y="1616.695" Z="3.21746" />
-<PickUp Nav="Fly" QuestName="Felhide" QuestId="41568" GiverName="" GiverId="" />
-<Objective QuestName="Felhide" QuestId="41568" Type="KillMob" Nav="Fly" MobId="103686" KillCount="1" />
-<TurnIn Nav="Fly" QuestName="Felhide" QuestId="41568" TurnInName="" TurnInId="" />
-</While>
 
 <!--
 <PickUp Nav="Fly" QuestName="Felhide" QuestId="41568" GiverName="" GiverId="" />
@@ -133,19 +126,20 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41568)" >
 	<RunTo X="4375.103" Y="1616.695" Z="3.21746" />
-<!-- maybe we dont need to fight him as he attacks us -->
-	<CustomBehavior File="KillUntilComplete" MobIds="103675" NumOfTimes="1" QuestId="41568">
+	
+		<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="IsQuestCompleted(41568)" >
 		<HuntingGrounds>
 <Hotspot X="4358.588" Y="1659.509" Z="3.475671" />
 		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="103675" PursueWhen="!IsObjectiveComplete(1,41568) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+			<PursueGameObject Id="248041" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41568) &amp;&amp; (GAMEOBJECT.IsValid)" />
+		</PursuitList>
 	</CustomBehavior>
+	
+	
+	
 
-		<CustomBehavior File="CollectItem" ItemId="248041" NumOfTimes="1" QuestId="41568" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 41568)">
-		<HuntingGrounds>
-<Hotspot X="4358.588" Y="1659.509" Z="3.475671" />
-
-		</HuntingGrounds>
-	</CustomBehavior>
 
 
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
