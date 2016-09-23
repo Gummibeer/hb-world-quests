@@ -374,11 +374,13 @@ return true;
 <!-- Highmountain -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Highmountain...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
+
 <If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(41227)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41227-[H]-QUEST-Wq-Warden_Tower_Assault_Cordanas_Apex-Staal" RememberProfile="true" />
 </If>
 </If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41789)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN" RememberProfile="true" />
 </If>
@@ -684,9 +686,11 @@ removed until tested
 </If>
 </If>
 
-
-
-
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(43600)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-QUEST-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="true" />
+</If>
+</If>
 
 
 
@@ -873,6 +877,12 @@ removed until tested
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43631)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43631-[N]-[QUEST]-Wq-WANTED_Skulvrax-WiN" RememberProfile="true" />
+</If>
+</If>
+
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(42070)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\42070-[H]-QUEST-Wq-Warden_Tower_Assault_Starstalkers_Point-Staal" RememberProfile="true" />
 </If>
 </If>
 
