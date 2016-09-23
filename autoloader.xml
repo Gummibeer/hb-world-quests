@@ -503,7 +503,7 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN" RememberProfile="true" />
 </If>
 
-<If Condition="doDanger">
+<If Condition="doHard">
 <If Condition="WorldQuestInfo.HasWorldQuest(41091)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="true" />
 </If>
@@ -823,6 +823,18 @@ needs testing - reported errors
 <If Condition="WorldQuestInfo.HasWorldQuest(41992)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41992-[N]-[QUEST]-Wq-Twisted_Ash-WiN" RememberProfile="true" />
 </If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43631)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43631-[N]-[QUEST]-Wq-WANTED_Skulvrax-WiN" RememberProfile="true" />
+</If>
+</If>
+
+
+
+
+
+
 
 <!-- Emissary turnin -->
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;==========EMISSARY CHECK==========&quot;);" />		
