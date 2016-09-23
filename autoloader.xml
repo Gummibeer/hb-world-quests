@@ -335,7 +335,12 @@ return true;
 </If>
 </If>
 
-
+<If Condition="doDanger">
+	<!-- had mobs - all 110 elite -->
+<If Condition="WorldQuestInfo.HasWorldQuest(44054)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\44054-[N]-[QUEST]-Wq-Demonicide-WiN" RememberProfile="true" />
+</If>
+</If>
 
 
 
