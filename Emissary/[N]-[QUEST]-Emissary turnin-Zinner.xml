@@ -53,6 +53,17 @@
 				<TurnIn QuestName="The Dreamweavers" QuestId="42170" TurnInName="Sylvia Hartshorn" TurnInId="106901" X="2274.2" Y="6592.066" Z="138.8777" />
 		</If>
 		
+				<!-- The Valajar Emissary
+				<WoWUnit Name="Valdemar Stormseeker" Entry="106904" X="3189.058" Y="1536.941" Z="182.5401" />
+				<PickUp Nav="Fly" QuestName="The Valarjar" QuestId="42234" GiverName="" GiverId="" />
+<Objective QuestName="The Valarjar" QuestId="42234" Type="CollectItem" Nav="Fly" ItemId="1" CollectCount="0" />
+<Objective QuestName="The Valarjar" QuestId="42234" Type="CollectItem" Nav="Fly" ItemId="1" CollectCount="0" />
+<TurnIn Nav="Fly" QuestName="The Valarjar" QuestId="42234" TurnInName="Valdemar Stormseeker" TurnInId="106904" />
+ -->
+		<If Condition="HasQuest(42234) &amp;&amp; IsQuestCompleted(42234)" >
+			<MoveTo DestName="Valdemar Stormseeker" X="3189.058" Y="1536.941" Z="182.5401" />
+				<TurnIn QuestName="The Dreamweavers" QuestId="42234" TurnInName="Valdemar Stormseeker" TurnInId="106904" X="3189.058" Y="1536.941" Z="182.5401" />
+		</If>
 		
 		<!-- The Nightfallen Emissary NPC Position changes based on rep but bot should hopefully navigate to it anyhow. -->
 		<If Condition="HasQuest(42421) &amp;&amp; IsQuestCompleted(42421)" >
