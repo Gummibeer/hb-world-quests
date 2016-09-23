@@ -666,6 +666,18 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(42806)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\42806-[N]-[QUEST]-Wq-WANTED_Fjorlag-WiN" RememberProfile="true" />
+</If>
+</If>
+
+
+
+
+
+
+
 <!-- Suramar -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Suramar...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
