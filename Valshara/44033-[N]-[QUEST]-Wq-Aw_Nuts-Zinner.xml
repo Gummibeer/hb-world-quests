@@ -156,23 +156,15 @@
 			</CustomBehavior>
 	
 		
-		<While Condition="WorldQuestInfo.HasWorldQuest(44033)" >
-				<!-- Get in range of quest to activate -->
-<PickUp Nav="Fly" QuestName="Aw, Nuts!" QuestId="44033" GiverName="" GiverId="" />
-<Objective QuestName="Aw, Nuts!" QuestId="44033" Type="KillMob" Nav="Fly" MobId="112289" KillCount="10" />
-<Objective QuestName="Aw, Nuts!" QuestId="44033" Type="UseObject" Nav="Fly" ObjectId="253277" UseCount="15" />
-<TurnIn Nav="Fly" QuestName="Aw, Nuts!" QuestId="44033" TurnInName="" TurnInId="" />
 
-
-</While>
 <!--
 <GameObject Name="Acorn" Entry="253277" X="2294.438" Y="6594.402" Z="141.2175" />
 <WoWUnit Name="Invasive Squirrel" Entry="112289" X="2296.95" Y="6572.832" Z="142.3783" />
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(44033)">	
 				<RunTo X="2283.612" Y="6592.378" Z="138.411" />		
-			<CustomBehavior File="InteractWith" MobId="253277" QuestId="44033"   NumOfTimes="15"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 44033)">
-				<HuntingGrounds>
+		<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(44033)" >
+		<HuntingGrounds>
 					<Hotspot X="2283.612" Y="6592.378" Z="138.411" />
 					<Hotspot X="2271.885" Y="6583.856" Z="141.7463" />
 					<Hotspot X="2265.866" Y="6612.232" Z="137.7635" />
@@ -184,24 +176,17 @@
 					<Hotspot X="2315.582" Y="6654.137" Z="135.2623" />
 					<Hotspot X="2303.327" Y="6625.653" Z="138.9084" />
 					<Hotspot X="2292.017" Y="6615.208" Z="136.5937" />
-				</HuntingGrounds>
-			</CustomBehavior>
-
-			<CustomBehavior File="InteractWith" MobIds="112289" QuestId="44033"  NumOfTimes="10" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 44033)">
-				<HuntingGrounds>
-					<Hotspot X="2283.612" Y="6592.378" Z="138.411" />
-					<Hotspot X="2271.885" Y="6583.856" Z="141.7463" />
-					<Hotspot X="2265.866" Y="6612.232" Z="137.7635" />
-					<Hotspot X="2257.053" Y="6642.407" Z="131.0736" />
-					<Hotspot X="2283.192" Y="6655.652" Z="134.8893" />
-					<Hotspot X="2311.12" Y="6668.268" Z="131.7696" />
-					<Hotspot X="2329.444" Y="6670.759" Z="135.612" />
-					<Hotspot X="2363.705" Y="6662.917" Z="140.3474" />
-					<Hotspot X="2315.582" Y="6654.137" Z="135.2623" />
-					<Hotspot X="2303.327" Y="6625.653" Z="138.9084" />
-					<Hotspot X="2292.017" Y="6615.208" Z="136.5937" />
-				</HuntingGrounds>
-			</CustomBehavior>
+		</HuntingGrounds>
+		<PursuitList>
+      
+      <PursueUnit Id="112289" PursueWhen="!IsObjectiveComplete(1,44033)" />
+      <PursueGameObject Id="253277" PursueWhen="!IsObjectiveComplete(2,44033)" />
+<!--      <PursueGameObject Id="102450" PursueWhen="!IsQuestCompleted(44033)" /> -->
+<!--      <PursueGameObject Id="102476" PursueWhen="!IsQuestCompleted(44033)" /> -->
+		</PursuitList>
+	</CustomBehavior>
+	
+	
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
