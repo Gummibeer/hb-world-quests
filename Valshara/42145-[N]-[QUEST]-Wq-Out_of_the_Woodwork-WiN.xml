@@ -127,7 +127,7 @@
 <Hotspot X="3795.917" Y="5890.401" Z="352.1138" />
 		</HuntingGrounds>
 		<PursuitList>
-			<PursueUnit Id="106419" Priority="100" PursueWhen="!IsObjectiveComplete(1,42145)" />
+			<PursueUnit Id="106419" Priority="100" PursueWhen="!IsObjectiveComplete(1,42145) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
 		</PursuitList>
 	</CustomBehavior>
 	
