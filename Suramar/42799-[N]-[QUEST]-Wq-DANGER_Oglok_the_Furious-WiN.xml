@@ -1,26 +1,19 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[A-Quest] WorldQuest Left for Dead Zinner</Name>
-
+	<Name>[42799] DANGER: Oglok the Furious - WiN</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
-
 	<SellGrey>true</SellGrey>
 	<SellWhite>true</SellWhite>
 	<SellGreen>true</SellGreen>
 	<SellBlue>true</SellBlue>
 	<SellPurple>false</SellPurple>
-
 	<MailGrey>false</MailGrey>
 	<MailWhite>true</MailWhite>
 	<MailGreen>true</MailGreen>
 	<MailBlue>true</MailBlue>
 	<MailPurple>true</MailPurple>
-
 	<TargetElites>true</TargetElites>
-
-	
-
 	<QuestOrder>
 	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 			
@@ -154,46 +147,36 @@
 
 				]]>
 			</CustomBehavior>
-	
 <!--
-<PickUp Nav="Fly" QuestName="Left for Dead" QuestId="42169" GiverName="" GiverId="" />
-<Objective QuestName="Left for Dead" QuestId="42169" Type="KillMob" Nav="Fly" MobId="102450" KillCount="5" />
-<TurnIn Nav="Fly" QuestName="Left for Dead" QuestId="42169" TurnInName="" TurnInId="" />
+<PickUp Nav="Fly" QuestName="DANGER: Oglok the Furious" QuestId="42799" GiverName="" GiverId="" />
+<Objective QuestName="DANGER: Oglok the Furious" QuestId="42799" Type="KillMob" Nav="Fly" MobId="105899" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="DANGER: Oglok the Furious" QuestId="42799" TurnInName="" TurnInId="" />
 
-<WoWUnit Name="Prison Shackle Bunny" Entry="102476" X="381.4688" Y="5084.442" Z="-85.61525" />
-<WoWUnit Name="Prison Shackle" Entry="102450" X="398.1563" Y="5095.152" Z="-88.01683" />
--->		
+<Vendor Name="Oglok the Furious" Entry="105899" Type="Repair" Nav="Fly" X="1434.126" Y="2947.44" Z="111.6177" />
 
-		<While Condition="WorldQuestInfo.HasWorldQuest(42169)" >	
-				<RunTo X="432.7189" Y="5086.581" Z="-88.51279" />
-		<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(42169)" >
-		<HuntingGrounds>
-					<Hotspot X="449.847" Y="5049.885" Z="-89.30132" />
-					<Hotspot X="432.7189" Y="5086.581" Z="-88.51279" />
-					<Hotspot X="373.6428" Y="5041.081" Z="-87.06934" />
-					<Hotspot X="271.5541" Y="5075.951" Z="-86.26898" />
-					<Hotspot X="232.425" Y="5112.252" Z="-86.47382" />
-					<Hotspot X="115.491" Y="5024.948" Z="-145.1527" />
-					<Hotspot X="274.9245" Y="5064.069" Z="-86.9704" />
-		</HuntingGrounds>
-		<PursuitList>
-		<!--	 <PursueUnit Id="102450" PursueWhen="!IsObjectiveComplete(1,42276)"/> -->
-      <PursueUnit Id="102450" PursueWhen="!IsQuestCompleted(42169)" />
-      <PursueUnit Id="102476" PursueWhen="!IsQuestCompleted(42169)" />
-      <PursueGameObject Id="102450" PursueWhen="!IsQuestCompleted(42169)" />
-      <PursueGameObject Id="102476" PursueWhen="!IsQuestCompleted(42169)" />
-		</PursuitList>
-	</CustomBehavior>
-	
+-->
+<While Condition="WorldQuestInfo.HasWorldQuest(42799)" >
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42799] DANGER: Oglok the Furious - WiN!&quot;);" />
+<RunTo X="1434.496" Y="3027.11" Z="111.8125" />
 
-		</While>
-	
-	
+<CustomBehavior File="KillUntilComplete"  QuestId="42799"  TerminateWhen="IsQuestCompleted(42799)">
+	<HuntingGrounds>
+		<Hotspot X="1434.496" Y="3027.11" Z="111.8125" />
+		<Hotspot X="1420.346" Y="2962.406" Z="111.6195" />
+
+	</HuntingGrounds>
+	<PursuitList>
+		<PursueUnit Id="105899" Priority="1" PursueWhen="!IsObjectiveComplete(1, 42799) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+	</PursuitList>
+</CustomBehavior>
+<!-- <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" /> -->
+</While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
-</QuestOrder>
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42799] DANGER: Oglok the Furious - WiN!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />	
+	</QuestOrder>
 </HBProfile>
