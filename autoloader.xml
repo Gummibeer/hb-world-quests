@@ -45,9 +45,9 @@
 <QuestOrder>
 
 <!-- Settings: -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = false;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = true;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP World Quests -->
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
@@ -171,6 +171,10 @@ return true;
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="15000" />
 </If>
+
+ <!-- Start infinite loop  -->
+-<While Condition="Me.MapId != 1007"> 
+
 
 <!--  Azsuna -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Azsuna...&quot;);" />
@@ -794,7 +798,7 @@ removed until tested
 <!--
 <If Condition="WorldQuestInfo.HasWorldQuest(44033)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\44033-[N]-[QUEST]-Wq-Aw_Nuts-Zinner" RememberProfile="true" />
-</If>
+</If>-->
 -->
 <If Condition="WorldQuestInfo.HasWorldQuest(42087)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42087-[N]-[QUEST]-Wq-Green Horror-Zinner" RememberProfile="true" />
@@ -895,10 +899,10 @@ removed until tested
 
 
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| No more world quests available, manually reload   |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|    the autoloader in a while (or use HBRelog)     |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|      No more world quests available, checking     |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|       availability of new WQ in 10 minutes        |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                   |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| A CODED WQ WAS NOT COMPLETED?                     |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|           A CODED WQ WAS NOT COMPLETED?           |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| -IF YOU ARE IN DALARAN, MOVE TO ANY BROKEN ISLES  |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                    LOCATION                       |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| -IF YOU ARE IN ANY BROKEN ISLES LOCATION EXCEPT   |&quot;);" />
@@ -907,6 +911,25 @@ removed until tested
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| JOIN US ON DISCORD TO HELP/COMPLAIN/COMPLIMENT US |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            https://discord.gg/u3QaKTq             |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
+
+ <!-- wait 10 minutes before reloading autoloader -->  
+ <CustomBehavior File="WaitTimer" WaitTime="600000" />
+ 
+ <!-- Initial messages, no whistle before WQ check --> 
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            [WORLD QUESTS AUTO-LOADER]             |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| Credits: Zinner, WiN, Pellepylly, Codex, Ruela,   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|         tsatsa, tomten2, ksmaze and many more     |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|      DELETE WOW AND HB CACHE FOLDERS BEFORE       |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|             LAUNCHING THE AUTOLOADER              |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| JOIN US ON DISCORD TO HELP/COMPLAIN/COMPLIMENT US |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            https://discord.gg/u3QaKTq             |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
+
+</While> 
+
 
 </QuestOrder>
 </HBProfile>
