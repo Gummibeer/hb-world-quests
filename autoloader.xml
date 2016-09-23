@@ -47,6 +47,7 @@
 <!-- Settings: -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
@@ -335,7 +336,7 @@ return true;
 </If>
 </If>
 
-<If Condition="doDanger">
+<If Condition="doHard">
 	<!-- had mobs - all 110 elite -->
 <If Condition="WorldQuestInfo.HasWorldQuest(44054)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44054-[N]-[QUEST]-Wq-Demonicide-WiN" RememberProfile="true" />
@@ -512,7 +513,9 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42183-[N]-[QUEST]-Wq-To_Battle-WiN" RememberProfile="true" />
 </If>
 
-
+<If Condition="WorldQuestInfo.HasWorldQuest(40896)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\40896-[N]-[QUEST]-Wq-Threnody_of_Chieftains-WiN" RememberProfile="true" />
+</If>
 
 
 
