@@ -347,11 +347,11 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(42108)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42108-[N]-[QUEST]-Wq-Rally_the_Nightwatch-ksmaze" RememberProfile="true" />
 </If>
-
+<!--
 <If Condition="WorldQuestInfo.HasWorldQuest(42276)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42276-[N]-[QUEST]-Wq-Disgusting_but_Useful-WiN" RememberProfile="true" />
 </If>
-
+-->
 
 
 <!-- Highmountain -->
