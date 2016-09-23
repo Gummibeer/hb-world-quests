@@ -180,7 +180,7 @@
 		<PursuitList>
       
       <PursueUnit Id="112289" PursueWhen="!IsObjectiveComplete(1,44033)" />
-      <PursueGameObject Id="253277" PursueWhen="!IsObjectiveComplete(2,44033)" />
+      <PursueGameObject Id="253277" PursueWhen="!IsObjectiveComplete(2,44033)  &amp;&amp;  Navigator.LookupPathInfo(OBJECT).Navigability == PathNavigability.Navigable" />
 <!--      <PursueGameObject Id="102450" PursueWhen="!IsQuestCompleted(44033)" /> -->
 <!--      <PursueGameObject Id="102476" PursueWhen="!IsQuestCompleted(44033)" /> -->
 		</PursuitList>
