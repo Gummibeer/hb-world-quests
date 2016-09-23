@@ -521,6 +521,13 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41225-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41234)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41234-[N]-[QUEST]-Wq-Shaggy_Saber_Hide-WiN" RememberProfile="true" />
+</If>
+
+
+
+
 
 <!-- Stormheim -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Stormheim...&quot;);" />
@@ -628,12 +635,16 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(41984)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN" RememberProfile="true" />
 </If>
-
+<!--
+needs testing - reported errors
+<If Condition="WorldQuestInfo.HasWorldQuest(41568)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41568-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
+</If>
+-->
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41569)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41569-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
-
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41556)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
