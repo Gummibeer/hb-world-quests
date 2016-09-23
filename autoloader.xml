@@ -47,7 +47,7 @@
 <!-- Settings: -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = false;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = true;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP World Quests -->
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
@@ -344,14 +344,13 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44192-[N]-[QUEST]-Wq-DANGER_Lysanis_Shadesoul-WiN" RememberProfile="true" />
 </If>
 </If>
-
+<!-- had mobs - all 110 elite
 <If Condition="doHard">
-	<!-- had mobs - all 110 elite -->
-<If Condition="WorldQuestInfo.HasWorldQuest(44054)">
+	<If Condition="WorldQuestInfo.HasWorldQuest(44054)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44054-[N]-[QUEST]-Wq-Demonicide-WiN" RememberProfile="true" />
 </If>
 </If>
-
+ -->
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42108)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42108-[N]-[QUEST]-Wq-Rally_the_Nightwatch-ksmaze" RememberProfile="true" />
