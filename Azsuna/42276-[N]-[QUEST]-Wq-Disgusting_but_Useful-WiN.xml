@@ -121,8 +121,8 @@
 <TurnIn Nav="Fly" QuestName="Disgusting, but Useful" QuestId="42276" TurnInName="" TurnInId="" />
 
 <WoWUnit Name="Manastalker" Entry="107135" X="-211.4184" Y="7801.964" Z="108.4711" />
-<WoWUnit Name="Felsurge Spiderling" Entry="107102" X="-88.76805" Y="7731.729" Z="110.4142" /> <-- no loot
-<WoWUnit Name="Felsurge Webspinner" Entry="107103" X="-130.1325" Y="7517.444" Z="90.85651" /><-- no loot
+<WoWUnit Name="Felsurge Spiderling" Entry="107102" X="-88.76805" Y="7731.729" Z="110.4142" />  no loot
+<WoWUnit Name="Felsurge Webspinner" Entry="107103" X="-130.1325" Y="7517.444" Z="90.85651" /> no loot
 <WoWUnit Name="Felsurge Broodmother" Entry="113987" X="-166.5189" Y="7748.192" Z="109.5117" />
 <WoWUnit Name="Felsurge Hunter" Entry="107440" X="-184.0566" Y="7622.506" Z="103.1753" />
 <GameObject Name="Felsurge Egg" Entry="250267" X="-161.2118" Y="7656.676" Z="108.2036" />
