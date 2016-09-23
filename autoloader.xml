@@ -154,7 +154,7 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            [WORLD QUESTS AUTO-LOADER]            |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| Credits: Zinner, WiN, Pellepylly, Codex, Ruela,  |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|         tsatsa, tomten2 and many more            |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|         tsatsa, tomten2, ksmaze and many more    |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                  |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|      DELETE WOW AND HB CACHE FOLDERS BEFORE      |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|             LAUNCHING THE AUTOLOADER             |&quot;);" />
@@ -347,11 +347,10 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(42108)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42108-[N]-[QUEST]-Wq-Rally_the_Nightwatch-ksmaze" RememberProfile="true" />
 </If>
-<!--
+
 <If Condition="WorldQuestInfo.HasWorldQuest(42276)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42276-[N]-[QUEST]-Wq-Disgusting_but_Useful-WiN" RememberProfile="true" />
 </If>
--->
 
 
 <!-- Highmountain -->
@@ -847,7 +846,7 @@ removed until tested
 
 
 -->
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=================EMISSARY CHECK=================&quot;);" />		
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;===================EMISSARY CHECK===================&quot;);" />		
 <If Condition="(HasQuest(42233) &amp;&amp; IsQuestCompleted(42233)) || 
 	(HasQuest(42234) &amp;&amp; IsQuestCompleted(42234)) || 
 	(HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)) || 
