@@ -151,15 +151,20 @@ return true;
 </CustomBehavior>
 
 <!-- Initial messages --> 
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            [WORLD QUESTS AUTO-LOADER]            |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| Credits: Zinner, WiN, Pellepylly, Codex, Ruela,  |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|         tsatsa, tomten2, ksmaze and many more    |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                  |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|      DELETE WOW AND HB CACHE FOLDERS BEFORE      |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|             LAUNCHING THE AUTOLOADER             |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
-<CustomBehavior File="WaitTimer" WaitTime="3000" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            [WORLD QUESTS AUTO-LOADER]             |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| Credits: Zinner, WiN, Pellepylly, Codex, Ruela,   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|         tsatsa, tomten2, ksmaze and many more     |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|      DELETE WOW AND HB CACHE FOLDERS BEFORE       |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|             LAUNCHING THE AUTOLOADER              |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| JOIN US ON DISCORD TO HELP/COMPLAIN/COMPLIMENT US |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            https://discord.gg/u3QaKTq             |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
+<CustomBehavior File="WaitTimer" WaitTime="5000" />
+ 
+ 
  
  <!-- Use whistle before checking available WQ -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Moving to nearest flight master before questing...&quot;);" />
@@ -874,7 +879,7 @@ removed until tested
 
 
 -->
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;===================EMISSARY CHECK===================&quot;);" />		
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Green, &quot;===================EMISSARY CHECK===================&quot;);" />		
 <If Condition="(HasQuest(42233) &amp;&amp; IsQuestCompleted(42233)) || 
 	(HasQuest(42234) &amp;&amp; IsQuestCompleted(42234)) || 
 	(HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)) || 
@@ -885,16 +890,19 @@ removed until tested
 </If>
 
 
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| No more world quests available, manually reload  |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|    the autoloader in a while (or use HBRelog)    |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                  |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| A CODED WQ WAS NOT COMPLETED?                    |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| -IF YOU ARE IN DALARAN, MOVE TO ANY BROKEN ISLES |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                    LOCATION                      |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| -IF YOU ARE IN ANY BROKEN ISLES LOCATION EXCEPT  |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            DALARAN, MOVE TO DALARAN              |&quot;);" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;====================================================&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| No more world quests available, manually reload   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|    the autoloader in a while (or use HBRelog)     |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| A CODED WQ WAS NOT COMPLETED?                     |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| -IF YOU ARE IN DALARAN, MOVE TO ANY BROKEN ISLES  |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                    LOCATION                       |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| -IF YOU ARE IN ANY BROKEN ISLES LOCATION EXCEPT   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            DALARAN, MOVE TO DALARAN               |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|                                                   |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| JOIN US ON DISCORD TO HELP/COMPLAIN/COMPLIMENT US |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            https://discord.gg/u3QaKTq             |&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
 
 </QuestOrder>
 </HBProfile>
