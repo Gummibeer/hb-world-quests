@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[A-Quest] Slab of Bacon WorldQuest Zinner</Name>
+	<Name>[41551] Slab of Bacon WorldQuest Zinner</Name>
 
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
@@ -155,24 +155,24 @@
 				]]>
 			</CustomBehavior>
 	
-		
+<!--
+<Vendor Name="Well-Fed Lion Seal" Entry="103784" Type="Repair" Nav="Fly" X="1301.345" Y="7602.313" Z="36.67327" />
+-->		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41551)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="1288.061" Y="7585.567" Z="36.89265" /> 
-				<PickUp Nav="Fly" QuestName="Slab of Bacon" QuestId="41551" GiverName="" GiverId="" />
-
-				<Objective QuestName="Slab of Bacon" QuestId="41551" Type="CollectItem" Nav="Fly" ItemId="135511" CollectCount="1" />
-
-				<TurnIn Nav="Fly" QuestName="Slab of Bacon" QuestId="41551" TurnInName="" TurnInId="" />
-</While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(41551)" >	
 				<RunTo X="1288.061" Y="7585.567" Z="36.89265" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="103784" QuestId="41551">
-				<HuntingGrounds>
-					<Hotspot X="1288.061" Y="7585.567" Z="36.89265" />
+				
+					<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="IsQuestCompleted(41551)" >
+		<HuntingGrounds>
+<Hotspot X="1301.345" Y="7602.313" Z="36.67327" />
+		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="103784" PursueWhen="!IsObjectiveComplete(1,41551) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<!--			<PursueGameObject Id="248050" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41551) &amp;&amp; (GAMEOBJECT.IsValid)" /> -->
+		</PursuitList>
+	</CustomBehavior>
+	
+	
 
-				</HuntingGrounds>
-			</CustomBehavior>
 		</While>
 	
 	
