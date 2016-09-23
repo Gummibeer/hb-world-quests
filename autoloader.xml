@@ -738,7 +738,11 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\41558-[N]-[QUEST]-Wq-Slab of Bacon-WiN" RememberProfile="true" />
 </If>
 
-
+<If Condition="doDanger">
+<If Condition="WorldQuestInfo.HasWorldQuest(42799)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\42799-[N]-[QUEST]-Wq-DANGER_Oglok_the_Furious-WiN" RememberProfile="true" />
+</If>
+</If>
 
 
 
@@ -787,11 +791,11 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(43629)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="true" />
 </If>
-
+<!--
 <If Condition="WorldQuestInfo.HasWorldQuest(44033)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\44033-[N]-[QUEST]-Wq-Aw_Nuts-Zinner" RememberProfile="true" />
 </If>
-
+-->
 <If Condition="WorldQuestInfo.HasWorldQuest(42087)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42087-[N]-[QUEST]-Wq-Green Horror-Zinner" RememberProfile="true" />
 </If>
