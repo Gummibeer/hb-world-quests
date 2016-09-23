@@ -62,7 +62,7 @@
  -->
 		<If Condition="HasQuest(42234) &amp;&amp; IsQuestCompleted(42234)" >
 			<MoveTo DestName="Valdemar Stormseeker" X="3189.058" Y="1536.941" Z="182.5401" />
-				<TurnIn QuestName="The Dreamweavers" QuestId="42234" TurnInName="Valdemar Stormseeker" TurnInId="106904" X="3189.058" Y="1536.941" Z="182.5401" />
+				<TurnIn QuestName="The Valarjar" QuestId="42234" TurnInName="Valdemar Stormseeker" TurnInId="106904" X="3189.058" Y="1536.941" Z="182.5401" />
 		</If>
 		
 		<!-- The Nightfallen Emissary NPC Position changes based on rep but bot should hopefully navigate to it anyhow. -->
