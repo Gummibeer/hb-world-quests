@@ -136,7 +136,7 @@
 		</HuntingGrounds>
 		<PursuitList>
 
-      <PursueUnit Id="94149" PursueWhen="!IsObjectiveComplete(2,41234) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="94149" PursueWhen="!IsObjectiveComplete(1,41234) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 
 		</PursuitList>
 	</CustomBehavior>
