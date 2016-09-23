@@ -49,7 +49,7 @@
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP World Quests -->
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 public class WorldQuestData
 {
@@ -348,7 +348,9 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42108-[N]-[QUEST]-Wq-Rally_the_Nightwatch-ksmaze" RememberProfile="true" />
 </If>
 
-
+<If Condition="WorldQuestInfo.HasWorldQuest(42276)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42276-[N]-[QUEST]-Wq-Disgusting_but_Useful-WiN" RememberProfile="true" />
+</If>
 
 
 
