@@ -381,6 +381,12 @@ return true;
 </If>
 </If>
 
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(41091)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41420-[H]-QUEST-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Staal" RememberProfile="true" />
+</If>
+</If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41789)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN" RememberProfile="true" />
 </If>
