@@ -39,6 +39,7 @@ public class WorldQuestData { public int ID; public string Name; public Date
 </HuntingGrounds>
 </CustomBehavior>
 </While>
+<RunTo X="-120.0156" Y="7410.77" Z="101.1084" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
