@@ -129,16 +129,18 @@
 	
 	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41227)" >
 		<HuntingGrounds>
-<Hotspot X="4096.938" Y="3485.941" Z="934.6781" />
-<Hotspot X="4138.665" Y="3419.344" Z="923.216" />
-<Hotspot X="4215.447" Y="3364.28" Z="926.8901" />
-<Hotspot X="4292.95" Y="3376.646" Z="947.0102" />
-<Hotspot X="4302.265" Y="3378.244" Z="1035.748" />
-
-<Hotspot X="4300.637" Y="5978.498" Z="508.6235" />
+<Hotspot X="4300.272" Y="3372.467" Z="1035.751" />
+<Hotspot X="4305.779" Y="3350.276" Z="1035.842" />
 		</HuntingGrounds>
 		<PursuitList>
-
+<PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	  </PursuitList>
+<HuntingGrounds>
+<Hotspot X="4217.416" Y="3370.769" Z="928.8956" />
+				</HuntingGrounds>	  
+	  <PursuitList>
       <PursueUnit Id="102873" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102864" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102868" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
@@ -154,9 +156,7 @@
       <PursueUnit Id="102871" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102875" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	  
-      <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      
 		</PursuitList>
 	</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
