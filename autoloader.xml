@@ -1,5 +1,5 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<Name>World Quest Auto-Loader</Name>
+<Name>World Quest Auto-Loader ($Rev$)</Name>
 
 <AvoidMobs>
 	<Mob Name="Blerg" Entry="106629" />
