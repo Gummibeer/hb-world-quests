@@ -590,6 +590,9 @@ return true;
 </If>
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41308)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="true" />
+</If>
 
 
 
@@ -657,9 +660,6 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(43628)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="true" />
 </If>
-</If>
-<If Condition="WorldQuestInfo.HasWorldQuest(41308)">
-<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41938)">
