@@ -151,6 +151,7 @@
 
 <Hotspot X="3536.346" Y="5439.744" Z="307.5356" />
 <Hotspot X="3449.277" Y="5507.55" Z="307.5362" />
+<Hotspot X="3331.068" Y="5468.076" Z="328.8635" />
 		</HuntingGrounds>
 		<PursuitList>
 			<PursueGameObject Id="249703" Priority="100" PursueWhen="!IsObjectiveComplete(2,41964)" />
