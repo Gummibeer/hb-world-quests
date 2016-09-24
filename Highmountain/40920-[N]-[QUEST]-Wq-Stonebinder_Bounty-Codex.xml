@@ -13,7 +13,10 @@
 	<MailGreen>true</MailGreen>
 	<MailBlue>true</MailBlue>
 	<MailPurple>true</MailPurple>
-	<TargetElites>true</TargetElites>
+	<TargetElites>false</TargetElites>
+<AvoidMobs>
+<Mob Name="Hill Ettin" Entry="102886" />
+</AvoidMobs>
 	<QuestOrder>
 		<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 			public class WorldQuestData
@@ -114,6 +117,10 @@
 								}
 								]]>
 							</CustomBehavior>
+							
+							
+							
+							
 <While Condition="WorldQuestInfo.HasWorldQuest(40920)" >
 	<!-- Get in range of quest to activate -->
 	<RunTo X="3534.583" Y="4741.673" Z="709.6779" />
