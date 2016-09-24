@@ -119,16 +119,31 @@
 <Objective QuestName="Warden Tower Assault: Cordana's Apex" QuestId="41227" Type="KillMob" Nav="Fly" MobId="103650" KillCount="13" />
 <Objective QuestName="Warden Tower Assault: Cordana's Apex" QuestId="41227" Type="KillMob" Nav="Fly" MobId="103652" KillCount="1" />
 <TurnIn Nav="Fly" QuestName="Warden Tower Assault: Cordana's Apex" QuestId="41227" TurnInName="" TurnInId="" />
+
+<WoWUnit Name="Forsaken Frostflinger" Entry="103446" X="4290.136" Y="5833.43" Z="400.2081" />
+<WoWUnit Name="Forsaken Archer" Entry="103729" X="4337.28" Y="5811.724" Z="398.9065" />
+<WoWUnit Name="Forsaken Defender" Entry="103210" X="4340.43" Y="5887.108" Z="398.6067" />
+<WoWUnit Name="Forsaken Dark Ranger" Entry="103745" X="4245.93" Y="5884.34" Z="410.0181" />
+<WoWUnit Name="Forsaken Rector" Entry="103453" X="4317.455" Y="5917.848" Z="419.2583" />
+<WoWUnit Name="Forsaken Befouler" Entry="103245" X="4243.6" Y="5921.956" Z="414.2474" />
+
+<WoWUnit Name="Dark Ranger Alina" Entry="104289" X="4278.669" Y="5981.455" Z="508.6072" />
+<Vendor Name="Captain Grimshanks" Entry="104290" Type="Repair" Nav="Fly" X="4306.199" Y="5977.233" Z="508.6058" />
+<Vendor Name="Magus Bonechill" Entry="103757" Type="Repair" Nav="Fly" X="4295.708" Y="5980.292" Z="508.6548" />
 -->
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41421)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41421] Warden Tower Assault: Nightwatcher's Perch!&quot;);" />
 	<RunTo X="4329.707" Y="5727.556" Z="432.7065" />
-	
-
-	
 	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41421)" >
 		<HuntingGrounds>
+<!-- front of tower -->
+			<Hotspot X="4290.711" Y="5898.335" Z="417.2072" />
+<!-- top of tower stairs-->
+<Hotspot X="4274.029" Y="5952.217" Z="508.5096" />
+<!-- tower balcony-->
+<Hotspot X="4303.005" Y="5974.825" Z="508.6069" />
+<!-- outside -->
 <Hotspot X="4329.707" Y="5727.556" Z="432.7065" />
 <Hotspot X="4380.838" Y="5736.195" Z="419.7085" />
 <Hotspot X="4423.6" Y="5819.86" Z="398.8525" />
@@ -138,13 +153,20 @@
 <Hotspot X="4193.287" Y="5940.76" Z="412.8269" />
 <Hotspot X="4298.676" Y="5903.26" Z="418.4761" />
 
-<Hotspot X="4285.209" Y="5963.833" Z="508.516" />
 		</HuntingGrounds>
 		<PursuitList>
-
+      <PursueUnit Id="103446" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103729" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103210" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103745" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103453" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103245" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="103651" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="103768" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      
+<!-- Captains Rotate -->
+      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	 </PursuitList>
 	</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
