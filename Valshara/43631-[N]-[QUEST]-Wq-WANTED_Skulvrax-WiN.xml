@@ -166,8 +166,8 @@
 		<PursueUnit Id="93654" Priority="1" PursueWhen="!IsObjectiveComplete(1, 43631) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
 	</PursuitList>
 </CustomBehavior>
-<!-- <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" /> -->
+<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
