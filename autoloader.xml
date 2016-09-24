@@ -802,7 +802,9 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\42089-[N]-[QUEST]-Wq-The_Fallen_Ones-WiN" RememberProfile="true" />
 </If>
 
-
+<If Condition="WorldQuestInfo.HasWorldQuest(43930)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\43930-N-QUEST-Wq-Fiends_of_Telanor-Staal" RememberProfile="true" />
+</If>
 
 
 <!-- End Suramar Zone -->
