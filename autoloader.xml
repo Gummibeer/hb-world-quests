@@ -50,6 +50,12 @@
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP World Quests -->
+
+<!-- Zone Settings -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />
+doZone
+
+
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 public class WorldQuestData
 {
@@ -663,11 +669,11 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(41927)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="true" />
 </If>
-<!-- Updated to Alliace/Horder + Talk + Grapple-->
+<!-- Updated to Alliace/Horder + Talk + Grapple - removed after flightor update problem
 <If Condition="WorldQuestInfo.HasWorldQuest(41949)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-WiN" RememberProfile="true" />
 </If>
-
+-->
 <If Condition="WorldQuestInfo.HasWorldQuest(41984)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN" RememberProfile="true" />
 </If>
