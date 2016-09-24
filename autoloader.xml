@@ -751,10 +751,12 @@ removed until tested
 </If>
 </If>
 -->
+
+<!-- doesnt work?
 <If Condition="WorldQuestInfo.HasWorldQuest(41558)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\41558-[N]-[QUEST]-Wq-Slab of Bacon-WiN" RememberProfile="true" />
 </If>
-
+-->
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(42799)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\42799-[N]-[QUEST]-Wq-DANGER_Oglok_the_Furious-WiN" RememberProfile="true" />
