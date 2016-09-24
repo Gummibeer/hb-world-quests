@@ -53,6 +53,11 @@
 
 <!-- Zone Settings -->
 
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doAzsuna = true;" />
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doHighmountain = true;" />
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doStormheim = true;" />
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doSuramar = true;" />
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doValshara = true;" />
 
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 public class WorldQuestData
@@ -180,6 +185,8 @@ return true;
 -<While Condition="Me.MapId != 1007"> 
 
 
+<If Condition="doAzsuna">
+	
 <!--  Azsuna -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Azsuna...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
@@ -309,6 +316,13 @@ return true;
 </If>
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(42633)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42633-[N]-[QUEST]-Wq-WANTED_Vorthax-Pellepylly" RememberProfile="true" />
+</If>
+</If>
+
+
 <If Condition="WorldQuestInfo.HasWorldQuest(42119)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42119-[N]-[QUEST]-Wq-A_Cleansing_Cocktail-WiN" RememberProfile="true" />
 </If>
@@ -368,13 +382,14 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41513-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
 
+<!-- End Azuna Zone -->
+</If>
 
 
 
 
-
-
-
+<If Condition="doHighmountain">
+	
 <!-- Highmountain -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Highmountain...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
@@ -565,10 +580,22 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41234-[N]-[QUEST]-Wq-Shaggy_Saber_Hide-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(41421)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41421-[A]-[QUEST]-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Zinner" RememberProfile="true" />
+</If>
+</If>
 
 
 
 
+
+<!-- End Highmountain Zone -->
+</If>
+
+
+
+<If Condition="doStormheim">
 <!-- Stormheim -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Stormheim...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
@@ -701,9 +728,13 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-QUEST-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="true" />
 </If>
 </If>
+<!-- end Stormheim Zone -->
+</If>
 
 
 
+
+<If Condition="doSuramar">
 <!-- Suramar -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Suramar...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
@@ -766,9 +797,13 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\42799-[N]-[QUEST]-Wq-DANGER_Oglok_the_Furious-WiN" RememberProfile="true" />
 </If>
 </If>
+<!-- End Suramar Zone -->
+</If>
 
 
 
+
+<If Condition="doValshara">
 <!-- Valshara -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Valshara...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
@@ -905,7 +940,9 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(41334)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41334-[N]-[QUEST]-Wq-Musky_Bear_Hide-WiN" RememberProfile="true" />
 </If>
+<!-- End Valshara Zone -->
 
+</If>
 
 
 <!-- Emissary turnin 
