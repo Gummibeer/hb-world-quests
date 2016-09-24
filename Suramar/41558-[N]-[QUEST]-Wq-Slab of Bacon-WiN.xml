@@ -177,7 +177,8 @@
 		</PursuitList>
 	</CustomBehavior>
 	
-	
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" /> 
 
 		</While>
 	
