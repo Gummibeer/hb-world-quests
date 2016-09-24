@@ -386,6 +386,14 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43427-[N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner" RememberProfile="true" />
 </If>
 </If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(42160)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42160-[N]-[QUEST]-Wq-Unwelcome_Visitors-WiN" RememberProfile="true" />
+</If>
+
+
+
+
 <!-- End Azuna Zone -->
 </If>
 

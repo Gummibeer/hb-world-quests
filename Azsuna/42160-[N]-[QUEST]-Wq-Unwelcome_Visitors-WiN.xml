@@ -1,0 +1,207 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>[42160] Unwelcome Visitors - WiN</Name>
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+	<SellGrey>true</SellGrey>
+	<SellWhite>true</SellWhite>
+	<SellGreen>true</SellGreen>
+	<SellBlue>true</SellBlue>
+	<SellPurple>false</SellPurple>
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+	<TargetElites>true</TargetElites>
+	<QuestOrder>
+		<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			public class WorldQuestData
+			{
+			public int ID;
+			public string Name;
+			public DateTime ExpireTime;
+			}
+			public static class WorldQuestInfo
+			{
+			static List<WorldQuestData> _cache = new List<WorldQuestData>();
+				static internal bool _dirty = true;
+				static internal bool _setup = false;
+				static WorldQuestInfo()
+				{
+				Setup();
+				}
+				public static void Setup()
+				{
+				if (_setup)
+				return;
+				Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+				Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+				Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+				UpdateWorldQuests();
+				_setup = true;
+				}
+				public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+				{
+				_dirty = true;
+				}
+				public static bool HasWorldQuest(int questid)
+				{
+				UpdateWorldQuests();
+				var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+				if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+					return false;
+					return true;
+					}
+					public static void UpdateWorldQuests()
+					{
+					if (!_dirty)
+					return;
+					_cache = new List<WorldQuestData>();
+						var player = StyxWoW.Me;
+						int BrokenIslesMapArea = 1007;
+						var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+						var NumZones = int.Parse(ret[0]);
+						for (int i = 1; i <= NumZones; ++i)
+							{
+							ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+							var ZoneID = int.Parse(ret[0]);
+							var ZoneName = ret[1];
+							var ZoneDepth = int.Parse(ret[2]);
+							if (ZoneDepth > 1) //Do not look at subzones
+							{
+							Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+							continue;
+							}
+							string ToRun = string.Format(@"     local questids = {{}};
+							local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+							if taskInfo then
+							for i, info in ipairs(taskInfo) do
+							if HaveQuestData(info.questId) then
+							if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+							table.insert(questids, info.questId);
+							end
+							end
+							end
+							end
+							return unpack(questids);
+							", ZoneID, BrokenIslesMapArea);
+							ret = Lua.GetReturnValues(ToRun);
+							foreach (var q in ret)
+							{
+							int questid = int.Parse(q);
+							//TimeLeft is in minutes
+							var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+								var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+								Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+								var data = new WorldQuestData();
+								data.ID = questid;
+								data.Name = QuestInfo[0];
+								data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+								_cache.Add(data);
+								}
+								}
+								_dirty = false;
+								}
+								public static bool IsWorldQuest(int questid)
+								{
+								string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+								var ret = Lua.GetReturnValues(lua);
+								if (ret[3] == null)
+								return false;
+								return true;
+								}
+								}
+								]]>
+							</CustomBehavior>
+<!--
+<PickUp Nav="Fly" QuestName="Unwelcome Visitors" QuestId="42160" GiverName="" GiverId="" />
+<Objective QuestName="Unwelcome Visitors" QuestId="42160" Type="KillMob" Nav="Fly" MobId="106509" KillCount="4" />
+<Objective QuestName="Unwelcome Visitors" QuestId="42160" Type="KillMob" Nav="Fly" MobId="106582" KillCount="1" />
+<Objective QuestName="Unwelcome Visitors" QuestId="42160" Type="KillMob" Nav="Fly" MobId="106583" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="Unwelcome Visitors" QuestId="42160" TurnInName="" TurnInId="" />
+
+<Hotspot X="597.6277" Y="5517.978" Z="56.06715" />
+-->
+<While Condition="WorldQuestInfo.HasWorldQuest(42160)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42160] Unwelcome Visitors - WiN!&quot;);" />
+	<RunTo X="612.7296" Y="5521.41" Z="54.96373" />
+<!-- <WoWUnit Name="Felblaze Portal" Entry="106509" X="613.9011" Y="5530.807" Z="54.96227" /> -->
+					<CustomBehavior File="RunCode"><![CDATA[
+							Lua.DoString("ExtraActionButton1:Click();");
+							await Coroutine.Sleep(1250);
+							SpellManager.ClickRemoteLocation(new WoWPoint(613.9011, 5530.807, 54.96227));
+							await Coroutine.Sleep(8000);
+						]]>
+					</CustomBehavior>
+<!-- <WoWUnit Name="Felblaze Portal" Entry="106509" X="495.0972" Y="5305.768" Z="61.24533" /> -->
+<RunTo X="497.7776" Y="5314.194" Z="59.98594" />
+
+					<CustomBehavior File="RunCode"><![CDATA[
+							Lua.DoString("ExtraActionButton1:Click();");
+							await Coroutine.Sleep(1250);
+							SpellManager.ClickRemoteLocation(new WoWPoint(495.0972, 5305.768, 61.24533));
+							await Coroutine.Sleep(8000);
+						]]>
+					</CustomBehavior>
+					
+<!-- <WoWUnit Name="Felblaze Portal" Entry="106509" X="589.1614" Y="5301.938" Z="45.34641" /> -->
+<RunTo X="586.7567" Y="5306.751" Z="45.09935" />
+
+					<CustomBehavior File="RunCode"><![CDATA[
+							Lua.DoString("ExtraActionButton1:Click();");
+							await Coroutine.Sleep(1250);
+							SpellManager.ClickRemoteLocation(new WoWPoint(589.1614, 5301.938, 45.34641));
+							await Coroutine.Sleep(8000);
+						]]>
+					</CustomBehavior>
+
+<!-- <WoWUnit Name="Felblaze Portal" Entry="106509" X="724.7518" Y="5318.563" Z="57.52559" /> -->
+<RunTo X="722.0895" Y="5321.634" Z="57.27006" />
+						<CustomBehavior File="RunCode"><![CDATA[
+							Lua.DoString("ExtraActionButton1:Click();");
+							await Coroutine.Sleep(1250);
+							SpellManager.ClickRemoteLocation(new WoWPoint(724.7518, 5318.563, 57.52559));
+							await Coroutine.Sleep(8000);
+						]]>
+					</CustomBehavior>
+
+	
+<RunTo 	X="646.1119" Y="5335.438" Z="49.35804" />
+<!-- <Vendor Name="Blargemal" Entry="106582" Type="Repair" Nav="Fly" X="655.6233" Y="5326.372" Z="49.07125" /> -->
+<CustomBehavior File="KillUntilComplete"  QuestId="42160"  TerminateWhen="IsObjectiveComplete(2, 42160)">
+	<HuntingGrounds>
+		<Hotspot X="655.6233" Y="5326.372" Z="49.07125" />
+	</HuntingGrounds>
+	<PursuitList>
+		<PursueUnit Id="106582" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42160) &amp;&amp; (UNIT.IsAlive)" />
+	</PursuitList>
+</CustomBehavior>	
+					
+<RunTo X="479.1529" Y="5402.055" Z="36.35456" />			
+<!-- <Vendor Name="Arkethrax" Entry="106583" Type="Repair" Nav="Fly" X="460.4269" Y="5399.248" Z="36.35174" /> -->
+<CustomBehavior File="KillUntilComplete"  QuestId="42160"  TerminateWhen="IsObjectiveComplete(3, 42160)">
+	<HuntingGrounds>
+		<Hotspot X="460.4269" Y="5399.248" Z="36.35174" />
+	</HuntingGrounds>
+	<PursuitList>
+		<PursueUnit Id="106583" Priority="1" PursueWhen="!IsObjectiveComplete(3, 42160) &amp;&amp; (UNIT.IsAlive)" />
+	</PursuitList>
+</CustomBehavior>		
+
+	
+
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+
+</While>
+
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42160] Unwelcome Visitors - WiN!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+
+						</QuestOrder>
+					</HBProfile>
