@@ -147,11 +147,13 @@
 
 				]]>
 			</CustomBehavior>
-
+<!--
+<WoWUnit Name="Shara Felbreath" Entry="97093" X="5755.756" Y="4079.209" Z="608.0659" />
+-->
 <While Condition="WorldQuestInfo.HasWorldQuest(41821)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Loading Profile [41821] WANTED: Shara Felbreath - WiN!&quot;);" />
 <RunTo X="5744.604" Y="4085.18" Z="607.8464" />
-<CustomBehavior File="KillUntilComplete" QuestId="41821">
+<CustomBehavior File="KillUntilComplete"  QuestId="44304"  TerminateWhen="IsQuestCompleted(41821)">
 	<HuntingGrounds>
 		<Hotspot X="5744.604" Y="4085.18" Z="607.8464" />
 	</HuntingGrounds>
@@ -159,8 +161,8 @@
 		<PursueUnit Id="97093" PursueWhen="!IsObjectiveComplete(1, 41821) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
 	</PursuitList>
 </CustomBehavior>
-<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+<!-- <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" /> -->
 </While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
