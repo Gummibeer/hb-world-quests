@@ -845,11 +845,11 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(42150)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN" RememberProfile="true" />
 </If>
-<!--
+<If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(43183)">
-<CustomBehavior File="LoadProfile" ProfileName="Valshara\43183-[N]-[QUEST]-Wq-Starstalker_Point-Ruela" RememberProfile="true" />
-</If>-->
-
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43183-[N]-[QUEST]-Wq-Warden_Tower_Assault_Starstalkers_Point-WiN" RememberProfile="true" />
+</If>
+</If>
 <If Condition="WorldQuestInfo.HasWorldQuest(43459)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43459-[N]-[QUEST]-Wq-WANTED_Thondrax" RememberProfile="true" />
 </If>
