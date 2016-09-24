@@ -52,8 +52,6 @@
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP World Quests -->
 
 <!-- Zone Settings -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />
-doZone
 
 
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
