@@ -140,18 +140,18 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(40920)" >
 	<RunTo X="3442.122" Y="4418.466" Z="705.6793" />
-	<CustomBehavior File="KillUntilComplete" MobIds="94261" NumOfTimes="1" QuestId="40920" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(3, 40920)">
+	<CustomBehavior File="KillUntilComplete" MobIds="94261"  QuestId="40920" QuestObjectiveIndex="3" TerminateWhen="IsObjectiveComplete(3, 40920)">
 		<HuntingGrounds>
 			<Hotspot X="3442.122" Y="4418.466" Z="705.6793" />
 		</HuntingGrounds>
 	</CustomBehavior>
-		<CustomBehavior File="KillUntilComplete" MobIds="94250" NumOfTimes="1" QuestId="40920" QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(1, 40920)">
+		<CustomBehavior File="KillUntilComplete" MobIds="94250"  QuestId="40920" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 40920)">
 		<RunTo X="3481.959" Y="4424.3" Z="706.431" />
 		<HuntingGrounds>
 			<Hotspot X="3481.959" Y="4424.3" Z="706.431" />
 		</HuntingGrounds>
 	</CustomBehavior>
-	<CustomBehavior File="KillUntilComplete" MobIds="94248" NumOfTimes="1" QuestId="40920" QuestObjectiveIndex="3" TerminateWhen="IsObjectiveComplete(2, 40920)">
+	<CustomBehavior File="KillUntilComplete" MobIds="94248"  QuestId="40920" QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 40920)">
 	<RunTo X="3453.399" Y="4481.509" Z="680.9194" />
 		<HuntingGrounds>
 			<Hotspot X="3453.399" Y="4481.509" Z="680.9194" />
