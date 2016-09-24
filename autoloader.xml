@@ -895,11 +895,11 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(41566)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41566-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
-<!-- 41334 QUEST IS MISSING FROM REPO - Staal
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41334)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41334-[N]-[QUEST]-Wq-Musky_Bear_Hide-WiN" RememberProfile="true" />
 </If>
--->
+
 
 
 <!-- Emissary turnin 
