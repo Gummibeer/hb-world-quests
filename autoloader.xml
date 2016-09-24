@@ -49,7 +49,7 @@
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP/Warden Tower World Quests -->
 
 <!-- Zone Settings -->
 
@@ -947,6 +947,11 @@ removed until tested
 </If>
 </If>
 
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(43248)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43248-[A]-[QUEST]-Wq-Warden_Tower_Assault_Darkfollows_Spire-WiN" RememberProfile="true" />
+</If>
+</If>
 
 <!-- End Valshara Zone -->
 </If>
