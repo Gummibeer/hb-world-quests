@@ -381,6 +381,11 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41513)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41513-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43427)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43427-[N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner" RememberProfile="true" />
+</If>
+</If>
 
 <!-- End Azuna Zone -->
 </If>
@@ -605,23 +610,22 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="true" />
 </If>
 -->
-
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43455)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner" RememberProfile="true" />
 </If>
-
-<If Condition="WorldQuestInfo.HasWorldQuest(43427)">
-<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43427-[N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner" RememberProfile="true" />
 </If>
 
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43625)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="true" />
 </If>
-
+</If>
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43434)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43434-[N]-[QUEST]-Wq-WANTED_Fathnyr-WiN" RememberProfile="true" />
 </If>
-
+</If>
 <If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(41925)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41925-[N]-[QUEST]-Wq-Razing_Hel" RememberProfile="true" />
