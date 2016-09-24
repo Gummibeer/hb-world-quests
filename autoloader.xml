@@ -847,7 +847,7 @@ removed until tested
 </If>
 <If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(43183)">
-<CustomBehavior File="LoadProfile" ProfileName="Valshara\43183-[N]-[QUEST]-Wq-Warden_Tower_Assault_Starstalkers_Point-WiN" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43183-[A]-[QUEST]-Wq-Warden_Tower_Assault_Starstalkers_Point-WiN" RememberProfile="true" />
 </If>
 </If>
 <If Condition="WorldQuestInfo.HasWorldQuest(43459)">
