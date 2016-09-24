@@ -141,13 +141,13 @@
 	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41421)" >
 		<HuntingGrounds>
 <!-- front of tower -->
-			<Hotspot X="4290.711" Y="5898.335" Z="417.2072" />
+			<Hotspot X="4285.209" Y="5963.833" Z="508.516" />
 <!-- top of tower stairs-->
-<Hotspot X="4274.029" Y="5952.217" Z="508.5096" />
+<Hotspot X="2105.759" Y="7518.828" Z="91.91815" />
 <!-- tower balcony-->
-<Hotspot X="4303.005" Y="5974.825" Z="508.6069" />
+<Hotspot X="2082.174" Y="7546.392" Z="92.03181" />
 <!-- wider front of tower to find any last mobs to hit 100% -->
-<Hotspot X="4276.026" Y="5883.749" Z="413.1502" />
+<Hotspot X="2173.965" Y="7513.735" Z="1.547097" />
 <!-- outside - we shouldnt really need these if we run up/down the tower enough 
 <Hotspot X="4329.707" Y="5727.556" Z="432.7065" />
 <Hotspot X="4380.838" Y="5736.195" Z="419.7085" />
