@@ -126,6 +126,9 @@
 <WoWUnit Name="Forsaken Dark Ranger" Entry="103745" X="4245.93" Y="5884.34" Z="410.0181" />
 <WoWUnit Name="Forsaken Rector" Entry="103453" X="4317.455" Y="5917.848" Z="419.2583" />
 <WoWUnit Name="Forsaken Befouler" Entry="103245" X="4243.6" Y="5921.956" Z="414.2474" />
+<WoWUnit Name="Festering Abomination" Entry="103430" X="4299.979" Y="5918.348" Z="420.0585" />
+<WoWUnit Name="Forsaken Deceiver" Entry="103218" X="4235.549" Y="5940.538" Z="417.7929" />
+<WoWUnit Name="Forsaken Plaguebringer" Entry="103307" X="4283.208" Y="5960.13" Z="508.6395" />
 
 <Vendor Name="Dark Ranger Alina" Entry="104289" Type="Repair" Nav="Fly" X="4308.232" Y="5966.305" Z="508.6072" />
 <Vendor Name="Captain Grimshanks" Entry="104290" Type="Repair" Nav="Fly" X="4306.199" Y="5977.233" Z="508.6058" />
@@ -144,7 +147,7 @@
 <!-- tower balcony-->
 <Hotspot X="4303.005" Y="5974.825" Z="508.6069" />
 <!-- wider front of tower to find any last mobs to hit 100% -->
-
+<Hotspot X="4276.026" Y="5883.749" Z="413.1502" />
 <!-- outside - we shouldnt really need these if we run up/down the tower enough 
 <Hotspot X="4329.707" Y="5727.556" Z="432.7065" />
 <Hotspot X="4380.838" Y="5736.195" Z="419.7085" />
@@ -165,6 +168,9 @@
       <PursueUnit Id="103245" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="103651" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="103768" PursueWhen="!IsObjectiveComplete(1,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103430" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103218" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103307" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 <!-- Captains Rotate -->
       <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
