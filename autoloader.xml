@@ -383,10 +383,9 @@ return true;
 </If>
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43427)">
-<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43427-[N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43427-[N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner" RememberProfile="true" />
 </If>
 </If>
-
 <!-- End Azuna Zone -->
 </If>
 
