@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[A-Quest] Ruining the Runewood WorldQuest Zinner</Name>
+	<Name>[41927] Ruining the Runewood WorldQuest Zinner</Name>
 
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
@@ -155,19 +155,43 @@
 				]]>
 			</CustomBehavior>
 	
-		
+<!--
+<PickUp Nav="Fly" QuestName="Ruining the Runewood" QuestId="41927" GiverName="" GiverId="" />
+<Objective QuestName="Ruining the Runewood" QuestId="41927" Type="KillMob" Nav="Fly" MobId="98429" KillCount="25" />
+<Objective QuestName="Ruining the Runewood" QuestId="41927" Type="KillMob" Nav="Fly" MobId="98432" KillCount="13" />
+<Objective QuestName="Ruining the Runewood" QuestId="41927" Type="KillMob" Nav="Fly" MobId="98433" KillCount="7" />
+<Objective QuestName="Ruining the Runewood" QuestId="41927" Type="KillMob" Nav="Fly" MobId="98434" KillCount="5" />
+<TurnIn Nav="Fly" QuestName="Ruining the Runewood" QuestId="41927" TurnInName="" TurnInId="" />
+
+<WoWUnit Name="Bonespeaker Runeaxe" Entry="93066" X="3171.951" Y="1176.047" Z="119.7156" />
+<Vendor Name="Bonespeaker Carver" Entry="93070" Type="Repair" Nav="Fly" X="3221.698" Y="1295.063" Z="119.782" />
+<WoWUnit Name="Agitated Stonewarden" Entry="108856" X="3145.635" Y="1135.257" Z="127.7179" />
+<WoWUnit Name="Runebound Stonewarden" Entry="93344" X="3175.644" Y="1108.705" Z="123.7851" />
+-->		
+
 		<While Condition="WorldQuestInfo.HasWorldQuest(41927)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="3290.873" Y="1295.368" Z="115.2543" />
-                <PickUp Nav="Fly" QuestName="Ruining the Runewood" QuestId="41927" GiverName="" GiverId=""/>
-				<Objective QuestName="Ruining the Runewood" QuestId="41927" Type="KillMob" Nav="Fly" MobId="98429" KillCount="25" />
-				<Objective QuestName="Ruining the Runewood" QuestId="41927" Type="KillMob" Nav="Fly" MobId="98432" KillCount="13" />
-				<Objective QuestName="Ruining the Runewood" QuestId="41927" Type="KillMob" Nav="Fly" MobId="98433" KillCount="7" />
-				<Objective QuestName="Ruining the Runewood" QuestId="41927" Type="KillMob" Nav="Fly" MobId="98434" KillCount="5" />
-				<TurnIn Nav="Fly" QuestName="Ruining the Runewood" QuestId="41927" TurnInName="" TurnInId="" />
-</While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(41927)" >	
-				<RunTo X="3290.873" Y="1295.368" Z="115.2543" />	
+			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41927] WANTED: Crawshuk the Hungry!&quot;);" />
+				<RunTo X="3197.727" Y="1214.619" Z="111.8303" />
+				
+					<CustomBehavior File="InteractWith" NumOfTimes="19" QuestId="41927" TerminateWhen="IsQuestCompleted(41927)">
+		<HuntingGrounds>
+
+<Hotspot X="3162.651" Y="1142.899" Z="127.0608" />
+<Hotspot X="3013.77" Y="1107.943" Z="130.7599" />
+<Hotspot X="3041.513" Y="979.091" Z="132.083" />
+<Hotspot X="3119.272" Y="1003.855" Z="134.5793" />
+		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="93066" Priority="300" PursueWhen="!IsObjectiveComplete(1, 41927) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="93070" Priority="300" PursueWhen="!IsObjectiveComplete(1, 41927) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="108856" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41927) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="93344" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41927) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		</PursuitList>
+	</CustomBehavior>
+				
+				
+				
+<!-- leaving old one in - but it seems very wrong				
 			<CustomBehavior File="KillUntilComplete" MobIds="98429, 98432, 98433, 98434 " QuestId="41927">
 				<HuntingGrounds>
 					<Hotspot X="3175.385" Y="1283.41" Z="117.3782" />
@@ -176,8 +200,11 @@
 					<Hotspot X="2932.289" Y="1051.317" Z="126.7003" />
 					<Hotspot X="2971.947" Y="1143.843" Z="132.3299" />
 				</HuntingGrounds>
-			</CustomBehavior>
+			</CustomBehavior> -->
+							<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
+
 	
 	
 	
@@ -185,7 +212,7 @@
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41927] WANTED: Crawshuk the Hungry!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
