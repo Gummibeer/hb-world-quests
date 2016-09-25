@@ -1010,6 +1010,11 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41613-[N]-[QUEST]-Wq-Huge_Mossgill_Perch-Zinner" RememberProfile="true" />
 </If>
 
+<If Condition="doDanger">
+<If Condition="WorldQuestInfo.HasWorldQuest(43152)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43152-[N]-[QUEST]-Wq-DANGER_Lytheron-WiN" RememberProfile="true" />
+</If>
+</If>
 
 
 <!-- End Valshara Zone -->
