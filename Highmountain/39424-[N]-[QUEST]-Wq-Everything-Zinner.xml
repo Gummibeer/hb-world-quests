@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[A-Quest] Everything WorldQuest Zinner</Name>
+	<Name>[39424] Everything WorldQuest Zinner</Name>
 
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
@@ -155,7 +155,16 @@
 				]]>
 			</CustomBehavior>
 	
-		
+<!--
+<PickUp Nav="Fly" QuestName="Everything!" QuestId="39424" GiverName="" GiverId="" />
+<Objective QuestName="Everything!" QuestId="39424" Type="KillMob" Nav="Fly" MobId="95290" KillCount="13" />
+<Objective QuestName="Everything!" QuestId="39424" Type="UseObject" Nav="Fly" ObjectId="243539" UseCount="17" />
+<Objective QuestName="Everything!" QuestId="39424" Type="KillMob" Nav="Fly" MobId="96361" KillCount="13" />
+<Objective QuestName="Everything!" QuestId="39424" Type="UseObject" Nav="Fly" ObjectId="245158" UseCount="13" />
+<Objective QuestName="Everything!" QuestId="39424" Type="KillMob" Nav="Fly" MobId="96621" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="Everything!" QuestId="39424" TurnInName="" TurnInId="" />
+
+-->		
 		<While Condition="WorldQuestInfo.HasWorldQuest(39424)" >
 				<!-- Get in range of quest to activate -->
 				<RunTo X="5415.637" Y="4624.962" Z="629.0225" /> 
@@ -168,7 +177,8 @@
 				<TurnIn Nav="Fly" QuestName="Everything!" QuestId="39424" TurnInName="" TurnInId="" />
 
 </While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(39424)" >	
+		<While Condition="WorldQuestInfo.HasWorldQuest(39424)" >
+			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [39424] Everything!!&quot;);" />
 				<RunTo X="5415.637" Y="4624.962" Z="629.0225" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="95290, 96361, 96621" QuestId="39424">
 				<HuntingGrounds>
@@ -181,14 +191,18 @@
 				<Hotspot X="5660.159" Y="4250.666" Z="694.9047" />
 				</HuntingGrounds>
 			</CustomBehavior>
+							<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
+
+	
 	
 	
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [39424] Everything!!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
