@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[A-Quest] WANTED Crawshuk the Hungry WorldQuest Ksmaze</Name>
+	<Name>[44291] WANTED Crawshuk the Hungry WorldQuest Ksmaze</Name>
 
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
@@ -155,7 +155,8 @@
 				]]>
 			</CustomBehavior>
 
-		<While Condition="WorldQuestInfo.HasWorldQuest(44291)" >	
+		<While Condition="WorldQuestInfo.HasWorldQuest(44291)" >
+			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44291] WANTED: Crawshuk the Hungry!&quot;);" />
 				<RunTo X="5060.648" Y="4271.334" Z="907.0869" />	
 				<CustomBehavior File="KillUntilComplete" MobIds="97345" QuestId="44291" NonCompeteDistance="0">
 					<HuntingGrounds>
@@ -170,7 +171,7 @@
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest WANTED: Crawshuk the Hungry!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
