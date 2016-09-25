@@ -545,11 +545,7 @@ return true;
 </If>
 </If>
 
-<If Condition="doWanted">
-<If Condition="WorldQuestInfo.HasWorldQuest(43450)">
-<CustomBehavior File="LoadProfile" ProfileName="Highmountain\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="true" />
-</If>
-</If>
+
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41824)">
@@ -745,6 +741,18 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-QUEST-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="true" />
 </If>
 </If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43450)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="true" />
+</If>
+</If>
+
+
+
+
+
+
 <!-- end Stormheim Zone -->
 </If>
 
