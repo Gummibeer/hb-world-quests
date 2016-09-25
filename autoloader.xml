@@ -194,6 +194,8 @@ return true;
  
  
  <!-- Updating available Quests and use whistle before checking available WQ -->
+ <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Updating available World Quests...&quot;);" />
+<CustomBehavior File="WaitTimer" WaitTime="1000" />
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
