@@ -1,24 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <Name>World Quest Auto-Loader</Name>
 
-  <MinLevel>110</MinLevel>
-  <MaxLevel>1001</MaxLevel>
-
-  <MinDurability>0.3</MinDurability>
-  <MinFreeBagSlots>3</MinFreeBagSlots>
-  
-  <SellGrey>true</SellGrey>
-  <SellWhite>true</SellWhite>
-  <SellGreen>false</SellGreen>
-  <SellBlue>false</SellBlue>
-  <SellPurple>false</SellPurple>
-
-  <MailGrey>false</MailGrey>
-  <MailWhite>true</MailWhite>
-  <MailGreen>true</MailGreen>
-  <MailBlue>true</MailBlue>
-  <MailPurple>true</MailPurple>
-
 <AvoidMobs>
 	<Mob Name="Blerg" Entry="106629" />
 	<Mob Name="Sea Skrog" Entry="88094" />
@@ -67,7 +49,7 @@
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = true;" />   <!-- change FALSE to TRUE to let the bot do PVP/Warden Tower World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP/Warden Tower World Quests -->
 
 <!-- Zone Settings -->
 
@@ -193,12 +175,14 @@ return true;
  
  
  
- <!-- Use whistle before checking available WQ -->
+ <!-- Updating available Quests and use whistle before checking available WQ -->
+<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Moving to nearest flight master before questing...&quot;);" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="15000" />
 </If>
-
  <!-- Start infinite loop  -->
 -<While Condition="Me.MapId != 1007"> 
 
@@ -409,9 +393,6 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42160-[N]-[QUEST]-Wq-Unwelcome_Visitors-WiN" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(41268)">
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner" RememberProfile="true" />
-</If>
 
 
 
@@ -563,7 +544,11 @@ return true;
 </If>
 </If>
 
-
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43450)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="true" />
+</If>
+</If>
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41824)">
@@ -619,9 +604,7 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(41144)">
-<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41144-[N]-[QUEST]-Wq-Return_to_the_River-WiN" RememberProfile="true" />
-</If>
+
 
 
 <!-- End Highmountain Zone -->
@@ -639,13 +622,12 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="true" />
 </If>
 -->
-<!--
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43455)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner" RememberProfile="true" />
 </If>
 </If>
--->
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43625)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="true" />
@@ -759,18 +741,6 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-QUEST-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="true" />
 </If>
 </If>
-
-<If Condition="doWanted">
-<If Condition="WorldQuestInfo.HasWorldQuest(43450)">
-<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="true" />
-</If>
-</If>
-
-
-
-
-
-
 <!-- end Stormheim Zone -->
 </If>
 
