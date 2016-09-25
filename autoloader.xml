@@ -1,6 +1,24 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <Name>World Quest Auto-Loader</Name>
 
+  <MinLevel>110</MinLevel>
+  <MaxLevel>1001</MaxLevel>
+
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  
+  <SellGrey>true</SellGrey>
+  <SellWhite>true</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+
 <AvoidMobs>
 	<Mob Name="Blerg" Entry="106629" />
 	<Mob Name="Sea Skrog" Entry="88094" />
