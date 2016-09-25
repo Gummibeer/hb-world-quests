@@ -67,7 +67,7 @@
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = false;" />   <!-- change FALSE to TRUE to let the bot do PVP/Warden Tower World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = true;" />   <!-- change FALSE to TRUE to let the bot do PVP/Warden Tower World Quests -->
 
 <!-- Zone Settings -->
 
@@ -891,9 +891,19 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43183-[A]-[QUEST]-Wq-Warden_Tower_Assault_Starstalkers_Point-WiN" RememberProfile="true" />
 </If>
 </If>
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43459)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43459-[N]-[QUEST]-Wq-WANTED_Thondrax" RememberProfile="true" />
 </If>
+</If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43633)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43633-[N]-[QUEST]-Wq-WANTED_Thondrax" RememberProfile="true" />
+</If>
+</If>
+
+
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43629)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="true" />
