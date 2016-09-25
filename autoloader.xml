@@ -1006,6 +1006,12 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41995-[N]-[QUEST]-Wq-Dark_Corruption-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41613)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\41613-[N]-[QUEST]-Wq-Huge_Mossgill_Perch-Zinner" RememberProfile="true" />
+</If>
+
+
+
 <!-- End Valshara Zone -->
 </If>
 
