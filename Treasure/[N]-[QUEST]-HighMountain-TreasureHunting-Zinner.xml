@@ -1,0 +1,78 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../../Schemas/QuestProfileSchema.xsd"
+		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Name>32/40 HighMountain Treasure hunter Zinner</Name>
+  <MinLevel>110</MinLevel>
+  <MaxLevel>1001</MaxLevel>
+
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+
+  <!-- NB: Honorbuddy sells before mailing -->
+  <SellGrey>true</SellGrey>
+  <SellWhite>true</SellWhite>
+  <SellGreen>true</SellGreen>
+  <SellBlue>true</SellBlue>
+  <SellPurple>false</SellPurple>
+
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+
+<AvoidMobs>
+		<Mob Name="Magoria" Entry="110423" />
+		<Mob Name="Xandris the Dishonored" Entry="95319" />
+		<Mob Name="Boneflux" Entry="108641" />
+</AvoidMobs>
+<Blackspots>
+		
+</Blackspots>
+<Vendors>
+	
+</Vendors>
+	<QuestOrder>
+					<CustomBehavior File="InteractWith" MobIds="243798, 245536, 245537, 245529, 245531, 245534, 245535, 245538, 245541, 245545, 245547, 245551, 245554, 245555, 245580, 245603, 255828, 244429, 243688, 244519, 245524, 245527, 245528, 245532, 245533, 245542, 245550, 245553, 245579, 250541, 257978, 244446" NumOfTimes="999" >
+								<HuntingGrounds>
+<Hotspot X="3372.321" Y="4911.538" Z="692.1917" />
+<Hotspot X="3833.188" Y="3974.263" Z="920.6552" />
+<Hotspot X="4027.777" Y="4905.105" Z="633.5073" />
+<Hotspot X="4029.575" Y="4208.777" Z="803.29" />
+<Hotspot X="4034.558" Y="5100.489" Z="694.5317" />
+<Hotspot X="4054.103" Y="4672.733" Z="664.2676" />
+<Hotspot X="4072.955" Y="4358.973" Z="662.9445" />
+<Hotspot X="4501.233" Y="3939.023" Z="743.2264" />
+<Hotspot X="4557.999" Y="3898.322" Z="953.112" />
+<Hotspot X="4622.5" Y="3790.142" Z="816.6766" />
+<Hotspot X="4667.882" Y="3913.73" Z="831.2789" />
+<Hotspot X="4910.03" Y="3909.615" Z="722.843" />
+<Hotspot X="5002.241" Y="3858.773" Z="764.1339" />
+<Hotspot X="5102.644" Y="3937.784" Z="822.342" />
+<Hotspot X="5133.192" Y="4085.032" Z="799.2089" />
+<Hotspot X="5142.545" Y="4136.462" Z="732.7676" />
+<Hotspot X="5183.826" Y="4179.804" Z="964.3893" />
+<Hotspot X="5244.358" Y="4084.88" Z="702.0646" />
+<Hotspot X="5310.854" Y="4097.019" Z="929.8609" />
+<Hotspot X="5311.326" Y="4684.221" Z="656.3052" />
+<Hotspot X="5332.26" Y="4468.792" Z="688.8068" />
+<Hotspot X="5369.529" Y="5048.595" Z="652.8359" />
+<Hotspot X="5434.987" Y="4010.935" Z="807.0633" />
+<Hotspot X="5637.46" Y="4390.144" Z="707.921" />
+<Hotspot X="5669.083" Y="4495.185" Z="610.0793" />
+<Hotspot X="5675.273" Y="4705.837" Z="677.6324" />
+<Hotspot X="5805.839" Y="4599.054" Z="638.1974" />
+<Hotspot X="3533.968" Y="4596.49" Z="814.8285" />
+<Hotspot X="4540.648" Y="3990.008" Z="1124.582" />
+<Hotspot X="4535.76" Y="3984.878" Z="1124.077" />
+<Hotspot X="4138.603" Y="4498.832" Z="642.6882" />
+<Hotspot X="4159.905" Y="4502.444" Z="600.5252" />
+
+
+								</HuntingGrounds>
+  </CustomBehavior>
+	</QuestOrder>
+
+
+</HBProfile>
+
