@@ -391,6 +391,9 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42160-[N]-[QUEST]-Wq-Unwelcome_Visitors-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41268)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner" RememberProfile="true" />
+</If>
 
 
 
