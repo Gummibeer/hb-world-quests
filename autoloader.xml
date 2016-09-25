@@ -840,6 +840,12 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\43930-N-QUEST-Wq-Fiends_of_Telanor-Staal" RememberProfile="true" />
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44016)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\44016-[N]-[QUEST]-Wq-WANTED_Cadraeus-WiN" RememberProfile="true" />
+</If>
+</If>
+
 
 <!-- End Suramar Zone -->
 </If>
