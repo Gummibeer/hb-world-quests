@@ -264,9 +264,7 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42123-[N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(41927)">
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41927-[N]-[QUEST]-Wq-Ruining the Runewood-Zinner" RememberProfile="true" />
-</If>
+
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41551)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41551-[N]-[QUEST]-Wq-Slab of Bacon-Zinner" RememberProfile="true" />
@@ -724,11 +722,11 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(41536)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN" RememberProfile="true" />
 </If>
-<!-- removed due to pathing issues 
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41927)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="true" />
 </If>
--->
+
 <!-- Updated to Alliace/Horder + Talk + Grapple - removed after flightor update problem
 <If Condition="WorldQuestInfo.HasWorldQuest(41949)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-WiN" RememberProfile="true" />
