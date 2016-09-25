@@ -294,7 +294,7 @@ return true;
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43428)">
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner" RememberProfile="true" />
 </If>
 </If>
 
