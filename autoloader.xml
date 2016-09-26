@@ -768,7 +768,9 @@ removed until tested
 </If>
 </If>
 
-
+<If Condition="WorldQuestInfo.HasWorldQuest(41427)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN" RememberProfile="true" />
+</If>
 
 
 <!-- end Stormheim Zone -->
