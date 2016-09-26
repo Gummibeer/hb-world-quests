@@ -114,7 +114,17 @@
 								}
 								]]>
 							</CustomBehavior>
+<!--
 
+
+
+you can use this to enable anti drown:
+
+<CustomBehavior File="EnablePlugin" Names="Anti Drown" />
+
+dont forget to disable afterwards
+
+-->
 <While Condition="WorldQuestInfo.HasWorldQuest(44002)" >
 	<!-- Get in range of quest to activate -->
 	<RunTo X="1508.285" Y="2557.279" Z="0.0005713291" />
