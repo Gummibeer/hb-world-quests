@@ -139,7 +139,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(43248)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43248] Warden Tower Assault: Darkfollow's Spire!&quot;);" />
 	<RunTo X="2154.872" Y="7509.707" Z="4.344705" />
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(43248)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,43248)" >
 		<HuntingGrounds>
 <!-- front of tower -->
 			<Hotspot X="2154.872" Y="7509.707" Z="4.344705" />
@@ -167,11 +167,27 @@
       <PursueUnit Id="103215" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       -->
 <!-- Captains Rotate -->
-      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,43248) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,43248) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,43248) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
+      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
+      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
 	 </PursuitList>
 	</CustomBehavior>
+	
+		<CustomBehavior File="InteractWith" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2,43248)" >
+		<HuntingGrounds>
+<!-- tower balcony-->
+<Hotspot X="2082.174" Y="7546.392" Z="92.03181" />
+		</HuntingGrounds>
+		<PursuitList>
+
+<!-- Captains Rotate -->
+      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,43248)"/>
+      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,43248)"/>
+      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,43248)"/>
+	 </PursuitList>
+	</CustomBehavior>
+	
+	
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
