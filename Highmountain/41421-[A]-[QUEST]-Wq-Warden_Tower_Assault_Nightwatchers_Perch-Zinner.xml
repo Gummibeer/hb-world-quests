@@ -138,14 +138,14 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41421)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41421] Warden Tower Assault: Nightwatcher's Perch!&quot;);" />
 	<RunTo X="4289.254" Y="5948.115" Z="419.774" />
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41421)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,41421)" >
 		<HuntingGrounds>
 <!-- front of tower -->
 			<Hotspot X="4289.254" Y="5948.115" Z="419.774" />
 <!-- top of tower stairs-->
 <Hotspot X="4275.012" Y="5948.973" Z="508.4942" />
 <!-- tower balcony-->
-<Hotspot X="2082.174" Y="7546.392" Z="92.03181" />
+<Hotspot X="4290.32" Y="5983.562" Z="508.6073" />
 <!-- wider front of tower to find any last mobs to hit 100% -->
 <Hotspot X="4265.131" Y="5887.973" Z="413.2054" />
 <!-- outside - we shouldnt really need these if we run up/down the tower enough 
@@ -172,11 +172,26 @@
       <PursueUnit Id="103218" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="103307" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 <!-- Captains Rotate -->
-      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421)"/>
+      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421)"/>
+      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421)"/>
 	 </PursuitList>
 	</CustomBehavior>
+	
+	
+		<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41421)" >
+		<HuntingGrounds>
+<!-- tower balcony-->
+<Hotspot X="4290.32" Y="5983.562" Z="508.6073" />
+		</HuntingGrounds>
+		<PursuitList>
+<!-- Captains Rotate -->
+      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421)"/>
+      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421)"/>
+      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,41421)"/>
+	 </PursuitList>
+	</CustomBehavior>
+	
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
