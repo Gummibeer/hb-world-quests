@@ -1035,7 +1035,9 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41996-[N]-[QUEST]-Wq-Tangled_Nightmare-WiN" RememberProfile="true" />
 </If>
 
-
+<If Condition="WorldQuestInfo.HasWorldQuest(43759)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43759-[N]-[QUEST]-Wq-Wheres_the_Reef-WiN" RememberProfile="true" />
+</If>
 
 <!-- End Valshara Zone -->
 </If>
