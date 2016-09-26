@@ -1116,6 +1116,7 @@ removed until tested
 
  <!-- wait 10 minutes before reloading autoloader -->  
  <CustomBehavior File="WaitTimer" WaitTime="600000" />
+ <CustomBehavior File="RunCode" Code="WoWMovement.Move(WoWMovement.MovementDirection.JumpAscend);" />
  
  <!-- Initial messages, no whistle before WQ check --> 
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
