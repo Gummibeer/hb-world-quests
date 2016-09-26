@@ -633,6 +633,9 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41816)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41816-[N]-[QUEST]-Wq-DANGER_Oubdob_da_Smasher-WiN" RememberProfile="true" />
+</If>
 
 
 
