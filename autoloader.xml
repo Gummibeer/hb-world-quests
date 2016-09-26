@@ -685,7 +685,6 @@ removed until tested
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41950)">
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.DeepSkyBlue, &quot;[WQAL]: Loading profile [N]-[QUEST]-Wq-Cry_More_Thunder!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="true" />
 </If>
 
