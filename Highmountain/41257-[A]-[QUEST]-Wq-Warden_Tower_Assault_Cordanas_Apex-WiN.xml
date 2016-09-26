@@ -170,9 +170,9 @@
       <PursueUnit Id="103215" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       -->
 <!-- Captains Rotate -->
-      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
-      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
-      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
+      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,41257)"/>
+      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,41257)"/>
+      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,41257)"/>
 	 </PursuitList>
 	</CustomBehavior>
 	
