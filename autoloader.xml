@@ -761,6 +761,16 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-QUEST-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="true" />
 </If>
 </If>
+
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(43599)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN" RememberProfile="true" />
+</If>
+</If>
+
+
+
+
 <!-- end Stormheim Zone -->
 </If>
 
