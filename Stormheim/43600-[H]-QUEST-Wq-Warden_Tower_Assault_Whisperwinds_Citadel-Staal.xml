@@ -129,14 +129,8 @@
 	
 	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(43600)" >
 		<HuntingGrounds>
-<Hotspot X="4306.028" Y="2221.146" Z="153.5019" />
-<Hotspot X="4365.132" Y="2219.737" Z="151.6686" />
-<Hotspot X="4380.069" Y="2214.481" Z="240.5152" />
-<Hotspot X="4365.282" Y="2283.225" Z="139.7959" />
-<Hotspot X="4356.813" Y="2335.074" Z="121.6309" />
-
-
-
+<Hotspot X="4363.309" Y="2219.792" Z="151.6694" />
+<Hotspot X="4381.959" Y="2210.968" Z="240.412" />
 		</HuntingGrounds>
 		<PursuitList>
 
