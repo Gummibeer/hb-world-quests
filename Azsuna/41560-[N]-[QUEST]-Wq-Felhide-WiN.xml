@@ -129,6 +129,7 @@
 -->
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41560)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41560] Felhide - WiN!&quot;);" />
 	<RunTo X="5773.97" Y="4611.109" Z="672.6292" />
 <!-- maybe we dont need to fight him as he attacks us -->
 	<CustomBehavior File="KillUntilComplete" MobIds="103675" NumOfTimes="1" QuestId="41560">
@@ -151,7 +152,7 @@
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest Felhide - WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
