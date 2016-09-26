@@ -887,6 +887,10 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(43807)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\43807-[N]-[QUEST]-Wq-Withered_Wrangling_Meredil_and_Ambervale-WiN" RememberProfile="true" />
+</If>
+
 <!-- End Suramar Zone -->
 </If>
 
