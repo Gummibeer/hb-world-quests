@@ -792,6 +792,11 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(43598)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43598-[H]-QUEST-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal" RememberProfile="true" />
+</If>
+</If>
 
 <!-- end Stormheim Zone -->
 </If>
