@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] Felhide - Win</Name>
+	<Name>[42112] The Withered Return - Win</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -13,7 +13,7 @@
 	<MailGreen>true</MailGreen>
 	<MailBlue>true</MailBlue>
 	<MailPurple>true</MailPurple>
-	<TargetElites>true</TargetElites>
+	<TargetElites>false</TargetElites>
 	<QuestOrder>
 		<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 			public class WorldQuestData
@@ -114,35 +114,65 @@
 								}
 								]]>
 							</CustomBehavior>
-							
+
 
 <!--
-<WoWUnit Name="Felhide Gargantuan" Entry="103675" X="5800.007" Y="4611.271" Z="675.6729" />
-<GameObject Name="Felhide Gargantuan" Entry="248041" X="5799.173" Y="4611.306" Z="675.5233" />
+<PickUp Nav="Fly" QuestName="The Withered Return" QuestId="42112" GiverName="" GiverId="" />
+<Objective QuestName="The Withered Return" QuestId="42112" Type="KillMob" Nav="Fly" MobId="106295" KillCount="8" />
+<Objective QuestName="The Withered Return" QuestId="42112" Type="KillMob" Nav="Fly" MobId="90379" KillCount="10" />
+<TurnIn Nav="Fly" QuestName="The Withered Return" QuestId="42112" TurnInName="" TurnInId="" />
+<GameObject Name="Stolen Ley Crystals" Entry="249702" X="1127.59" Y="6592.415" Z="137.8842" />
+<Vendor Name="Withered Exile" Entry="90379" Type="Repair" Nav="Fly" X="1148.701" Y="6635.488" Z="150.8406" />
+<WoWUnit Name="Mana-Starved Whelpling" Entry="106297" X="1092.894" Y="6667.604" Z="141.8221" />
 -->
+<While Condition="WorldQuestInfo.HasWorldQuest(42112)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41536] The Withered Return - WiN!&quot;);" />
+<RunTo 	X="1162.701" Y="6625.128" Z="148.0722" />
 
-<While Condition="WorldQuestInfo.HasWorldQuest(41560)" >
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41560] Felhide - WiN!&quot;);" />
-	<RunTo X="5773.97" Y="4611.109" Z="672.6292" />
-	<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="IsQuestCompleted(41560)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="12" MobState="Dead" QuestId="42112" TerminateWhen="IsObjectiveComplete(2, 42112)">
 		<HuntingGrounds>
-<Hotspot X="5800.007" Y="4611.271" Z="675.6729" />
+<Hotspot X="1137.132" Y="6696.895" Z="163.2777" />
+<Hotspot X="1079.709" Y="6900.361" Z="176.0003" />
 		</HuntingGrounds>
 		<PursuitList>
-			<PursueUnit Id="103675" PursueWhen="!IsObjectiveComplete(1,41560) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-			<PursueGameObject Id="248041" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41560) &amp;&amp; (GAMEOBJECT.IsValid)" />
+			<PursueUnit Id="90379" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42112) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueGameObject Id="249702" PursueWhen="!IsObjectiveComplete(1, 42112) &amp;&amp; GAMEOBJECT.IsValid"/>
+<!--			<PursueGameObject Id="249702" PursueWhen="!IsObjectiveComplete(2, 41691) &amp;&amp; GAMEOBJECT.IsValid"/> -->
+
+<If Condition="HasItem(249702) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 249702).CooldownTimeLeft.TotalMilliseconds == 0" >
+    <PursueUnit Id="106297" Priority="100" PursueWhen="!IsObjectiveComplete(1, 42112)"/>
+    <PursueGameObject Id="106297" PursueWhen="!IsObjectiveComplete(1, 41691) &amp;&amp; GAMEOBJECT.IsValid"/>
+</If>
 		</PursuitList>
 	</CustomBehavior>
-	
+
+	<CustomBehavior File="InteractWith" NumOfTimes="8" QuestId="42112" TerminateWhen="IsObjectiveComplete(1, 42112)">
+		<HuntingGrounds>
+<Hotspot X="1020.19" Y="6945.338" Z="175.5448" />
+<Hotspot X="1029.499" Y="6995.663" Z="173.4862" />
+<Hotspot X="1137.132" Y="6696.895" Z="163.2777" />
+<Hotspot X="1157.48" Y="6815.136" Z="162.4004" />
+<Hotspot X="1149.751" Y="6731.744" Z="161.8296" />
+<Hotspot X="1149.751" Y="6731.744" Z="161.8296" />
+		</HuntingGrounds>
+		<PursuitList>
+			<PursueGameObject Id="249702" PursueWhen="!IsObjectiveComplete(1, 42112) &amp;&amp; GAMEOBJECT.IsValid"/>
+    <PursueUnit Id="106297" Priority="100" PursueWhen="!IsObjectiveComplete(1, 42112)"/>
+    <PursueGameObject Id="106297" PursueWhen="!IsObjectiveComplete(1, 41691) &amp;&amp; GAMEOBJECT.IsValid"/>
+			
+		</PursuitList>
+	</CustomBehavior>
 
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+
 </While>
+	<RunTo X="1076.774" Y="6906.073" Z="176.2846" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest Felhide - WiN!&quot;);" />
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest The Withered Return - WiN!, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
