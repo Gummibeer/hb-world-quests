@@ -232,6 +232,11 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41560)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41560-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(42624)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42624-[N]-[QUEST]-Wq-Heads_of_the_Fleet-Staal" RememberProfile="true" />
+</If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41520)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41520-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
