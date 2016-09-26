@@ -639,6 +639,12 @@ return true;
 </If>
 </If>
 
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(41257)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41257-[A]-[QUEST]-Wq-Warden_Tower_Assault_Cordanas_Apex-WiN" RememberProfile="true" />
+</If>
+</If>
+
 
 <!-- End Highmountain Zone -->
 </If>
