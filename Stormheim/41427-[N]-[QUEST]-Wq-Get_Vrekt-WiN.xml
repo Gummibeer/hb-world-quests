@@ -132,8 +132,7 @@
 	<RunTo X="1747.316" Y="630.53" Z="7.076106" />
 	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="IsQuestCompleted(41427)" >
 		<HuntingGrounds>
-			<Hotspot X="1715.841" Y="678.533" Z="10.22908" />
-			<Hotspot  X="1249.285" Y="6833.257" Z="120.9147" />
+		<Hotspot X="1740.732" Y="756.7278" Z="21.53387" />
 <Hotspot X="1748.913" Y="768.148" Z="28.59212" />
 <Hotspot X="1721.801" Y="685.963" Z="12.60116" />
 <Hotspot X="1813.663" Y="770.9971" Z="72.47008" />
