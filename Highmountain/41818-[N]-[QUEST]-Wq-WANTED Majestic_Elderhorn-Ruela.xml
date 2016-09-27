@@ -176,7 +176,8 @@ Before end of run
 
 
 </While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(41818)" >	
+		<While Condition="WorldQuestInfo.HasWorldQuest(41818)" >
+			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41818] WANTED: Majestic Elderhorn - Ruela!&quot;);" />
 				<RunTo X="5411.453" Y="4332.861" Z="682.6898"  />		
 			<CustomBehavior File="KillUntilComplete" MobIds="96410" QuestId="41818">
 				<HuntingGrounds>
@@ -189,7 +190,7 @@ Before end of run
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 						
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 41428-[N]-[QUEST]-Wq-Unstable-Portal-WiN, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41818] WANTED: Majestic Elderhorn - Ruela!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 	</QuestOrder>
 </HBProfile>
