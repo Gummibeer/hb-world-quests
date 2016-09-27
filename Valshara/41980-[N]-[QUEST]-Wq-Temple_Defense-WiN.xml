@@ -139,7 +139,7 @@
 <WoWUnit Name="Gravax the Desecrator" Entry="92802" X="2956.257" Y="6509.627" Z="206.4749" /> avoid this elite
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41980)" >
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41536] Temple Defense - WiN!&quot;);" />
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41980] Temple Defense - WiN!&quot;);" />
 <RunTo X="2896.689" Y="6441.658" Z="212.1233" />
 
 	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="IsQuestCompleted(41980)">
@@ -169,7 +169,7 @@
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest Temple Defense - WiN!, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41980] Temple Defense - WiN!, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
