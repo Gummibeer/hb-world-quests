@@ -444,6 +444,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41437-[N]-[QUEST]-Wq-Fine_Leystone_Deposits-Zinner" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(42026)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42026-[N]-[QUEST]-Wq-Faronaar_in_Ruin-WiN" RememberProfile="true" />
+</If>
+
 <!-- End Azuna Zone -->
 </If>
 
