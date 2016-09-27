@@ -156,9 +156,9 @@
 			</CustomBehavior>
 	
 <!--
-<Vendor Name="Felskorn Raider" Entry="108306" Type="Repair" Nav="Fly" X="3409.978" Y="2428.722" Z="241.0467" />
-<Vendor Name="Bloodtotem Skirmisher" Entry="108289" Type="Repair" Nav="Fly" X="3413.757" Y="2431.811" Z="241.2613" />
-<Vendor Name="Mightstone Savage" Entry="108283" Type="Repair" Nav="Fly" X="3443.967" Y="2479.531" Z="259.1943" />
+<Vendor Name="Felskorn Raider" Entry="108306" Type="Repair" Nav="Fly" X="3409.978" Y="2428.722" Z="241.0467" /> 3
+<Vendor Name="Bloodtotem Skirmisher" Entry="108289" Type="Repair" Nav="Fly" X="3413.757" Y="2431.811" Z="241.2613" /> 2
+<Vendor Name="Mightstone Savage" Entry="108283" Type="Repair" Nav="Fly" X="3443.967" Y="2479.531" Z="259.1943" /> 1
 -->
 	
 		<While Condition="WorldQuestInfo.HasWorldQuest(41926)" >
@@ -176,15 +176,19 @@
 				
 					<CustomBehavior File="InteractWith" NumOfTimes="13" QuestId="41926" TerminateWhen="IsQuestCompleted(41926)">
 		<HuntingGrounds>
-<Hotspot X="2254.566" Y="6833.607" Z="119.8187" />
+<!-- <Hotspot X="2254.566" Y="6833.607" Z="119.8187" />
 <Hotspot X="2143.868" Y="6858.059" Z="102.6098" />
 <Hotspot X="2117.691" Y="6896.333" Z="92.03596" />
 <Hotspot X="2171.211" Y="6896.655" Z="104.4865" />
 <Hotspot X="2215.741" Y="6841.834" Z="112.779" />
+
 <Hotspot X="2277.484" Y="6809.455" Z="124.5197" />
-<Hotspot X="3362.431" Y="2424.786" Z="242.671" />
-<Hotspot X="3478.402" Y="2499.395" Z="268.9011" />
-<Hotspot X="3553.364" Y="2469.586" Z="270.6926" />
+-->
+<Hotspot X="3387.156" Y="2484.368" Z="256.5084" />
+<Hotspot X="3465.622" Y="2516.976" Z="271.6886" />
+<Hotspot X="3507.913" Y="2473.944" Z="266.0974" />
+<Hotspot X="3561.494" Y="2456.71" Z="270.5084" />
+<Hotspot X="3507.921" Y="2546.24" Z="287.8083" />
 		</HuntingGrounds>
 		<PursuitList>
 			<PursueUnit Id="108306" Priority="300" PursueWhen="!IsObjectiveComplete(3, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
