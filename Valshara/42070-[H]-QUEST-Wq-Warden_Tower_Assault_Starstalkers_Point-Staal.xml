@@ -123,19 +123,18 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(42070)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42070] Warden Tower Assault: Starstalker's Point - Staal!&quot;);" />
-	<RunTo X="3227.755" Y="7848.925" Z="0.8750283" />
-	
-
-	
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(42070)" >
+	<!--<RunTo X="3240.585" Y="7842.189" Z="3.810286" />-->
+	<RunTo X="3394.486" Y="7753.728" Z="35.74711" />
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,42070)" >
 		<HuntingGrounds>
-<Hotspot X="3379.873" Y="7823.901" Z="40.91405" />
-<Hotspot X="3428.533" Y="7737.517" Z="36.42136" />
-<Hotspot X="3496.54" Y="7712.064" Z="33.55333" />
-<Hotspot X="3515.648" Y="7713.998" Z="38.85548" />
-<Hotspot X="3466.652" Y="7758.23" Z="31.55824" />
-<Hotspot X="3470.756" Y="7755.542" Z="120.3005" />
-<Hotspot X="3452.883" Y="7738.208" Z="120.3901" />
+<!-- front of tower -->
+<Hotspot X="3426.77" Y="7771.613" Z="31.17765" />
+<!-- top of tower stairs-->
+<Hotspot X="3471.545" Y="7770.477" Z="120.2678" />
+<!-- tower balcony-->
+<Hotspot X="3485.813" Y="7752.676" Z="120.2996" />
+<!-- wider front of tower to find any last mobs to hit 100% -->
+<Hotspot X="3394.486" Y="7753.728" Z="35.74711" />
 		</HuntingGrounds>
 		<PursuitList>
 
@@ -145,7 +144,8 @@
       <PursueUnit Id="102877" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102867" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102872" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102876" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> 
+ <!--
+	  <PursueUnit Id="102876" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> 
       <PursueUnit Id="102865" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102869" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102874" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
@@ -153,11 +153,22 @@
       <PursueUnit Id="102866" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102871" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102875" PursueWhen="!IsObjectiveComplete(1,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	  
+-->
       <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 		</PursuitList>
+	</CustomBehavior>
+		<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(2,42070)" >
+		<HuntingGrounds>
+<!-- tower balcony-->
+<Hotspot X="3485.813" Y="7752.676" Z="120.2996" />
+	</HuntingGrounds>
+		<PursuitList>
+	<PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,42070) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	</PursuitList>
 	</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
