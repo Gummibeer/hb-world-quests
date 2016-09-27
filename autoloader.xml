@@ -440,7 +440,9 @@ return true;
 </If>
 
 <!-- Add new Azuna WQ here to be checked -->
-
+<If Condition="WorldQuestInfo.HasWorldQuest(41437)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41437-[N]-[QUEST]-Wq-Fine_Leystone_Deposits-Zinner" RememberProfile="true" />
+</If>
 
 <!-- End Azuna Zone -->
 </If>
@@ -665,11 +667,14 @@ return true;
 </If>
 </If>
 
+
+
+<!-- Add new Highmountain WQ here to be checked -->
+
 <If Condition="WorldQuestInfo.HasWorldQuest(42086)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42086-[N]-[QUEST]-Wq-The_Feltotem-WiN" RememberProfile="true" />
 </If>
 
-<!-- Add new Highmountain WQ here to be checked -->
 
 <!-- End Highmountain Zone -->
 </If>
