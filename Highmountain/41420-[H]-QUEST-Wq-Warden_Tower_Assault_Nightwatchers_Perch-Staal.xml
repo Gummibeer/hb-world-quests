@@ -127,15 +127,8 @@
 	
 
 	
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41420)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,41420)" >
 		<HuntingGrounds>
-<Hotspot X="4329.707" Y="5727.556" Z="432.7065" />
-<Hotspot X="4380.838" Y="5736.195" Z="419.7085" />
-<Hotspot X="4423.6" Y="5819.86" Z="398.8525" />
-<Hotspot X="4282.579" Y="5856.775" Z="403.4716" />
-<Hotspot X="4236.574" Y="5937.074" Z="417.463" />
-<Hotspot X="4200.645" Y="5940.013" Z="411.6289" />
-<Hotspot X="4193.287" Y="5940.76" Z="412.8269" />
 <Hotspot X="4298.676" Y="5903.26" Z="418.4761" />
 <Hotspot X="4285.209" Y="5963.833" Z="508.516" />
 <Hotspot X="4277.517" Y="5982.294" Z="508.6069" />
@@ -149,6 +142,7 @@
       <PursueUnit Id="102877" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102867" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102872" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<!--
       <PursueUnit Id="102876" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> 
       <PursueUnit Id="102865" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102869" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
@@ -157,12 +151,25 @@
       <PursueUnit Id="102866" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102871" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102875" PursueWhen="!IsObjectiveComplete(1,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	  
+-->	  
       <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 		</PursuitList>
 	</CustomBehavior>
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(2,41420)" >
+		<HuntingGrounds>
+	<Hotspot X="4277.517" Y="5982.294" Z="508.6069" />
+    <Hotspot X="4310.147" Y="5963.3" Z="508.6058" />
+	</HuntingGrounds>
+		<PursuitList>
+	<PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,41420) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	</PursuitList>
+	</CustomBehavior>
+	
+	
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
