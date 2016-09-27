@@ -1143,7 +1143,9 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41553-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
 </If>
 
-
+<!--<If Condition="WorldQuestInfo.HasWorldQuest(41293)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\41293-[N]-[QUEST]-Wq-Supplies Needed Dreamleaf-Zinner-BUY 40 Dreamleaf from ah" RememberProfile="true" />
+</If> -->
 
 <!-- End Valshara Zone -->
 </If>
