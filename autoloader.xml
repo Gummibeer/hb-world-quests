@@ -681,6 +681,11 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42086-[N]-[QUEST]-Wq-The_Feltotem-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41145)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41145-[N]-[QUEST]-Wq-Water_of_Life-WiN" RememberProfile="true" />
+</If>
+
+
 
 <!-- End Highmountain Zone -->
 </If>
