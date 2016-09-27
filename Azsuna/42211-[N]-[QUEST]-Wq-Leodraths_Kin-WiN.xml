@@ -132,7 +132,7 @@
 <WoWUnit Name="Inactive Construct" Entry="106689" X="-419.6788" Y="5482.096" Z="44.7432" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42211)" >
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42211] A Cleansing Cocktail - WiN!&quot;);" />
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42211] Leodrath's Kin - WiN!&quot;);" />
 	<RunTo X="-439.268" Y="5380.945" Z="71.93523" />
 	<CustomBehavior File="InteractWith" NumOfTimes="30" QuestId="42211" TerminateWhen="IsQuestCompleted(42211)">
 		<HuntingGrounds>
@@ -154,6 +154,8 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42211] Leodrath's Kin - WiN!&quot;);" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
