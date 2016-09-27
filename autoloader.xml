@@ -191,7 +191,7 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;| JOIN US ON DISCORD TO HELP/COMPLAIN/COMPLIMENT US |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            https://discord.gg/u3QaKTq             |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
-<CustomBehavior File="WaitTimer" WaitTime="5000" />
+<CustomBehavior File="WaitTimer" WaitTime="2000" />
 
  <!-- Auto SVN --> 
  <If Condition="SVN">
