@@ -154,7 +154,16 @@
 
 				]]>
 			</CustomBehavior>
-	
+<!--
+starts run her e- dangerous
+<Hotspot X="5545.835" Y="4296.509" Z="659.2872" />
+<Hotspot X="5700.853" Y="4140.351" Z="629.4889" />
+
+Before end of run
+<Hotspot X="5547.557" Y="4484.596" Z="661.3074" />
+<Hotspot X="5595.919" Y="4514.894" Z="655.2775" />
+<Vendor Name="Majestic Elderhorn" Entry="96410" Type="Repair" Nav="Fly" X="5392.317" Y="4361.162" Z="687.0646" />
+-->	
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41818)" >
 				<!-- Get in range of quest to activate -->
@@ -171,7 +180,7 @@
 				<RunTo X="5411.453" Y="4332.861" Z="682.6898"  />		
 			<CustomBehavior File="KillUntilComplete" MobIds="96410" QuestId="41818">
 				<HuntingGrounds>
-					<Hotspot X="5409.487" Y="4343.604" Z="685.0143" />
+					<Hotspot X="5420.206" Y="4380.419" Z="687.8645" />
 				</HuntingGrounds>
 			</CustomBehavior>
 		</While>
