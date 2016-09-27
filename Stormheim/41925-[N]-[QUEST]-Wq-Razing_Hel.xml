@@ -118,6 +118,7 @@
 
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41925)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41925] Razing Hel - KsMaze!&quot;);" />
 	<If Condition="Me.ZoneId != 7588">
 		<RunTo X="3644.663" Y="769.9812" Z="-4.944822"  />
 		<CustomBehavior File="GoThruPortal" X="3657.719" Y="757.5208" Z="-14.93305" />
@@ -151,11 +152,16 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
 </While>
+<If Condition="Me.ZoneId == 7588">
+  <RunTo X="338.0819" Y="349.2834" Z="30.69886" />
+<!-- <GameObject Name="Portal to Stormheim" Entry="241755" X="332.6701" Y="340.4306" Z="24.73227" /> -->
+  <CustomBehavior File="GoThruPortal" X="332.6701" Y="340.4306" Z="24.73227" />
+ </If>       
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41925] Razing Hel - KsMaze!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
