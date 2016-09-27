@@ -62,15 +62,17 @@
 
 <QuestOrder>
 
-<!-- Settings: -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = false;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
+<!-- SVN Settings -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool SVN = false;" />   <!-- change FALSE to TRUE to let the bot auto-update WQ from the SVN -->
+
+<!-- Profile Settings: -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change FALSE to TRUE to let the bot do DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = true;" />   <!-- change FALSE to TRUE to let the bot do Level 112 Elite DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = true;" />   <!-- change FALSE to TRUE to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change FALSE to TRUE to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = true;" />   <!-- change FALSE to TRUE to let the bot do PVP/Warden Tower World Quests -->
 
 <!-- Zone Settings -->
-
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doAzsuna = true;" />
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doHighmountain = true;" />
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doStormheim = true;" />
@@ -190,8 +192,18 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            https://discord.gg/u3QaKTq             |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="5000" />
- 
- 
+
+ <!-- Auto SVN --> 
+ <If Condition="SVN">
+<CustomBehavior File="UserDialog" AllowBotStop="false" SoundCue="Exclamation" SoundCueInterval="15" ExpiryTime="15" ExpiryAction="InputEnabled_Continue" Text="Verify the following points to auto-update World Quest profiles:\n\n1) TortoiseSVN is installed on your computer\n\n2) Wold Quest profiles are located in '\Honorbuddy\world-quests\\n\n3) 'update.bat' is located in '\Honorbuddy\world-quests\" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Updating WQ profiles from the SVN...&quot;);" />
+<CustomBehavior File="RunCode">
+    <![CDATA[
+        Process.Start(@"world-quests\\updater.bat");
+    ]]>
+</CustomBehavior>
+<CustomBehavior File="WaitTimer" WaitTime="5000" />
+</If> 
  
  <!-- Updating available Quests and use whistle before checking available WQ -->
  <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Updating available World Quests...&quot;);" />
