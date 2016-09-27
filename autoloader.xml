@@ -8,7 +8,7 @@
   <MinFreeBagSlots>3</MinFreeBagSlots>
   
   <SellGrey>true</SellGrey>
-  <SellWhite>true</SellWhite>
+  <SellWhite>false</SellWhite>
   <SellGreen>false</SellGreen>
   <SellBlue>false</SellBlue>
   <SellPurple>false</SellPurple>
