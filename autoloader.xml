@@ -509,6 +509,12 @@ return true;
 </If>
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(41826)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41826-[N]-[QUEST]-Wq-WANTED_Crawshuk_the_Hungry" RememberProfile="true" />
+</If>
+</If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41705)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41705-[N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex" RememberProfile="true" />
 </If>
