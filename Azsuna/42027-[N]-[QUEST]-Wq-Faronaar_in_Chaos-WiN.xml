@@ -134,12 +134,15 @@
 <WoWUnit Name="Mo'arg Crusher" Entry="103176" X="-279.5198" Y="7250.605" Z="11.90185" />
 <WoWUnit Name="Fel Seeker" Entry="89731" X="-235.9201" Y="7241.768" Z="16.69974" />
 <WoWUnit Name="Nar'thalas Nightwatcher" Entry="106090" X="-274.7472" Y="7244.661" Z="11.84686" />
+<GameObject Name="Soul Prison" Entry="249421" X="-283.3455" Y="7259.393" Z="12.37236" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42027)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42027] Faronaar in Chaos - WiN!&quot;);" />
-	<RunTo X="-484.5373" Y="7268.877" Z="17.16139" />
+	<RunTo X="-279.2425" Y="7257.696" Z="11.5102" />
 	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="IsQuestCompleted(42027)" >
 		<HuntingGrounds>
+			
+<Hotspot 	X="-279.2425" Y="7257.696" Z="11.5102" />
 <Hotspot X="-484.5373" Y="7268.877" Z="17.16139" />
 <Hotspot X="-398.8654" Y="7294.337" Z="26.18736" />
 
@@ -160,6 +163,8 @@
 			<PursueUnit Id="103176" PursueWhen="!IsObjectiveComplete(1,42027) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 			<PursueUnit Id="249411" PursueWhen="!IsObjectiveComplete(1,42027)"/>
 			<PursueGameObject Id="249411" Priority="100" PursueWhen="!IsObjectiveComplete(1,42027)" />
+			<PursueUnit Id="249421" PursueWhen="!IsObjectiveComplete(1,42027)"/>
+			<PursueGameObject Id="249421" Priority="100" PursueWhen="!IsObjectiveComplete(1,42027)" />
 
 		</PursuitList>
 	</CustomBehavior>
