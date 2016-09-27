@@ -424,6 +424,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42027-[N]-[QUEST]-Wq-Faronaar_in_Chaos-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41268)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner" RememberProfile="true" />
+</If>
+
 
 <!-- End Azuna Zone -->
 </If>
