@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] Crawliac's Legacy - Win</Name>
+	<Name>[41622] Crawliac's Legacy - Win</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -114,18 +114,6 @@
 								}
 								]]>
 							</CustomBehavior>
-<While Condition="WorldQuestInfo.HasWorldQuest(41622)" >
-	<!-- Get in range of quest to activate -->
-	<RunTo X="4935.367" Y="4059.457" Z="810.958" />
-
-<PickUp Nav="Fly" QuestName="Crawliac's Legacy" QuestId="41622" GiverName="" GiverId="" />
-<Objective QuestName="Crawliac's Legacy" QuestId="41622" Type="KillMob" Nav="Fly" MobId="94983" KillCount="8" />
-<Objective QuestName="Crawliac's Legacy" QuestId="41622" Type="KillMob" Nav="Fly" MobId="94986" KillCount="3" />
-<Objective QuestName="Crawliac's Legacy" QuestId="41622" Type="KillMob" Nav="Fly" MobId="104531" KillCount="3" />
-<TurnIn Nav="Fly" QuestName="Crawliac's Legacy" QuestId="41622" TurnInName="" TurnInId="" />
-</While>
-
-
 <!--
 <Vendor Name="Crawliac Skywitch" Entry="94983" Type="Repair" Nav="Fly" X="4950.179" Y="4109.878" Z="819.1556" />
 <Vendor Name="Crawliac Doomwailer" Entry="94984" Type="Repair" Nav="Fly" X="5080.569" Y="4152.14" Z="815.6488" />
@@ -134,9 +122,9 @@
 
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41622)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41622] Crawliac's Legacy - WiN!&quot;);" />
 	<RunTo X="4935.367" Y="4059.457" Z="810.958" />
-	<CustomBehavior File="InteractWith" MobIds="104531" NumOfTimes="3" QuestId="41622" QuestObjectiveIndex="3" TerminateWhen="IsObjectiveComplete(3, 41622)">
-		<RunTo X="4935.367" Y="4059.457" Z="810.958" />
+		<CustomBehavior File="InteractWith" NumOfTimes="20" TerminateWhen="IsQuestCompleted(41622)" >
 		<HuntingGrounds>
 			<Hotspot X="4975.211" Y="4032.384" Z="793.4526" />
 			<Hotspot X="4982.735" Y="4050.472" Z="795.8301" />
@@ -144,28 +132,21 @@
 			<Hotspot X="5037.543" Y="4073.083" Z="793.3027" />
 			<Hotspot X="5072.734" Y="4081.304" Z="792.8069" />
 			<Hotspot X="5119.052" Y="4051.121" Z="794.8028" />
-<Hotspot X="5083.27" Y="3976.329" Z="810.4144" />
-		</HuntingGrounds>
-	</CustomBehavior>
-	<CustomBehavior File="KillUntilComplete" MobIds="94986" QuestId="41622" TerminateWhen="IsObjectiveComplete(2, 41622)">
-		<HuntingGrounds>
-			<Hotspot X="4975.211" Y="4032.384" Z="793.4526" />
-			<Hotspot X="4982.735" Y="4050.472" Z="795.8301" />
-			<Hotspot X="4995.577" Y="4061.534" Z="794.6678" />
-			<Hotspot X="5037.543" Y="4073.083" Z="793.3027" />
-			<Hotspot X="5072.734" Y="4081.304" Z="792.8069" />
-			<Hotspot X="5119.052" Y="4051.121" Z="794.8028" />
-<Hotspot X="5083.27" Y="3976.329" Z="810.4144" />
-		</HuntingGrounds>
-	</CustomBehavior>
-	<CustomBehavior File="KillUntilComplete" MobIds="94983, 94984" QuestId="41622" TerminateWhen="IsObjectiveComplete(1, 41622)">
-		<HuntingGrounds>
-<Hotspot X="4967.02" Y="4195.427" Z="830.2675" />
+			<Hotspot X="5083.27" Y="3976.329" Z="810.4144" />
+			<Hotspot X="4967.02" Y="4195.427" Z="830.2675" />
 <Hotspot X="4999.645" Y="4149.365" Z="817.8188" />
 <Hotspot X="5036.618" Y="4169.89" Z="819.3353" />
-
 		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="104531" Priority="100" PursueWhen="!IsObjectiveComplete(3,41622)" />
+			<PursueUnit Id="94986" PursueWhen="!IsObjectiveComplete(2,41622) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+			<PursueUnit Id="94983" PursueWhen="!IsObjectiveComplete(1,41622) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+			<PursueUnit Id="94984" PursueWhen="!IsObjectiveComplete(1,41622) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+		</PursuitList>
 	</CustomBehavior>
+	
+	
+
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
@@ -173,7 +154,7 @@
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest Crawliac's Legacy - WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
