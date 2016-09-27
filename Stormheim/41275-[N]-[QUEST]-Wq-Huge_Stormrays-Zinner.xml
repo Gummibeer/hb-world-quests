@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[A-Quest] Huge Stormrays WorldQuest Zinner</Name>
+	<Name>[41275] Huge Stormrays WorldQuest Zinner</Name>
 
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
@@ -155,18 +155,20 @@
 				]]>
 		</CustomBehavior>
 <While Condition="WorldQuestInfo.HasWorldQuest(41275)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41275] Huge Stormrays - Zinner!&quot;);" />
 			<RunTo X="2800.239" Y="2326.954" Z="141.8846" />		
 			<CustomBehavior File="MrFishIt" X="2784.717" Y="2322.08" Z="142.458" CollectItemId="41275" CollectItemCount="10" QuestId="41275" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
 
 
 </CustomBehavior>
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41613] Huge Mossgill Perch - Zinner!&quot;);" />
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41275] Huge Stormrays - Zinner!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>

@@ -798,6 +798,11 @@ removed until tested
 </If>
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41275)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner" RememberProfile="true" />
+</If>
+
+
 <!-- end Stormheim Zone -->
 </If>
 
