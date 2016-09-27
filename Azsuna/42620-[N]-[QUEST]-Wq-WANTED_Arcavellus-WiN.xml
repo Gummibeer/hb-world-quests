@@ -133,6 +133,7 @@ then boss
 </While>
  
 <While Condition="WorldQuestInfo.HasWorldQuest(42620)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42620] WANTED: Arcavellus - WiN!&quot;);" />
     <RunTo X="1268.48" Y="5892.569" Z="13.17953" />
     <CustomBehavior File="KillUntilComplete" MobIds="90244,90243,90242" QuestId="42620" TerminateWhen="IsObjectiveComplete(1, 42620)">
         <HuntingGrounds>
@@ -146,7 +147,7 @@ then boss
 		<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 	</If>
                         
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-WANTED_Arcavellus-WiN, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest WANTED: Arcavellus - WiN, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
