@@ -213,6 +213,16 @@ return true;
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Azsuna...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
 
+<!-- start azsuna --> 
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41268)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41435)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner" RememberProfile="true" />
+</If>
+
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(43027)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="true" />
@@ -261,8 +271,8 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42211-[N]-[QUEST]-Wq-Leodraths_Kin-WiN" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(42101)">
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42101-[N]-[QUEST]-Wq-Mixology-Mix-up-Aszuna-WiN" RememberProfile="true" />
+<If Condition="WorldQuestInfo.HasWorldQuest(42105)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42105-[N]-[QUEST]-Wq-Mixology-Mix-up-Aszuna-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42123)">
@@ -313,12 +323,13 @@ return true;
 </If>
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(41435)">
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner" RememberProfile="true" />
-</If>
-
 <If Condition="WorldQuestInfo.HasWorldQuest(41483)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41483-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="true" />
+</If>
+
+<!-- does still exist with ID 41482? -->
+<If Condition="WorldQuestInfo.HasWorldQuest(41482)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41482-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41496)">
@@ -395,6 +406,10 @@ return true;
 </If>
  -->
 
+<If Condition="WorldQuestInfo.HasWorldQuest(42112)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42112-[N]-[QUEST]-Wq-The_Withered_Return-WiN.xml" RememberProfile="true" />
+</If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(42108)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42108-[N]-[QUEST]-Wq-Rally_the_Nightwatch-ksmaze" RememberProfile="true" />
 </If>
@@ -424,9 +439,7 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42027-[N]-[QUEST]-Wq-Faronaar_in_Chaos-WiN" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(41268)">
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner" RememberProfile="true" />
-</If>
+<!-- Add new Azuna WQ here to be checked -->
 
 
 <!-- End Azuna Zone -->
@@ -448,7 +461,7 @@ return true;
 </If>
 
 <If Condition="doPVP">
-<If Condition="WorldQuestInfo.HasWorldQuest(41091)">
+<If Condition="WorldQuestInfo.HasWorldQuest(41420)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41420-[H]-QUEST-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Staal" RememberProfile="true" />
 </If>
 </If>
@@ -475,7 +488,6 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44292-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="true" />
 </If>
 </If>
-
 
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(41844)">
@@ -506,11 +518,17 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41622)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="true" />
 </If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41416)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN" RememberProfile="true" />
 </If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41095)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41095-[N]-[QUEST]-Wq-Critical_Crops-WiN" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41144)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41144-[N]-[QUEST]-Wq-Return_to_the_River-WiN" RememberProfile="true" />
 </If>
 
 <If Condition="doDanger">
@@ -530,8 +548,6 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41228)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41228-[N]-[QUEST]-Wq-Foxflower_Cluster-WiN" RememberProfile="true" />
 </If>
-
-
 
 <If Condition="WorldQuestInfo.HasWorldQuest(40920)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40920-[N]-[QUEST]-Wq-Stonebinder_Bounty-Codex" RememberProfile="true" />
@@ -601,7 +617,7 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41550-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(41550)">
+<If Condition="WorldQuestInfo.HasWorldQuest(40980)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN" RememberProfile="true" />
 </If>
 
@@ -649,11 +665,15 @@ return true;
 </If>
 </If>
 
+<!-- Add new Highmountain WQ here to be checked -->
 
 <!-- End Highmountain Zone -->
 </If>
 
 
+
+
+<!-- Stormheim Zone -->
 
 <If Condition="doStormheim">
 <!-- Stormheim -->
@@ -770,9 +790,11 @@ removed until tested
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41569-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
 
+<!-- Should be in Suramar, will check later  
 <If Condition="WorldQuestInfo.HasWorldQuest(41556)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
-</If>
+</If> -->
+
 <!-- taken out of loader due to odd repeat patterns
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(42806)">
@@ -857,8 +879,8 @@ removed until tested
 </If>
 
 <If Condition="doWanted">
-<If Condition="WorldQuestInfo.HasWorldQuest(43607)">
-<CustomBehavior File="LoadProfile" ProfileName="Suramar\43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="true" />
+<If Condition="WorldQuestInfo.HasWorldQuest(44013)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\44013-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="true" />
 </If>
 </If>
 <!--
@@ -866,6 +888,12 @@ removed until tested
 <If Condition="WorldQuestInfo.HasWorldQuest(44028)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\44028-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-WiN" RememberProfile="true" />
 </If>
+</If>
+-->
+
+<!-- doesnt work?
+<If Condition="WorldQuestInfo.HasWorldQuest(41557)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\41557-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN.xml" RememberProfile="true" />
 </If>
 -->
 
@@ -1110,7 +1138,7 @@ removed until tested
 
 
 -->
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Green, &quot;===================EMISSARY CHECK===================&quot;);" />		
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking if Emissary quests are completed...&quot;);" />
 <If Condition="(HasQuest(42233) &amp;&amp; IsQuestCompleted(42233)) || 
 	(HasQuest(42234) &amp;&amp; IsQuestCompleted(42234)) || 
 	(HasQuest(42422) &amp;&amp; IsQuestCompleted(42422)) || 
