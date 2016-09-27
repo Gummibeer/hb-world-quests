@@ -1,0 +1,175 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>[41980] Temple Defense - Win</Name>
+	<AvoidMobs>
+	<Mob Name="Gravax the Desecrator" Entry="92802" />
+</AvoidMobs>
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+	<SellGrey>true</SellGrey>
+	<SellWhite>true</SellWhite>
+	<SellGreen>true</SellGreen>
+	<SellBlue>true</SellBlue>
+	<SellPurple>false</SellPurple>
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+	<TargetElites>false</TargetElites>
+	<QuestOrder>
+		<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			public class WorldQuestData
+			{
+			public int ID;
+			public string Name;
+			public DateTime ExpireTime;
+			}
+			public static class WorldQuestInfo
+			{
+			static List<WorldQuestData> _cache = new List<WorldQuestData>();
+				static internal bool _dirty = true;
+				static internal bool _setup = false;
+				static WorldQuestInfo()
+				{
+				Setup();
+				}
+				public static void Setup()
+				{
+				if (_setup)
+				return;
+				Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+				Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+				Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+				UpdateWorldQuests();
+				_setup = true;
+				}
+				public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+				{
+				_dirty = true;
+				}
+				public static bool HasWorldQuest(int questid)
+				{
+				UpdateWorldQuests();
+				var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+				if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+					return false;
+					return true;
+					}
+					public static void UpdateWorldQuests()
+					{
+					if (!_dirty)
+					return;
+					_cache = new List<WorldQuestData>();
+						var player = StyxWoW.Me;
+						int BrokenIslesMapArea = 1007;
+						var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+						var NumZones = int.Parse(ret[0]);
+						for (int i = 1; i <= NumZones; ++i)
+							{
+							ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+							var ZoneID = int.Parse(ret[0]);
+							var ZoneName = ret[1];
+							var ZoneDepth = int.Parse(ret[2]);
+							if (ZoneDepth > 1) //Do not look at subzones
+							{
+							Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+							continue;
+							}
+							string ToRun = string.Format(@"     local questids = {{}};
+							local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+							if taskInfo then
+							for i, info in ipairs(taskInfo) do
+							if HaveQuestData(info.questId) then
+							if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+							table.insert(questids, info.questId);
+							end
+							end
+							end
+							end
+							return unpack(questids);
+							", ZoneID, BrokenIslesMapArea);
+							ret = Lua.GetReturnValues(ToRun);
+							foreach (var q in ret)
+							{
+							int questid = int.Parse(q);
+							//TimeLeft is in minutes
+							var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+								var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+								Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+								var data = new WorldQuestData();
+								data.ID = questid;
+								data.Name = QuestInfo[0];
+								data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+								_cache.Add(data);
+								}
+								}
+								_dirty = false;
+								}
+								public static bool IsWorldQuest(int questid)
+								{
+								string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+								var ret = Lua.GetReturnValues(lua);
+								if (ret[3] == null)
+								return false;
+								return true;
+								}
+								}
+								]]>
+							</CustomBehavior>
+
+
+<!--
+<PickUp Nav="Fly" QuestName="Temple Defense" QuestId="41980" GiverName="" GiverId="" />
+<Objective QuestName="Temple Defense" QuestId="41980" Type="KillMob" Nav="Fly" MobId="94204" KillCount="12" />
+<Objective QuestName="Temple Defense" QuestId="41980" Type="KillMob" Nav="Fly" MobId="92794" KillCount="3" />
+<Objective QuestName="Temple Defense" QuestId="41980" Type="KillMob" Nav="Fly" MobId="110896" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="Temple Defense" QuestId="41980" TurnInName="" TurnInId="" />
+
+
+<WoWUnit Name="Terrorfiend Bat" Entry="92794" X="2908.215" Y="6465.533" Z="213.9135" /> 2
+<WoWUnit Name="Ancient Annihilator" Entry="110896" X="2888.498" Y="6424.826" Z="214.5881" />3
+
+<WoWUnit Name="Darkfiend Dreadbringer" Entry="110550" X="2843.739" Y="6490.045" Z="206.2181" /> dead
+<WoWUnit Name="Darkfiend Dreadbringer" Entry="92789" X="2934.017" Y="6449.817" Z="206.4893" />
+<WoWUnit Name="Darkfiend Dreamtwister" Entry="92788" X="2850.2" Y="6452.771" Z="212.1612" /> 1
+<WoWUnit Name="Defiled Grovewalker" Entry="93157" X="2829.975" Y="6376.341" Z="215.0105" /> 1
+<WoWUnit Name="Nightmare Rider" Entry="92792" X="2938.817" Y="6422.401" Z="252.0558" /> 1
+
+<WoWUnit Name="Gravax the Desecrator" Entry="92802" X="2956.257" Y="6509.627" Z="206.4749" /> avoid this elite
+-->
+<While Condition="WorldQuestInfo.HasWorldQuest(41980)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41536] Temple Defense - WiN!&quot;);" />
+<RunTo X="2896.689" Y="6441.658" Z="212.1233" />
+
+	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="IsQuestCompleted(41980)">
+		<HuntingGrounds>
+
+<Hotspot X="2896.689" Y="6441.658" Z="212.1233" />
+<Hotspot X="2955.517" Y="6386.463" Z="230.9099" />
+<Hotspot X="2988.76" Y="6489.624" Z="206.5428" />
+<Hotspot X="3019.137" Y="6410.416" Z="225.2609" />
+		</HuntingGrounds>
+		<PursuitList>
+		  <PursueUnit Id="92789" Priority="1" PursueWhen="!IsObjectiveComplete(1, 41980) &amp;&amp; (UNIT.IsAlive)" />
+			<PursueUnit Id="92788" Priority="1" PursueWhen="!IsObjectiveComplete(1, 41980) &amp;&amp; (UNIT.IsAlive)" />
+			<PursueUnit Id="93157" Priority="1" PursueWhen="!IsObjectiveComplete(1, 41980) &amp;&amp; (UNIT.IsAlive)" />
+	<!--		<PursueUnit Id="92792" Priority="1" PursueWhen="!IsObjectiveComplete(1, 41980) &amp;&amp; (UNIT.IsAlive)" /> -->
+      <PursueUnit Id="92794" Priority="1" PursueWhen="!IsObjectiveComplete(2, 41980) &amp;&amp; (UNIT.IsAlive)" />
+			<PursueUnit Id="110896" Priority="1" PursueWhen="!IsObjectiveComplete(3, 41980) &amp;&amp; (UNIT.IsAlive)" />
+		</PursuitList>
+	</CustomBehavior>
+
+<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+
+</While>
+
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest Temple Defense - WiN!, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
+</HBProfile>
