@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] Queen Queenfish WorldQuest Zinner</Name>
+	<Name>[41268] Queen Queenfish WorldQuest Zinner</Name>
 
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
@@ -160,25 +160,25 @@
 				<!-- Get in range of quest to activate -->
 				<RunTo X="415.0467" Y="6343.622" Z="37.74284"  /> 
 				<PickUp Nav="Fly" QuestName="Queen Queenfish" QuestId="41268" GiverName="" GiverId="0" />
-
 				<Objective QuestName="Queen Queenfish" QuestId="41268" Type="KillMob" Nav="Fly" MobId="104258" KillCount="1" />
-
 				<TurnIn Nav="Fly" QuestName="Queen Queenfish" QuestId="41268" TurnInName="" TurnInId="0" />
-
-
-
-
-
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41268)" >	
+			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [441268] Queen Queenfish - Zinner!&quot;);" />
 				<RunTo X="415.0467" Y="6343.622" Z="37.74284"  /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="104258" QuestId="41268">
 				<HuntingGrounds>
 					<Hotspot X="415.0467" Y="6343.622" Z="37.74284" />
 				</HuntingGrounds>
-			</CustomBehavior>
-		</While>
-	
-	
-	</QuestOrder>
-</HBProfile>
+	</CustomBehavior>
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+</While>
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [441268] Queen Queenfish - Zinner!&quot;);" />
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+						</QuestOrder>
+					</HBProfile>
