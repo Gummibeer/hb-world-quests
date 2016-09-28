@@ -197,14 +197,7 @@ return true;
 
  <!-- Auto SVN --> 
  <If Condition="SVN">
-<CustomBehavior File="UserDialog" AllowBotStop="false" SoundCue="Exclamation" SoundCueInterval="15" ExpiryTime="15" ExpiryAction="InputEnabled_Continue" Text="Verify the following points to auto-update World Quest profiles:\n\n1) TortoiseSVN is installed on your computer\n\n2) Wold Quest profiles are located in '\Honorbuddy\Default Profiles\world-quests\'\n\n3) 'update.bat' is located in '\Honorbuddy\Default Profiles\world-quests\'" />
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Updating WQ profiles from the SVN...&quot;);" />
-<CustomBehavior File="RunCode">
-    <![CDATA[
-        Process.Start(@"Default Profiles\\world-quests\\updater.bat");
-    ]]>
-</CustomBehavior>
-<CustomBehavior File="WaitTimer" WaitTime="5000" />
+<CustomBehavior File="UserDialog" AllowBotStop="false" SoundCue="Exclamation" SoundCueInterval="15" ExpiryTime="15" ExpiryAction="InputEnabled_Continue" Text="VERIFY FOLLOWING POINTS TO AUTO-UPDATE WQ PROFILES:\n\n1) TortoiseSVN is installed on your computer\n\n2) Wold Quest profiles are located in '\Honorbuddy\Default Profiles\world-quests\'\n\n3) 'update.bat' is located in '\Honorbuddy\Default Profiles\world-quests\utilities\'\n\nProfiles will be updated at the end of the first round of WQ (once every 10 minutes)" />
 </If> 
  
  <!-- Updating available Quests and use whistle before checking available WQ -->
@@ -1219,9 +1212,20 @@ removed until tested
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;|            https://discord.gg/u3QaKTq             |&quot;);" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
 
- <!-- wait 10 minutes before reloading autoloader -->  
+<!-- wait 10 minutes before reloading autoloader -->  
  <CustomBehavior File="WaitTimer" WaitTime="600000" />
  <CustomBehavior File="RunCode" Code="WoWMovement.Move(WoWMovement.MovementDirection.JumpAscend);" />
+ 
+<!-- Auto SVN --> 
+ <If Condition="SVN">
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Updating WQ profiles from the SVN...&quot;);" />
+<CustomBehavior File="RunCode">
+    <![CDATA[
+        Process.Start(@"Default Profiles\\world-quests\\Utilities\\updater.bat");
+    ]]>
+</CustomBehavior>
+<CustomBehavior File="WaitTimer" WaitTime="5000" />
+</If> 
  
  <!-- Initial messages, no whistle before WQ check --> 
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Red, &quot;=====================================================&quot;);" />
