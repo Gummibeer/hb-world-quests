@@ -63,7 +63,7 @@
 <QuestOrder>
 
 <!-- SVN Settings -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool SVN = false;" />   <!-- change 'false' to 'true' to let the bot auto-update WQ from the SVN -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool SVN = true;" />   <!-- change 'false' to 'true' to let the bot auto-update WQ from the SVN -->
 <!-- 	
 		READ CAREFULLY: WE ARE STARTING A BAT FILE WHICH IS EXTERNAL TO HB. IT IS LOCATED IN \WORLD-QUESTS\UTILITIES\.
 		::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -76,9 +76,9 @@
 		echo. done.																																		-->
 
 <!-- Profile Settings: -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = false;" />   <!-- change 'false' to 'true' to let the bot do DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change 'false' to 'true' to let the bot do Level 112 Elite DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change 'false' to 'true' to let the bot do Level 110 Elite Zone World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change 'false' to 'true' to let the bot do DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = true;" />   <!-- change 'false' to 'true' to let the bot do Level 112 Elite DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = true;" />   <!-- change 'false' to 'true' to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change 'false' to 'true' to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = true;" />   <!-- change 'false' to 'true' to let the bot do PVP/Warden Tower World Quests -->
 
@@ -216,10 +216,11 @@ return true;
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
+<!-- USING WHISTLE COMMENTED FOR NOW 
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Moving to nearest flight master before questing...&quot;);" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="15000" />
-</If>
+</If> -->
  <!-- Start infinite loop  -->
 -<While Condition="Me.MapId != 1007"> 
 
