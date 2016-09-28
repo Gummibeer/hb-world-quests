@@ -132,7 +132,7 @@
 	<RunTo X="3569.587" Y="6162.599" Z="178.2153" />
 
 	
-			<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41996)" MaxRange="20">
+			<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41996)" Range="5">
 		<HuntingGrounds>
 <Hotspot X="3569.587" Y="6162.599" Z="178.2153" />
 <Hotspot X="3647.696" Y="6215.323" Z="181.0694" />
@@ -141,7 +141,7 @@
 
 		</HuntingGrounds>
 		<PursuitList>
-			<PursueUnit Id="97554" PursueWhen="!IsObjectiveComplete(1, 41996)" />
+			<PursueUnit Id="97554" PursueWhen="!IsObjectiveComplete(1, 41996)"  />
 			<PursueUnit Id="97565" PursueWhen="!IsObjectiveComplete(2, 41996)" />
 			<PursueUnit Id="93111" PursueWhen="!IsObjectiveComplete(3, 41996) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
 			<PursueUnit Id="113646" PursueWhen="!IsObjectiveComplete(3, 41996) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />			
