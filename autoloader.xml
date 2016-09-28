@@ -64,6 +64,13 @@
 
 <!-- SVN Settings -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool SVN = false;" />   <!-- change 'false' to 'true' to let the bot auto-update WQ from the SVN -->
+<!-- 	READ CAREFULLY: WE ARE STARTING A BAT FILE WHICH IS EXTERNAL TO HB. IT IS LOCATED IN \WORLD-QUESTS\UTILITIES\. 
+		BY SETTING THE PREVIOUS OPTION TO TRUE, YOU ACCEPT TO AUTOMATICALLY UPDATE YOUR FOLDER WITH THIS EXTERNAL FILE.
+		PLEASE CHECK THE BAT CONTENT BY OPENING IT WITH NOTEPAD: 
+		@echo off
+		echo. Updating from SVN...
+		"TortoiseProc.exe" /command:update /path:"./Default Profiles/world-quests/" /closeonend:1
+		echo. done.																																		-->
 
 <!-- Profile Settings: -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = false;" />   <!-- change 'false' to 'true' to let the bot do DANGER World Quests -->
