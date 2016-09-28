@@ -157,7 +157,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(43455)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43455] WANTED: Devouring Darkness - WiN!&quot;);" />
 <RunTo X="4996.934" Y="3811.39" Z="741.1686" />
-<CustomBehavior File="KillUntilComplete"  QuestId="43455"  TerminateWhen="IsQuestCompleted(43455)">
+<CustomBehavior File="KillUntilComplete"  TerminateWhen="IsQuestCompleted(43455)">
 	<HuntingGrounds>
 <Hotspot X="4996.934" Y="3811.39" Z="741.1686" />
 	</HuntingGrounds>
