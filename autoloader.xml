@@ -64,7 +64,11 @@
 
 <!-- SVN Settings -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool SVN = false;" />   <!-- change 'false' to 'true' to let the bot auto-update WQ from the SVN -->
-<!-- 	READ CAREFULLY: WE ARE STARTING A BAT FILE WHICH IS EXTERNAL TO HB. IT IS LOCATED IN \WORLD-QUESTS\UTILITIES\. 
+<!-- 	
+		READ CAREFULLY: WE ARE STARTING A BAT FILE WHICH IS EXTERNAL TO HB. IT IS LOCATED IN \WORLD-QUESTS\UTILITIES\.
+		::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+		::::: THE AUTO-UPDATER DOES NOT WORK IF YOUR 'WORLD-QUESTS' FOLDER IS NOT LOCATED IN /HONORBUDDY/DEFAULT PROFILES/ :::::
+		::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 		BY SETTING THE PREVIOUS OPTION TO TRUE, YOU ACCEPT TO AUTOMATICALLY UPDATE YOUR FOLDER WITH THIS EXTERNAL FILE.
 		PLEASE CHECK THE BAT CONTENT BY OPENING IT WITH NOTEPAD: 
 		@echo off
