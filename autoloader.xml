@@ -63,7 +63,7 @@
 <QuestOrder>
 
 <!-- SVN Settings -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool SVN = true;" />   <!-- change 'false' to 'true' to let the bot auto-update WQ from the SVN -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool SVN = false;" />   <!-- change 'false' to 'true' to let the bot auto-update WQ from the SVN -->
 <!-- 	
 		READ CAREFULLY: WE ARE STARTING A BAT FILE WHICH IS EXTERNAL TO HB. IT IS LOCATED IN \WORLD-QUESTS\UTILITIES\.
 		::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1201,6 +1201,11 @@ removed until tested
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41980)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41980-[N]-[QUEST]-Wq-Temple_Defense-WiN" RememberProfile="true" />
+</If>
+<If Condition="doDanger">
+<If Condition="WorldQuestInfo.HasWorldQuest(42927)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\42927-[N]-[QUEST]-Wq-DANGER_Malisandra-WiN" RememberProfile="true" />
+</If>
 </If>
 
 <!-- End Valshara Zone -->
