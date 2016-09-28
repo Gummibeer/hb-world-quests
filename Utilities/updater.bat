@@ -1,2 +1,2 @@
 @echo off
-"TortoiseProc.exe" /command:update /path:"../" /closeonend:0
+"TortoiseProc.exe" /command:update /path:"../" /closeonend:1
