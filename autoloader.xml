@@ -477,7 +477,11 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41290)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41290-[N]-[QUEST]-Wq-Aqueous_Aethril-WiN" RememberProfile="true" />
 </If>
-
+<If Condition="doHard">
+<If Condition="WorldQuestInfo.HasWorldQuest(42652)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42652-[N]-[QUEST]-Wq-Ancient_Exemplars-WiN" RememberProfile="true" />
+</If>
+</If>
 <!-- End Azuna Zone -->
 </If>
 
@@ -718,9 +722,11 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41145)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41145-[N]-[QUEST]-Wq-Water_of_Life-WiN" RememberProfile="true" />
 </If>
-
-
-
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43455)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\43455-[N]-[QUEST]-Wq-WANTED_Devouring_Darkness-WiN" RememberProfile="true" />
+</If>
+</If>
 <!-- End Highmountain Zone -->
 </If>
 
