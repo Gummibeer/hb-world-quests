@@ -727,6 +727,13 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43455-[N]-[QUEST]-Wq-WANTED_Devouring_Darkness-WiN" RememberProfile="true" />
 </If>
 </If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44290)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\44290-[N]-[QUEST]-Wq-WANTED_Bristlemaul-WiN" RememberProfile="true" />
+</If>
+</If>
+
 <!-- End Highmountain Zone -->
 </If>
 
