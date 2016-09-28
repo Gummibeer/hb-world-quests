@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[43152] WANTED: Devouring Darkness - WiN</Name>
+	<Name>[43455] WANTED: Devouring Darkness - WiN</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -154,15 +154,15 @@
 
 <Vendor Name="Devouring Darkness" Entry="100495" Type="Repair" Nav="Fly" X="4994.908" Y="3829.006" Z="743.6741" />
 -->
-<While Condition="WorldQuestInfo.HasWorldQuest(43152)" >
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43152] WANTED: Devouring Darkness - WiN!&quot;);" />
+<While Condition="WorldQuestInfo.HasWorldQuest(43455)" >
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43455] WANTED: Devouring Darkness - WiN!&quot;);" />
 <RunTo X="4996.934" Y="3811.39" Z="741.1686" />
-<CustomBehavior File="KillUntilComplete"  QuestId="43152"  TerminateWhen="IsQuestCompleted(43152)">
+<CustomBehavior File="KillUntilComplete"  QuestId="43455"  TerminateWhen="IsQuestCompleted(43455)">
 	<HuntingGrounds>
 <Hotspot X="4996.934" Y="3811.39" Z="741.1686" />
 	</HuntingGrounds>
 	<PursuitList>
-		<PursueUnit Id="100495" Priority="1" PursueWhen="!IsObjectiveComplete(1, 43152) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="100495" Priority="1" PursueWhen="!IsObjectiveComplete(1, 43455) &amp;&amp; (UNIT.IsAlive)" />
 	</PursuitList>
 </CustomBehavior>
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
@@ -173,7 +173,7 @@
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43152] WANTED: Devouring Darkness - WiN!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43455] WANTED: Devouring Darkness - WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />	
 	</QuestOrder>
 </HBProfile>
