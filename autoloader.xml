@@ -79,6 +79,8 @@
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doSuramar = true;" />
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doValshara = true;" />
 
+
+
 <CustomBehavior File="RunCode" Type="Definition"><![CDATA[
 public class WorldQuestData
 {
@@ -459,6 +461,11 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(42026)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42026-[N]-[QUEST]-Wq-Faronaar_in_Ruin-WiN" RememberProfile="true" />
 </If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(42636)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42636-[N]-[QUEST]-Wq-WANTED_Arcanist_Shaliman-WiN" RememberProfile="true" />
+</If>
+
 
 <!-- End Azuna Zone -->
 </If>
