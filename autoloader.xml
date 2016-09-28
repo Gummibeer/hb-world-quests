@@ -466,6 +466,9 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42636-[N]-[QUEST]-Wq-WANTED_Arcanist_Shaliman-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(42022)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42022-[N]-[QUEST]-Wq-The_Broken_Academy-WiN" RememberProfile="true" />
+</If>
 
 <!-- End Azuna Zone -->
 </If>
