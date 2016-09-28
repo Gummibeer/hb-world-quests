@@ -10,10 +10,10 @@
 
   <!-- NB: Honorbuddy sells before mailing -->
   <SellGrey>true</SellGrey>
-  <SellWhite>true</SellWhite>
-  <SellGreen>true</SellGreen>
-  <SellBlue>False</SellBlue>
-  <SellPurple>False</SellPurple>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
 
   <MailGrey>false</MailGrey>
   <MailWhite>true</MailWhite>
