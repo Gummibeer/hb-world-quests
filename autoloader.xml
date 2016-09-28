@@ -470,6 +470,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42022-[N]-[QUEST]-Wq-The_Broken_Academy-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41290)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41290-[N]-[QUEST]-Wq-Aqueous_Aethril-WiN" RememberProfile="true" />
+</If>
+
 <!-- End Azuna Zone -->
 </If>
 
