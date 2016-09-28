@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[43192] DANGER: Malisandra - WiN</Name>
+	<Name>[43192] Terror of the Deep - WiN</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -155,7 +155,7 @@
 <Vendor Name="Levantus" Entry="108829" Type="Repair" Nav="Fly" X="-1161.929" Y="6992.622" Z="3.024936E-06" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43192)" >
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43192] DANGER: Malisandra - WiN!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43192] Terror of the Deep - WiN!&quot;);" />
 <RunTo X="-1209.561" Y="6870.292" Z="-0.03042698" />
 <CustomBehavior File="KillUntilComplete"  QuestId="43192"  TerminateWhen="IsQuestCompleted(43192)">
 	<HuntingGrounds>
@@ -172,7 +172,7 @@
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43192] DANGER: Malisandra - WiN!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43192] Terror of the Deep - WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />	
 	</QuestOrder>
 </HBProfile>
