@@ -253,6 +253,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41259)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41259-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="true" />
+</If>
+
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(43027)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="true" />
