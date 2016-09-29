@@ -163,7 +163,7 @@
 	<Objective QuestName="Border Reinforcements" QuestId="41308" Type="KillMob" Nav="Fly" MobId="103851" KillCount="7" />
 	<TurnIn Nav="Fly" QuestName="Border Reinforcements" QuestId="41308" TurnInName="" TurnInId="" />
 <Vendor Name="Tideskorn Raider" Entry="103837" Type="Repair" Nav="Fly" X="3810.099" Y="3496.319" Z="775.8995" />
-<Vendor Name="Stormwing Drake" Entry="103851" Type="Repair" Nav="Fly" X="3864.822" Y="3419.71" Z="752.6841" />
+<Vendor Name="Stormwing Drake" Entry="103851" Type="Repair" Nav="Fly" X="3864.822" Y="3419.71" Z="752.6841" /> - removed
 <Vendor Name="Tideskorn Stormbringer" Entry="103850" Type="Repair" Nav="Fly" X="3868.498" Y="3420.925" Z="753.4227" />
 -->
 
@@ -184,7 +184,7 @@
 		</HuntingGrounds>
 		<PursuitList>
 			<PursueUnit Id="103837" PursueWhen="!IsObjectiveComplete(1,41308) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-			<PursueUnit Id="103851" PursueWhen="!IsObjectiveComplete(1,41308) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<!--			<PursueUnit Id="103851" PursueWhen="!IsObjectiveComplete(1,41308) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> -->
 			<PursueUnit Id="103850" PursueWhen="!IsObjectiveComplete(1,41308) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 		</PursuitList>
 	</CustomBehavior>
