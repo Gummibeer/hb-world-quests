@@ -1,0 +1,204 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>[43601] Warden Tower Assault: Whisperwind's Citadel - WiN</Name>
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+	<SellGrey>true</SellGrey>
+	<SellWhite>false</SellWhite>
+	<SellGreen>false</SellGreen>
+	<SellBlue>false</SellBlue>
+	<SellPurple>false</SellPurple>
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+	<TargetElites>false</TargetElites>
+	<QuestOrder>
+		<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			public class WorldQuestData
+			{
+			public int ID;
+			public string Name;
+			public DateTime ExpireTime;
+			}
+			public static class WorldQuestInfo
+			{
+			static List<WorldQuestData> _cache = new List<WorldQuestData>();
+				static internal bool _dirty = true;
+				static internal bool _setup = false;
+				static WorldQuestInfo()
+				{
+				Setup();
+				}
+				public static void Setup()
+				{
+				if (_setup)
+				return;
+				Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+				Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+				Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+				UpdateWorldQuests();
+				_setup = true;
+				}
+				public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+				{
+				_dirty = true;
+				}
+				public static bool HasWorldQuest(int questid)
+				{
+				UpdateWorldQuests();
+				var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+				if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+					return false;
+					return true;
+					}
+					public static void UpdateWorldQuests()
+					{
+					if (!_dirty)
+					return;
+					_cache = new List<WorldQuestData>();
+						var player = StyxWoW.Me;
+						int BrokenIslesMapArea = 1007;
+						var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+						var NumZones = int.Parse(ret[0]);
+						for (int i = 1; i <= NumZones; ++i)
+							{
+							ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+							var ZoneID = int.Parse(ret[0]);
+							var ZoneName = ret[1];
+							var ZoneDepth = int.Parse(ret[2]);
+							if (ZoneDepth > 1) //Do not look at subzones
+							{
+							Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+							continue;
+							}
+							string ToRun = string.Format(@"     local questids = {{}};
+							local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+							if taskInfo then
+							for i, info in ipairs(taskInfo) do
+							if HaveQuestData(info.questId) then
+							if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+							table.insert(questids, info.questId);
+							end
+							end
+							end
+							end
+							return unpack(questids);
+							", ZoneID, BrokenIslesMapArea);
+							ret = Lua.GetReturnValues(ToRun);
+							foreach (var q in ret)
+							{
+							int questid = int.Parse(q);
+							//TimeLeft is in minutes
+							var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+								var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+								Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+								var data = new WorldQuestData();
+								data.ID = questid;
+								data.Name = QuestInfo[0];
+								data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+								_cache.Add(data);
+								}
+								}
+								_dirty = false;
+								}
+								public static bool IsWorldQuest(int questid)
+								{
+								string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+								var ret = Lua.GetReturnValues(lua);
+								if (ret[3] == null)
+								return false;
+								return true;
+								}
+								}
+								]]>
+							</CustomBehavior>
+<!--
+<PickUp Nav="Fly" QuestName="Warden Tower Assault: Whisperwind's Citadel" QuestId="43601" GiverName="" GiverId="" />
+<Objective QuestName="Warden Tower Assault: Whisperwind's Citadel" QuestId="43601" Type="KillMob" Nav="Fly" MobId="103651" KillCount="13" />
+<Objective QuestName="Warden Tower Assault: Whisperwind's Citadel" QuestId="43601" Type="KillMob" Nav="Fly" MobId="103768" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="Warden Tower Assault: Whisperwind's Citadel" QuestId="43601" TurnInName="" TurnInId="" />
+
+
+
+<WoWUnit Name="Forsaken Frostflinger" Entry="103446" X="4290.136" Y="5833.43" Z="400.2081" /> In Tower
+<WoWUnit Name="Forsaken Archer" Entry="103729" X="4337.28" Y="5811.724" Z="398.9065" /> In Tower
+<WoWUnit Name="Forsaken Defender" Entry="103210" X="4340.43" Y="5887.108" Z="398.6067" /> In Tower at top
+<WoWUnit Name="Forsaken Dark Ranger" Entry="103745" X="4245.93" Y="5884.34" Z="410.0181" /> In Tower at top
+<WoWUnit Name="Forsaken Rector" Entry="103453" X="4317.455" Y="5917.848" Z="419.2583" /> In Tower / at top
+<WoWUnit Name="Festering Abomination" Entry="103430" X="4299.979" Y="5918.348" Z="420.0585" /> In Tower
+<WoWUnit Name="Forsaken Deceiver" Entry="103218" X="4235.549" Y="5940.538" Z="417.7929" />
+<WoWUnit Name="Forsaken Plaguebringer" Entry="103307" X="4283.208" Y="5960.13" Z="508.6395" />
+<WoWUnit Name="Forsaken Deathwarder" Entry="103215" X="2160.231" Y="7552.997" Z="5.658578" />
+<WoWUnit Name="Forsaken Befouler" Entry="103245" X="4243.6" Y="5921.956" Z="414.2474" />
+
+<Vendor Name="Dark Ranger Alina" Entry="104289" Type="Repair" Nav="Fly" X="4308.232" Y="5966.305" Z="508.6072" />
+<Vendor Name="Captain Grimshanks" Entry="104290" Type="Repair" Nav="Fly" X="4306.199" Y="5977.233" Z="508.6058" />
+<Vendor Name="Magus Bonechill" Entry="103757" Type="Repair" Nav="Fly" X="4295.708" Y="5980.292" Z="508.6548" />
+-->
+
+<While Condition="WorldQuestInfo.HasWorldQuest(43601)" >
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43601] Warden Tower Assault: Whisperwind's Citadel - WiN!&quot;);" />
+	<RunTo X="4275.445" Y="2198.69" Z="156.9601" />
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,43601)" >
+		<HuntingGrounds>
+<!-- front of tower -->
+<Hotspot X="4362.78" Y="2220.38" Z="151.6692" />
+<!-- top of tower stairs-->
+<Hotspot X="4379.875" Y="2225.61" Z="240.3876" />
+<!-- tower balcony-->
+<Hotspot X="4390.598" Y="2189.672" Z="240.5119" />
+
+<!-- wider front of tower to find any last mobs to hit 100% -->
+<Hotspot X="4325.677" Y="2232.34" Z="150.9217" />
+
+		</HuntingGrounds>
+		<PursuitList>
+      <PursueUnit Id="103446" PursueWhen="!IsObjectiveComplete(1,43601) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103729" PursueWhen="!IsObjectiveComplete(1,43601) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103210" PursueWhen="!IsObjectiveComplete(1,43601) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103745" PursueWhen="!IsObjectiveComplete(1,43601) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103453" PursueWhen="!IsObjectiveComplete(1,43601) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103430" PursueWhen="!IsObjectiveComplete(1,43601) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<!-- Only target mobs in the tower so we dont get dragged away
+      <PursueUnit Id="103651" PursueWhen="!IsObjectiveComplete(1,43601) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103768" PursueWhen="!IsObjectiveComplete(1,43601) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103430" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103218" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103307" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="103215" PursueWhen="!IsObjectiveComplete(1,42276) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      -->
+<!-- Captains Rotate -->
+      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
+      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
+      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,43183)"/>
+	 </PursuitList>
+	</CustomBehavior>
+	
+		<CustomBehavior File="InteractWith" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2,43601)" >
+		<HuntingGrounds>
+<!-- tower balcony-->
+<Hotspot X="4390.598" Y="2189.672" Z="240.5119" />
+
+		</HuntingGrounds>
+		<PursuitList>
+
+<!-- Captains Rotate -->
+      <PursueUnit Id="104289" Priority="100" PursueWhen="!IsObjectiveComplete(2,43601)"/>
+      <PursueUnit Id="104290" Priority="100" PursueWhen="!IsObjectiveComplete(2,43601)"/>
+      <PursueUnit Id="103757" Priority="100" PursueWhen="!IsObjectiveComplete(2,43601)"/>
+	 </PursuitList>
+	</CustomBehavior>
+	
+	
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+</While>
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43601] Warden Tower Assault: Whisperwind's Citadel - WiN!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+						</QuestOrder>
+					</HBProfile>
