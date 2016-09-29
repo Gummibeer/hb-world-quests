@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] Those Beyond Redemption - Win</Name>
+	<Name>[42018] Those Beyond Redemption - Win</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -139,6 +139,7 @@ We shoudl blacklist:
 <Vendor Name="Ishkaneth" Entry="90389" Type="Repair" Nav="Fly" X="1027.78" Y="6093.232" Z="92.60763" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42018)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42018] Those Beyond Redemption - WiN!&quot;);" />
 	<RunTo X="990.3676" Y="6099.369" Z="99.38569" />
 
 	<CustomBehavior File="KillUntilComplete" MobIds="90616, 109826, 89801, 90318, 90005" QuestId="42018" TerminateWhen="IsObjectiveComplete(1, 42018)">
@@ -163,7 +164,7 @@ We shoudl blacklist:
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42018] Those Beyond Redemption - WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
