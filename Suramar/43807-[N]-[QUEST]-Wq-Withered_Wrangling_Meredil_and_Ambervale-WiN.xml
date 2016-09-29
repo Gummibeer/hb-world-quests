@@ -126,13 +126,13 @@
 	<RunTo X="1606.791" Y="4763.014" Z="138.3129" />
 
 	
-				<CustomBehavior File="Hooks\DoWhen" ActivityName="ReturningZombies" AllowUseDuringCombat="true" AllowUseInVehicle="true" AllowUseWhileMounted="true" StopMovingToConductActivity="true" LogExecution="false" UseAtInterval="5000">
+				<CustomBehavior File="Hooks\DoWhen" ActivityName="ReturningZombies" AllowUseDuringCombat="true" AllowUseInVehicle="true" AllowUseWhileMounted="true" StopMovingToConductActivity="true" LogExecution="false" UseAtInterval="5000"  Range="40">
 				<CustomBehavior File="RunCode"><![CDATA[
 					Lua.DoString("ExtraActionButton1:Click();");
 				]]>
 				</CustomBehavior>
 			</CustomBehavior>
-			<CustomBehavior File="InteractWith" NumOfTimes="100" MobState="Dead" TerminateWhen="IsObjectiveComplete(1,43807)" NonCompeteDistance="0">
+			<CustomBehavior File="InteractWith" NumOfTimes="100" MobState="Dead" TerminateWhen="IsObjectiveComplete(1,43807)" NonCompeteDistance="0" Range="40">
 				<HuntingGrounds>
 <Hotspot X="1606.791" Y="4763.014" Z="138.3129" />
 <Hotspot X="1555.47" Y="4659.057" Z="148.0813" />
