@@ -169,7 +169,7 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41308)" >
 	<RunTo X="3898.66" Y="3529.393" Z="804.6542" /> 
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41308] Border Reinforcements - WiN!&quot;);" />
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41308] Border Reinforcements - Zinner!&quot;);" />
 	
 	<CustomBehavior File="InteractWith" NumOfTimes="40" TerminateWhen="IsQuestCompleted(41308)" >
 		<HuntingGrounds>
