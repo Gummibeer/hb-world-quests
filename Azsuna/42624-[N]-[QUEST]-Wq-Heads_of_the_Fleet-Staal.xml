@@ -143,10 +143,10 @@
 <Hotspot X="-1501.448" Y="6046.792" Z="5.413483" />		
 		</HuntingGrounds>
 		<PursuitList>
-		<PursueUnit Id="108137" PursueWhen="!IsObjectiveComplete(1,42624) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-		<PursueUnit Id="108212" PursueWhen="!IsObjectiveComplete(2,42624) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-        <PursueUnit Id="108174" PursueWhen="!IsObjectiveComplete(3,42624) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-        <PursueUnit Id="108186" PursueWhen="!IsObjectiveComplete(4,42624) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>     
+		<PursueUnit Id="108137" PursueWhen="!IsObjectiveComplete(1,42624) &amp;&amp; (UNIT.IsAlive)"/>
+		<PursueUnit Id="108212" PursueWhen="!IsObjectiveComplete(2,42624) &amp;&amp; (UNIT.IsAlive)"/>
+        <PursueUnit Id="108174" PursueWhen="!IsObjectiveComplete(3,42624) &amp;&amp; (UNIT.IsAlive)"/>
+        <PursueUnit Id="108186" PursueWhen="!IsObjectiveComplete(4,42624) &amp;&amp; (UNIT.IsAlive)"/>     
 	 </PursuitList>
 	</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
