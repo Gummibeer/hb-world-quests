@@ -121,6 +121,10 @@
 <Objective QuestName="Heads of the Fleet" QuestId="42624" Type="KillMob" Nav="Fly" MobId="108174" KillCount="1" />
 <Objective QuestName="Heads of the Fleet" QuestId="42624" Type="KillMob" Nav="Fly" MobId="108186" KillCount="1" />
 <TurnIn Nav="Fly" QuestName="Heads of the Fleet" QuestId="42624" TurnInName="" TurnInId="" />
+
+<WoWUnit Name="First Mate Oxswain" Entry="108137" X="-1215.259" Y="5805.066" Z="19.52219" /> 1
+<WoWUnit Name="Second Mate Cilieth" Entry="108212" X="-1259.851" Y="5901.587" Z="1.038313" /> 2
+<WoWUnit Name="Quartermaster Zolix" Entry="108186" X="-1501.448" Y="6046.792" Z="5.413483" /> 4
 -->
 
 <While Condition="WorldQuestInfo.HasWorldQuest(42624)" >
@@ -135,7 +139,8 @@
 <Hotspot X="-1244.759" Y="5905.567" Z="0.6877713" />
 <Hotspot X="-1306.65" Y="5822.131" Z="-0.3696624" />
 <Hotspot X="-1329.662" Y="5878.35" Z="17.14411" />
-<Hotspot X="-1493.844" Y="6048.265" Z="4.947961" />		
+<Hotspot X="-1493.844" Y="6048.265" Z="4.947961" />
+<Hotspot X="-1501.448" Y="6046.792" Z="5.413483" />		
 		</HuntingGrounds>
 		<PursuitList>
 		<PursueUnit Id="108137" PursueWhen="!IsObjectiveComplete(1,42624) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
