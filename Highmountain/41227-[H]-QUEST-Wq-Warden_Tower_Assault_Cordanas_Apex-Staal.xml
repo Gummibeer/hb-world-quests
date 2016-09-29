@@ -127,7 +127,7 @@
 	
 
 	
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(41227)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,41227)" >
 		<HuntingGrounds>
 <Hotspot X="4300.272" Y="3372.467" Z="1035.751" />
 <Hotspot X="4305.779" Y="3350.276" Z="1035.842" />
