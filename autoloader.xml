@@ -1231,10 +1231,18 @@ removed until tested
 </If>
 </If>
 
-<If Condition="doDanger">
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41291)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41291-[N]-[QUEST]-Wq-Dreamleaf_Cluster-WiN" RememberProfile="true" />
 </If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43458)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43458-[N]-[QUEST]-Wq-WANTED_Perrexx-WiN" RememberProfile="true" />
+</If>
+</If>
+
+
 
 <!-- End Valshara Zone -->
 </If>
