@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] Rage of the Owlbeasts - Win</Name>
+	<Name>[43324] Rage of the Owlbeasts - Win</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -132,6 +132,7 @@
 
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43324)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43324] Rage of the Owlbeasts - WiN!&quot;);" />
 	<RunTo X="1998.176" Y="6368.86" Z="60.19921" />
 
 	<CustomBehavior File="InteractWith" MobIds="108600" NumOfTimes="5" QuestId="43324" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 43324)">
@@ -161,11 +162,13 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
 </While>
+<!-- leave the cave if we are there -->
+<RunTo 	X="1965.707" Y="6341.997" Z="58.0575" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43324] Rage of the Owlbeasts - WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
