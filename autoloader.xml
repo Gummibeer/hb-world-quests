@@ -776,19 +776,12 @@ return true;
 <!-- Stormheim -->
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.SkyBlue, &quot;Checking available world quests in Stormheim...&quot;);" />
 <CustomBehavior File="WaitTimer" WaitTime="2000" />
-<!--
-removed until tested
+
+
 <If Condition="WorldQuestInfo.HasWorldQuest(43963)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="true" />
 </If>
--->
-<!--
-<If Condition="doWanted">
-<If Condition="WorldQuestInfo.HasWorldQuest(43455)">
-<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner" RememberProfile="true" />
-</If>
-</If>
--->
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43625)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="true" />

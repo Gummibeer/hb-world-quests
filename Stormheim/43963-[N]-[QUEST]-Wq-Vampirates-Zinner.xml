@@ -156,24 +156,14 @@
 			</CustomBehavior>
 	
 		
-		<While Condition="WorldQuestInfo.HasWorldQuest(43963)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="3031.336" Y="801.8777" Z="23.53924" /> 
-				<Objective QuestName="Vampirates!" QuestId="43963" Type="CollectItem" ItemId="140277" CollectCount="10" />
-</While>
+
 		<While Condition="WorldQuestInfo.HasWorldQuest(43963)" >	
-				<RunTo X="2840.842" Y="840.1268" Z="80.91526" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="108030" QuestId="43963">
+				<RunTo X="3062.088" Y="819.1304" Z="14.96072" />		
+			<CustomBehavior File="KillUntilComplete" MobIds="108030" NumOfTimes="20" QuestId="43963" TerminateWhen="IsQuestCompleted(43963)">
 				<HuntingGrounds>
-					<Hotspot X="3031.473" Y="802.8151" Z="23.46324" />
-						<Hotspot X="3031.473" Y="802.8151" Z="23.46324" />
-						<Hotspot X="3071.528" Y="773.7785" Z="4.633997" />
-						<Hotspot X="3103.927" Y="770.6427" Z="5.981459" />
-						<Hotspot X="3085.113" Y="783.8351" Z="2.005035" />
-						<Hotspot X="3085.603" Y="807.8752" Z="4.977272" />
-						<Hotspot X="3087.381" Y="850.3386" Z="10.31637" />
-						<Hotspot X="3063.324" Y="855.8215" Z="17.31044" />
-						<Hotspot X="3028.583" Y="839.0604" Z="23.48697" />
+
+<Hotspot X="3062.088" Y="819.1304" Z="14.96072" />
+<Hotspot X="3031.129" Y="847.8528" Z="21.92301" />
 				</HuntingGrounds>
 			</CustomBehavior>
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
@@ -184,7 +174,7 @@
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest Vampirates, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
