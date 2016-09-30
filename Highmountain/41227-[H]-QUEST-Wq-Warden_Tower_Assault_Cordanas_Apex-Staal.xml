@@ -166,48 +166,6 @@
 	 </PursuitList>
 	</CustomBehavior>
 
-
-
-
-
-<While Condition="WorldQuestInfo.HasWorldQuest(41227)" >
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41227] Warden Tower Assault: Cordana's Apex - Staal!&quot;);" />
-	<RunTo X="4060.957" Y="3611.264" Z="894.5396" />
-	
-
-	
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(2,41227)" >
-		<HuntingGrounds>
-<Hotspot X="4300.272" Y="3372.467" Z="1035.751" />
-<Hotspot X="4305.779" Y="3350.276" Z="1035.842" />
-		</HuntingGrounds>
-		<PursuitList>
-<PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	  </PursuitList>
-<HuntingGrounds>
-<Hotspot X="4217.416" Y="3370.769" Z="928.8956" />
-				</HuntingGrounds>	  
-	  <PursuitList>
-      <PursueUnit Id="102873" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102864" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102868" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102877" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102867" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102872" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102876" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> 
-      <PursueUnit Id="102865" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102869" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102874" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102878" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102866" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102871" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102875" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	  
-      
-		</PursuitList>
-	</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
