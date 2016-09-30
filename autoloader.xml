@@ -1279,7 +1279,11 @@ return true;
 </If>
 </If>
 
-
+<If Condition="doDanger">
+<If Condition="WorldQuestInfo.HasWorldQuest(42870)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\42870-[N]-[QUEST]-Wq-DANGER-Kathaw_the_Savage-WiN" RememberProfile="true" />
+</If>
+</If>
 
 <!-- End Valshara Zone -->
 </If>

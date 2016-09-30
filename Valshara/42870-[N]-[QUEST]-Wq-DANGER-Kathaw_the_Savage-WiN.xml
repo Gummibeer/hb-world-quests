@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[43629] WANTED Kiranys Duskwhisper - WiN</Name>
+	<Name>[42870] DANGER: Kathaw the Savage - WiN</Name>
 
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
@@ -155,29 +155,34 @@
 				]]>
 			</CustomBehavior>
 <!--
-<PickUp Nav="Fly" QuestName="WANTED: Kiranys Duskwhisper" QuestId="43629" GiverName="" GiverId="" />
-<Objective QuestName="WANTED: Kiranys Duskwhisper" QuestId="43629" Type="KillMob" Nav="Fly" MobId="94414" KillCount="1" />
-<TurnIn Nav="Fly" QuestName="WANTED: Kiranys Duskwhisper" QuestId="43629" TurnInName="" TurnInId="" />
+<PickUp Nav="Fly" QuestName="DANGER: Kathaw the Savage" QuestId="42870" GiverName="" GiverId="0" />
+<Objective QuestName="DANGER: Kathaw the Savage" QuestId="42870" Type="KillMob" Nav="Fly" MobId="109125" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="DANGER: Kathaw the Savage" QuestId="42870" TurnInName="" TurnInId="0" />
 
+<Vendor Name="Kathaw the Savage" Entry="109125" Type="Repair" Nav="Fly" X="1881.31" Y="7077.398" Z="67.31995" />
 
-<Vendor Name="Kiranys Duskwhisper" Entry="94414" Type="Repair" Nav="Fly" X="2815.754" Y="7699.335" Z="55.2177" />
 -->
 
-<While Condition="WorldQuestInfo.HasWorldQuest(43629)" >
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43629] WANTED Kiranys Duskwhisper - WiN!&quot;);" />
-	<RunTo X="2803.834" Y="7703.8" Z="53.08917" />
-	<CustomBehavior File="KillUntilComplete" MobIds="94414" QuestId="43629" TerminateWhen="IsObjectiveComplete(1, 43629)">
-		<HuntingGrounds>
-			<Hotspot X="2803.834" Y="7703.8" Z="53.08917" />
-		</HuntingGrounds>
-	</CustomBehavior>
+<While Condition="WorldQuestInfo.HasWorldQuest(42870)" >
+	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42870] DANGER: Kathaw the Savage - WiN!&quot;);" />
+	<RunTo X="1887.264" Y="7048.514" Z="65.08116" />
+	<CustomBehavior File="KillUntilComplete"  QuestId="42870"  TerminateWhen="IsQuestCompleted(42870)">
+	<HuntingGrounds>
+<Hotspot X="1882.078" Y="7064.927" Z="65.61422" />
+	</HuntingGrounds>
+	<PursuitList>
+		<PursueUnit Id="109125" Priority="1" PursueWhen="!IsObjectiveComplete(1, 42870) &amp;&amp; (UNIT.IsAlive)" />
+	</PursuitList>
+</CustomBehavior>
+
+
 </While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43629] WANTED Kiranys Duskwhisper - WiN!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42870] DANGER: Kathaw the Savage - WiN!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
