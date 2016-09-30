@@ -512,6 +512,10 @@ return true;
 </If>
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41564)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41564-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
+</If>
+
 <!-- End Azuna Zone -->
 </If>
 
