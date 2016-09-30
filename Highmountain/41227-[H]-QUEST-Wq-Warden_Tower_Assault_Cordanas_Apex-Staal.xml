@@ -120,6 +120,55 @@
 <Objective QuestName="Warden Tower Assault: Cordana's Apex" QuestId="41227" Type="KillMob" Nav="Fly" MobId="103652" KillCount="1" />
 <TurnIn Nav="Fly" QuestName="Warden Tower Assault: Cordana's Apex" QuestId="41227" TurnInName="" TurnInId="" />
 -->
+<While Condition="WorldQuestInfo.HasWorldQuest(41227)" >
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41227] Warden Tower Assault: Whisperwind's Citadel - Staal!&quot;);" />
+	<RunTo X="4060.957" Y="3611.264" Z="894.5396" />
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,41227)" >
+		<HuntingGrounds>
+<!-- front of tower -->
+<Hotspot X="4286.483" Y="3380.631" Z="947.0105" />
+<!-- top of tower stairs-->
+<Hotspot X="4299.896" Y="3387.643" Z="1035.416" />
+<!-- tower balcony-->
+<Hotspot X="4294.574" Y="3354.127" Z="1035.842" />
+
+<!-- wider front of tower to find any last mobs to hit 100% -->
+<Hotspot X="4236.767" Y="3409.324" Z="936.0335" />
+
+		</HuntingGrounds>
+		<PursuitList>
+      <PursueUnit Id="102873" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="102864" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="102868" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="102877" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="102867" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="102872" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="102876" PursueWhen="!IsObjectiveComplete(1,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> 
+<!-- Captains Rotate -->
+	  <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	 </PursuitList>
+	</CustomBehavior>
+	
+		<CustomBehavior File="InteractWith" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2,41227)" >
+		<HuntingGrounds>
+<!-- tower balcony-->
+<Hotspot X="4294.574" Y="3354.127" Z="1035.842" />
+
+		</HuntingGrounds>
+		<PursuitList>
+
+<!-- Captains Rotate -->
+	  <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,41227) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	 </PursuitList>
+	</CustomBehavior>
+
+
+
+
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41227)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41227] Warden Tower Assault: Cordana's Apex - Staal!&quot;);" />
