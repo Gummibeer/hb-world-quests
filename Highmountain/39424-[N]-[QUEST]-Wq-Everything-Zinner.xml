@@ -164,24 +164,22 @@
 <Objective QuestName="Everything!" QuestId="39424" Type="KillMob" Nav="Fly" MobId="96621" KillCount="1" />
 <TurnIn Nav="Fly" QuestName="Everything!" QuestId="39424" TurnInName="" TurnInId="" />
 
--->		
-		<While Condition="WorldQuestInfo.HasWorldQuest(39424)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="5415.637" Y="4624.962" Z="629.0225" /> 
-				<PickUp Nav="Fly" QuestName="Everything!" QuestId="39424" GiverName="" GiverId="" />
-				<Objective QuestName="Everything!" QuestId="39424" Type="KillMob" Nav="Fly" MobId="95290" KillCount="13" />
-				<Objective QuestName="Everything!" QuestId="39424" Type="UseObject" Nav="Fly" ObjectId="243539" UseCount="17" />
-				<Objective QuestName="Everything!" QuestId="39424" Type="KillMob" Nav="Fly" MobId="96361" KillCount="13" />
-				<Objective QuestName="Everything!" QuestId="39424" Type="UseObject" Nav="Fly" ObjectId="245158" UseCount="13" />
-				<Objective QuestName="Everything!" QuestId="39424" Type="KillMob" Nav="Fly" MobId="96621" KillCount="1" />
-				<TurnIn Nav="Fly" QuestName="Everything!" QuestId="39424" TurnInName="" TurnInId="" />
+<WoWUnit Name="Feltotem Warmonger" Entry="95290" X="5694.326" Y="4241.63" Z="694.903" />
+<WoWUnit Name="Feltotem Bonehound" Entry="104323" X="5703.954" Y="4223.96" Z="694.9478" />
+<WoWUnit Name="Mellok, Son of Torok" Entry="96621" X="5708.78" Y="4218.239" Z="696.2471" />
 
-</While>
+<Vendor Name="Mellok, Son of Torok" Entry="96621" Type="Repair" Nav="Fly" X="5689.597" Y="4243.982" Z="694.9059" />
+-->		
+
 		<While Condition="WorldQuestInfo.HasWorldQuest(39424)" >
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [39424] Everything!!&quot;);" />
-				<RunTo X="5415.637" Y="4624.962" Z="629.0225" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="95290, 96361, 96621" QuestId="39424">
-				<HuntingGrounds>
+			
+<!-- <Vendor Name="Mellok, Son of Torok" Entry="96621" Type="Repair" Nav="Fly" X="5689.597" Y="4243.982" Z="694.9059" /> -->			
+			<RunTo X="5689.597" Y="4243.982" Z="694.9059" />
+
+<CustomBehavior File="KillUntilComplete"  QuestId="39424"  TerminateWhen="IsQuestCompleted(39424)">
+	<HuntingGrounds>
+<Hotspot X="5689.597" Y="4243.982" Z="694.9059" />
 				<Hotspot X="5415.637" Y="4624.962" Z="629.0225" />
 				<Hotspot X="5540.945" Y="4601.291" Z="652.3784" />
 				<Hotspot X="5516.102" Y="4409.124" Z="667.5075" />
@@ -189,8 +187,15 @@
 				<Hotspot X="5670.277" Y="4268.888" Z="694.905" />	
 				<Hotspot X="5608.665" Y="4300.148" Z="674.5359" />
 				<Hotspot X="5660.159" Y="4250.666" Z="694.9047" />
-				</HuntingGrounds>
-			</CustomBehavior>
+	</HuntingGrounds>
+	<PursuitList>
+		<PursueUnit Id="95290" Priority="1" PursueWhen="!IsObjectiveComplete(1, 39424) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="104323" Priority="1" PursueWhen="!IsObjectiveComplete(1, 39424) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="96621" Priority="1" PursueWhen="!IsObjectiveComplete(2, 39424) &amp;&amp; (UNIT.IsAlive)" />
+	</PursuitList>
+</CustomBehavior>
+			
+			
 							<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
