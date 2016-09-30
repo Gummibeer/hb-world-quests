@@ -516,6 +516,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41564-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41514)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41514-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
+</If>
+
 <!-- End Azuna Zone -->
 </If>
 
