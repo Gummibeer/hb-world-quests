@@ -931,6 +931,12 @@ return true;
 </If>
 </If>
 
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(43451)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43451-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer-WiN" RememberProfile="true" />
+</If>
+</If>
+
 <!-- end Stormheim Zone -->
 </If>
 
