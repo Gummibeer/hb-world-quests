@@ -155,21 +155,19 @@
 				]]>
 			</CustomBehavior>
 	
-		
-		<While Condition="WorldQuestInfo.HasWorldQuest(44015)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="3031.336" Y="801.8777" Z="23.53924" /> 
-				<Objective QuestName="WANTED: Mal'Dreth the Corruptor" QuestId="44015" Type="KillMob" Nav="Fly" MobId="110024" KillCount="1" />
+<!--
+<PickUp Nav="Fly" QuestName="WANTED: Mal'Dreth the Corruptor" QuestId="44015" GiverName="" GiverId="" />
+<Objective QuestName="WANTED: Mal'Dreth the Corruptor" QuestId="44015" Type="KillMob" Nav="Fly" MobId="110024" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="WANTED: Mal'Dreth the Corruptor" QuestId="44015" TurnInName="" TurnInId="" />
 
-</While>
+<Vendor Name="Mal'Dreth the Corruptor" Entry="110024" Type="Repair" Nav="Fly" X="1188.091" Y="4780.38" Z="162.2992" />
+-->		
+
 		<While Condition="WorldQuestInfo.HasWorldQuest(44015)" >	
 				<RunTo X="1236.415" Y="4725.908" Z="146.9274" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="110024" QuestId="44015">
 				<HuntingGrounds>
-					<Hotspot X="1236.415" Y="4725.908" Z="146.9274" />
-					<Hotspot X="1216.599" Y="4738.037" Z="156.6993" />
-					<Hotspot X="1201.796" Y="4749.577" Z="157.1951" />
-
+<Hotspot X="1198.842" Y="4750.742" Z="157.5894" />
 				</HuntingGrounds>
 			</CustomBehavior>
 		</While>
