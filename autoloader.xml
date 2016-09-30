@@ -526,6 +526,14 @@ return true;
 </If>
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41651)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant -BUY Azsunite Pendant from ah" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41669)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike -BUY Word of Critical Strike from ah" RememberProfile="true" />
+</If>
+
 
 <!-- End Azuna Zone -->
 </If>
@@ -777,6 +785,10 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(44290)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44290-[N]-[QUEST]-Wq-WANTED_Bristlemaul-WiN" RememberProfile="true" />
 </If>
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41240)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41240-[N]-[QUEST]-Wq-Work Order Highmountain Salmonr-BUY 40 Highmountain Salmon from ah" RememberProfile="true" />
 </If>
 
 <!-- End Highmountain Zone -->
