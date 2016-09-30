@@ -179,6 +179,13 @@ Entry(ID): 103784
 Faction ID: 7
 Faction Name: Creature
 <Vendor Name="Well-Fed Lion Seal" Entry="103784" Type="Repair" Nav="Fly" X="-1334.747" Y="5545.39" Z="2.387383" />
+
+WiN
+<PickUp Nav="Fly" QuestName="Slab of Bacon" QuestId="41259" GiverName="" GiverId="" />
+<Objective QuestName="Slab of Bacon" QuestId="41259" Type="CollectItem" Nav="Fly" ItemId="135511" CollectCount="1" />
+<TurnIn Nav="Fly" QuestName="Slab of Bacon" QuestId="41259" TurnInName="" TurnInId="" />
+
+<WoWUnit Name="Well-Fed Lion Seal" Entry="103784" X="671.7977" Y="7801.383" Z="-0.9699816" />
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41259)" >	
 				<RunTo X="726.0623" Y="7812.946" Z="0.8879584" />		
@@ -189,6 +196,7 @@ Faction Name: Creature
 					<Hotspot X="706.1418" Y="7723.176" Z="4.878461" />
 					<Hotspot X="744.3328" Y="7797.317" Z="28.16195" />
 					<Hotspot X="684.2007" Y="7831.487" Z="56.10507" />
+					<Hotspot X="671.7977" Y="7801.383" Z="-0.9699816" />
 				</HuntingGrounds>
 			</CustomBehavior>
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
