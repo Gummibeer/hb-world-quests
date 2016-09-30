@@ -121,24 +121,22 @@
 <TurnIn Nav="Fly" QuestName="Warden Tower Assault: Cordana's Apex" QuestId="43600" TurnInName="" TurnInId="" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43600)" >
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43600] Warden Tower Assault: Cordana's Apex - Staal!&quot;);" />
-	<RunTo X="4236.11" Y="2169.881" Z="164.0388" />
-	
-
-	
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(2,43600)" >
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43600] Warden Tower Assault: Whisperwind's Citadel - Staal!&quot;);" />
+	<RunTo X="4060.957" Y="3611.264" Z="894.5396" />
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,43600)" >
 		<HuntingGrounds>
-<Hotspot X="4381.959" Y="2210.968" Z="240.412" />
+<!-- front of tower -->
+<Hotspot X="4360.46" Y="2221.39" Z="152.069" />
+<!-- top of tower stairs-->
+<Hotspot X="4378.974" Y="2225.94" Z="240.3892" />
+<!-- tower balcony-->
+<Hotspot X="4397.49" Y="2204.432" Z="240.5012" />
+
+<!-- wider front of tower to find any last mobs to hit 100% -->
+<Hotspot X="4314.835" Y="2264.229" Z="146.6706" />
+
 		</HuntingGrounds>
 		<PursuitList>
-<PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	  </PursuitList>
-<HuntingGrounds>
-<Hotspot X="4363.309" Y="2219.792" Z="151.6694" />
-				</HuntingGrounds>	  
-	  <PursuitList>
       <PursueUnit Id="102873" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102864" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102868" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
@@ -146,16 +144,26 @@
       <PursueUnit Id="102867" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102872" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102876" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> 
-      <PursueUnit Id="102865" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102869" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102874" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102878" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102866" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102871" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102875" PursueWhen="!IsObjectiveComplete(1,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	  
-      
-		</PursuitList>
+<!-- Captains Rotate -->
+	  <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	 </PursuitList>
+	</CustomBehavior>
+	
+		<CustomBehavior File="InteractWith" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2,43600)" >
+		<HuntingGrounds>
+<!-- tower balcony-->
+<Hotspot X="4397.49" Y="2204.432" Z="240.5012" />
+
+		</HuntingGrounds>
+		<PursuitList>
+
+<!-- Captains Rotate -->
+	  <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,43600) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	 </PursuitList>
 	</CustomBehavior>
 
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
