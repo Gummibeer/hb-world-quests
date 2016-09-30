@@ -931,7 +931,7 @@ return true;
 </If>
 </If>
 
-<If Condition="doPVP">
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43451)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43451-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer-WiN" RememberProfile="true" />
 </If>
@@ -1103,6 +1103,13 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="true" />
 </If>
 </If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43460)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43460-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="true" />
+</If>
+</If>
+
 <!--
 <If Condition="WorldQuestInfo.HasWorldQuest(44033)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\44033-[N]-[QUEST]-Wq-Aw_Nuts-Zinner" RememberProfile="true" />
