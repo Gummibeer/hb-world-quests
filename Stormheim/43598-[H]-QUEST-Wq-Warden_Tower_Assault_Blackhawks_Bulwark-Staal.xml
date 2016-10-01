@@ -124,18 +124,22 @@
 -->
 
 <While Condition="WorldQuestInfo.HasWorldQuest(43598)" >
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43598] Warden Tower Assault: Blackhawk's Bulwark - Staal!&quot;);" />
-	<RunTo X="1658.249" Y="1471.208" Z="74.83208" />
-	
-
-	
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(43598)" >
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43598] Warden Tower Assault: Blackhawk's Bulwark - Staal!&quot;);" />
+	<RunTo X="1728.607" Y="1398.115" Z="53.50922" />
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,43598)" >
 		<HuntingGrounds>
-<Hotspot X="1584.51" Y="1433.047" Z="82.85397" />
-<Hotspot X="1557.015" Y="1426.717" Z="171.2294" />
+<!-- front of tower -->
+<Hotspot X="1612.224" Y="1452.887" Z="77.78957" />
+<!-- top of tower stairs-->
+<Hotspot X="1578.932" Y="1416.239" Z="171.2151" />
+<!-- tower balcony-->
+<Hotspot X="1547.171" Y="1411.166" Z="171.3202" />
+
+<!-- wider front of tower to find any last mobs to hit 100% -->
+<Hotspot X="4314.835" Y="2264.229" Z="146.6706" />
+
 		</HuntingGrounds>
 		<PursuitList>
-
       <PursueUnit Id="102873" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102864" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102868" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
@@ -143,19 +147,28 @@
       <PursueUnit Id="102867" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102872" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="102876" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> 
-      <PursueUnit Id="102865" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102869" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102874" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102878" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102866" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102871" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-      <PursueUnit Id="102875" PursueWhen="!IsObjectiveComplete(1,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	  
-      <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<!-- Captains Rotate -->
+	  <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
       <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-		</PursuitList>
+	 </PursuitList>
 	</CustomBehavior>
+	
+		<CustomBehavior File="InteractWith" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2,43598)" >
+		<HuntingGrounds>
+<!-- tower balcony-->
+<Hotspot X="1651.25" Y="1466.929" Z="75.04588" />
+
+		</HuntingGrounds>
+		<PursuitList>
+
+<!-- Captains Rotate -->
+	  <PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104292" Priority="100" PursueWhen="!IsObjectiveComplete(2,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+      <PursueUnit Id="104294" Priority="100" PursueWhen="!IsObjectiveComplete(2,43598) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	 </PursuitList>
+	</CustomBehavior>
+
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
