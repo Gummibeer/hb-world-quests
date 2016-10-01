@@ -503,7 +503,7 @@ return true;
 
 <If Condition="doWorldBoss">
 <If Condition="WorldQuestInfo.HasWorldQuest(43192)">
-<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43192-[N]-[QUEST]-Terror_of_the_Deep-WiN" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43192-[N]-[QUEST]-Wq-Terror_of_the_Deep-WiN" RememberProfile="true" />
 </If>
 </If>
 
