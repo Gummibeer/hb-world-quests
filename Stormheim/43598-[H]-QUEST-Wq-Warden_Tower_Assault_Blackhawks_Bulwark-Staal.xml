@@ -157,7 +157,7 @@
 		<CustomBehavior File="InteractWith" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2,43598)" >
 		<HuntingGrounds>
 <!-- tower balcony-->
-<Hotspot X="1651.25" Y="1466.929" Z="75.04588" />
+<Hotspot X="1547.171" Y="1411.166" Z="171.3202" />
 
 		</HuntingGrounds>
 		<PursuitList>
