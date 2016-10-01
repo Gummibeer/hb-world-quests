@@ -967,6 +967,10 @@ return true;
 </If>
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(43722)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal" RememberProfile="true" />
+</If>
+
 <!-- end Stormheim Zone -->
 </If>
 
