@@ -38,6 +38,8 @@ public class WorldQuestData { public int ID; public string Name; public Date
 <Hotspot X="-110.1724" Y="7396.065" Z="102.4026"/>
 </HuntingGrounds>
 </CustomBehavior>
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 <RunTo X="-120.0156" Y="7410.77" Z="101.1084" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
