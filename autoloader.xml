@@ -1079,6 +1079,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\43807-[N]-[QUEST]-Wq-Withered_Wrangling_Meredil_and_Ambervale-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41571)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\41571-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
+</If>
+
 <!-- End Suramar Zone -->
 </If>
 
