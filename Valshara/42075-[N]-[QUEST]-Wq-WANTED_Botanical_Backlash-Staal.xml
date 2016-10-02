@@ -154,7 +154,7 @@
 <Objective QuestName="Botanical Backlash" QuestId="42075" Type="KillMob" Nav="Fly" MobId="93336" KillCount="10" />
 <TurnIn Nav="Fly" QuestName="Botanical Backlash" QuestId="42075" TurnInName="" TurnInId="" />
 
-
+<WoWUnit Name="Darkgrove Cultivator" Entry="105932" X="2800.272" Y="6131.399" Z="249.6658" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42075)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Loading Profile [42075] Botanic Backlash - Staal!&quot;);" />
@@ -164,14 +164,14 @@
 <Hotspot X="2828.714" Y="5904.467" Z="234.7949" />
 	</HuntingGrounds>
 		<PursuitList>
-	<PursueUnit Id="105933" PursueWhen="!IsObjectiveComplete(1, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+	<PursueUnit Id="105933" PursueWhen="!IsObjectiveComplete(1, 42075) &amp;&amp; (UNIT.IsAlive)" />
 	</PursuitList>
 	</CustomBehavior>
 
-<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(2,42075)" >
-		<HuntingGrounds>
-<!-- Darkgrove cultivator-->
-<PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(42075)" >
+
+	<HuntingGrounds>
+		
 <Hotspot X="2895.405" Y="5974.082" Z="265.6091" />
 <Hotspot X="2875.701" Y="5899.276" Z="239.5217" />
 <Hotspot X="2836.821" Y="5897.066" Z="234.3541" />
@@ -180,13 +180,6 @@
 <Hotspot X="2898.721" Y="6149.93" Z="257.5048" />
 <Hotspot X="2810.701" Y="6108.756" Z="244.197" />
 <Hotspot X="2831.62" Y="6039.937" Z="253.9889" />
-	</HuntingGrounds>
-		<PursuitList>
-	
-	</PursuitList>
-	</CustomBehavior>	
-<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(3,42075)" >
-	<HuntingGrounds>
 		<Hotspot X="2857.508" Y="5992.157" Z="265.3462" />
 		<Hotspot X="2931.365" Y="6086.943" Z="259.6638" />
 		<Hotspot X="2898.721" Y="6149.93" Z="257.5048" />
@@ -195,19 +188,20 @@
 		<Hotspot X="2828.714" Y="5904.467" Z="234.7949" />
 	</HuntingGrounds>
 	<PursuitList>
-		
-		<PursueUnit Id="92321" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="92332" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="114216" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="115001" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="92326" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="92837" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="101642" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="114217" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="92328" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="92921" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="114215" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		<PursueUnit Id="114219" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+		<PursueUnit Id="103653" Priority="100" PursueWhen="!IsObjectiveComplete(2,42075) &amp;&amp; (UNIT.IsAlive)"/>
+		<PursueUnit Id="105932" Priority="100" PursueWhen="!IsObjectiveComplete(2,42075) &amp;&amp; (UNIT.IsAlive)"/>
+		<PursueUnit Id="92321" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="92332" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="114216" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="115001" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="92326" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="92837" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="101642" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="114217" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="92328" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="92921" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="114215" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
+		<PursueUnit Id="114219" PursueWhen="!IsObjectiveComplete(3, 42075) &amp;&amp; (UNIT.IsAlive)" />
     </PursuitList>
 </CustomBehavior>
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
