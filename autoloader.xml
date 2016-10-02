@@ -263,11 +263,15 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="true" />
 </If></If>
 
+<!-- removed due to stuck on location 
+<Blackspot X="-135.0649" Y="6975.991" Z="8.404239" Radius="14.61589" />
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43615)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43615-[N]-[QUEST]-Wq-WANTED_Warbringer_Moxna-WiN" RememberProfile="true" />
 </If>
 </If>
+-->
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43431)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43431-[N]-[QUEST]-Wq-WANTED_Warbringer_Moxna-WiN" RememberProfile="true" />
@@ -910,10 +914,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41569-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
 
-<!-- Should be in Suramar, will check later  
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41556)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
-</If> -->
+</If>
 
 <!-- taken out of loader due to odd repeat patterns
 <If Condition="doWanted">
@@ -1069,9 +1073,7 @@ return true;
 </If>
 </If>
 
-<If Condition="WorldQuestInfo.HasWorldQuest(41556)">
-<CustomBehavior File="LoadProfile" ProfileName="Suramar\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
-</If>
+
 
 <If Condition="WorldQuestInfo.HasWorldQuest(43807)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\43807-[N]-[QUEST]-Wq-Withered_Wrangling_Meredil_and_Ambervale-WiN" RememberProfile="true" />
