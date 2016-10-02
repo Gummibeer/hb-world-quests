@@ -1293,7 +1293,7 @@ return true;
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(42075)">
-<CustomBehavior File="LoadProfile" ProfileName="Valshara\42075-[N]-[QUEST]-Wq-WANTED_Botanical_Backlash-Staal" RememberProfile="true" />
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\42075-[N]-[QUEST]-Wq-Botanical_Backlash-Staal" RememberProfile="true" />
 </If>
 
 <!--<If Condition="WorldQuestInfo.HasWorldQuest(41293)">
