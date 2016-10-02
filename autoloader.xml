@@ -1248,6 +1248,12 @@ return true;
 </If>
 </If>
 
+<If Condition="doPVP">
+<If Condition="WorldQuestInfo.HasWorldQuest(43247)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43247-[H]-QUEST-Wq-Warden_Tower_Darkfollows_Spire-Staal" RememberProfile="true" />
+</If>
+</If>
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41995)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41995-[N]-[QUEST]-Wq-Dark_Corruption-WiN" RememberProfile="true" />
 </If>
