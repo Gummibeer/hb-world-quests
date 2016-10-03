@@ -169,6 +169,8 @@
 					<Hotspot X="-128.0617" Y="6335.089" Z="45.67139" />
 				</HuntingGrounds>
 			</CustomBehavior>
+				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
