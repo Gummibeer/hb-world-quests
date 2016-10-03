@@ -155,13 +155,11 @@
 				]]>
 			</CustomBehavior>
 	
-		
-		<While Condition="WorldQuestInfo.HasWorldQuest(43430)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="-128.0617" Y="6335.089" Z="45.67139" /> 
-				<Objective QuestName="WANTED: Captain Volo'ren" QuestId="43430" Type="KillMob" Nav="Fly" MobId="89846" KillCount="1" />
+<!--
+<Vendor Name="Captain Volo'ren" Entry="89846" Type="Repair" Nav="Fly" X="-122.8227" Y="6358.061" Z="45.78442" />
+<Objective QuestName="WANTED: Captain Volo'ren" QuestId="43430" Type="KillMob" Nav="Fly" MobId="89846" KillCount="1" />
+-->		
 
-</While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43430)" >	
 				<RunTo X="-128.0617" Y="6335.089" Z="45.67139" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="89846" QuestId="43430">
