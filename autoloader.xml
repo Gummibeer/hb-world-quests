@@ -79,11 +79,11 @@
 <!-- Profile Settings: -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doProfession = false;" />   <!-- change 'false' to 'true' to let the bot do DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change 'false' to 'true' to let the bot do DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = false;" />   <!-- change 'false' to 'true' to let the bot do Level 112 Elite DANGER World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change 'false' to 'true' to let the bot do Level 110 Elite Zone World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = true;" />   <!-- change 'false' to 'true' to let the bot do Level 112 Elite DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = true;" />   <!-- change 'false' to 'true' to let the bot do Level 110 Elite Zone World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doWanted = true;" />   <!-- change 'false' to 'true' to let the bot do WANTED World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doPVP = true;" />   <!-- change 'false' to 'true' to let the bot do PVP/Warden Tower World Quests -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doWorldBoss = false;" />   <!-- change 'false' to 'true' to let the bot do World Boss Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doWorldBoss = true;" />   <!-- change 'false' to 'true' to let the bot do World Boss Quests -->
 
 <!-- Zone Settings -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doAzsuna = true;" />
@@ -261,6 +261,11 @@ return true;
 <If Condition="doDanger">
 <If Condition="WorldQuestInfo.HasWorldQuest(43027)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="true" />
+</If></If>
+
+<If Condition="doDanger">
+<If Condition="WorldQuestInfo.HasWorldQuest(43430)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\43430-[N]-[QUEST]-Wq-WANTED Captain Volo'ren-Zinner" RememberProfile="true" />
 </If></If>
 
 <!-- removed due to stuck on location 
@@ -1078,11 +1083,11 @@ return true;
 </If>
 
 
-<!--
+
 <If Condition="WorldQuestInfo.HasWorldQuest(43807)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\43807-[N]-[QUEST]-Wq-Withered_Wrangling_Meredil_and_Ambervale-WiN" RememberProfile="true" />
 </If>
--->
+
 <If Condition="WorldQuestInfo.HasWorldQuest(41571)">
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\41571-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
