@@ -263,7 +263,7 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="true" />
 </If></If>
 
-<If Condition="doDanger">
+<If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43430)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43430-[N]-[QUEST]-Wq-WANTED Captain Volo'ren-Zinner" RememberProfile="true" />
 </If></If>
@@ -831,6 +831,19 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43434-[N]-[QUEST]-Wq-WANTED_Fathnyr-WiN" RememberProfile="true" />
 </If>
 </If>
+
+<If Condition="doProfession">
+<If Condition="WorldQuestInfo.HasWorldQuest(41442)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41442-[N]-[QUEST]-Wq-Striking Leystone Deposits-Zinner" RememberProfile="true" />
+</If>
+</If>
+
+<If Condition="doProfession">
+<If Condition="WorldQuestInfo.HasWorldQuest(41444)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner" RememberProfile="true" />
+</If>
+</If>
+
 <If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(41925)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41925-[N]-[QUEST]-Wq-Razing_Hel" RememberProfile="true" />
@@ -919,6 +932,11 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41569-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43431)">
+<CustomBehavior File="LoadProfile" ProfileName="Stormheim\43453-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="true" />
+</If>
+</If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41556)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="true" />
