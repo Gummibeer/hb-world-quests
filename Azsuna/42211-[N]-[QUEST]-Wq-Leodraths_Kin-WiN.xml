@@ -146,15 +146,15 @@
 		</HuntingGrounds>
 		<PursuitList>
 			<PursueUnit Id="106689" Priority="3" PursueWhen="!IsObjectiveComplete(1, 42211)" />
-			<PursueUnit Id="90505" Priority="2" PursueWhen="!IsObjectiveComplete(3, 42211) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-			<PursueUnit Id="106788" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42211) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-			<PursueUnit Id="106782" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42211) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="90505" Priority="2" PursueWhen="!IsObjectiveComplete(3, 42211) &amp;&amp; (UNIT.IsAlive)" />
+			<PursueUnit Id="106788" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42211) &amp;&amp; (UNIT.IsAlive)" />
+			<PursueUnit Id="106782" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42211) &amp;&amp; (UNIT.IsAlive)" />
 		</PursuitList>
 	</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
-
+<RunTo X="-440.11" Y="5382.44" Z="71.85" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42211] Leodrath's Kin - WiN!&quot;);" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
