@@ -125,7 +125,7 @@
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42070] Warden Tower Assault: Starstalker's Point - Staal!&quot;);" />
 	<!--<RunTo X="3240.585" Y="7842.189" Z="3.810286" />-->
 	<!--old<RunTo X="3394.486" Y="7753.728" Z="35.74711" />-->
-	<RunCode X="3240.46" Y="7722.841" Z="93.96063" />
+	<RunTo X="3240.46" Y="7722.841" Z="93.96063" />
 	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,42070)" >
 		<HuntingGrounds>
 <!-- front of tower -->
