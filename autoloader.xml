@@ -1257,6 +1257,13 @@ return true;
 </If>
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(43456)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43456-[N]-[QUEST]-Wq-WANTED_Skulvrax-WiN" RememberProfile="true" />
+</If>
+</If>
+
+
 <If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(42070)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42070-[H]-QUEST-Wq-Warden_Tower_Assault_Starstalkers_Point-Staal" RememberProfile="true" />
