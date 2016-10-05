@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Drakestalker</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41794 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest &amp;&amp; !HasQuest(41794)">
+      <RunTo X="3774.165" Y="2585.571" Z="336.3899" />
+    </While>
+    <While Condition="OnQuest">
+      <Objective QuestName="Drakestalker" QuestId="41794" Type="CollectItem" Nav="Fly" ItemId="136369" CollectCount="30" />
+    </While>
+    <CustomBehavior File="LoadProfile" ProfileName="../[Nuok] World Quest Autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
