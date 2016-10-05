@@ -1,0 +1,37 @@
+<HBProfile>
+<Name>The World Awaits- Zinner</Name>
+
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+
+	<SellGrey>true</SellGrey>
+	<SellWhite>false</SellWhite>
+	<SellGreen>false</SellGreen>
+	<SellBlue>false</SellBlue>
+	<SellPurple>false</SellPurple>
+
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+
+	<TargetElites>true</TargetElites>
+
+<Vendors>
+
+</Vendors>
+
+<QuestOrder>
+	<PickUp Nav="Fly" QuestName="The World Awaits" QuestId="44175" GiverName="Archmage Timear" GiverId="111246" X="-884.1406" Y="4349.942" Z="741.2321" />
+
+
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Picked Up The World Awaits, loading auto-loader!&quot;);" />
+
+	<CustomBehavior File="LoadProfile" ProfileName="../world-quests/autoloader" RememberProfile="true" />
+
+</QuestOrder>
+</HBProfile>
+
+
