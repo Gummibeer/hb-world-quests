@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Ley Race</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+  <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 43764 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+        public WoWAreaTrigger LeyLineNode
+            =>
+            ObjectManager.GetObjectsOfType<WoWAreaTrigger>()
+                .Where(o => o.IsValid && o.Entry == 12110 && !Blacklist.Contains(o, BlacklistFlags.All))
+                .OrderBy(o => o.Distance)
+                .FirstOrDefault();
+
+        async Task DoQuest()
+        {
+            var node = LeyLineNode;
+            if (node == null)
+            {
+                await CommonCoroutines.MoveTo(new Vector3(5178.662f, 5770.229f, 9.114864f));
+                return;
+            }
+            if (node.WithinInteractRange)
+            {
+                Blacklist.Add(node, BlacklistFlags.All, TimeSpan.FromSeconds(60));
+                return;
+            }
+            await CommonCoroutines.MoveTo(node.Location);
+        }
+
+]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(43764)">
+        <RunTo X="4127.784" Y="5400.531" Z="626.991" />
+      </If>
+      <If Condition="HasQuest(43764)">
+        <DisableBehavior Name="All" />
+        <If Condition="!Me.InVehicle">
+          <CustomBehavior File="InteractWith" MobId="110903" TerminateWhen="!OnQuest || Me.InVehicle" X="4127.784" Y="5400.531" Z="626.991" />
+          <CustomBehavior File="WaitTimer" WaitTime="500" />
+        </If>
+        <While Condition="Me.InVehicle">
+          <CustomBehavior File="RunCode" Code="await DoQuest();"/>
+        </While>
+      </If>
+    </While>
+    <EnableBehavior Name="All" />
+    <CustomBehavior File="LoadProfile" ProfileName="../[Nuok] World Quest Autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
