@@ -29,7 +29,7 @@
 	
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Picked Up The World Awaits, loading auto-loader!&quot;);" />
 
-	<CustomBehavior File="LoadProfile" ProfileName="../world-quests/autoloader" RememberProfile="true" />
+	<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 
 </QuestOrder>
 </HBProfile>
