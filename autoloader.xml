@@ -522,6 +522,12 @@ return true;
 </If>
 </If>
 
+<If Condition="doWorldBoss">
+<If Condition="WorldQuestInfo.HasWorldQuest(44287)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\44287-[N]-[QUEST]-Wq-DEADLY_Withered_Jim" RememberProfile="true" />
+</If>
+</If>
+
 <If Condition="doWanted">
 <If Condition="WorldQuestInfo.HasWorldQuest(43613)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43613-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN" RememberProfile="true" />
