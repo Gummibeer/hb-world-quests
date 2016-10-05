@@ -1122,6 +1122,13 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Suramar\41571-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44023)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\44023-[N]-[QUEST]-Wq-WANTED_Siegemaster_Aedrin-WiN" RememberProfile="true" />
+</If>
+</If>
+
+
 <!-- End Suramar Zone -->
 </If>
 
