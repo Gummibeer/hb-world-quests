@@ -510,6 +510,12 @@ return true;
 </If>
 </If>
 
+<If Condition="doHard">
+<If Condition="WorldQuestInfo.HasWorldQuest(42024)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42024-[N]-[QUEST]-Wq-A_Friend_of_My_Enemy-Staal" RememberProfile="true" />
+</If>
+</If>
+
 <If Condition="doWorldBoss">
 <If Condition="WorldQuestInfo.HasWorldQuest(43192)">
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43192-[N]-[QUEST]-Wq-Terror_of_the_Deep-WiN" RememberProfile="true" />
