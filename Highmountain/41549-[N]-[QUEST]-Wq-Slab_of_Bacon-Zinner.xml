@@ -156,20 +156,15 @@
 			</CustomBehavior>
 	
 		
+<!--
+
+
+<WoWUnit Name="Well-Fed Ironhorn Bull" Entry="103681" X="4632.12" Y="4720.101" Z="669.038" />
+-->
+
 		<While Condition="WorldQuestInfo.HasWorldQuest(41549)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="4637.102" Y="4710.773" Z="674.8185" /> 
-				<PickUp Nav="Fly" QuestName="Slab of Bacon" QuestId="41549" GiverName="" GiverId="" />
+				<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41549] Slab_of_Bacon - Zinner!&quot;);" />
 
-				<Objective QuestName="Slab of Bacon" QuestId="41549" Type="CollectItem" Nav="Fly" ItemId="135511" CollectCount="1" />
-
-				<TurnIn Nav="Fly" QuestName="Slab of Bacon" QuestId="41549" TurnInName="" TurnInId="" />
-
-
-
-</While>
-
-		<While Condition="WorldQuestInfo.HasWorldQuest(41549)" >	
 				<RunTo X="4637.102" Y="4710.773" Z="674.8185" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="103681" QuestId="41549">
 				<HuntingGrounds>
@@ -183,7 +178,7 @@
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 41549-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41549] Slab_of_Bacon - Zinner, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
