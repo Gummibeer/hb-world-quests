@@ -1391,6 +1391,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\42080-[N]-[QUEST]-Wq-Bastion_of_Bradensbrook-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41516)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\41516-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
+</If>
+
 <!-- End Valshara Zone -->
 </If>
 
