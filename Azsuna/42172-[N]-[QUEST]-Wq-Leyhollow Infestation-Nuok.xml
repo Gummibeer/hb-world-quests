@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<HBProfile>
+  <Name>[Nuok] Leyhollow Infestation</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42172 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(42172)">
+        <RunTo X="780.0253" Y="6629.304" Z="62.4072" />
+      </If>
+      <While Condition="HasQuest(42172)">
+        <While Condition="!IsObjectiveComplete(1, 42172)">
+          <!--Aura Name="Heavy Stone" SpellId="211392-->
+          <While Condition="!Me.HasAura(211392)">
+            <!--GameObject Name="Heavy Stone" Entry="249771" -->
+            <If Condition="!Me.HasAura(211392)">
+              <CustomBehavior File="InteractWith" NumOfTimes="1" MobId="106621" WaitForNpcs="false" />
+            </If>
+            <If Condition="!Me.HasAura(211392)">
+              <CustomBehavior File="InteractWith" NumOfTimes="1" MobId="249771">
+                <HuntingGrounds>
+                  <Hotspot X="864.4134" Y="6489.69" Z="55.21318" />
+                  <Hotspot X="779.2867" Y="6478.893" Z="59.9725" />
+                </HuntingGrounds>
+              </CustomBehavior>
+            </If>
+          </While>
+          <While Condition="Me.HasAura(211392)">
+            <!--WoWUnit Name="Leyworm Tunnel" Entry="106625" -->
+            <CustomBehavior File="InteractWith" NumOfTimes="1" Range="1" MobId="106625" TerminateWhen="!Me.HasAura(211392)">
+              <HuntingGrounds>
+                <Hotspot X="864.4134" Y="6489.69" Z="55.21318" />
+                <Hotspot X="779.2867" Y="6478.893" Z="59.9725" />
+              </HuntingGrounds>
+            </CustomBehavior>
+            <If Condition="Me.HasAura(211392)">
+              <CustomBehavior File="RunMacro" Macro="/click ExtraActionButton1" />
+            </If>
+          </While>
+        </While>
+        <CustomBehavior File="KillUntilComplete" MobId="106630" TerminateWhen="!OnQuest || !IsObjectiveComplete(1, 42172)">
+          <HuntingGrounds>
+            <Hotspot X="864.4134" Y="6489.69" Z="55.21318" />
+            <Hotspot X="779.2867" Y="6478.893" Z="59.9725" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </While>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
