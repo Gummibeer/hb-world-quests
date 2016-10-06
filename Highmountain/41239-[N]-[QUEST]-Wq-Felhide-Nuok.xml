@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Felhide</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41239 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41239)">
+        <RunTo X="5015.816" Y="4692.379" Z="985.8831" />
+      </If>
+      <If Condition="HasQuest(41239)">
+        <CustomBehavior File="InteractWith" MobId="103675" TerminateWhen="!OnQuest" WaitForNpcs="false" X="5015.816" Y="4692.379" Z="985.8831" />
+        <!--<GameObject Name="Felhide Gargantuan" Entry="248041" X="5800.007" Y="4611.271" Z="675.757" />-->
+        <!--<GameObject Name="Felhide Gargantuan" Entry="247422" X="4952.561" Y="4754.356" Z="993.1281" />-->
+        <CustomBehavior File="InteractWith" MobIds="248041, 247422" TerminateWhen="!OnQuest" WaitForNpcs="false" X="5015.816" Y="4692.379" Z="985.8831" />
+      </If>
+    </While>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
