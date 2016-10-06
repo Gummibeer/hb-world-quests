@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-
 <HBProfile>
   <Name>[Nuok] Champions of Elune</Name>
   <MinDurability>0.2</MinDurability>
@@ -76,6 +75,8 @@ return false;", 0);]]></CustomBehavior>
             if(!Me.IsAutoAttacking)
               Me.ToggleAttack();  
               
+            Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D3);  
+            await Coroutine.Sleep(500);
             Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D2);  
             await Coroutine.Sleep(500);
             Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D1);
@@ -113,11 +114,11 @@ return false;", 0);]]></CustomBehavior>
           <CustomBehavior File="WaitTimer" WaitTime="5000" />
         </If>
       </If>
-      <If Condition="Me.InVehicle">
+      <While Condition="Me.InVehicle">
         <DisableBehavior Name="All" />
         <!--Dryad Vehicle: Maintain-->
         <CustomBehavior File="RunCode" Code="await VehicleKill(97796);" />
-      </If>
+      </While>
     </While>
     <EnableBehavior Name="All" />
     <If
