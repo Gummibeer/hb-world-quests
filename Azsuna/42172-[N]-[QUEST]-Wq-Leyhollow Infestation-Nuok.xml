@@ -64,12 +64,14 @@ return false;", 0);]]>
             </If>
           </While>
         </While>
-        <CustomBehavior File="KillUntilComplete" MobId="106630" TerminateWhen="!OnQuest || !IsObjectiveComplete(1, 42172)">
+        <CustomBehavior File="KillUntilComplete" MobId="106630" TerminateWhen="!OnQuest || IsObjectiveComplete(2, 42172)">
           <HuntingGrounds>
             <Hotspot X="864.4134" Y="6489.69" Z="55.21318" />
             <Hotspot X="779.2867" Y="6478.893" Z="59.9725" />
           </HuntingGrounds>
         </CustomBehavior>
+      
+        <CustomBehavior File="KillUntilComplete" MobId="106665" TerminateWhen="!OnQuest || !IsObjectiveComplete(1, 42172) || !IsObjectiveComplete(2, 42172)" X="920.3154" Y="6440.546" Z="56.54713" />
       </While>
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
