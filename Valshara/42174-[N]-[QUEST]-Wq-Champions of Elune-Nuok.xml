@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<HBProfile>
+  <Name>[Nuok] Champions of Elune</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1018);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1018)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42174 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <!--Credit To Echo-->
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[
+					async Task VehicleMove(Vector3 moveTo)
+					{
+						while (Me.Location.Distance(moveTo) >= 5)
+						{
+							Navigator.MoveTo(moveTo);
+							await CombatAwareness();
+							await Coroutine.Yield();
+						}
+					}     
+
+					async Task VehicleKill(uint unitId)
+					{
+						WoWUnit killMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && u.Entry == unitId && u.IsAlive);
+						if (killMe == null || Blacklist.Contains(killMe, BlacklistFlags.Combat)) return;
+
+						while (killMe != null && killMe.IsAlive)
+						{
+							if (Me.Location.Distance(killMe.Location) >= 5)
+							{
+								Navigator.MoveTo(killMe.Location);
+								await CombatAwareness();
+								await Coroutine.Yield();
+							}
+
+							if (killMe.IsAlive)
+							{
+								await VehicleCombat(killMe);
+								await Coroutine.Yield();
+							}
+							await Coroutine.Yield();
+						}
+					}
+
+					async Task VehicleCombat(WoWUnit vehicleKill)
+					{
+						if (vehicleKill.Distance > 5) return;
+						if (Me.CurrentTarget != vehicleKill)
+						{
+							vehicleKill.Target();
+						}
+						Me.SetFacing(vehicleKill.Location);
+      
+            if(!Me.IsAutoAttacking)
+              Me.ToggleAttack();  
+              
+            Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D2);  
+            await Coroutine.Sleep(500);
+            Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D1);
+						await Coroutine.Sleep(1050);
+					}
+
+					async Task CombatAwareness()
+					{
+						var killArray = ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.IsTargetingMeOrPet && u.Distance <= 5);
+						if (killArray == null) return;
+
+						foreach (WoWUnit killMe in killArray)
+						{
+							while (killMe != null && killMe.IsTargetingMeOrPet && killMe.Distance <= 5)
+							{
+								await CommonCoroutines.StopMoving();
+								StyxWoW.Me.SetFacing(killMe.Location);
+								await VehicleCombat(killMe);
+								await Coroutine.Yield();
+							}
+						}
+					}
+				]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+    	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42174] Champions of Elune - Nuok!&quot;);" />
+      <If Condition="!Me.InVehicle">
+        <If Condition="!HasQuest(42174)">
+          <RunTo X="3515.886" Y="5538.995" Z="323.084" />
+        </If>
+        <If Condition="HasQuest(42174)">
+          <DisableBehavior Name="All" />
+          <CustomBehavior File="InteractWith" MobId="106638" GossipOptions="1" X="3515.886" Y="5538.995" Z="323.084" />
+          <CustomBehavior File="WaitTimer" WaitTime="5000" />
+        </If>
+      </If>
+      <If Condition="Me.InVehicle">
+        <DisableBehavior Name="All" />
+        <!--Dryad Vehicle: Maintain-->
+        <CustomBehavior File="RunCode" Code="await VehicleKill(97796);"/>
+      </If>
+    </While>
+    <EnableBehavior Name="All" />
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42174] Champions of Elune - Nuok!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
