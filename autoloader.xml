@@ -566,6 +566,10 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42506-[N]-[QUEST]-Wq-Tomes_of_Yore-WiN" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(42277)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42277-[N]-[QUEST]-Wq-Interlopers-Nuok" RememberProfile="true" />
+</If>
+
 <!-- End Azuna Zone -->
 </If>
 
