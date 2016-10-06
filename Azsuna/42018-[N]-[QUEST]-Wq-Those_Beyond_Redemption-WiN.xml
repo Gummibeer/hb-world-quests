@@ -28,28 +28,28 @@ if (taskInfo) then
 end
 return false;", 0);]]>
     </CustomBehavior>
+    <While Condition="OnQuest">
+     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42018] Those Beyond Redemption - WiN!&quot;);" />
     <If Condition="!HasQuest(42018)">
       <RunTo X="990.3676" Y="6099.369" Z="99.38569" />
     </If>
-    <While Condition="OnQuest">
-      <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42018] Those Beyond Redemption - WiN!&quot;);" />
-      <CustomBehavior File="KillUntilComplete" MobIds="90616, 109826, 89801, 90318, 90005" TerminateWhen="!OnQuest || !HasQuest(42018)">
-        <HuntingGrounds>
-          <Hotspot X="1004.57" Y="6123.871" Z="99.09881" />
-          <Hotspot X="1055.215" Y="6163.667" Z="96.53693" />
-          <Hotspot X="1121.816" Y="6156.637" Z="87.49875" />
-          <Hotspot X="1204.524" Y="6171.029" Z="86.43341" />
-          <Hotspot X="1266.225" Y="6146.162" Z="87.75005" />
-          <Hotspot X="1004.57" Y="6123.871" Z="99.09881" />
-        </HuntingGrounds>
-      </CustomBehavior>
+      <While Condition="HasQuest(42018)">
+        <CustomBehavior File="KillUntilComplete" MobIds="90616, 109826, 89801, 90318, 90005" TerminateWhen="!OnQuest || !HasQuest(42018)">
+          <HuntingGrounds>
+            <Hotspot X="1004.57" Y="6123.871" Z="99.09881" />
+            <Hotspot X="1055.215" Y="6163.667" Z="96.53693" />
+            <Hotspot X="1121.816" Y="6156.637" Z="87.49875" />
+            <Hotspot X="1204.524" Y="6171.029" Z="86.43341" />
+            <Hotspot X="1266.225" Y="6146.162" Z="87.75005" />
+            <Hotspot X="1004.57" Y="6123.871" Z="99.09881" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </While>
     </While>
-    <If
-      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
-    <CustomBehavior File="RunCode"
-                    Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42018] Those Beyond Redemption - WiN!&quot;);" />
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42018] Those Beyond Redemption - WiN!&quot;);" />
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
   </QuestOrder>
 </HBProfile>
