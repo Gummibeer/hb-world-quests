@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
 <HBProfile>
   <Name>[Nuok] Ley Race</Name>
   <MinDurability>0.2</MinDurability>
@@ -18,7 +19,7 @@
   <TargetElites>true</TargetElites>
   <QuestOrder>
     <CustomBehavior File="RunCode" Type="Definition">
-  <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1018);
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1018);
 local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1018)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
@@ -54,7 +55,7 @@ return false;", 0);
         }
         ]]></CustomBehavior>
     <While Condition="OnQuest">
-    	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43753] Ley Race - Nuok!&quot;);" />
+      <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43753] Ley Race - Nuok!&quot;);" />
       <If Condition="!HasQuest(43753)">
         <RunTo X="1683.742" Y="6409.259" Z="42.19582" />
       </If>
@@ -65,17 +66,16 @@ return false;", 0);
           <CustomBehavior File="WaitTimer" WaitTime="500" />
         </If>
         <While Condition="Me.InVehicle">
-          <CustomBehavior File="RunCode" Code="await DoQuest();"/>
+          <CustomBehavior File="RunCode" Code="await DoQuest();" />
         </While>
       </If>
     </While>
     <EnableBehavior Name="All" />
-<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
-</If>
-
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43753] Ley Race - Nuok!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+    <If
+      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43753] Ley Race - Nuok!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
   </QuestOrder>
 </HBProfile>

@@ -101,7 +101,8 @@ return false;", 0);]]></CustomBehavior>
 				]]>
     </CustomBehavior>
     <While Condition="OnQuest">
-    	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42174] Champions of Elune - Nuok!&quot;);" />
+      <CustomBehavior File="RunCode"
+                      Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42174] Champions of Elune - Nuok!&quot;);" />
       <If Condition="!Me.InVehicle">
         <If Condition="!HasQuest(42174)">
           <RunTo X="3515.886" Y="5538.995" Z="323.084" />
@@ -115,16 +116,16 @@ return false;", 0);]]></CustomBehavior>
       <If Condition="Me.InVehicle">
         <DisableBehavior Name="All" />
         <!--Dryad Vehicle: Maintain-->
-        <CustomBehavior File="RunCode" Code="await VehicleKill(97796);"/>
+        <CustomBehavior File="RunCode" Code="await VehicleKill(97796);" />
       </If>
     </While>
     <EnableBehavior Name="All" />
-<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
-</If>
+    <If
+      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
 
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42174] Champions of Elune - Nuok!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42174] Champions of Elune - Nuok!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
   </QuestOrder>
 </HBProfile>

@@ -42,6 +42,9 @@ return false;", 0);]]></CustomBehavior>
         </HuntingGrounds>
       </CustomBehavior>   
     </While>
-    <CustomBehavior File="LoadProfile" ProfileName="../[Nuok] World Quest Autoloader" RememberProfile="false" />
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
   </QuestOrder>
 </HBProfile>

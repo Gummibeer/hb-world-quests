@@ -28,7 +28,6 @@ if (taskInfo) then
 end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
-    	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42277] Interlopers - Nuok!&quot;);" />
       <If Condition="!HasQuest(42277)">
         <RunTo X="-250.6613" Y="7733.269" Z="134.5566" />
       </If>
@@ -48,12 +47,10 @@ return false;", 0);]]></CustomBehavior>
         </CustomBehavior>    
       </If>
     </While>
-<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
-</If>
-
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42277] Interlopers - Nuok!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+    <If
+      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
   </QuestOrder>
 </HBProfile>

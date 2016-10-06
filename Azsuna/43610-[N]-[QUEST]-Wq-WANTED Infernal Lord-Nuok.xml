@@ -35,6 +35,10 @@ return false;", 0);]]></CustomBehavior>
         <CustomBehavior File="KillUntilComplete" MobIds="90803, 90797" TerminateWhen="!OnQuest" X="-376.2517" Y="7501.802" Z="52.01975" />
       </If>
     </While>
-    <CustomBehavior File="LoadProfile" ProfileName="../[Nuok] World Quest Autoloader" RememberProfile="false" />
+    <If
+      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
   </QuestOrder>
 </HBProfile>
