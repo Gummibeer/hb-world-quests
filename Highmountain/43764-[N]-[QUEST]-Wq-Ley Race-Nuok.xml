@@ -54,6 +54,7 @@ return false;", 0);
 
 ]]></CustomBehavior>
     <While Condition="OnQuest">
+    	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43764] Ley Race - Nuok!&quot;);" />
       <If Condition="!HasQuest(43764)">
         <RunTo X="4127.784" Y="5400.531" Z="626.991" />
       </If>
@@ -69,6 +70,12 @@ return false;", 0);
       </If>
     </While>
     <EnableBehavior Name="All" />
-    <CustomBehavior File="LoadProfile" ProfileName="../[Nuok] World Quest Autoloader" RememberProfile="false" />
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43764] Ley Race - Nuok!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
   </QuestOrder>
 </HBProfile>
