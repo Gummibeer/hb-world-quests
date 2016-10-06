@@ -132,7 +132,9 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41705)" >
 	<RunTo X="4156.51" Y="4374.45" Z="768.16" />
-	<CustomBehavior File="KillUntilComplete" MobIds="104614,104615,104624,104660" QuestId="41705" TerminateWhen="IsObjectiveComplete(1, 41705)">
+	
+	
+		<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="IsQuestCompleted(41705)" >
 		<HuntingGrounds>
 			<Hotspot X="4119.094" Y="4420.768" Z="768.4896" />
 			<Hotspot X="4035.277" Y="4415.141" Z="768.3971" />
@@ -140,18 +142,25 @@
 			<!-- return to start -->
 		<Hotspot X="4156.51" Y="4374.45" Z="768.16" />
 		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="104614" Priority="100" PursueWhen="!IsObjectiveComplete(1,41705)" />
+			<PursueUnit Id="104615" Priority="100" PursueWhen="!IsObjectiveComplete(1,41705)" />
+			<PursueUnit Id="104624" Priority="100" PursueWhen="!IsObjectiveComplete(1,41705)" />
+			<PursueUnit Id="104660" Priority="100" PursueWhen="!IsObjectiveComplete(1,41705)" />
+		</PursuitList>
 	</CustomBehavior>
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 	
-<!-- Not working for Codex, ignore for now:
-<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
--->
+	
 
 </While>
+<!--
+doesnt need the whistle it is rightbeside the flight point
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	
+-->	
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
