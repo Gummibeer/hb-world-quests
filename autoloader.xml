@@ -77,7 +77,7 @@
 
 
 <!-- Profile Settings: -->
-<CustomBehavior File="RunCode" Type="Definition" Code="bool doProfession = false;" />   <!-- change 'false' to 'true' to let the bot do DANGER World Quests -->
+<CustomBehavior File="RunCode" Type="Definition" Code="bool doProfession = false;" />   <!-- change 'false' to 'true' to let the bot do Profession World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger = true;" />   <!-- change 'false' to 'true' to let the bot do DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doDanger112 = true;" />   <!-- change 'false' to 'true' to let the bot do Level 112 Elite DANGER World Quests -->
 <CustomBehavior File="RunCode" Type="Definition" Code="bool doHard = false;" />   <!-- change 'false' to 'true' to let the bot do Level 110 Elite Zone World Quests -->
