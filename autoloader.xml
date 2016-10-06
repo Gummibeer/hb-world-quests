@@ -818,6 +818,10 @@ return true;
 </If>
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41549)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41549-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="true" />
+</If>
+
 <!--
 <If Condition="WorldQuestInfo.HasWorldQuest(41240)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41240-[N]-[QUEST]-Wq-Work Order Highmountain Salmonr-BUY 40 Highmountain Salmon from ah" RememberProfile="true" />
