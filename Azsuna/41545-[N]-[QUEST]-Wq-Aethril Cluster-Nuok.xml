@@ -35,6 +35,8 @@ return false;", 0);]]></CustomBehavior>
         <!--<WoWUnit Name="Aethril Cluster" Entry="104377" X="1379.226" Y="7193.648" Z="68.92852" />-->
         <CustomBehavior File="InteractWith" MobId="104377" TerminateWhen="!OnQuest" X="1379.226" Y="7193.648" Z="68.92852" />
       </If>
+      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>
     <If
       Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">

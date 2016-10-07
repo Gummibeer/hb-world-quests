@@ -162,7 +162,8 @@
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="755" TradeSkillItemId="130228" NumOfTimes="1"/>
 				<TurnIn Nav="Fly" QuestName="Work Order: Azsunite Pendant" QuestId="41651" TurnInName="Veridis Fallon" TurnInId="107376" />
 
-
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
 			</While>
 				
