@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<HBProfile>
+  <Name>[Nuok] The Withered Return</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42112 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(42112)">
+        <RunTo X="1145.718" Y="6852.368" Z="163.032" />
+      </If>
+      <If Condition="HasQuest(42112)">
+        <While Condition="!IsObjectiveComplete(1, 42112) &amp;&amp; OnQuest">
+          <While Condition="GetItemCount(136850) &lt; 1  &amp;&amp; !IsObjectiveComplete(1, 42112)">
+            <!--<GameObject Name="Stolen Ley Crystals" Entry="249702" X="1086.524" Y="6843.481" Z="170.7" />-->
+            <CustomBehavior File="InteractWith"
+                            TerminateWhen="IsObjectiveComplete(1, 42112) || GetItemCount(136850) &gt; 0 || !OnQuest"
+                            MobId="249702" X="1123.844" Y="6746.688" Z="165.9183" />
+          </While>
+          <While Condition="GetItemCount(136850) &gt; 0 &amp;&amp; !IsObjectiveComplete(1, 42112)">
+            <CustomBehavior File="InteractWith"
+                            TerminateWhen="IsObjectiveComplete(1, 42112) || GetItemCount(136850) &lt; 1 || !OnQuest" AuraIdOnMob="210615"
+                            MobId="106297" X="1123.844" Y="6746.688" Z="165.9183" />
+          </While>
+        </While>
+
+        <While Condition="!IsObjectiveComplete(2, 42112) &amp;&amp; OnQuest">
+          <CustomBehavior File="KillUntilComplete" TerminateWhen="IsObjectiveComplete(2, 42112) || !OnQuest"
+                          MobId="90379" X="1123.844" Y="6746.688" Z="165.9183" />
+        </While>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
