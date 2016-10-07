@@ -160,15 +160,14 @@
 
 			<CustomBehavior File="WaitTimer" WaitTime="3500" />
 			<CustomBehavior File="Vehicles\NoControlVehicle" QuestId="41950" TargetId1="92367" TargetId2="92359" TargetId3="92361" TargetId5="92375" TargetIdSecondary="92312" AttackButton="1" AttackButtonSecondary="2" OftenToUse="650" VehicleId="91767" MaxRange="200" />
-			<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-			<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+
 		</While>
 
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 						
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 41428-[N]-[QUEST]-Wq-Unstable-Portal-WiN, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41950] Cry_More_Thunder - KSmaze, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 	</QuestOrder>
 </HBProfile>
