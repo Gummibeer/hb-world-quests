@@ -119,6 +119,8 @@ return false;", 0);]]></CustomBehavior>
         <!--Dryad Vehicle: Maintain-->
         <CustomBehavior File="RunCode" Code="await VehicleKill(97796);" />
       </While>
+      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>
     <EnableBehavior Name="All" />
     <If

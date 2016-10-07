@@ -35,6 +35,8 @@ return false;", 0);]]></CustomBehavior>
         <!--<Vendor Name="Well-Fed Bear" Entry="103785" Type="Repair" Nav="Fly" X="2783.496" Y="5795.733" Z="295.1539" />-->
         <CustomBehavior File="KillUntilComplete" MobId="103785" TerminateWhen="!OnQuest" X="2783.496" Y="5795.733" Z="295.1539" />
       </If>
+      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />

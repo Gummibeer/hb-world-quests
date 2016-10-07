@@ -163,7 +163,8 @@
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="164" TradeSkillItemId="123898" NumOfTimes="1"/>
 				<TurnIn Nav="Fly" QuestName="Work Order: Leystone Armguards" QuestId="41634" TurnInName="Sylvia Hartshorn" TurnInId="106901" />
 
-
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 			</While>
 				
 				

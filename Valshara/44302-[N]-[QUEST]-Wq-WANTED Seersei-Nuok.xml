@@ -34,6 +34,8 @@ return false;", 0);]]></CustomBehavior>
       <If Condition="HasQuest(44302)">
         <CustomBehavior File="KillUntilComplete" MobId="92180" TerminateWhen="!OnQuest" X="2074.369" Y="7310.632" Z="57.83923" />
       </If>
+      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
