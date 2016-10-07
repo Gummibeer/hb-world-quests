@@ -162,7 +162,8 @@
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="755" TradeSkillItemId="136711" NumOfTimes="1"/>
 				<TurnIn Nav="Fly" QuestName="Work Order: Queen's Opal Loop" QuestId="41654" TurnInName="Valdemar Stormseeker" TurnInId="106904" />
 
-
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 			</While>
 				
 				
