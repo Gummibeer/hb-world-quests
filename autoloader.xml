@@ -570,6 +570,18 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42277-[N]-[QUEST]-Wq-Interlopers-Nuok" RememberProfile="true" />
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(41545)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\41545-[N]-[QUEST]-Wq-Aethril Cluster-Nuok" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(42172)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42172-[N]-[QUEST]-Wq-Leyhollow Infestation-Nuok" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(42511)">
+<CustomBehavior File="LoadProfile" ProfileName="Azsuna\42511-[N]-[QUEST]-Wq-Twisted Souls-Nuok" RememberProfile="true" />
+</If>
+
 <!-- End Azuna Zone -->
 </If>
 
@@ -835,6 +847,28 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(43764)">
 <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43764-[N]-[QUEST]-Wq-Ley Race-Nuok" RememberProfile="true" />
 </If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41011)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41011-[N]-[QUEST]-Wq-Umbralshard Rituals-Nuok" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41238)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41238-[N]-[QUEST]-Wq-Calcified Wormscales-Nuok" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41239)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41239-[N]-[QUEST]-Wq-Felhide-Nuok" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(41560)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\41560-[N]-[QUEST]-Wq-Felhide-Nuok" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(43767)">
+<CustomBehavior File="LoadProfile" ProfileName="Highmountain\43767-[N]-[QUEST]-Wq-Enigmatic-Nuok" RememberProfile="true" />
+</If>
+
+
 
 <!--
 <If Condition="WorldQuestInfo.HasWorldQuest(41240)">
@@ -1336,9 +1370,21 @@ return true;
 </If>
 </If>
 
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44302)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\44302-[N]-[QUEST]-Wq-WANTED Seersei-Nuok" RememberProfile="true" />
+</If>
+</If>
+
 <If Condition="doPVP">
 <If Condition="WorldQuestInfo.HasWorldQuest(43248)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\43248-[A]-[QUEST]-Wq-Warden_Tower_Assault_Darkfollows_Spire-WiN" RememberProfile="true" />
+</If>
+</If>
+
+<If Condition="doWanted">
+<If Condition="WorldQuestInfo.HasWorldQuest(44299)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\44299-[N]-[QUEST]-Wq-WANTED Darkshade-Nuok" RememberProfile="true" />
 </If>
 </If>
 
@@ -1350,6 +1396,14 @@ return true;
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41995)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41995-[N]-[QUEST]-Wq-Dark_Corruption-WiN" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(43753)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\43753-[N]-[QUEST]-Wq-Ley Race-Nuok" RememberProfile="true" />
+</If>
+
+<If Condition="WorldQuestInfo.HasWorldQuest(42174)">
+<CustomBehavior File="LoadProfile" ProfileName="Valshara\42174-[N]-[QUEST]-Wq-Champions of Elune-Nuok" RememberProfile="true" />
 </If>
 
 <If Condition="WorldQuestInfo.HasWorldQuest(41613)">
@@ -1423,6 +1477,8 @@ return true;
 <If Condition="WorldQuestInfo.HasWorldQuest(41516)">
 <CustomBehavior File="LoadProfile" ProfileName="Valshara\41516-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="true" />
 </If>
+
+
 
 <!-- End Valshara Zone -->
 </If>
