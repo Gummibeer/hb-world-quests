@@ -161,7 +161,8 @@
 				<RunTo  X="1713.333" Y="4632.849" Z="124.0061" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Word of Mastery" QuestId="41673" TurnInName="First Arcanist Thalyssra" TurnInId="97140" />
 
-
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 			</While>
 				
 				

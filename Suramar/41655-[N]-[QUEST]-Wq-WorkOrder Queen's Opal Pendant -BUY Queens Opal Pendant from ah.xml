@@ -160,7 +160,8 @@
 				<!-- Get in range of quest to activate -->
 				<RunTo  X="1713.845" Y="4632.384" Z="124.0051" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Queen's Opal Pendant" QuestId="41655" TurnInName="First Arcanist Thalyssra" TurnInId="97140" />
-
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
 			</While>
 				
