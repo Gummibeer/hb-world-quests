@@ -149,11 +149,13 @@
 	<PursueUnit Id="99584" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	<PursueUnit Id="101868" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	<PursueUnit Id="105270" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<!-- Hard units for melee to hit
 	<PursueUnit Id="107722" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="101900" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	-->	
     <PursueUnit Id="113679" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	<PursueUnit Id="99762" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	<PursueUnit Id="100895" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="101900" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	<PursueUnit Id="105271" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	<PursueUnit Id="108314" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	<PursueUnit Id="113850" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
