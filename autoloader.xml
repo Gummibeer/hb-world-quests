@@ -1158,6 +1158,9 @@ return true;
 </If>
 </If>
 
+<If Condition="WorldQuestInfo.HasWorldQuest(42111)">
+<CustomBehavior File="LoadProfile" ProfileName="Suramar\42111-[N]-[QUEST]-Wq-Aggressive_Reconnaisance-Staal" RememberProfile="true" />
+</If>
 
 <!-- End Suramar Zone -->
 </If>
