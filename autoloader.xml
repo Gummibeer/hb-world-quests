@@ -1041,7 +1041,6 @@ return true;
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN" RememberProfile="true" />
 </If>
 
-</If>
 <If Condition="WorldQuestInfo.HasWorldQuest(42182)">
 <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42182-[N]-[QUEST]-Wq-To_Battle-Staal" RememberProfile="true" />
 </If>
