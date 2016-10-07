@@ -36,6 +36,8 @@ return false;", 0);]]></CustomBehavior>
         <!--<GameObject Name="Felhide Gargantuan" Entry="248041" X="5800.007" Y="4611.271" Z="675.757" />-->
       <CustomBehavior File="InteractWith" MobId="248041" TerminateWhen="!OnQuest" X="5812.089" Y="4574.974" Z="681.7284" />
       </If>
+      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>
     <If
       Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
