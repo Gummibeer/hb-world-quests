@@ -175,6 +175,8 @@
 					<Hotspot X="4391.653" Y="4475.965" Z="695.2903" />
 				</HuntingGrounds>
 			</CustomBehavior>
+				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
 	
 	

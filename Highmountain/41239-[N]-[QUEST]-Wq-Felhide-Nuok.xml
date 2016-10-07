@@ -37,6 +37,8 @@ return false;", 0);]]></CustomBehavior>
         <!--<GameObject Name="Felhide Gargantuan" Entry="247422" X="4952.561" Y="4754.356" Z="993.1281" />-->
         <CustomBehavior File="InteractWith" MobIds="248041, 247422" TerminateWhen="!OnQuest" WaitForNpcs="false" X="5015.816" Y="4692.379" Z="985.8831" />
       </If>
+      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
   </QuestOrder>
