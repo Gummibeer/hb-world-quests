@@ -162,6 +162,8 @@
 						<Hotspot X="3167.471" Y="1273.969" Z="117.055" />
 					</HuntingGrounds>
 				</CustomBehavior>
+					<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
 	
 	
@@ -169,7 +171,7 @@
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
 						
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 41428-[N]-[QUEST]-Wq-Unstable-Portal-WiN, loading auto-loader!&quot;);" />
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 43628 Urgev the Flayer, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>
 </HBProfile>
