@@ -1335,6 +1335,11 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43616-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43616-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner" RememberProfile="false" />
         </If>
+                <If Condition="OnQuest(41836) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41836) &amp;&amp; DoFaction(41836)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41836-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41836-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner" RememberProfile="false" />
+        </If>
+        
         <If Condition="OnQuest(43618) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43618) &amp;&amp; DoFaction(43618)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43618-[N]-[QUEST]-Wq-WANTED_Gurbog_da_Basher-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43618-[N]-[QUEST]-Wq-WANTED_Gurbog_da_Basher-Zinner" RememberProfile="false" />
