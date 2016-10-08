@@ -1430,10 +1430,7 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Suramar\43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
         </If>
-        <If Condition="OnQuest(43807) &amp;&amp; PassesSettings(43807) &amp;&amp; DoFaction(43807)">
-          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43807-[N]-[QUEST]-Wq-Withered_Wrangling_Meredil_and_Ambervale-WiN&quot;);" />
-          <CustomBehavior File="LoadProfile" ProfileName="Suramar\43807-[N]-[QUEST]-Wq-Withered_Wrangling_Meredil_and_Ambervale-WiN" RememberProfile="false" />
-        </If>
+
         <If Condition="OnQuest(43930) &amp;&amp; PassesSettings(43930) &amp;&amp; DoFaction(43930)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43930-[N]-[QUEST]-Wq-Fiends_of_Telanor-Staal&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Suramar\43930-[N]-[QUEST]-Wq-Fiends_of_Telanor-Staal" RememberProfile="false" />
