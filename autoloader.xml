@@ -1183,6 +1183,12 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41225-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41225-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
         </If>
+        
+        <If Condition="OnQuest(41511) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41511) &amp;&amp; DoFaction(41511)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41511-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41511-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+        </If>
+        
         <If Condition="OnQuest(41227) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(41227) &amp;&amp; DoFaction(41227)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41227-[H]-QUEST-Wq-Warden_Tower_Assault_Cordanas_Apex-Staal&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41227-[H]-QUEST-Wq-Warden_Tower_Assault_Cordanas_Apex-Staal" RememberProfile="false" />
