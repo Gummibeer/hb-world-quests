@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -12,7 +13,6 @@ using System.Windows.Media;
 using Honorbuddy;
 using MahApps.Metro;
 using MahApps.Metro.Controls;
-using Styx;
 using Styx.Helpers;
 using Styx.Plugins;
 
@@ -24,10 +24,25 @@ namespace WorldQuestSettings
 
         public override string Name => "WorldQuestHelper";
         public override string Author => "Nuok";
-        public override Version Version => new Version(1, 0);
+        public override Version Version => new Version(1, 0, GetSvnInt());
 
         public override bool WantButton => true;
         public override string ButtonText => "Settings";
+        public static string SvnVersion => "$rev: 600$";
+
+        private static int GetSvnInt()
+        {
+            string re1 = ".*?"; // Non-greedy match on filler
+            string re2 = "(\\d+)";  // Integer Number 1
+
+            Regex r = new Regex(re1 + re2, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            Match m = r.Match(SvnVersion);
+            if (!m.Success) return 0;
+
+            var int1 = m.Groups[1].ToString();
+
+            return int.Parse(int1);
+        }
 
         public override void Pulse()
         {
