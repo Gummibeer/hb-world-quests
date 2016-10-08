@@ -28,7 +28,7 @@ namespace WorldQuestSettings
 
         public override bool WantButton => true;
         public override string ButtonText => "Settings";
-        public static string SvnVersion => "$rev: 600$";
+        public static string SvnVersion => "$Rev$";
 
         private static int GetSvnInt()
         {
