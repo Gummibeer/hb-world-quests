@@ -450,6 +450,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41564-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41564-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(41563) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41563) &amp;&amp; DoFaction(41563)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41563-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41563-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41651) &amp;&amp; DoFaction(41651)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant -BUY Azsunite Pendant from ah&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant -BUY Azsunite Pendant from ah" RememberProfile="false" />
