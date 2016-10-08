@@ -1218,11 +1218,11 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(41420) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41420) &amp;&amp; DoFaction(41420)">
+      <If Condition="OnQuest(41420) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(41420) &amp;&amp; DoFaction(41420)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41420-[H]-QUEST-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41420-[H]-QUEST-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Staal" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(41421) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41421) &amp;&amp; DoFaction(41421)">
+      <If Condition="OnQuest(41421) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(41421) &amp;&amp; DoFaction(41421)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41421-[A]-[QUEST]-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41421-[A]-[QUEST]-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Zinner" RememberProfile="false" />
       </If>
