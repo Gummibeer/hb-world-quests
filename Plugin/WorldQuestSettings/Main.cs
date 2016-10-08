@@ -295,10 +295,17 @@ namespace WorldQuestSettings
         #endregion
 
         [Setting]
-        [Category("HBRelog")]
+        [Category("Utility")]
         [DisplayName("Skip HB Relog Task")]
         [Styx.Helpers.DefaultValue(true)]
         public bool SkipHBRelog { get; set; }
+
+        [Setting]
+        [Category("Utility")]
+        [DisplayName("SVN Update")]
+        [Description("Runs the updater.bat file to try and update profiles.")]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool SVNUpdate { get; set; }
         /*
 
         [Setting]

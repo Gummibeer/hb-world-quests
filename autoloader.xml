@@ -89,7 +89,8 @@
 
         [Setting]
         public bool SkipHBRelog { get; set; }
-
+        [Setting]
+        public bool SVNUpdate { get; set; }
     }
 
 private HashSet<int> GetWorldQuestsByZone(int zone)
@@ -341,6 +342,11 @@ return 0", 0);
             QuestFrame.Instance.SelectActiveQuest(questF.Index);
             await CommonCoroutines.SleepForRandomUiInteractionTime();
         }]]></CustomBehavior>
+    <If Condition="Settings.Instance.SVNUpdate">
+      <CustomBehavior File="RunCode" Code="Log(&quot;Updating WQ profiles from the SVN..&quot;);" />
+      <CustomBehavior File="RunCode"><![CDATA[if(File.Exists(@"Default Profiles\\world-quests\\Utilities\\updater.bat")) Process.Start(@"Default Profiles\\world-quests\\Utilities\\updater.bat");]]></CustomBehavior>
+      <CustomBehavior File="WaitTimer" WaitTime="5000" />
+    </If>
     <If Condition="!HasPlugin">
       <CustomBehavior File="UserDialog" StopOnContinue="true" AllowBotStop="true" Title="Missing Settings Plugin" Text="We couldn't find the plugin,\n Please make sure you have copied the folder 'WorldQuestSettings' from \Default Profiles\world-quests\Plugin to Honorbuddy 3\Plugins and restart the bot" />
     </If>
