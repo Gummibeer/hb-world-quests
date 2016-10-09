@@ -166,7 +166,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(42870)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42870] DANGER: Kathaw the Savage - WiN!&quot;);" />
 	<RunTo X="1887.264" Y="7048.514" Z="65.08116" />
-	<CustomBehavior File="KillUntilComplete"  QuestId="42870"  TerminateWhen="IsQuestCompleted(42870)">
+	<CustomBehavior File="KillUntilComplete"  QuestId="42870"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(42870)">
 	<HuntingGrounds>
 <Hotspot X="1882.078" Y="7064.927" Z="65.61422" />
 	</HuntingGrounds>

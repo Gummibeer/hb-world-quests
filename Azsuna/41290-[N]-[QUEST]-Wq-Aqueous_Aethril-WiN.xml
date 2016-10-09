@@ -125,7 +125,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41290)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41290] Aqueous Aethril - WiN!&quot;);" />
 	<RunTo X="118.6928" Y="6207.006" Z="3.477255" />
-	<CustomBehavior File="InteractWith" NumOfTimes="19" QuestId="41290" TerminateWhen="IsQuestCompleted(41290)">
+	<CustomBehavior File="InteractWith" NumOfTimes="19" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41290)">
 		<HuntingGrounds>
 			<Hotspot X="147.0535" Y="6180.539" Z="-8.240934" />
 <Hotspot X="168.2218" Y="6223.875" Z="-1.959429" />

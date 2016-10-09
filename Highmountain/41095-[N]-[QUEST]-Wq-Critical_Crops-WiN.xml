@@ -130,7 +130,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41095)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41095] Critical Crops - WiN!&quot;);" />
 	<RunTo X="4218.46" Y="4614.171" Z="654.2935"/>
-	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="IsQuestCompleted(41095)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41095)" >
 		<HuntingGrounds>
 			<Hotspot X="4218.46" Y="4614.171" Z="654.2935" />
 			<Hotspot X="4199.074" Y="4647.532" Z="652.4563" />

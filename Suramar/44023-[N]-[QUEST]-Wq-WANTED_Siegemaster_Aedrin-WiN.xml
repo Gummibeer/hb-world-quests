@@ -161,7 +161,7 @@
 <RunTo X="2644.101" Y="4586.033" Z="258.7096" />
 
 
-<CustomBehavior File="KillUntilComplete"  QuestId="44023"  TerminateWhen="IsQuestCompleted(44023)">
+<CustomBehavior File="KillUntilComplete"  QuestId="44023"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(44023)">
 	<HuntingGrounds>
 <Hotspot X="2644.101" Y="4586.033" Z="258.7096" />
 

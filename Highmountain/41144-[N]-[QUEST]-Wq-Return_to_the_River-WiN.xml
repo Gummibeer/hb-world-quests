@@ -132,7 +132,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41144)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41144] Return to the River - WiN!&quot;);" />
 	<RunTo X="3889.539" Y="4854.552" Z="631.6434" />
-	<CustomBehavior File="InteractWith" NumOfTimes="19" QuestId="41144" TerminateWhen="IsQuestCompleted(41144)">
+	<CustomBehavior File="InteractWith" NumOfTimes="19" QuestId="41144" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41144)">
 		<HuntingGrounds>
 <Hotspot X="3900.818" Y="4825.714" Z="631.6219" />
 <Hotspot X="3978.863" Y="4735.078" Z="625.4476" />

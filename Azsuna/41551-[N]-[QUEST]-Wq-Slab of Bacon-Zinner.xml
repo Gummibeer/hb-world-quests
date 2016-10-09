@@ -161,7 +161,7 @@
 		<While Condition="WorldQuestInfo.HasWorldQuest(41551)" >
 				<RunTo X="1288.061" Y="7585.567" Z="36.89265" />		
 				
-					<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="IsQuestCompleted(41551)" >
+					<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41551)" >
 		<HuntingGrounds>
 <Hotspot X="1301.345" Y="7602.313" Z="36.67327" />
 		</HuntingGrounds>

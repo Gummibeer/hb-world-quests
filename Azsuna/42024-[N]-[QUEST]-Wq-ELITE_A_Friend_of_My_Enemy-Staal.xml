@@ -177,7 +177,7 @@
 	</PursuitList>
 	</CustomBehavior>
 	
-<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(42024)" >
+<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42024)" >
 <HuntingGrounds>
 <Hotspot X="-812.8713" Y="6374.683" Z="2.467887" />
 <Hotspot X="-942.1766" Y="6537.307" Z="-0.5787036" />

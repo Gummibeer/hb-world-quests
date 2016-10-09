@@ -130,7 +130,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41427)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41427] Get Vrekt - WiN!&quot;);" />
 	<RunTo X="1747.316" Y="630.53" Z="7.076106" />
-	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="IsQuestCompleted(41427)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41427)" >
 		<HuntingGrounds>
 		<Hotspot X="1740.732" Y="756.7278" Z="21.53387" />
 <Hotspot X="1748.913" Y="768.148" Z="28.59212" />

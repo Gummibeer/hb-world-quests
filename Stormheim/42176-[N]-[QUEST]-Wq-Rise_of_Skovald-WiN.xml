@@ -133,7 +133,7 @@
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42176] Rise of Skovald - WiN!&quot;);" />
 <RunTo X="2540.871" Y="2931.169" Z="325.2596" />
 
-	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="IsQuestCompleted(42176)">
+	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(42176)">
 		<HuntingGrounds>
 <Hotspot X="2540.871" Y="2931.169" Z="325.2596" />
 <Hotspot X="2485.213" Y="2970.21" Z="330.7957" />

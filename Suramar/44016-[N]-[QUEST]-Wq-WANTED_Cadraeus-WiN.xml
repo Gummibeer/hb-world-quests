@@ -157,7 +157,7 @@
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44016] WANTED: Cadraeus - WiN!&quot;);" />
 <RunTo X="1638.446" Y="3183.3" Z="189.6975" />
 
-<CustomBehavior File="KillUntilComplete"  QuestId="44016"  TerminateWhen="IsQuestCompleted(44016)">
+<CustomBehavior File="KillUntilComplete"  QuestId="44016"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(44016)">
 	<HuntingGrounds>
 		<Hotspot X="1638.446" Y="3183.3" Z="189.6975" />
 

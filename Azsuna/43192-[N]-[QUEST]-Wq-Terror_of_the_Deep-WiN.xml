@@ -157,7 +157,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(43192)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43192] Terror of the Deep - WiN!&quot;);" />
 <RunTo X="-1209.561" Y="6870.292" Z="-0.03042698" />
-<CustomBehavior File="KillUntilComplete"  QuestId="43192"  TerminateWhen="IsQuestCompleted(43192)">
+<CustomBehavior File="KillUntilComplete"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43192)">
 	<HuntingGrounds>
 <Hotspot X="-1194.834" Y="6908.112" Z="-0.03042698" />
 	</HuntingGrounds>

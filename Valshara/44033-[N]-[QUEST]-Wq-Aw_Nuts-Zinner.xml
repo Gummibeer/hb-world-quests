@@ -163,7 +163,7 @@
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(44033)">	
 				<RunTo X="2283.612" Y="6592.378" Z="138.411" />		
-		<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(44033)" >
+		<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44033)" >
 		<HuntingGrounds>
 					<Hotspot X="2283.612" Y="6592.378" Z="138.411" />
 					<Hotspot X="2271.885" Y="6583.856" Z="141.7463" />
@@ -181,8 +181,8 @@
       
       <PursueUnit Id="112289" PursueWhen="!IsObjectiveComplete(1,44033)" />
       <PursueGameObject Id="253277" PursueWhen="!IsObjectiveComplete(2,44033)" />
-<!--      <PursueGameObject Id="102450" PursueWhen="!IsQuestCompleted(44033)" /> -->
-<!--      <PursueGameObject Id="102476" PursueWhen="!IsQuestCompleted(44033)" /> -->
+<!--      <PursueGameObject Id="102450" PursueWhen="!!WorldQuestInfo.HasWorldQuest(44033)" /> -->
+<!--      <PursueGameObject Id="102476" PursueWhen="!!WorldQuestInfo.HasWorldQuest(44033)" /> -->
 		</PursuitList>
 	</CustomBehavior>
 	

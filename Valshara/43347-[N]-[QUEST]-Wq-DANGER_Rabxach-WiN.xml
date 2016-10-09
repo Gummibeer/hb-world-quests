@@ -157,7 +157,7 @@
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43347] WANTED: Rabxach - WiN!&quot;);" />
 <RunTo X="2858.677" Y="5779.801" Z="306.1354" />
 
-<CustomBehavior File="KillUntilComplete"  QuestId="43347"  TerminateWhen="IsQuestCompleted(43347)">
+<CustomBehavior File="KillUntilComplete"  QuestId="43347"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43347)">
 	<HuntingGrounds>
 		<Hotspot X="2858.677" Y="5779.801" Z="306.1354" />
 	</HuntingGrounds>

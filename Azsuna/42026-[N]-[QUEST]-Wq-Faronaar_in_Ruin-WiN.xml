@@ -139,7 +139,7 @@
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42026] Faronaar in Ruin - WiN!&quot;);" />
 <RunTo X="-614.1506" Y="7275.886" Z="27.65965" />
 
-	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="IsQuestCompleted(42026)">
+	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(42026)">
 		<HuntingGrounds>
 <Hotspot X="-614.1506" Y="7275.886" Z="27.65965" />
 <Hotspot X="-712.4473" Y="7220.84" Z="32.35116" />

@@ -127,7 +127,7 @@
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41225] Felwort - WiN!&quot;);" />
 
 	<RunTo X="4975.302" Y="5149.763" Z="784.8809" />
-	<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="IsQuestCompleted(41225)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41225)" >
 		<HuntingGrounds>
 <Hotspot X="4975.302" Y="5149.763" Z="784.8809" />
 		</HuntingGrounds>

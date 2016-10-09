@@ -129,7 +129,7 @@
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41571] Felhide - WiN!&quot;);" />
 	<RunTo X="395.2245" Y="4711.235" Z="-123.2166" />
 	
-		<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="IsQuestCompleted(41571)" >
+		<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41571)" >
 		<HuntingGrounds>
 <Hotspot X="433.4753" Y="4743.307" Z="-127.0896" />
 		</HuntingGrounds>

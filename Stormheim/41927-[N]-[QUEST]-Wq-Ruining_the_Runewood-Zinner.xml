@@ -173,7 +173,7 @@
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41927] Ruining the Runewood!&quot;);" />
 				<RunTo X="3197.727" Y="1214.619" Z="111.8303" />
 				
-					<CustomBehavior File="InteractWith" NumOfTimes="19" QuestId="41927" TerminateWhen="IsQuestCompleted(41927)">
+					<CustomBehavior File="InteractWith" NumOfTimes="19" QuestId="41927" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41927)">
 		<HuntingGrounds>
 
 <Hotspot X="3162.651" Y="1142.899" Z="127.0608" />

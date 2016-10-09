@@ -123,7 +123,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(42182)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42182] To Battle! - Staal!&quot;);" />
 	<RunTo X="2333.968" Y="1759.13" Z="17.00193" />
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(42182)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42182)" >
 		<HuntingGrounds>
 <Hotspot X="2327.215" Y="1750.339" Z="18.30805" />
 <Hotspot X="2419.641" Y="1770.287" Z="7.569352" />
@@ -131,11 +131,11 @@
 <Hotspot X="2322.736" Y="1606.174" Z="0.9472308" />
 		</HuntingGrounds>
 		<PursuitList>
-    <PursueUnit Id="93860" PursueWhen="!IsQuestCompleted(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="94825" PursueWhen="!IsQuestCompleted(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="109635" PursueWhen="!IsQuestCompleted(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="94614" PursueWhen="!IsQuestCompleted(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="109633" PursueWhen="!IsQuestCompleted(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+    <PursueUnit Id="93860" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="94825" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="109635" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="94614" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="109633" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42182) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	</PursuitList>
 	</CustomBehavior>
 

@@ -158,7 +158,7 @@
 		<While Condition="WorldQuestInfo.HasWorldQuest(41826)" >
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41826] WANTED: Crawshuk the Hungry!&quot;);" />
 				<RunTo X="5060.648" Y="4271.334" Z="907.0869" />	
-				<CustomBehavior File="KillUntilComplete" MobIds="97345" QuestId="41826" NonCompeteDistance="0">
+				<CustomBehavior File="KillUntilComplete" MobIds="97345" NonCompeteDistance="0">
 					<HuntingGrounds>
 						<Hotspot X="5060.648" Y="4271.334" Z="907.0869"/>
 					</HuntingGrounds>

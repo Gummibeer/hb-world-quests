@@ -160,7 +160,7 @@
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44028] WANTED: Lieutenant Strathmar - WiN!&quot;);" />
 <RunTo X="1375.621" Y="3980.022" Z="134.3111" />
 
-<CustomBehavior File="KillUntilComplete"  QuestId="44028"  TerminateWhen="IsQuestCompleted(44028)">
+<CustomBehavior File="KillUntilComplete"  QuestId="44028"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(44028)">
 	<HuntingGrounds>
 		<Hotspot X="1363.295" Y="3973.409" Z="134.5051" />
 	</HuntingGrounds>

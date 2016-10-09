@@ -166,7 +166,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(43063)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43063] DANGER: Stormfeather - WiN!&quot;);" />
 	<RunTo X="-707.2419" Y="6442.324" Z="109.5914" />
-	<CustomBehavior File="KillUntilComplete"  QuestId="43063"  TerminateWhen="IsQuestCompleted(43063)">
+	<CustomBehavior File="KillUntilComplete" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43063)">
 	<HuntingGrounds>
 <Hotspot X="-707.2419" Y="6442.324" Z="109.5914" />
 	</HuntingGrounds>

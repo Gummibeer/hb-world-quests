@@ -130,7 +130,7 @@
 	<RunTo X="3313.608" Y="2863.419" Z="497.8826" />
 	<CustomBehavior File="MyCTM" X="3296.15" Y="2878.125" Z="481.3581" />
 	<CustomBehavior File="MyCTM" X="3274.578" Y="2899.003" Z="469.3103" />
-	<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="IsQuestCompleted(41519)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41519)" >
 		<HuntingGrounds>
 <Hotspot X="3276.683" Y="2907.401" Z="468.3018" />
 		</HuntingGrounds>

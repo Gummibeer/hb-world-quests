@@ -134,7 +134,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(42119)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42119] A Cleansing Cocktail - WiN!&quot;);" />
 	<RunTo X="403.729" Y="6894.196" Z="100.9014" />
-	<CustomBehavior File="InteractWith" NumOfTimes="12" MobState="Dead" QuestId="42119" TerminateWhen="IsQuestCompleted(42119)">
+	<CustomBehavior File="InteractWith" NumOfTimes="12" MobState="Dead" QuestId="42119" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42119)">
 		<HuntingGrounds>
 			<Hotspot X="298.7737" Y="6922.395" Z="89.35289" />
 			<Hotspot X="146.8626" Y="6929.854" Z="78.60299" />

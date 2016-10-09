@@ -134,7 +134,7 @@
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42652] Ancient Exemplars - WiN!&quot;);" />
 <RunTo X="-1110.809" Y="6203.389" Z="55.34698" />
 
-	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="IsQuestCompleted(42652)">
+	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(42652)">
 		<HuntingGrounds>
 <Hotspot X="-1110.809" Y="6203.389" Z="55.34698" />
 <Hotspot X="-1149.489" Y="6225.258" Z="68.03252" />

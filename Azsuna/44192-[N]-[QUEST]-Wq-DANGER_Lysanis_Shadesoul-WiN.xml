@@ -157,7 +157,7 @@
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44192] DANGER: Lysanis Shadesoul - WiN!&quot;);" />
 <RunTo X="-2136.159" Y="6945.648" Z="231.1791" />
 
-<CustomBehavior File="KillUntilComplete"  QuestId="44192"  TerminateWhen="IsQuestCompleted(44192)">
+<CustomBehavior File="KillUntilComplete"  QuestId="44192"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(44192)">
 	<HuntingGrounds>
 		<Hotspot X="-2126.028" Y="6967.846" Z="231.1817" />
 	</HuntingGrounds>

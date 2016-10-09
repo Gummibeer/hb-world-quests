@@ -189,7 +189,7 @@ TerminateWhen="Unit(90403, u =&gt; u.Distance &lt;= 5) != null"
 	
 
 <CustomBehavior File="WaitTimer" WaitTime="2000" />	
-		<CustomBehavior File="InteractWith" NumOfTimes="10" TerminateWhen="IsQuestCompleted(42080)" >
+		<CustomBehavior File="InteractWith" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42080)" >
 		<HuntingGrounds>
 <Hotspot X="2756.934" Y="7339.524" Z="17.81155" />
 <Hotspot X="2769.821" Y="7441.142" Z="5.402129" />

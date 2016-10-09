@@ -157,7 +157,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(44290)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44290] WANTED: Bristlemaul - WiN!&quot;);" />
 <RunTo X="4804.188" Y="5032.115" Z="775.6902" />
-<CustomBehavior File="KillUntilComplete"  QuestId="44290"  TerminateWhen="IsQuestCompleted(44290)">
+<CustomBehavior File="KillUntilComplete"  QuestId="44290"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(44290)">
 	<HuntingGrounds>
 <Hotspot X="4816.092" Y="5005.645" Z="774.1152" />
 	</HuntingGrounds>

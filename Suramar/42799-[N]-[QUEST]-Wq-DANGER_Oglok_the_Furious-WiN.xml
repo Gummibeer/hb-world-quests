@@ -159,7 +159,7 @@
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42799] DANGER: Oglok the Furious - WiN!&quot;);" />
 <RunTo X="1434.496" Y="3027.11" Z="111.8125" />
 
-<CustomBehavior File="KillUntilComplete"  QuestId="42799"  TerminateWhen="IsQuestCompleted(42799)">
+<CustomBehavior File="KillUntilComplete"  QuestId="42799"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(42799)">
 	<HuntingGrounds>
 		<Hotspot X="1434.496" Y="3027.11" Z="111.8125" />
 		<Hotspot X="1420.346" Y="2962.406" Z="111.6195" />

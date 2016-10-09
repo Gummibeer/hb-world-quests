@@ -165,7 +165,7 @@ Not these
 <CustomBehavior File="WaitTimer" WaitTime="5000" />
 <RunTo X="2629.261" Y="2580.883" Z="237.0791" />
 <CustomBehavior File="WaitTimer" WaitTime="5000" />-->
-	<CustomBehavior File="InteractWith" NumOfTimes="10" TerminateWhen="IsQuestCompleted(43951)">
+	<CustomBehavior File="InteractWith" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43951)">
 		<HuntingGrounds>
 <Hotspot X="2444.116" Y="2408.074" Z="256.478" />
 <Hotspot X="2578.703" Y="2428.05" Z="234.6688" />

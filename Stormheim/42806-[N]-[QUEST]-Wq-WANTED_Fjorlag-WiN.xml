@@ -160,7 +160,7 @@
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42806] DANGER: Fjorlag, the Graves Chill - WiN!&quot;);" />
 <RunTo X="3183.105" Y="1189.681" Z="115.3999" />
 
-<CustomBehavior File="KillUntilComplete"  QuestId="42806"  TerminateWhen="IsQuestCompleted(42806)">
+<CustomBehavior File="KillUntilComplete"  QuestId="42806"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(42806)">
 	<HuntingGrounds>
 		<Hotspot X="3215.399" Y="1165.065" Z="118.4677" />
 	</HuntingGrounds>

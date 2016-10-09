@@ -168,7 +168,7 @@
 	</PursuitList>
 	</CustomBehavior>
 
-<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(42075)" >
+<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42075)" >
 
 	<HuntingGrounds>
 		

@@ -126,7 +126,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(42111)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42111] Aggressive Reconnaisance - Staal!&quot;);" />
 	<RunTo X="1341.437" Y="5021.282" Z="93.36089" />
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(42111)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42111)" >
 		<HuntingGrounds>
 <Hotspot X="1334.016" Y="5048.686" Z="83.61149" />
 <Hotspot X="1170.1" Y="5054.317" Z="56.66116" />
@@ -140,45 +140,45 @@
 <Hotspot X="618.3708" Y="4804.606" Z="-183.5411" />
 		</HuntingGrounds>
 		<PursuitList>
-    <PursueUnit Id="99581" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="99767" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="101291" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="105269" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="106348" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-    <PursueUnit Id="113675" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="99584" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="101868" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="105270" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+    <PursueUnit Id="99581" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="99767" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="101291" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="105269" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="106348" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+    <PursueUnit Id="113675" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="99584" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="101868" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="105270" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	<!-- Hard units for melee to hit
-	<PursueUnit Id="107722" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="101900" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="107722" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="101900" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	-->	
-    <PursueUnit Id="113679" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="99762" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="100895" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="105271" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="108314" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="113850" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="99765" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="100993" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="102837" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-    <PursueUnit Id="106339" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="110805" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="99485" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="101877" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="102898" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-    <PursueUnit Id="106532" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="99580" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="100595" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="101878" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="103671" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="99764" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="101876" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="102186" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="106526" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="106375" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-    <PursueUnit Id="99795" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-	<PursueUnit Id="100019" PursueWhen="!IsQuestCompleted(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+    <PursueUnit Id="113679" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="99762" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="100895" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="105271" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="108314" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="113850" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="99765" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="100993" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="102837" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+    <PursueUnit Id="106339" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="110805" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="99485" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="101877" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="102898" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+    <PursueUnit Id="106532" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="99580" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="100595" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="101878" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="103671" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="99764" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="101876" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="102186" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="106526" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="106375" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+    <PursueUnit Id="99795" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+	<PursueUnit Id="100019" PursueWhen="!!WorldQuestInfo.HasWorldQuest(42111) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 	</PursuitList>
 	</CustomBehavior>
 

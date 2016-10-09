@@ -135,7 +135,7 @@ For future use through portals
 	<RunTo X="2086.971" Y="5428.113" Z="-35.78005" />
 
 	
-			<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(42089)" >
+			<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42089)" >
 		<HuntingGrounds>
 <Hotspot X="2086.971" Y="5428.113" Z="-35.78005" />
 <Hotspot X="1940.874" Y="5368.78" Z="-37.02636" />

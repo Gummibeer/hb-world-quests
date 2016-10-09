@@ -146,7 +146,7 @@
 <CustomBehavior File="WaitTimer" WaitTime="5000" />
 <RunTo X="2121.796" Y="2410.557" Z="479.7381" />
 
-	<CustomBehavior File="InteractWith" NumOfTimes="17" MobState="Dead" QuestId="41949" TerminateWhen="IsQuestCompleted(41949)">
+	<CustomBehavior File="InteractWith" NumOfTimes="17" MobState="Dead" QuestId="41949" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41949)">
 		<HuntingGrounds>
 <Hotspot X="2073.256" Y="2346.555" Z="472.5007" />
 <Hotspot X="2029.755" Y="2428.461" Z="482.2848" />

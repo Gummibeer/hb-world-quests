@@ -158,7 +158,7 @@
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43631] WANTED: Skul'vrax - WiN!&quot;);" />
 <RunTo X="1747.31" Y="6251.669" Z="4.653418" />
 
-<CustomBehavior File="KillUntilComplete"  QuestId="43631"  TerminateWhen="IsQuestCompleted(43631)">
+<CustomBehavior File="KillUntilComplete"  QuestId="43631"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43631)">
 	<HuntingGrounds>
 		<Hotspot X="1747.31" Y="6251.669" Z="4.653418" />
 	</HuntingGrounds>

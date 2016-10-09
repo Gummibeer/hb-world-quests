@@ -155,24 +155,10 @@
 				]]>
 			</CustomBehavior>
 	
-		
-		<While Condition="WorldQuestInfo.HasWorldQuest(41836)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="6197.828" Y="5046.954" Z="5.620066E-06" /> 
-				<PickUp Nav="Fly" QuestName="WANTED: Bodash the Hoarder" QuestId="41836" GiverName="" GiverId="" />
 
-				<Objective QuestName="WANTED: Bodash the Hoarder" QuestId="41836" Type="KillMob" Nav="Fly" MobId="98299" KillCount="1" />
-
-				<TurnIn Nav="Fly" QuestName="WANTED: Bodash the Hoarder" QuestId="41836" TurnInName="" TurnInId="" />
-
-
-
-
-
-</While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41836)" >	
 				<RunTo X="6197.828" Y="5046.954" Z="5.620066E-06" /> 		
-			<CustomBehavior File="KillUntilComplete" MobIds="98299" QuestId="41836">
+			<CustomBehavior File="KillUntilComplete" MobIds="98299">
 				<HuntingGrounds>
 					<Hotspot X="1461.641" Y="6978.095" Z="90.26776" />
 				</HuntingGrounds>

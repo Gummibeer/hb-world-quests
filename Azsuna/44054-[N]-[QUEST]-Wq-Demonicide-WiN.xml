@@ -142,7 +142,7 @@
 	
 
 	
-	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsQuestCompleted(44054)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44054)" >
 		<HuntingGrounds>
 <Hotspot  X="-1433.905" Y="6814.768" Z="26.65341" />
 <Hotspot X="-1424.14" Y="6912.86" Z="26.92653" />

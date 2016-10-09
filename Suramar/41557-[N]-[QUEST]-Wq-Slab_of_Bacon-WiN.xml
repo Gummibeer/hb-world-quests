@@ -166,7 +166,7 @@
 		<While Condition="WorldQuestInfo.HasWorldQuest(41557)" >	
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41557] Slab of Bacon - WiN!&quot;);" />
 					<RunTo X="2360.116" Y="4461.703" Z="261.7603" />
-					<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="IsQuestCompleted(41557)" >
+					<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41557)" >
 		<HuntingGrounds>
 <Hotspot  X="2352.641" Y="4497.466" Z="257.7819"/>
 		</HuntingGrounds>
