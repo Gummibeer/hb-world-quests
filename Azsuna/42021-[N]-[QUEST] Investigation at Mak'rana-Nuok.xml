@@ -39,6 +39,17 @@ return false;", 0);
       <If Condition="!HasQuest(42021)">
         <RunTo X="-771.8478" Y="5755.171" Z="1.665452" />
       </If>
+
+      <While Condition="Me.IsHorde &amp;&amp; !IsObjectiveComplete(3, 42021) &amp;&amp; OnQuest">
+        <CustomBehavior File="InteractWith" MobId="89289" NumOfTimes="100" TerminateWhen="IsObjectiveComplete(3, 42021)  || !OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="-744.0672" Y="5900.255" Z="3.110456" />
+            <Hotspot X="-770.3879" Y="5734.849" Z="3.554172" />
+            <Hotspot X="-890.8293" Y="5754.699" Z="2.407771" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </While>
+      
       <CustomBehavior File="KillUntilComplete" TerminateWhen="ObjectivesComplete(42021, 1,2,3) || !OnQuest">
         <HuntingGrounds>
           <Hotspot X="-744.0672" Y="5900.255" Z="3.110456" />
