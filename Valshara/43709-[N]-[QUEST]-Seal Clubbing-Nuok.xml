@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Seal Clubbing $Rev$</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+  <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1018);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1018)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 43709 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+        public bool ObjectivesComplete(uint questId, params int[] obectives)
+        {
+            return obectives.All(o => IsObjectiveComplete(o, questId));
+        }
+]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(43709)">
+        <RunTo X="3396.125" Y="7029.593" Z="3.051749" />
+      </If>
+      <If Condition="HasQuest(43709)">
+        <CustomBehavior File="InteractWith" NumOfTimes="100" TerminateWhen="ObjectivesComplete(43709, 1,2) || !OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="3394.42" Y="7038.439" Z="4.244528" />
+            <Hotspot X="3247.103" Y="6887.227" Z="1.010601" />
+          </HuntingGrounds>
+          <PursuitList>
+            <PursueUnit Id="111252" PursueWhen="!IsObjectiveComplete(1, 43709)" />
+            <PursueUnit Id="111253" PursueWhen="!IsObjectiveComplete(2, 43709)" />
+          </PursuitList>
+        </CustomBehavior>
+
+        <CustomBehavior File="KillUntilComplete" MobIds="111279, 111278" TerminateWhen="!ObjectivesComplete(43709, 1,2) || !OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="3394.42" Y="7038.439" Z="4.244528" />
+            <Hotspot X="3247.103" Y="6887.227" Z="1.010601" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>

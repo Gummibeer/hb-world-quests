@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Investigation at Mak'rana</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[
+      public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+      local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42021 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+        public bool ObjectivesComplete(uint questId, params int[] obectives)
+        {
+            return obectives.All(o => IsObjectiveComplete(o, questId));
+        }
+]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(42021)">
+        <RunTo X="-771.8478" Y="5755.171" Z="1.665452" />
+      </If>
+      <CustomBehavior File="KillUntilComplete" TerminateWhen="ObjectivesComplete(42021, 1,2,3) || !OnQuest">
+        <HuntingGrounds>
+          <Hotspot X="-744.0672" Y="5900.255" Z="3.110456" />
+          <Hotspot X="-770.3879" Y="5734.849" Z="3.554172" />
+          <Hotspot X="-890.8293" Y="5754.699" Z="2.407771" />
+        </HuntingGrounds>
+        <PursuitList>
+          <PursueUnit Id="89289" PursueWhen="!IsObjectiveComplete(3, 42021)" />
+          <PursueUnit Id="89284" PursueWhen="!IsObjectiveComplete(2, 42021)" />
+          <PursueUnit Id="89053" PursueWhen="!IsObjectiveComplete(1, 42021)" />
+        </PursuitList>
+      </CustomBehavior>
+      <If Condition="ObjectivesComplete(42021, 1,2,3)">
+        <!--<WoWUnit Name="Oublion" Entry="89350" X="-996.3796" Y="5617.927" Z="6.375309" />-->
+        <!--Credit to Echo Tiger-->
+        <!-- Get in cave -->
+        <MoveTo X="-904.0345" Y="5729.954" Z="1.235318" />
+        <MoveTo X="-874.127" Y="5709.781" Z="-1.426562" />
+        <CustomBehavior File="MyCTM" X="-895.646" Y="5694.116" Z="-12.60572" />
+        <CustomBehavior File="MyCTM" X="-961.7546" Y="5633.25" Z="3.230609" />
+
+        <CustomBehavior File="Hooks\DoWhen" ActivityName="TargetSwitcher" LogExecution="false" AllowUseDuringCombat="true" UseAtInterval="3000" >
+          <!-- Using these hooks as a temporarily forced target switch since for whatever reason KUC isn't switching targets anymore...
+							Also doing it as interval because having two hooks to blacklist+whitelist was bugging out.. -->
+          <CustomBehavior File="RunCode">
+            <![CDATA[
+							var unitPoi = Unit(89350);
+							if (unitPoi == null)
+								return;
+							if (unitPoi.HasAura(178902) && !Blacklist.Contains(unitPoi, BlacklistFlags.Combat))
+								Blacklist.Add(Unit(89350), BlacklistFlags.Combat, TimeSpan.FromMinutes(1));
+						]]>
+          </CustomBehavior>
+
+          <CustomBehavior File="RunCode">
+            <![CDATA[
+							var unitPoi = Unit(89350);
+							if (unitPoi == null)
+								return;
+							if (!unitPoi.HasAura(178902) && Blacklist.Contains(unitPoi, BlacklistFlags.Combat))
+								Blacklist.Clear(u => u.Entry == 89350);
+						]]>
+          </CustomBehavior>
+        </CustomBehavior>
+        <CustomBehavior File="Hooks\Avoid" AvoidName="MassiveCrush_Avoid" ObjectId="89287" Radius="10" AvoidLocationProducer="UNIT.Location.RayCast(UNIT.Rotation, 8)" AvoidWhen="UNIT.IsCasting" />
+
+        <!-- NOTE: <ChangeTarget> : Attack Oublion <89350> to start fight.  Once he turns immune shield on, switch target to  <89287> to kill, then switch back to 89350. -->
+        <!-- MOTE: <AddAvoid> : Mob 89287 spits water on the ground, need to dodge it. -->
+        <CustomBehavior File="KillUntilComplete" QuestId="42021" QuestObjectiveIndex="4" X="-1001.184" Y="5626.036" Z="6.287228" >
+          <PursuitList>
+            <PursueUnit Id="89350" Priority="1" PursueWhen="!UNIT.HasAura(178902)" />
+            <PursuitUnit Id="89287" Priority="1000" PursueWhen="UNIT.IsHostile" />
+          </PursuitList>
+        </CustomBehavior>
+
+        <CustomBehavior File="Hooks\DoWhen" ActivityName="TargetSwitcher" Command="Remove" />
+
+        <!-- Get out of cave -->
+        <MoveTo X="-975.3384" Y="5626.203" Z="4.710858" />
+        <CustomBehavior File="MyCTM" X="-899.052" Y="5682.025" Z="-10.71182" />
+        <CustomBehavior File="MyCTM" X="-897.4653" Y="5734.594" Z="-1.259588" />
+        <MoveTo X="-916.111" Y="5746.806" Z="2.112487" />
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>

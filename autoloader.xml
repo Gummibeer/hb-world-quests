@@ -552,6 +552,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42018-[N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42018-[N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(42021) &amp;&amp; PassesSettings(42021) &amp;&amp; DoFaction(42021)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42021-[N]-[QUEST] Investigation at Mak'rana-Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42021-[N]-[QUEST] Investigation at Mak'rana-Nuok" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(42022) &amp;&amp; PassesSettings(42022) &amp;&amp; DoFaction(42022)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42022-[N]-[QUEST]-Wq-The_Broken_Academy-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42022-[N]-[QUEST]-Wq-The_Broken_Academy-WiN" RememberProfile="false" />
@@ -798,6 +802,10 @@ return 0", 0);
         <If Condition="OnQuest(41615) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41615)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(41648) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41648)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41651)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
@@ -1153,6 +1161,10 @@ return 0", 0);
         <If Condition="OnQuest(43633) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43633) &amp;&amp; DoFaction(43633)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43633-[N]-[QUEST]-Wq-WANTED_Thondrax&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Valshara\43633-[N]-[QUEST]-Wq-WANTED_Thondrax" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(43709) &amp;&amp; PassesSettings(43709) &amp;&amp; DoFaction(43709)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43709-[N]-[QUEST]-Seal Clubbing-Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Valshara\43709-[N]-[QUEST]-Seal Clubbing-Nuok" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(43738) &amp;&amp; PassesSettings(43738) &amp;&amp; DoFaction(43738)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43738-[N]-[QUEST]-Wq-Coastal_Gloom-WiN&quot;);" />
