@@ -1260,6 +1260,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(41093) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41093) &amp;&amp; DoFaction(41093)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41093-[N]-[QUEST]-Wq-DANGER_Durguth-Staal&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41093-[N]-[QUEST]-Wq-DANGER_Durguth-Staal" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(41095) &amp;&amp; PassesSettings(41095) &amp;&amp; DoFaction(41095)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41095-[N]-[QUEST]-Wq-Critical_Crops-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41095-[N]-[QUEST]-Wq-Critical_Crops-WiN" RememberProfile="false" />
