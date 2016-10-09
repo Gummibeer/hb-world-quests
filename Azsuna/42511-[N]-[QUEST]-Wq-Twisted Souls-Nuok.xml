@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] Twisted Souls</Name>
+  <Name>[Nuok] Twisted Souls $Rev$</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -18,7 +18,7 @@
   <TargetElites>true</TargetElites>
   <QuestOrder>
     <CustomBehavior File="RunCode" Type="Definition">
-    <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
     local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
@@ -29,8 +29,11 @@ if (taskInfo) then
 end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
+      <If Condition="!HasQuest(42511)">
+        <RunTo X="295.2966" Y="7200.671" Z="110.0905" />
+      </If>
       <If Condition="!IsObjectiveComplete(2,42511)">
-      <CustomBehavior File="KillUntilComplete" MobId="107696" TerminateWhen="IsObjectiveComplete(2,42511)" X="319.6247" Y="7536.568" Z="149.709" />
+        <CustomBehavior File="KillUntilComplete" MobId="107696" TerminateWhen="IsObjectiveComplete(2,42511) || !OnQuest" X="319.6247" Y="7536.568" Z="149.709" />
       </If>
       <CustomBehavior File="KillUntilComplete" MobId="107628" TerminateWhen="!IsObjectiveComplete(2,42511) || !OnQuest">
         <HuntingGrounds>
@@ -40,11 +43,12 @@ return false;", 0);]]></CustomBehavior>
           <Hotspot X="346.5132" Y="7412.196" Z="145.5321" />
           <Hotspot X="338.1681" Y="7348.06" Z="141.159" />
         </HuntingGrounds>
-      </CustomBehavior>   
-      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+      </CustomBehavior>
+      <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+      <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>
-    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+    <If
+      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
