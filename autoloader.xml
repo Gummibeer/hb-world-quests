@@ -708,6 +708,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43610-[N]-[QUEST]-Wq-WANTED Infernal Lord-Nuok&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43610-[N]-[QUEST]-Wq-WANTED Infernal Lord-Nuok" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(43611) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43611) &amp;&amp; DoFaction(43611)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43611-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43611-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(43613) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43613) &amp;&amp; DoFaction(43613)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43613-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43613-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN" RememberProfile="false" />
@@ -1336,6 +1340,10 @@ return 0", 0);
         <If Condition="OnQuest(41622) &amp;&amp; PassesSettings(41622) &amp;&amp; DoFaction(41622)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(41647) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41647)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41647-[N]-[QUEST]-Wq-Work Order Silkweave Robe&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41647-[N]-[QUEST]-Wq-Work Order Silkweave Robe" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(41653) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41653)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41653-[N]-[QUEST]-Wq-Work Order Skystone Pendant&quot;);" />
