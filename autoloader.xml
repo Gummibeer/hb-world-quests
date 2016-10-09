@@ -452,6 +452,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41656-[N]-[QUEST]-Wq-Work Work Order Azsunite Loop&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41656-[N]-[QUEST]-Wq-Work Work Order Azsunite Loop" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(41674) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41674)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41674-[N]-[QUEST]-Wq-Work Order Word of Intellect&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41674-[N]-[QUEST]-Wq-Work Order Word of Intellect" RememberProfile="false" />
+        </If>
       </If>
       <If Condition="ZoneEnabled(1015)">
         <!--Azsuna-->
@@ -941,6 +945,10 @@ return 0", 0);
         <If Condition="OnQuest(43628) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43628) &amp;&amp; DoFaction(43628)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(43721) &amp;&amp; PassesSettings(43721) &amp;&amp; DoFaction(43721)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(43722) &amp;&amp; PassesSettings(43722) &amp;&amp; DoFaction(43722)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal&quot;);" />
