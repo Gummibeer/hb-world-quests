@@ -1221,6 +1221,14 @@ return 0", 0);
       </If>
       <If Condition="ZoneEnabled(1024)">
         <!--Highmountain-->
+        <If Condition="OnQuest(39424) &amp;&amp; PassesSettings(39424) &amp;&amp; DoFaction(39424)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 39424-[N]-[QUEST]-Wq-Everything-Zinner&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\39424-[N]-[QUEST]-Wq-Everything-Zinner" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(39462) &amp;&amp; PassesSettings(39462) &amp;&amp; DoFaction(39462)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 39462-[N]-[QUEST] Primal Payback -Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\39462-[N]-[QUEST] Primal Payback -Nuok" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(40896) &amp;&amp; PassesSettings(40896) &amp;&amp; DoFaction(40896)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40896-[N]-[QUEST]-Wq-Threnody_of_Chieftains-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40896-[N]-[QUEST]-Wq-Threnody_of_Chieftains-WiN" RememberProfile="false" />

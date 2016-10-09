@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Primal Payback $Rev$</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 39462 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+  				async Task VehicleKill(uint unitId)
+					{
+						WoWUnit killMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && u.Entry == unitId && u.IsAlive);
+						if (killMe == null || Blacklist.Contains(killMe, BlacklistFlags.Combat)) return;
+
+						while (killMe != null && killMe.IsAlive)
+						{
+							if (Me.Location.Distance(killMe.Location) >= 5)
+							{
+								Navigator.MoveTo(killMe.Location);
+								await CombatAwareness();
+								await Coroutine.Yield();
+							}
+
+							if (killMe.IsAlive)
+							{
+								await VehicleCombat(killMe);
+								await Coroutine.Yield();
+							}
+							await Coroutine.Yield();
+						}
+					}
+
+					async Task VehicleCombat(WoWUnit vehicleKill)
+					{
+						if (vehicleKill.Distance > 5) return;
+            
+            Navigator.PlayerMover.MoveStop();
+            
+						if (Me.CurrentTarget != vehicleKill)
+						{
+							vehicleKill.Target();
+						}
+						Me.SetFacing(vehicleKill.Location);
+      
+            if(!Me.IsAutoAttacking)
+              Me.ToggleAttack();  
+              
+            Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D3);  
+            await Coroutine.Sleep(500);
+            Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D2);  
+            await Coroutine.Sleep(500);
+            Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D1);
+						await Coroutine.Sleep(1050);
+					}
+
+					async Task CombatAwareness()
+					{
+						var killArray = ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.IsTargetingMeOrPet && u.Distance <= 5);
+						if (killArray == null) return;
+
+						foreach (WoWUnit killMe in killArray)
+						{
+							while (killMe != null && killMe.IsTargetingMeOrPet && killMe.Distance <= 5)
+							{
+								await CommonCoroutines.StopMoving();
+								StyxWoW.Me.SetFacing(killMe.Location);
+								await VehicleCombat(killMe);
+								await Coroutine.Yield();
+							}
+						}
+					}]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(39462)">
+        <RunTo X="4677.002" Y="4801.015" Z="687.8562" />
+      </If>
+      <If Condition="HasQuest(39462)">
+        <!--<Aura Name="Mountain Prowler" SpellId="189252" StackCount="0" Creator="Lvl 110 Alliance DemonHunter" CreatorGuid="0834FC000000000000000000087CB531" TimeLeft="00:00:00" Flags="Passive, Cancelable" />-->
+        <While Condition="!Me.HasAura(189252)">
+          <!--<Vendor Name="Enforcer Narissa" Entry="101957" Type="Repair" Nav="Fly" X="4675.083" Y="4798.682" Z="687.8572" />-->
+          <CustomBehavior File="InteractWith" MobId="101957" GossipOptions="1" X="4675.083" Y="4798.682" Z="687.8572" />
+        </While>
+        <While Condition="Me.HasAura(189252)">
+           <CustomBehavior File="RunCode" Code="await VehicleKill(101997);" />
+        </While>
+        <Objective QuestName="Primal Payback" QuestId="39462" Type="CollectItem" Nav="Fly" ItemId="101957" CollectCount="1" />
+        <Objective QuestName="Primal Payback" QuestId="39462" Type="KillMob" Nav="Fly" MobId="101997" KillCount="10" />
+      </If>
+    </While>
+          <While Condition="Me.HasAura(189252)">
+           <CustomBehavior File="RunMacro" Macro="/leavevehicle" />
+        </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
