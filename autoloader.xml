@@ -74,6 +74,7 @@
         [Setting]
         [Styx.Helpers.DefaultValue(true)]
         public bool DoProfessions { get; set; }
+
         [Setting]
         [Styx.Helpers.DefaultValue(false)]
         public bool DoWorkOrders { get; set; }
@@ -81,16 +82,21 @@
         [Setting]
         [Styx.Helpers.DefaultValue(true)]
         public bool ArtifactPower { get; set; }
+
         [Setting]
         [Styx.Helpers.DefaultValue(true)]
         public bool Equipment { get; set; }
+
         [Setting]
         [Styx.Helpers.DefaultValue(true)]
         public bool Blood { get; set; }
+
         [Styx.Helpers.DefaultValue(true)]
         public bool OrderHall { get; set; }
+
         [Styx.Helpers.DefaultValue(true)]
         public bool Gold { get; set; }
+
         [Styx.Helpers.DefaultValue(true)]
         public bool Items { get; set; }
 
@@ -405,6 +411,7 @@ return 0", 0);
       <CustomBehavior File="RunCode"><![CDATA[if(File.Exists(@"Default Profiles\\world-quests\\Utilities\\updater.bat")) Process.Start(@"Default Profiles\\world-quests\\Utilities\\updater.bat");]]></CustomBehavior>
       <CustomBehavior File="WaitTimer" WaitTime="5000" />
     </If>
+    <CustomBehavior File="RunCode" Code="Update(); Settings.Instance.Load();" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Current Settings&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Hard Quests&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;DoWanted {Settings.Instance.DoWanted} - DoDangerQuests {Settings.Instance.DoDangerQuests} - DoElite {Settings.Instance.DoElite} - DoPvP {Settings.Instance.DoPvP}&quot;);" />
