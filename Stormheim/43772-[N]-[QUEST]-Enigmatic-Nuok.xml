@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Enigmatic $Rev: 0 $</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+  <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 43772 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+        public WoWAreaTrigger CorrectTile =>
+            ObjectManager.GetObjectsOfType<WoWAreaTrigger>()
+                .Where(u => u != null && u.IsValid && !Blacklist.Contains(u, BlacklistFlags.All) && (u.Spell.Id == 219246 || u.Spell.Id == 219262))
+                .OrderBy(u => u.DistanceSqr)
+                .FirstOrDefault();
+
+        public async Task DoQuest()
+        {
+            if (!StyxWoW.Me.HasAura(219247)) return;
+
+            var tile = CorrectTile;
+            if (tile == null) return;
+            var loc = tile.Location;
+            
+            if (loc.DistanceSqr(StyxWoW.Me.Location) > 1.5)
+            {
+                Styx.WoWInternals.WoWMovement.ClickToMove(loc);
+                await CommonCoroutines.SleepForRandomUiInteractionTime();
+                return;
+            }
+        }]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(43772)">
+        <RunTo X="3949.654" Y="1830.07" Z="180.2683" />
+      </If>
+      <If Condition="HasQuest(43772)">
+        <If Condition="!Me.HasAura(219247)">
+          <!--<WoWUnit Name="Puzzle Box" Entry="110811" X="3946.62" Y="1829.314" Z="186.9149" />-->
+          <CustomBehavior File="InteractWith" MobId="110811" X="3949.654" Y="1830.07" Z="180.2683" />
+          <CustomBehavior File="WaitTimer" WaitTime="4000" />
+        </If>
+        <If Condition="Me.HasAura(219247)">
+          <CustomBehavior File="RunCode" Code="await DoQuest();"/>
+        </If>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
