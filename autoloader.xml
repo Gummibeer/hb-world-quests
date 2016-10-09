@@ -487,7 +487,7 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41483-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41483-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
         </If>
-        <If Condition="OnQuest(41496) &amp;&amp; PassesSettings(41496) &amp;&amp; DoFaction(41496)">
+        <If Condition="OnQuest(41496) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41496)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41496-[N]-[QUEST]-Wq-Raw Leystone Seams-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41496-[N]-[QUEST]-Wq-Raw Leystone Seams-Zinner" RememberProfile="false" />
         </If>
@@ -1279,6 +1279,10 @@ return 0", 0);
         <If Condition="OnQuest(41200) &amp;&amp; PassesSettings(41200) &amp;&amp; DoFaction(41200)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41200-[N]-[QUEST]-Wq-Rough Leystone Outcropping-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41200-[N]-[QUEST]-Wq-Rough Leystone Outcropping-Zinner" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(41202) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41202)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41202-[N]-[QUEST]-Crude Leystone Seams-Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41202-[N]-[QUEST]-Crude Leystone Seams-Nuok" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(41209) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41209)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41209-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
