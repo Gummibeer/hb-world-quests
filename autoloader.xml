@@ -16,6 +16,10 @@
   <SellBlue>false</SellBlue>
   <SellPurple>false</SellPurple>
   <TargetElites>true</TargetElites>
+  <Vendors>
+    <Vendor Name="Gentle Rosh" Type="Food" Entry="91457" X="-811.0851" Y="6098.343" Z="7.00528" />
+    <Vendor Name="Cleave Thunderhill" Type="Repair" Entry="89257" X="-790.5798" Y="6109.849" Z="4.647335" />
+  </Vendors>
   <QuestOrder>
     <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public class Settings : Styx.Helpers.Settings
     {
@@ -27,69 +31,93 @@
         {
         }
         [Setting]
+        [Styx.Helpers.DefaultValue(false)]
         public bool DoWanted { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(false)]
         public bool DoPvP { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(false)]
         public bool DoDangerQuests { get; set; }
-        [Setting]
+        [Setting]   
+        [Styx.Helpers.DefaultValue(false)]
         public bool DoElite { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(false)]
         public bool DoWorldBosses { get; set; }
 
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool DoProfessions { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(false)]
         public bool DoWorkOrders { get; set; }
 
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool ArtifactPower { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Equipment { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Blood { get; set; }
-        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool OrderHall { get; set; }
-        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Gold { get; set; }
-        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Items { get; set; }
-        [Setting]
-        public bool UseWhistle { get; set; }
 
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Azsuna { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Valsharah { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Stormheim { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Suramar { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Highmountain { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(false)]
         public bool EyeofAzshara { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Dalaran { get; set; }
 
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool TheWardens { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool CourtOfFarondis { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool KirinTor { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool HighmountainTribe { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool TheNightfallen { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Valarjar { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Dreamweavers { get; set; }
 
         [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool SkipHBRelog { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(false)]
         public bool SVNUpdate { get; set; }
     }
 
@@ -352,6 +380,20 @@ return 0", 0);
       <CustomBehavior File="RunCode"><![CDATA[if(File.Exists(@"Default Profiles\\world-quests\\Utilities\\updater.bat")) Process.Start(@"Default Profiles\\world-quests\\Utilities\\updater.bat");]]></CustomBehavior>
       <CustomBehavior File="WaitTimer" WaitTime="5000" />
     </If>
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Current Settings&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Hard Quests&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;DoWanted {Settings.Instance.DoWanted} - DoDangerQuests {Settings.Instance.DoDangerQuests} - DoElite {Settings.Instance.DoElite} - DoPvP {Settings.Instance.DoPvP}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Professions&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;DoProfessions {Settings.Instance.DoProfessions} - DoWorkOrders {Settings.Instance.DoWorkOrders}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Zone&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Azsuna {Settings.Instance.Azsuna} - Valsharah {Settings.Instance.Valsharah} - Stormheim {Settings.Instance.Stormheim} - Suramar {Settings.Instance.Suramar}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Highmountain {Settings.Instance.Highmountain} - EyeofAzshara {Settings.Instance.EyeofAzshara} - Dalaran {Settings.Instance.Dalaran}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Faction&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;TheWardens {Settings.Instance.TheWardens} - CourtOfFarondis {Settings.Instance.CourtOfFarondis} - KirinTor {Settings.Instance.KirinTor} - HighmountainTribe {Settings.Instance.HighmountainTribe}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Dreamweavers {Settings.Instance.Dreamweavers} - TheNightfallen {Settings.Instance.TheNightfallen} - Valarjar {Settings.Instance.Valarjar}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Rewards&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;ArtifactPower {Settings.Instance.ArtifactPower} - Equipment {Settings.Instance.Equipment} - Items {Settings.Instance.Items} - Blood of Sargeras {Settings.Instance.Blood}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;OrderHall {Settings.Instance.OrderHall} - Gold {Settings.Instance.Gold}&quot;);" />
     <If Condition="!HasPlugin">
       <CustomBehavior File="UserDialog" StopOnContinue="true" AllowBotStop="true" Title="Missing Settings Plugin" Text="We couldn't find the plugin,\n Please make sure you have copied the folder 'WorldQuestSettings' from \Default Profiles\world-quests\Plugin to Honorbuddy 3\Plugins and restart the bot" />
     </If>
@@ -973,8 +1015,8 @@ return 0", 0);
           <CustomBehavior File="LoadProfile" ProfileName="Valshara\42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(42077) &amp;&amp; PassesSettings(42077) &amp;&amp; DoFaction(42077)">
-          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42077-[N]-[QUEST]-Wq-Waking_Nightmares-Staal&quot;);" />
-          <CustomBehavior File="LoadProfile" ProfileName="Valshara\42077-[N]-[QUEST]-Wq-Waking_Nightmares-Staal" RememberProfile="false" />
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42077-[N]-[QUEST]-Wq-Waking_Nightmares-Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Valshara\42077-[N]-[QUEST]-Wq-Waking_Nightmares-Nuok" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(42080) &amp;&amp; PassesSettings(42080) &amp;&amp; DoFaction(42080)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42080-[N]-[QUEST]-Wq-Bastion_of_Bradensbrook-WiN&quot;);" />
@@ -1262,6 +1304,10 @@ return 0", 0);
         <If Condition="OnQuest(41622) &amp;&amp; PassesSettings(41622) &amp;&amp; DoFaction(41622)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(41653) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41653)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41653-[N]-[QUEST]-Wq-Work Order Skystone Pendant&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41653-[N]-[QUEST]-Wq-Work Order Skystone Pendant" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(41685) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41685) &amp;&amp; DoFaction(41685)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner&quot;);" />
