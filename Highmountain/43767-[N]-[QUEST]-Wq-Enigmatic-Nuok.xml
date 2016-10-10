@@ -62,9 +62,9 @@ return false;", 0);
           <CustomBehavior File="InteractWith" MobId="110811" X="6076.999" Y="3573.978" Z="3.635141" />
           <CustomBehavior File="WaitTimer" WaitTime="4000" />
         </If>
-        <If Condition="Me.HasAura(219247)">
+        <While Condition="Me.HasAura(219247)">
           <CustomBehavior File="RunCode" Code="await DoQuest();"/>
-        </If>
+        </While>
       </If>
       	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />

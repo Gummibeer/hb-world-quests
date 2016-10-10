@@ -679,6 +679,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43325-[N]-[QUEST]-Wq-Ley Race-Nuok&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43325-[N]-[QUEST]-Wq-Ley Race-Nuok" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(43327) &amp;&amp; PassesSettings(43327) &amp;&amp; DoFaction(43327)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43327-[N]-[QUEST]-The Magic of Flight-Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43327-[N]-[QUEST]-The Magic of Flight-Nuok" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(43426) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43426) &amp;&amp; DoFaction(43426)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43426-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43426-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="false" />
@@ -1384,6 +1388,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(41635) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41635)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41635-[N]-[QUEST]-Wq-Work Order Leystone Boots&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41635-[N]-[QUEST]-Wq-Work Order Leystone Boots" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(41647) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41647)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41647-[N]-[QUEST]-Wq-Work Order Silkweave Robe&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41647-[N]-[QUEST]-Wq-Work Order Silkweave Robe" RememberProfile="false" />
@@ -1574,6 +1582,10 @@ return 0", 0);
         <If Condition="OnQuest(43607) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43607) &amp;&amp; DoFaction(43607)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Suramar\43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(43777) &amp;&amp; PassesSettings(43777) &amp;&amp; DoFaction(43777)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43777-[N]-[QUEST]-The Magic of Flight-Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Suramar\43777-[N]-[QUEST]-The Magic of Flight-Nuok" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(43930) &amp;&amp; PassesSettings(43930) &amp;&amp; DoFaction(43930)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43930-[N]-[QUEST]-Wq-Fiends_of_Telanor-Staal&quot;);" />
