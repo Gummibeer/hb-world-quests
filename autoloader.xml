@@ -342,13 +342,15 @@ return 0", 0);
         public async Task ForceTurnin(int questId, int npcId, float x, float y, float z)
         {
             if (!QuestCompletedInLog(questId)) return;
-
+            var q = Quest.FromId();
+            if(q != null)
+                TreeRoot.StatusText = $"Turnin {q.Name}";
             var turninNpc =
                 ObjectManager.GetObjectsOfType<WoWUnit>().FirstOrDefault(u => u.IsValid && u.Entry == npcId);
 
             if (turninNpc == null)
             {
-                Logging.Write($"Moving to {x}, {y}, {z}");
+                TreeRoot.GoalText = $"Moving to {x} {y} {z}";
                 await CommonCoroutines.MoveTo(new Vector3(x, y, z));
                 return;
             }
@@ -357,11 +359,11 @@ return 0", 0);
             {
                 if (!turninNpc.WithinInteractRange)
                 {
-                    Logging.Write($"Moving to {turninNpc}");
+                    TreeRoot.GoalText = $"Moving to {turninNpc}";
                     await CommonCoroutines.MoveTo(turninNpc.Location);
                     return;
                 }
-                Logging.Write($"Interacting with {turninNpc}");
+                TreeRoot.GoalText = $"Interacting with {turninNpc}";
                 turninNpc.Interact();
                 await CommonCoroutines.SleepForRandomUiInteractionTime();
             }
@@ -1150,6 +1152,10 @@ return 0", 0);
         <If Condition="OnQuest(43336) &amp;&amp; PassesSettings(43336) &amp;&amp; DoFaction(43336)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43336-[N]-[QUEST]-Wq-Purge of the Nightmare-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Valshara\43336-[N]-[QUEST]-Wq-Purge of the Nightmare-Zinner" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(43346) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43346) &amp;&amp; DoFaction(43346)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43346-[N]-[QUEST]-DANGER Ealdis-Nuok&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Valshara\43346-[N]-[QUEST]-DANGER Ealdis-Nuok" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(43347) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43347) &amp;&amp; DoFaction(43347)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43347-[N]-[QUEST]-Wq-DANGER_Rabxach-WiN&quot;);" />
