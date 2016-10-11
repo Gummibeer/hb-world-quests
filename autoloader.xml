@@ -339,12 +339,11 @@ return 0", 0);
                     _, _, _, _, _, isComplete, _, questID = GetQuestLogTitle(questIndex);
             if (questID == {questId}) then return isComplete; end end return false; ",  0);
 
-        public async Task ForceTurnin(int questId, int npcId, float x, float y, float z)
+        public async Task ForceTurnin(int questId, string name, int npcId, float x, float y, float z)
         {
             if (!QuestCompletedInLog(questId)) return;
-            var q = Quest.FromId();
-            if(q != null)
-                TreeRoot.StatusText = $"Turnin {q.Name}";
+
+            TreeRoot.StatusText = $"Turnin {name}";
             var turninNpc =
                 ObjectManager.GetObjectsOfType<WoWUnit>().FirstOrDefault(u => u.IsValid && u.Entry == npcId);
 
@@ -430,25 +429,25 @@ return 0", 0);
       <CustomBehavior File="RunCode" Code="Update(); Settings.Instance.Load();" />
       <CustomBehavior File="WaitTimer" WaitTime="1000" />
       <While Condition="HasQuest(42420) &amp;&amp; QuestCompletedInLog(42420)">
-        <CustomBehavior File="RunCode" Code="await ForceTurnin(42420, 107376, -8.559865f, 6736.977f, 55.58721f);" />
+        <CustomBehavior File="RunCode" Code="await ForceTurnin(42420, &quot;Court of Farondis&quot;, 107376, -8.559865f, 6736.977f, 55.58721f);" />
       </While>
       <While Condition="HasQuest(42170) &amp;&amp; QuestCompletedInLog(42170)">
-        <CustomBehavior File="RunCode" Code="await ForceTurnin(42170, 106901, 2274.2f, 6592.066f, 138.8777f);" />
+        <CustomBehavior File="RunCode" Code="await ForceTurnin(42170, &quot;The Dreamweavers&quot;, 106901, 2274.2f, 6592.066f, 138.8777f);" />
       </While>
       <While Condition="HasQuest(42422) &amp;&amp; QuestCompletedInLog(42422)">
-        <CustomBehavior File="RunCode" Code="await ForceTurnin(42422, 107379, -1441.083f, 6656.882f, 12.00175f);" />
+        <CustomBehavior File="RunCode" Code="await ForceTurnin(42422, &quot;The Wardens&quot;, 107379, -1441.083f, 6656.882f, 12.00175f);" />
       </While>
       <While Condition="HasQuest(42421) &amp;&amp; QuestCompletedInLog(42421)">
-        <CustomBehavior File="RunCode" Code="await ForceTurnin(42421, 97140, 1720.796f, 4617.22f, 123.9455f);" />
+        <CustomBehavior File="RunCode" Code="await ForceTurnin(42421, &quot;The Nightfallen&quot;, 97140, 1720.796f, 4617.22f, 123.9455f);" />
       </While>
       <While Condition="HasQuest(42233) &amp;&amp; QuestCompletedInLog(42233)">
-        <CustomBehavior File="RunCode" Code="await ForceTurnin(42233, 106902, 4112.049f, 4445.559f, 768.3433f);" />
+        <CustomBehavior File="RunCode" Code="await ForceTurnin(42233, &quot;Highmountain Tribes&quot;, 106902, 4112.049f, 4445.559f, 768.3433f);" />
       </While>
       <While Condition="HasQuest(43179) &amp;&amp; QuestCompletedInLog(43179)">
-        <CustomBehavior File="RunCode" Code="await ForceTurnin(43179, 32725, -849.4995f, 4597.092f, 748.7828f);" />
+        <CustomBehavior File="RunCode" Code="await ForceTurnin(43179, &quot;The Kirin Tor of Dalaran&quot;, 32725, -849.4995f, 4597.092f, 748.7828f);" />
       </While>
       <While Condition="HasQuest(42234) &amp;&amp; QuestCompletedInLog(42234)">
-        <CustomBehavior File="RunCode" Code="await ForceTurnin(42234, 106904, 3189.06f, 1536.94f, 182.54f);" />
+        <CustomBehavior File="RunCode" Code="await ForceTurnin(42234, &quot;The Valarjar&quot;, 106904, 3189.06f, 1536.94f, 182.54f);" />
       </While>
       <If Condition="ZoneEnabled(1014)">
         <!--Dalaran-->
