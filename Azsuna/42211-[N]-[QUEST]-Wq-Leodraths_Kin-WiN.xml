@@ -30,7 +30,7 @@ return false;", 0);]]></CustomBehavior>
   <If Condition="!HasQuest(42211)">
 	<RunTo X="-439.268" Y="5380.945" Z="71.93523" />
   </If>
-  <If Condition="!HasQuest(42211)">
+  <If Condition="HasQuest(42211)">
     <CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!OnQuest">
       <HuntingGrounds>
         <Hotspot X="-457.6385" Y="5408.23" Z="70.23879" />
