@@ -36,13 +36,13 @@ public bool HasExtraActionBar => Lua.GetReturnVal<bool>("return HasExtraActionBa
           <RunTo X="1522.907" Y="3304.009" Z="143.0357" />
         </While>
         <While Condition="HasExtraActionBar &amp;&amp; !Me.HasAura(202477)">
-          <CustomBehavior File="RunMacro" Macro="/click ExtraActionButton1" />
+          <CustomBehavior File="RunMacro" Macro="/cancelform /click ExtraActionButton1" />
         </While>
         <RunTo X="1320.28" Y="3183.539" Z="132.8776" />
       </If>
       <While Condition="HasQuest(42830)">
         <While Condition="HasExtraActionBar &amp;&amp; !Me.HasAura(202477)">
-          <CustomBehavior File="RunMacro" Macro="/click ExtraActionButton1" />
+          <CustomBehavior File="RunMacro" Macro="/cancelform  /click ExtraActionButton1" />
         </While>
         <CustomBehavior File="InteractWith" MobIds="109023" NumOfTimes="100" TerminateWhen="!Me.HasAura(202477) || IsObjectiveComplete(1, 42830) || !OnQuest"
                  X="1522.907" Y="3304.009" Z="143.0357" />
