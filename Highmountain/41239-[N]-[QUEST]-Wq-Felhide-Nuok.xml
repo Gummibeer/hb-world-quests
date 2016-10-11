@@ -34,8 +34,9 @@ return false;", 0);]]></CustomBehavior>
       <If Condition="HasQuest(41239)">
         <CustomBehavior File="InteractWith" MobId="103675" TerminateWhen="!OnQuest" WaitForNpcs="false" X="5015.816" Y="4692.379" Z="985.8831" />
         <!--<GameObject Name="Felhide Gargantuan" Entry="248041" X="5800.007" Y="4611.271" Z="675.757" />-->
-        <!--<GameObject Name="Felhide Gargantuan" Entry="247422" X="4952.561" Y="4754.356" Z="993.1281" />-->
-        <CustomBehavior File="InteractWith" MobIds="248041, 247422" TerminateWhen="!OnQuest" WaitForNpcs="false" X="5015.816" Y="4692.379" Z="985.8831" />
+        <!--<GameObject Name="Felhide Gargantuan" Entry="247422" X="4952.561" Y="4754.356" Z="993.1281" />
+        <GameObject Name="Felhide Gargantuan" Entry="248049" X="4361.542" Y="1648.107" Z="4.236803" />-->
+        <CustomBehavior File="InteractWith" MobIds="248041, 247422, 248049, 248045, 248042, 248047, 248050" TerminateWhen="!OnQuest" WaitForNpcs="false" X="5015.816" Y="4692.379" Z="985.8831" />
       </If>
       	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
