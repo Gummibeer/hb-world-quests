@@ -343,13 +343,13 @@ return 0", 0);
         {
             if (!QuestCompletedInLog(questId)) return;
 
-            TreeRoot.StatusText = $"Turnin {name}";
+            TreeRoot.GoalText = $"Turnin {name}";
             var turninNpc =
                 ObjectManager.GetObjectsOfType<WoWUnit>().FirstOrDefault(u => u.IsValid && u.Entry == npcId);
 
             if (turninNpc == null)
             {
-                TreeRoot.GoalText = $"Moving to {x} {y} {z}";
+                TreeRoot.StatusText = $"Moving to {x} {y} {z}";
                 await CommonCoroutines.MoveTo(new Vector3(x, y, z));
                 return;
             }
@@ -358,11 +358,11 @@ return 0", 0);
             {
                 if (!turninNpc.WithinInteractRange)
                 {
-                    TreeRoot.GoalText = $"Moving to {turninNpc}";
+                    TreeRoot.StatusText = $"Moving to {turninNpc}";
                     await CommonCoroutines.MoveTo(turninNpc.Location);
                     return;
                 }
-                TreeRoot.GoalText = $"Interacting with {turninNpc}";
+                TreeRoot.StatusText = $"Interacting with {turninNpc}";
                 turninNpc.Interact();
                 await CommonCoroutines.SleepForRandomUiInteractionTime();
             }
@@ -371,7 +371,7 @@ return 0", 0);
             {
                 var quest = GossipFrame.Instance.ActiveQuests.FirstOrDefault(q => q.Id == questId);
                 if (quest == null) return;
-                Logging.Write($"Selecting {quest.Name} (GF)");
+                TreeRoot.StatusText =$"Selecting {quest.Name} (GF)";
                 GossipFrame.Instance.SelectActiveGossipQuest(quest.Index);
                 GossipFrame.Instance.SelectActiveQuest(quest.Index);
                 await CommonCoroutines.SleepForRandomUiInteractionTime();
@@ -382,7 +382,7 @@ return 0", 0);
 
             if (QuestFrame.Instance.CurrentShownQuestId == questId)
             {
-                Logging.Write($"Completing {QuestFrame.Instance.CurrentShownQuest.Name}");
+                TreeRoot.GoalText = $"Completing {QuestFrame.Instance.CurrentShownQuest.Name}";
                 QuestFrame.Instance.SelectQuestReward(1);
                 await CommonCoroutines.SleepForRandomUiInteractionTime();
                 QuestFrame.Instance.CompleteQuest();
@@ -391,7 +391,7 @@ return 0", 0);
             }
             var questF = QuestFrame.Instance.ActiveQuests.FirstOrDefault(que => que.Id == questId);
             if (questF == null) return;
-            Logging.Write($"Selecting {questF.Name} (QF)");
+            TreeRoot.GoalText = $"Selecting {questF.Name} (QF)";
             QuestFrame.Instance.SelectActiveGossipQuest(questF.Index);
             QuestFrame.Instance.SelectActiveQuest(questF.Index);
             await CommonCoroutines.SleepForRandomUiInteractionTime();
