@@ -133,8 +133,9 @@
 	<RunTo X="4600.93" Y="4087.079" Z="967.2239" />
 	<CustomBehavior File="InteractWith" NumOfTimes="20" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41416)" >
 		<HuntingGrounds>
+			<Hotspot X="4600.93" Y="4087.079" Z="967.2239" />
 			<Hotspot X="4662.663" Y="4026.6" Z="920.8478" />
-<!-- <Hotspot X="4594.021" Y="4082.618" Z="967.3236" /> -->
+
 		</HuntingGrounds>
 		<PursuitList>
 			<PursueUnit Id="104302" Priority="100" PursueWhen="!IsObjectiveComplete(2,41416)  &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
