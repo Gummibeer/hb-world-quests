@@ -1,6 +1,6 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
-	<Name>[N-Quest] Retake the Skyhorn - Win</Name>
+	<Name>[41416] Retake the Skyhorn - Win</Name>
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -130,7 +130,7 @@
 <Vendor Name="Skawn" Entry="104310" Type="Repair" Nav="Fly" X="4568.682" Y="4099.193" Z="977.1875" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41416)" >
-	<RunTo X="4695.513" Y="3970.179" Z="872.8948" />
+	<RunTo X="4600.93" Y="4087.079" Z="967.2239" />
 	<CustomBehavior File="InteractWith" NumOfTimes="20" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41416)" >
 		<HuntingGrounds>
 			<Hotspot X="4662.663" Y="4026.6" Z="920.8478" />
