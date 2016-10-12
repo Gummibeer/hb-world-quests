@@ -120,27 +120,22 @@
 			</CustomBehavior>
 	
 		
-<While Condition="WorldQuestInfo.HasWorldQuest(43626)" >
-	<!-- Get in range of quest to activate -->
-	<RunTo X="2388.517" Y="2659.797" Z="298.5403" />
-<PickUp Nav="Fly" QuestName="WANTED: Thane Irglov" QuestId="43626" GiverName="" GiverId="" />
 
-<Objective QuestName="WANTED: Thane Irglov" QuestId="43626" Type="KillMob" Nav="Fly" MobId="91892" KillCount="1" />
-
-<TurnIn Nav="Fly" QuestName="WANTED: Thane Irglov" QuestId="43626" TurnInName="" TurnInId="" />
-
-
-</While>
 <!-- 
 <Vendor Name="Fathnyr" Entry="91803" Type="Repair" Nav="Fly" X="1922.743" Y="2315.998" Z="507.618" />
+<WoWUnit Name="Thane Irglov the Merciless" Entry="91892" X="2376.155" Y="2674.678" Z="301.1359" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43626)" >
 	<RunTo X="2388.517" Y="2659.797" Z="298.5403" />
-	<CustomBehavior File="KillUntilComplete" MobIds="91892" QuestId="43626">
-		<HuntingGrounds>
-			<Hotspot X="2388.517" Y="2659.797" Z="298.5403" />
-		</HuntingGrounds>
-	</CustomBehavior>
+	<CustomBehavior File="KillUntilComplete"  QuestId="44304"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43626)">
+	<HuntingGrounds>
+		<Hotspot X="2376.155" Y="2674.678" Z="301.1359" />
+	</HuntingGrounds>
+	<PursuitList>
+		<PursueUnit Id="91892" PursueWhen="!IsObjectiveComplete(1, 43626) &amp;&amp; (UNIT.IsAlive)" />
+	</PursuitList>
+</CustomBehavior>
+
 	<RunTo X="2434.674" Y="2583.591" Z="295.4605" />
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
