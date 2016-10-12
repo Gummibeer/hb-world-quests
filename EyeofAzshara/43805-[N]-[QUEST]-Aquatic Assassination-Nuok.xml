@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<HBProfile>
+  <Name>[Nuok] Aquatic Assassination $Rev$</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1096);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1096)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 43805 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(43805)">
+        <MoveTo X="-3367.055" Y="4811" Z="17.45638" />
+      </If>
+      <If Condition="HasQuest(43805)">
+        <CustomBehavior File="KillUntilComplete" MobId="111633" TerminateWhen="!OnQuest || IsObjectiveComplete(2, 43805)">
+          <HuntingGrounds>
+            <Hotspot X="-3747.634" Y="4566.815" Z="41.72206" />
+            <Hotspot X="-3766.656" Y="4459.635" Z="45.18373" />
+            <Hotspot X="-3676.469" Y="4413.324" Z="32.36208" />
+          </HuntingGrounds>
+        </CustomBehavior>
+        <CustomBehavior File="KillUntilComplete" MobIds="111637, 111636" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 43805)">
+          <HuntingGrounds>
+            <Hotspot X="-3505.32" Y="4389.309" Z="2.738487" />
+            <Hotspot X="-3537.359" Y="4732.154" Z="1.930526" />
+            <Hotspot X="-3467.351" Y="4739.756" Z="1.838454" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
