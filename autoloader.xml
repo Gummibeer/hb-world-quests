@@ -539,12 +539,8 @@ return 0", 0);
           <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41633-[N]-[QUEST]-Wq-Work Order Leystone Greaves" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41651)">
-          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant -BUY Azsunite Pendant from ah&quot;);" />
-          <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant -BUY Azsunite Pendant from ah" RememberProfile="false" />
-        </If>
-        <If Condition="OnQuest(41654) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41654)">
-          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41654-[N]-[QUEST]-Wq-Work Order Azsunite Pendant&quot;);" />
-          <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41654-[N]-[QUEST]-Wq-Work Order Azsunite Pendant" RememberProfile="false" />
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(41669) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41669)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike -BUY Word of Critical Strike from ah&quot;);" />
@@ -965,6 +961,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(43627) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43627) &amp;&amp; DoFaction(43627)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43627-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43627-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(43628) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43628) &amp;&amp; DoFaction(43628)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="false" />
@@ -1319,6 +1319,10 @@ return 0", 0);
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41202-[N]-[QUEST]-Crude Leystone Seams-Nuok&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41202-[N]-[QUEST]-Crude Leystone Seams-Nuok" RememberProfile="false" />
         </If>
+        <If Condition="OnQuest(41204) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41204)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41204-[N]-[QUEST]-Wq-Hard Leystone Deposits-Zinner&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41204-[N]-[QUEST]-Wq-Hard Leystone Deposits-Zinner" RememberProfile="false" />
+        </If>
         <If Condition="OnQuest(41208) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41208)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41208-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41208-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
@@ -1657,6 +1661,10 @@ return 0", 0);
         <If Condition="OnQuest(44028) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44028) &amp;&amp; DoFaction(44028)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44028-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-WiN&quot;);" />
           <CustomBehavior File="LoadProfile" ProfileName="Suramar\44028-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-WiN" RememberProfile="false" />
+        </If>
+        <If Condition="OnQuest(44029) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44029) &amp;&amp; DoFaction(44029)">
+          <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44029-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner&quot;);" />
+          <CustomBehavior File="LoadProfile" ProfileName="Suramar\44029-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner" RememberProfile="false" />
         </If>
         <If Condition="OnQuest(44121) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44121) &amp;&amp; DoFaction(44121)">
           <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous&quot;);" />
