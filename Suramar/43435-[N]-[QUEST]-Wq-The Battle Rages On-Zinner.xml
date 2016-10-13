@@ -154,17 +154,7 @@
 
 				]]>
 			</CustomBehavior>
-			<While Condition="WorldQuestInfo.HasWorldQuest(43435)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="2738.498" Y="5115.393" Z="172.0688" /> 
-				<PickUp Nav="Fly" QuestName="The Battle Rages On" QuestId="43435" GiverName="" GiverId="" />
 
-				<Objective QuestName="The Battle Rages On" QuestId="43435" Type="KillMob" Nav="Fly" MobId="110535" KillCount="50" />
-
-				<TurnIn Nav="Fly" QuestName="The Battle Rages On" QuestId="43435" TurnInName="" TurnInId="" />
-
-
-</While>
 <!--
 <Vendor Name="Nightborne Infiltrator" Entry="101784" Type="Repair" Nav="Fly" X="2755.442" Y="5099.038" Z="174.5798" />
 <Vendor Name="Nightborne Siegecaster" Entry="101783" Type="Repair" Nav="Fly" X="2762.835" Y="5114.068" Z="174.6448" />
