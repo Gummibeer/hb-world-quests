@@ -32,7 +32,7 @@ return false;", 0);]]>
         <RunTo X="3366.133" Y="1568.511" Z="10.98311" />
       </If>
       <If Condition="HasQuest(41984)">
-        <CustomBehavior File="KillUntilComplete" TerminateWhen="IsObjectiveComplete(2, 41984) || !HasQuest(41984)" >
+        <CustomBehavior File="KillUntilComplete" MobId="105710" TerminateWhen="IsObjectiveComplete(2, 41984) || !HasQuest(41984)" >
           <HuntingGrounds>
             <Hotspot X="3562.338" Y="1508.874" Z="5.328483" />
           </HuntingGrounds>
