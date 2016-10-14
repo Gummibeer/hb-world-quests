@@ -306,6 +306,13 @@ namespace WorldQuestSettings
         [Description("Runs the updater.bat file to try and update profiles.")]
         [Styx.Helpers.DefaultValue(false)]
         public bool SVNUpdate { get; set; }
+
+        [Setting]
+        [Category("Utility")]
+        [DisplayName("Loop Profile")]
+        [Description("Runs the profile in a loop to try and prevent it from missing quests")]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool LoopProfile { get; set; }
         /*
 
         [Setting]
