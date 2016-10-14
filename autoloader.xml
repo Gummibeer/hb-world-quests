@@ -602,10 +602,6 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42026-[N]-[QUEST]-Wq-Faronaar_in_Ruin-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42026-[N]-[QUEST]-Wq-Faronaar_in_Ruin-WiN" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(42027) &amp;&amp; PassesSettings(42027) &amp;&amp; DoFaction(42027)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42027-[N]-[QUEST]-Wq-Faronaar_in_Chaos-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42027-[N]-[QUEST]-Wq-Faronaar_in_Chaos-WiN" RememberProfile="false" />
-      </If>
       <If Condition="OnQuest(42101) &amp;&amp; PassesSettings(42101) &amp;&amp; DoFaction(42101)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42101-[N]-[QUEST]-Wq-Language_of_the_Lost-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42101-[N]-[QUEST]-Wq-Language_of_the_Lost-WiN" RememberProfile="false" />
