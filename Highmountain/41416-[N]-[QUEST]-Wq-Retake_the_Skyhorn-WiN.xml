@@ -129,9 +129,9 @@
 
 		</HuntingGrounds>
 		<PursuitList>
-			<PursueUnit Id="104302" Priority="100" PursueWhen="!IsObjectiveComplete(2,41416)  &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-			<PursueUnit Id="104311" PursueWhen="!IsObjectiveComplete(1,41416) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-			<PursueUnit Id="104310" PursueWhen="!IsObjectiveComplete(1,41416) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+			<PursueUnit Id="104302" Priority="100" PursueWhen="!IsObjectiveComplete(1,41416)  &amp;&amp; (UNIT.IsAlive)" />
+			<PursueUnit Id="104311" PursueWhen="!IsObjectiveComplete(2,41416) &amp;&amp; (UNIT.IsAlive)"/>
+			<PursueUnit Id="104310" PursueWhen="!IsObjectiveComplete(2,41416) &amp;&amp; (UNIT.IsAlive)"/>
 		</PursuitList>
 	</CustomBehavior>
 	
