@@ -1,5 +1,4 @@
-<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <!-- Original contribution by EchoTiger -->
+<HBProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>[41416] Retake the Skyhorn - Win</Name>
   <MinDurability>0.3</MinDurability>
   <MinFreeBagSlots>3</MinFreeBagSlots>
