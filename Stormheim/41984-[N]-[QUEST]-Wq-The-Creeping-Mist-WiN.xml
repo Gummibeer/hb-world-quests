@@ -38,7 +38,7 @@ return false;", 0);]]>
           </HuntingGrounds>
         </CustomBehavior>
 
-        <CustomBehavior File="KillUntilComplete"  MobId="105502" TerminateWhen="IsObjectiveComplete(2, 41984) || !HasQuest(41984)">
+        <CustomBehavior File="KillUntilComplete"  MobId="105502" TerminateWhen="IsObjectiveComplete(1, 41984) || !HasQuest(41984)">
           <HuntingGrounds>
             <Hotspot X="3563.802" Y="1518.61" Z="5.316961" />
             <Hotspot X="3366.133" Y="1568.511" Z="10.98311" />
