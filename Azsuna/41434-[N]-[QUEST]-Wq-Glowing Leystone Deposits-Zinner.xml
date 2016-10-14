@@ -1,0 +1,200 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>41434-[N]-[QUEST]-Wq-Glowing Leystone Deposits WorldQuest Zinner</Name>
+
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+
+	<SellGrey>true</SellGrey>
+	<SellWhite>false</SellWhite>
+	<SellGreen>false</SellGreen>
+	<SellBlue>false</SellBlue>
+	<SellPurple>false</SellPurple>
+
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+
+	<TargetElites>true</TargetElites>
+
+	
+
+	<QuestOrder>
+	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			
+
+    public class WorldQuestData
+    {
+        public int ID;
+        public string Name;
+        public DateTime ExpireTime;
+    }
+
+
+    public static class WorldQuestInfo
+    {
+        static List<WorldQuestData> _cache = new List<WorldQuestData>();
+        static internal bool _dirty = true;
+        static internal bool _setup = false;
+
+        static WorldQuestInfo()
+        {
+            Setup();
+        }
+
+        public static void Setup()
+        {
+            if (_setup)
+                return;
+
+            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+
+            UpdateWorldQuests();
+            _setup = true;
+        }
+
+        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+        {
+            _dirty = true;
+        }
+
+        public static bool HasWorldQuest(int questid)
+        {
+            UpdateWorldQuests();
+
+            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+
+            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+                return false;
+            return true;
+        }
+
+        public static void UpdateWorldQuests()
+        {
+            if (!_dirty)
+                return;
+            _cache = new List<WorldQuestData>();
+            
+            var player = StyxWoW.Me;
+            int BrokenIslesMapArea = 1007;
+
+            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+            
+            var NumZones = int.Parse(ret[0]);
+
+            for (int i = 1; i <= NumZones; ++i)
+            {
+                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+
+                var ZoneID = int.Parse(ret[0]);
+                var ZoneName = ret[1];
+                var ZoneDepth = int.Parse(ret[2]);
+
+                if (ZoneDepth > 1) //Do not look at subzones
+                {
+                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+                    continue;
+                }
+
+                string ToRun = string.Format(@"     local questids = {{}};
+
+                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+
+                                                    if taskInfo then
+				                                                    for i, info in ipairs(taskInfo) do
+					                                                    if HaveQuestData(info.questId) then
+						                                                    if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+                                                                                    table.insert(questids, info.questId);
+							                                                    end
+						                                                    end
+					                                                    end
+				                                                    end
+                                                   return unpack(questids);
+                                                ", ZoneID, BrokenIslesMapArea);
+
+                ret = Lua.GetReturnValues(ToRun);
+
+                foreach (var q in ret)
+                {
+                    int questid = int.Parse(q);
+
+                    //TimeLeft is in minutes
+                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+
+                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+
+                    var data = new WorldQuestData();
+                    data.ID = questid;
+                    data.Name = QuestInfo[0];
+                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+                    _cache.Add(data);
+                }
+            }
+
+            _dirty = false;
+        }
+
+        public static bool IsWorldQuest(int questid)
+        {
+            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+
+            var ret = Lua.GetReturnValues(lua);
+
+            if (ret[3] == null)
+                return false;
+            return true;
+        }
+    }
+
+
+				]]>
+			</CustomBehavior>
+	
+		
+		<While Condition="WorldQuestInfo.HasWorldQuest(41434)" >
+				<!-- Get in range of quest to activate -->
+				<RunTo X="-746.7634" Y="6607.073" Z="-0.9769697" /> 
+				<PickUp Nav="Fly" QuestName="Glowing Leystone Deposits" QuestId="41434" GiverName="" GiverId="" />
+
+				<Objective QuestName="Glowing Leystone Deposits" QuestId="41434" Type="CollectItem" Nav="Fly" ItemId="141223" CollectCount="10" />
+
+				<TurnIn Nav="Fly" QuestName="Glowing Leystone Deposits" QuestId="41434" TurnInName="" TurnInId="" />
+
+
+
+
+
+</While>
+		<While Condition="WorldQuestInfo.HasWorldQuest(41434)" >	
+				<RunTo X="-746.7634" Y="6607.073" Z="-0.9769697" /> 		
+				<CustomBehavior File="InteractWith" MobId="141223" NumOfTimes="10" QuestId="41434" >
+				<HuntingGrounds>
+					<Hotspot X="-746.7634" Y="6607.073" Z="-0.9769697" />
+					<Hotspot X="-694.1379" Y="6560.247" Z="-2.081439" />
+					<Hotspot X="-672.5528" Y="6548.251" Z="-2.69836" />
+					<Hotspot X="-640.2913" Y="6562.667" Z="-1.515068" />
+					<Hotspot X="-597.9044" Y="6493.713" Z="-12.37699" />
+					<Hotspot X="-549.8031" Y="6506.81" Z="-11.95136" />
+					<Hotspot X="-551.4412" Y="6547.585" Z="-13.20514" />
+					<Hotspot X="-544.7098" Y="6569.527" Z="-9.010084" />
+					<Hotspot X="-562.439" Y="6659.636" Z="-6.44305" />
+					<Hotspot X="-471.6188" Y="6704.313" Z="1.852007" />
+					<Hotspot X="-533.9609" Y="6702.078" Z="-3.251527" />
+				</HuntingGrounds>
+			</CustomBehavior>
+		</While>
+	
+	
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 41434-[N]-[QUEST]-Wq-Glowing Leystone Deposits-Zinner.xml, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
+</HBProfile>
