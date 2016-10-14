@@ -1,169 +1,59 @@
-<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<!-- Original contribution by EchoTiger -->
-	<Name>[42089] The Fallen Ones - WiN</Name>
-	<MinDurability>0.3</MinDurability>
-	<MinFreeBagSlots>3</MinFreeBagSlots>
-	<SellGrey>true</SellGrey>
-	<SellWhite>false</SellWhite>
-	<SellGreen>false</SellGreen>
-	<SellBlue>false</SellBlue>
-	<SellPurple>false</SellPurple>
-	<MailGrey>false</MailGrey>
-	<MailWhite>true</MailWhite>
-	<MailGreen>true</MailGreen>
-	<MailBlue>true</MailBlue>
-	<MailPurple>true</MailPurple>
-	<TargetElites>true</TargetElites>
-	<QuestOrder>
-		<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
-			public class WorldQuestData
-			{
-			public int ID;
-			public string Name;
-			public DateTime ExpireTime;
-			}
-			public static class WorldQuestInfo
-			{
-			static List<WorldQuestData> _cache = new List<WorldQuestData>();
-				static internal bool _dirty = true;
-				static internal bool _setup = false;
-				static WorldQuestInfo()
-				{
-				Setup();
-				}
-				public static void Setup()
-				{
-				if (_setup)
-				return;
-				Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
-				Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
-				Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
-				UpdateWorldQuests();
-				_setup = true;
-				}
-				public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
-				{
-				_dirty = true;
-				}
-				public static bool HasWorldQuest(int questid)
-				{
-				UpdateWorldQuests();
-				var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
-				if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
-					return false;
-					return true;
-					}
-					public static void UpdateWorldQuests()
-					{
-					if (!_dirty)
-					return;
-					_cache = new List<WorldQuestData>();
-						var player = StyxWoW.Me;
-						int BrokenIslesMapArea = 1007;
-						var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
-						var NumZones = int.Parse(ret[0]);
-						for (int i = 1; i <= NumZones; ++i)
-							{
-							ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
-							var ZoneID = int.Parse(ret[0]);
-							var ZoneName = ret[1];
-							var ZoneDepth = int.Parse(ret[2]);
-							if (ZoneDepth > 1) //Do not look at subzones
-							{
-							Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
-							continue;
-							}
-							string ToRun = string.Format(@"     local questids = {{}};
-							local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
-							if taskInfo then
-							for i, info in ipairs(taskInfo) do
-							if HaveQuestData(info.questId) then
-							if QuestMapFrame_IsQuestWorldQuest(info.questId) then
-							table.insert(questids, info.questId);
-							end
-							end
-							end
-							end
-							return unpack(questids);
-							", ZoneID, BrokenIslesMapArea);
-							ret = Lua.GetReturnValues(ToRun);
-							foreach (var q in ret)
-							{
-							int questid = int.Parse(q);
-							//TimeLeft is in minutes
-							var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
-								var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
-								Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
-								var data = new WorldQuestData();
-								data.ID = questid;
-								data.Name = QuestInfo[0];
-								data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
-								_cache.Add(data);
-								}
-								}
-								_dirty = false;
-								}
-								public static bool IsWorldQuest(int questid)
-								{
-								string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
-								var ret = Lua.GetReturnValues(lua);
-								if (ret[3] == null)
-								return false;
-								return true;
-								}
-								}
-								]]>
-							</CustomBehavior>
-<!--
-<PickUp Nav="Fly" QuestName="The Fallen Ones" QuestId="42089" GiverName="" GiverId="" />
-<Objective QuestName="The Fallen Ones" QuestId="42089" Type="KillMob" Nav="Fly" MobId="106101" KillCount="10" />
-<Objective QuestName="The Fallen Ones" QuestId="42089" Type="KillMob" Nav="Fly" MobId="106102" KillCount="6" />
-<TurnIn Nav="Fly" QuestName="The Fallen Ones" QuestId="42089" TurnInName="" TurnInId="" />
+<HBProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<WoWUnit Name="Fal'dorei Webspinner" Entry="105686" X="2022.477" Y="5421.792" Z="-36.0698" /> 1
-<WoWUnit Name="Fal'dorei Slicer" Entry="105623" X="1907.132" Y="5470.935" Z="-67.47424" /> 1
-<WoWUnit Name="Webbed Victim" Entry="105676" X="1918.639" Y="5508.309" Z="-68.35838" /> 2
-
-<Hotspot X="2086.971" Y="5428.113" Z="-35.78005" />
-
-For future use through portals
-<GameObject Name="Teleporter" Entry="246714" X="2370.401" Y="5442.938" Z="15.95328" />
-<GameObject Name="Portal to Shal'Aran" Entry="260251" X="2370.609" Y="5442.98" Z="18.16202" />
--->
-<While Condition="WorldQuestInfo.HasWorldQuest(42089)" >
-	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42089] The Fallen Ones - WiN!&quot;);" />
-	<RunTo X="2086.971" Y="5428.113" Z="-35.78005" />
-
-	
-			<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42089)" >
-		<HuntingGrounds>
-<Hotspot X="2086.971" Y="5428.113" Z="-35.78005" />
-<Hotspot X="1940.874" Y="5368.78" Z="-37.02636" />
-<Hotspot X="1885.603" Y="5431.521" Z="-68.36303" />
-<Hotspot X="1927.36" Y="5493.281" Z="-67.47495" />
-
-		</HuntingGrounds>
-		<PursuitList>
-			<PursueUnit Id="105686" PursueWhen="!IsObjectiveComplete(1, 42089) &amp;&amp; (UNIT.IsAlive)" />
-			<PursueUnit Id="105623" PursueWhen="!IsObjectiveComplete(1, 42089) &amp;&amp; (UNIT.IsAlive)" />
-			<PursueUnit Priority="100" Id="105676" PursueWhen="!IsObjectiveComplete(2, 42089)" />
-			<PursueGameObject Id="105676" Priority="100" PursueWhen="!IsObjectiveComplete(2, 42089) &amp;&amp; (GAMEOBJECT.IsValid)" />
-		</PursuitList>
-	</CustomBehavior>
-	
-
-	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-</While>
-<RunTo X="2122.578" Y="5388.645" Z="52.37748" />
-
-<!-- <RunTo X="1834.259" Y="5463.502" Z="25.51882" />
-<Hotspot X="1592.024" Y="5532.454" Z="4.884287" /> -->
-<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
-</If>
-
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42089] The Fallen Ones - WiN!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
-						</QuestOrder>
-					</HBProfile>
+  <Name>[42089] The Fallen Ones - WiN</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42089 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42089] The Fallen Ones - WiN!&quot;);" />
+    <While Condition="OnQuest" >
+      <If Condition="!HasQuest(42089)">
+        <RunTo X="2086.971" Y="5428.113" Z="-35.78005" />
+      </If>
+      <If Condition="HasQuest(42089)">
+        <CustomBehavior File="KillUntilComplete" TerminateWhen="!OnQuest || !HasQuest(42089)" >
+          <HuntingGrounds>
+            <Hotspot X="2086.971" Y="5428.113" Z="-35.78005" />
+            <Hotspot X="1940.874" Y="5368.78" Z="-37.02636" />
+            <Hotspot X="1885.603" Y="5431.521" Z="-68.36303" />
+            <Hotspot X="1927.36" Y="5493.281" Z="-67.47495" />
+          </HuntingGrounds>
+          <PursuitList>
+            <PursueUnit Id="105686" PursueWhen="!IsObjectiveComplete(1, 42089) &amp;&amp; (UNIT.IsAlive)" />
+            <PursueUnit Id="105623" PursueWhen="!IsObjectiveComplete(1, 42089) &amp;&amp; (UNIT.IsAlive)" />
+            <PursueUnit Priority="100" Id="105676" PursueWhen="!IsObjectiveComplete(2, 42089)" />
+            <PursueGameObject Id="105676" Priority="100" PursueWhen="!IsObjectiveComplete(2, 42089) &amp;&amp; (GAMEOBJECT.IsValid)" />
+          </PursuitList>
+        </CustomBehavior>
+      </If>
+    </While>
+    <RunTo X="2122.578" Y="5388.645" Z="52.37748" />
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42089] The Fallen Ones - WiN!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
