@@ -39,7 +39,7 @@ return false;", 0);]]></CustomBehavior>
         <Vendor Name="Felsurge Webspinner" Entry="107103" Type="Repair" Nav="Fly" X="-85.14545" Y="7690.014" Z="103.7905" />
         <Vendor Name="Felsurge Hunter" Entry="107440" Type="Repair" Nav="Fly" X="-113.7257" Y="7736.859" Z="108.2485" />
 -->
-        <CustomBehavior File="KillUntilComplete" MobIds="107135, 107201, 107133, 113987, 107440, 107103" NumOfTimes="100" Range="2" TerminateWhen="!OnQuest || !HasQuest(42277)">
+        <CustomBehavior File="KillUntilComplete" MobIds="107135, 107201, 107133, 113987, 107440, 107103" TerminateWhen="!OnQuest || !HasQuest(42277)">
           <HuntingGrounds>
             <Hotspot X="-199.874" Y="7930.376" Z="118.6783" />
             <Hotspot X="-81.41642" Y="7706.727" Z="106.0282" />
