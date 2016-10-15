@@ -37,14 +37,14 @@ return false;", 0);]]>
 	
     <While Condition="OnQuest">    
       <If Condition="!HasQuest(44301)">
-        <RunTo X="3623.001" Y="3564.711" Z="826.0289" />
+        <RunTo X="1719.415" Y="7105.069" Z="73.16143" /> 
       </If>
 
       <CustomBehavior File="KillUntilComplete" MobId="110562" TerminateWhen="!HasQuest(44301) || !OnQuest" X="1703.674" Y="7094.308" Z="71.87322" />
       <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>	
-<RunTo X="3623.001" Y="3564.711" Z="826.0289" />
+<RunTo X="1719.415" Y="7105.069" Z="73.16143" /> 
 
 	
 	
