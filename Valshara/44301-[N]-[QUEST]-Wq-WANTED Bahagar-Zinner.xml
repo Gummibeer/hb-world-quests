@@ -156,19 +156,7 @@
 			</CustomBehavior>
 	
 		
-		<While Condition="WorldQuestInfo.HasWorldQuest(44301)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="1719.415" Y="7105.069" Z="73.16143" /> 
-				<PickUp Nav="Fly" QuestName="WANTED: Bahagar" QuestId="44301" GiverName="" GiverId="" />
 
-				<Objective QuestName="WANTED: Bahagar" QuestId="44301" Type="KillMob" Nav="Fly" MobId="110562" KillCount="1" />
-
-				<TurnIn Nav="Fly" QuestName="WANTED: Bahagar" QuestId="44301" TurnInName="" TurnInId="" />
-
-
-
-
-</While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44301)" >	
 				<RunTo X="1719.415" Y="7105.069" Z="73.16143" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="110562" QuestId="44301">
