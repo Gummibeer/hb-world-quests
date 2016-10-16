@@ -1,0 +1,83 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>41692-[N]-[QUEST]-Wq-Shipwreck Scavengers-Zinner</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41692 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+<!--
+<PickUp Nav="Fly" QuestName="Shipwreck Scavengers" QuestId="41692" GiverName="" GiverId="" />
+<Objective QuestName="Shipwreck Scavengers" QuestId="41692" Type="KillMob" Nav="Fly" MobId="98311" KillCount="1" />
+<Objective QuestName="Shipwreck Scavengers" QuestId="41692" Type="UseObject" Nav="Fly" ObjectId="248401" UseCount="5" />
+<Objective QuestName="Shipwreck Scavengers" QuestId="41692" Type="KillMob" Nav="Fly" MobId="97919" KillCount="10" />
+<TurnIn Nav="Fly" QuestName="Shipwreck Scavengers" QuestId="41692" TurnInName="" TurnInId="" />
+
+
+-->
+<While Condition="OnQuest">
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41692-[N]-[QUEST]-Wq-Shipwreck Scavengers-Zinner!&quot;);" />
+        <If Condition="!HasQuest(41692)">
+        <RunTo X="6569.683" Y="4538.801" Z="0.4469822" />
+      </If>
+      <CustomBehavior File="KillUntilComplete" MobId="98311" KillCount="1" TerminateWhen="IsObjectiveComplete(1, 41692)" X="6624.08" Y="4386.32" Z="8.301709" />
+<CustomBehavior File="InteractWith" MobIds="248401" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(1, 41692)">
+        <HuntingGrounds>
+        <Hotspot X="6569.683" Y="4538.801" Z="0.4469822" />
+	<Hotspot X="6538.871" Y="4558.559" Z="0.005924943" />
+	<Hotspot X="6578.797" Y="4577.045" Z="-0.1998192" />
+	<Hotspot X="6603.422" Y="4568.581" Z="0.8217342" />
+	<Hotspot X="6581.032" Y="4477.49" Z="1.872279" />
+	<Hotspot X="6518.717" Y="4491.944" Z="3.454639" />
+	<Hotspot X="6522.935" Y="4617.563" Z="0.2630004" />
+	<Hotspot X="6489.061" Y="4486.025" Z="-0.14067" />
+        </HuntingGrounds>
+      </CustomBehavior>
+<CustomBehavior File="KillUntilComplete" MobIds="97919,97920" KillCount="10" TerminateWhen="IsObjectiveComplete(3, 41692)">
+        <HuntingGrounds>
+        <Hotspot X="6639.521" Y="4428.742" Z="10.28212" />
+	<Hotspot X="6635.799" Y="4330.241" Z="11.8735" />
+	<Hotspot X="6601.302" Y="4318.316" Z="6.921388" />
+	<Hotspot X="6537.268" Y="4308.684" Z="5.094699" />
+	<Hotspot X="6476.934" Y="4327.058" Z="10.09858" />
+	<Hotspot X="6460.27" Y="4447.05" Z="0.6068232" />
+	<Hotspot X="6617.354" Y="4399.979" Z="8.718659" />
+	<Hotspot X="6479.858" Y="4311.359" Z="10.33496" />
+	<Hotspot X="6459.881" Y="4296.44" Z="10.08782" />
+	<Hotspot X="6486.504" Y="4227.864" Z="4.740829" />
+	<Hotspot X="6469.248" Y="4224.667" Z="10.37415" />
+	<Hotspot X="6531.772" Y="4163.772" Z="1.014569" />
+	<Hotspot X="6545.052" Y="4153.495" Z="0.7080986" />
+	<Hotspot X="6552.435" Y="4233.763" Z="2.479588" />
+        </HuntingGrounds>
+      </CustomBehavior>
+
+      <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+      </While>
+      <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
