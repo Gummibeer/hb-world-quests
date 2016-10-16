@@ -1487,6 +1487,14 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41691-[N]-[QUEST]-Wq-Sea_of_Feathers-Ruela&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41691-[N]-[QUEST]-Wq-Sea_of_Feathers-Ruela" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(41692) &amp;&amp; PassesSettings(41692) &amp;&amp; DoFaction(41692)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41692-[N]-[QUEST]-Wq-Shipwreck_Scavengers-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41692-[N]-[QUEST]-Wq-Shipwreck_Scavengers-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41696) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41696) &amp;&amp; DoFaction(41696)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41696-[N]-[QUEST]-Wq-DANGER Mawat'aki-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41696-[N]-[QUEST]-Wq-DANGER Mawat'aki-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(41703) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41703) &amp;&amp; DoFaction(41703)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41703-[N]-[QUEST]-Wq-DANGER_Ormagrogg-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41703-[N]-[QUEST]-Wq-DANGER_Ormagrogg-WiN" RememberProfile="false" />
