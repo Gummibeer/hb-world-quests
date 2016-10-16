@@ -869,10 +869,7 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(41949) &amp;&amp; PassesSettings(41949) &amp;&amp; DoFaction(41949)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-WiN" RememberProfile="false" />
-      </If>
+
       <If Condition="OnQuest(41950) &amp;&amp; PassesSettings(41950) &amp;&amp; DoFaction(41950)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41950-[N]-[QUEST]-Wq-Cry_More_Thunder&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="false" />
