@@ -51,6 +51,6 @@ return false;", 0);]]>
       <!--<WoWUnit Name="Valiyaka the Stormbringer" Entry="89650" X="292.5087" Y="6703.524" Z="90.01402" />-->
       <CustomBehavior File="KillUntilComplete" MobId="89650" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 42108)"  X="292.5087" Y="6703.524" Z="90.01402" />
     </While>
-    <CustomBehavior File="LoadProfile" ProfileName="../[Nuok] World Quest Autoloader" RememberProfile="false" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
   </QuestOrder>
 </HBProfile>
