@@ -41,7 +41,7 @@ return false;", 0);]]></CustomBehavior>
         <RunTo X="6569.683" Y="4538.801" Z="0.4469822" />
       </If>
       <CustomBehavior File="KillUntilComplete" MobId="98311" KillCount="1" TerminateWhen="IsObjectiveComplete(1, 41692)" X="6624.08" Y="4386.32" Z="8.301709" />
-<CustomBehavior File="InteractWith" MobIds="248401" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(1, 41692)">
+<CustomBehavior File="InteractWith" MobIds="248401" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2, 41692)">
         <HuntingGrounds>
         <Hotspot X="6569.683" Y="4538.801" Z="0.4469822" />
 	<Hotspot X="6538.871" Y="4558.559" Z="0.005924943" />
@@ -75,6 +75,7 @@ return false;", 0);]]></CustomBehavior>
       <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
       </While>
+      
       <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
