@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Rally the Nightwatchers $Rev$</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42108 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(42108)" >
+        <RunTo X="61.46439" Y="6757.367" Z="50.21087" />
+      </If>
+      <While Condition="!IsObjectiveComplete(3, 42108) || !OnQuest">
+        <!--<Aura Name="Rally the Nightwatchers" SpellId="210543" StackCount="0" TimeLeft="00:04:51.5590000" Flags="Cancelable, Active" />-->
+        <!--<Vendor Name="Nar'thalas Nightwatcher" Entry="88782" Type="Repair" Nav="Fly" X="71.54166" Y="6761.367" Z="50.17377" />-->
+        <CustomBehavior File="InteractWith" NumOfTimes="1" MobId="88782" AuraIdMissingFromMob="210543" TerminateWhen="IsObjectiveComplete(3, 42108) || !OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="61.46439" Y="6757.367" Z="50.21087" />
+            <Hotspot X="24.49528" Y="6699.356" Z="48.70073" />
+            <Hotspot X="195.2111" Y="6637.674" Z="45.97528" />
+            <Hotspot X="141.5015" Y="6777.048" Z="48.98208" />
+          </HuntingGrounds>
+        </CustomBehavior>
+        <CustomBehavior File="RunMacro" Macro="/click ExtraActionButton1"/>
+      </While>
+      <!--<WoWUnit Name="Fathom-Commander Zarrin" Entry="88090" X="188.9784" Y="6854.163" Z="72.02122" />-->
+      <CustomBehavior File="KillUntilComplete" MobId="88090" TerminateWhen="!OnQuest || IsObjectiveComplete(2, 42108)" X="188.2438" Y="6858.647" Z="72.01787" />
+      <!--<WoWUnit Name="Valiyaka the Stormbringer" Entry="89650" X="292.5087" Y="6703.524" Z="90.01402" />-->
+      <CustomBehavior File="KillUntilComplete" MobId="89650" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 42108)"  X="292.5087" Y="6703.524" Z="90.01402" />
+    </While>
+    <CustomBehavior File="LoadProfile" ProfileName="../[Nuok] World Quest Autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>

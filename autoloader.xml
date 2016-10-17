@@ -623,8 +623,8 @@ return 0", 0);
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42105-[N]-[QUEST]-Wq-Mixology-Mix-up-Aszuna-WiN" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(42108) &amp;&amp; PassesSettings(42108) &amp;&amp; DoFaction(42108)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42108-[N]-[QUEST]-Wq-Rally_the_Nightwatch-ksmaze&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42108-[N]-[QUEST]-Wq-Rally_the_Nightwatch-ksmaze" RememberProfile="false" />
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42108-[N]-[QUEST]-Rally the Nightwatchers-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42108-[N]-[QUEST]-Rally the Nightwatchers-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(42112) &amp;&amp; PassesSettings(42112) &amp;&amp; DoFaction(42112)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42112-[N]-[QUEST]-Wq-The_Withered_Return-WiN-Nuok&quot;);" />
