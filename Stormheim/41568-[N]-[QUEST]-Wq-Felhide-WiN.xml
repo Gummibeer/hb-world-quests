@@ -134,6 +134,7 @@
 		<PursuitList>
 			<PursueUnit Id="103675" PursueWhen="!IsObjectiveComplete(1,41568) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 			<PursueGameObject Id="248041" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41568) &amp;&amp; (GAMEOBJECT.IsValid)" />
+			<PursueGameObject Id="248049" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41568) &amp;&amp; (GAMEOBJECT.IsValid)" />
 		</PursuitList>
 	</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
