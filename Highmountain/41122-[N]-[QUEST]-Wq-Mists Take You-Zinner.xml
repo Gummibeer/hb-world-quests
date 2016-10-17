@@ -1,0 +1,79 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>41122-[N]-[QUEST]-Wq-Mists Take You-Zinner</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41122 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+
+<While Condition="OnQuest">
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41122-[N]-[QUEST]-Wq-Mists Take You-Zinner!&quot;);" />
+        <If Condition="!HasQuest(41122)">
+        <RunTo X="3162.114" Y="3960.5" Z="1180.59" />
+      </If>
+<CustomBehavior File="KillUntilComplete" MobIds="103150" KillCount="7" TerminateWhen="IsObjectiveComplete(1, 41122)">
+        <HuntingGrounds>
+     		<Hotspot X="3102.786" Y="3886.693" Z="1181.469" />
+		<Hotspot X="3139.434" Y="3874.195" Z="1189.671" />
+		<Hotspot X="3111.688" Y="3831.147" Z="1197.772" />
+		<Hotspot X="3237.424" Y="3871.945" Z="1204.37" />
+		<Hotspot X="3119.977" Y="3829.878" Z="1232.725" />
+		<Hotspot X="3082.312" Y="3852.982" Z="1232.948" />
+		<Hotspot X="3123.204" Y="3890.519" Z="1226.443" />
+		<Hotspot X="3105.349" Y="3940.593" Z="1223.05" />
+        </HuntingGrounds>
+      </CustomBehavior>
+<CustomBehavior File="KillUntilComplete" MobId="103173" NumOfTimes="13" TerminateWhen="IsObjectiveComplete(2, 41122)">
+        <HuntingGrounds>
+      		<Hotspot X="3102.786" Y="3886.693" Z="1181.469" />
+		<Hotspot X="3139.434" Y="3874.195" Z="1189.671" />
+		<Hotspot X="3111.688" Y="3831.147" Z="1197.772" />
+		<Hotspot X="3237.424" Y="3871.945" Z="1204.37" />
+		<Hotspot X="3119.977" Y="3829.878" Z="1232.725" />
+		<Hotspot X="3082.312" Y="3852.982" Z="1232.948" />
+		<Hotspot X="3123.204" Y="3890.519" Z="1226.443" />
+		<Hotspot X="3105.349" Y="3940.593" Z="1223.05" />
+        </HuntingGrounds>
+      </CustomBehavior>
+<CustomBehavior File="KillUntilComplete" MobId="103174" KillCount="25" TerminateWhen="IsObjectiveComplete(3, 41122)">
+        <HuntingGrounds>
+  	     	<Hotspot X="3102.786" Y="3886.693" Z="1181.469" />
+		<Hotspot X="3139.434" Y="3874.195" Z="1189.671" />
+		<Hotspot X="3111.688" Y="3831.147" Z="1197.772" />
+		<Hotspot X="3237.424" Y="3871.945" Z="1204.37" />
+		<Hotspot X="3119.977" Y="3829.878" Z="1232.725" />
+		<Hotspot X="3082.312" Y="3852.982" Z="1232.948" />
+		<Hotspot X="3123.204" Y="3890.519" Z="1226.443" />
+		<Hotspot X="3105.349" Y="3940.593" Z="1223.05" />
+        </HuntingGrounds>
+      </CustomBehavior>
+      <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+      </While>
+      <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
