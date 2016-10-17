@@ -28,27 +28,23 @@ if (taskInfo) then
 end
 return false;", 0);]]>
     </CustomBehavior>
-    <CustomBehavior File="RunCode"
-                    Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43601] Warden Tower Assault: Whisperwind's Citadel - WiN!&quot;);" />
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43601] Warden Tower Assault: Whisperwind's Citadel - WiN!&quot;);" />
     <While Condition="OnQuest">
-
-      <If Condtion="!HasQuest(43601)">
+      <If Condition="!HasQuest(43601)">
         <RunTo X="4275.445" Y="2198.69" Z="156.9601" />
       </If>
-      <While Condtion="HasQuest(43601)">
-        <CustomBehavior File="KillUntilComplete" MobIds="104289, 104290, 103757"
-                        TerminateWhen="IsObjectiveComplete(2,43601) || !OnQuest" X="4390.598" Y="2189.672" Z="240.5119" />
+      <If Condition="HasQuest(43601)">
+        <CustomBehavior File="KillUntilComplete" MobIds="104289, 104290, 103757" TerminateWhen="IsObjectiveComplete(2, 43601) || !OnQuest" X="4390.598" Y="2189.672" Z="240.5119" />
         <CustomBehavior File="KillUntilComplete" MobIds="103446, 103729, 103210, 103745, 103745, 103453, 103430" TerminateWhen="IsObjectiveComplete(1,43601) || !OnQuest">
           <HuntingGrounds>
             <Hotspot X="4362.78" Y="2220.38" Z="151.6692" />
             <Hotspot X="4325.677" Y="2232.34" Z="150.9217" />
           </HuntingGrounds>
         </CustomBehavior>
-      </While>
+      </If>
     </While>
     <CustomBehavior File="WaitTimer" WaitTime="5000" />
-    <If
-      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [43601] Warden Tower Assault: Whisperwind's Citadel - WiN!&quot;);" />
