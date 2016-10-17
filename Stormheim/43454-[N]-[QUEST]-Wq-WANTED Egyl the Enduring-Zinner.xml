@@ -120,18 +120,7 @@
 			</CustomBehavior>
 	
 		
-<While Condition="WorldQuestInfo.HasWorldQuest(43454)" >
-	<!-- Get in range of quest to activate -->
-	<RunTo X="3869.491" Y="2610.459" Z="204.4468" />
-<PickUp Nav="Fly" QuestName="WANTED: Egyl the Enduring" QuestId="43454" GiverName="" GiverId="" />
 
-<Objective QuestName="WANTED: Egyl the Enduring" QuestId="43454" Type="KillMob" Nav="Fly" MobId="98188" KillCount="1" />
-
-<TurnIn Nav="Fly" QuestName="WANTED: Egyl the Enduring" QuestId="43454" TurnInName="" TurnInId="" />
-
-
-
-</While>
 <!-- 
 <Vendor Name="Fathnyr" Entry="91803" Type="Repair" Nav="Fly" X="1922.743" Y="2315.998" Z="507.618" />
 -->
@@ -146,7 +135,7 @@
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
-<RunTo X="2434.674" Y="2583.591" Z="295.4605" />
+
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
