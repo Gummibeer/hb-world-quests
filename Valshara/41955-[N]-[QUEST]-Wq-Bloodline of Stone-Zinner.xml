@@ -25,6 +25,7 @@ if (taskInfo) then
     end
 end
 return false;", 0);]]>
+
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner!&quot;);" />
