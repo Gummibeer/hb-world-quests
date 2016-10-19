@@ -1,0 +1,71 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>[41310] Border Reinforcements WorldQuest Zinner\Nuok $Rev: 852 $</Name>
+
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+
+  <TargetElites>true</TargetElites>
+
+
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[
+			public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41310 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+				]]>
+    </CustomBehavior>
+
+
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41310)">
+        <RunTo X="3898.66" Y="3529.393" Z="804.6542" />
+      </If>
+      <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41310] Border Reinforcements - Zinner!&quot;);" />
+
+      <CustomBehavior File="KillUntilComplete" MobIds="103837, 103850" TerminateWhen="!OnQuest">
+        <HuntingGrounds>
+          <Hotspot X="3898.66" Y="3529.393" Z="804.6542" />
+          <Hotspot X="3815.415" Y="3501.159" Z="779.2213" />
+          <Hotspot X="3769.405" Y="3492.282" Z="761.5936" />
+          <Hotspot X="3738.767" Y="3511.995" Z="762.0716" />
+          <Hotspot X="3731.196" Y="3476.626" Z="751.5078" />
+          <Hotspot X="3774.415" Y="3439.426" Z="747.5317" />
+          <Hotspot X="3806.973" Y="3459.281" Z="760.1956" />
+          <Hotspot X="3858.91" Y="3423.422" Z="752.934" />
+        </HuntingGrounds>
+      </CustomBehavior>
+
+      <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+      <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+    </While>
+    <If
+      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [41310] Border Reinforcements - Zinner!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
