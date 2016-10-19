@@ -1,0 +1,176 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>40951-[N]-[QUEST]-Wq-Bitestone Bazaar-Zinner</Name>
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+	<SellGrey>true</SellGrey>
+	<SellWhite>false</SellWhite>
+	<SellGreen>false</SellGreen>
+	<SellBlue>false</SellBlue>
+	<SellPurple>false</SellPurple>
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+	<TargetElites>true</TargetElites>
+	
+	<QuestOrder>
+	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			
+    public class WorldQuestData
+    {
+        public int ID;
+        public string Name;
+        public DateTime ExpireTime;
+    }
+    public static class WorldQuestInfo
+    {
+        static List<WorldQuestData> _cache = new List<WorldQuestData>();
+        static internal bool _dirty = true;
+        static internal bool _setup = false;
+        static WorldQuestInfo()
+        {
+            Setup();
+        }
+        public static void Setup()
+        {
+            if (_setup)
+                return;
+            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+            UpdateWorldQuests();
+            _setup = true;
+        }
+        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+        {
+            _dirty = true;
+        }
+        public static bool HasWorldQuest(int questid)
+        {
+            UpdateWorldQuests();
+            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+                return false;
+            return true;
+        }
+        public static void UpdateWorldQuests()
+        {
+            if (!_dirty)
+                return;
+            _cache = new List<WorldQuestData>();
+            
+            var player = StyxWoW.Me;
+            int BrokenIslesMapArea = 1007;
+            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+            
+            var NumZones = int.Parse(ret[0]);
+            for (int i = 1; i < NumZones; ++i)
+            {
+                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+                var ZoneID = int.Parse(ret[0]);
+                var ZoneName = ret[1];
+                var ZoneDepth = int.Parse(ret[2]);
+                if (ZoneDepth > 1) //Do not look at subzones
+                {
+                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+                    continue;
+                }
+                string ToRun = string.Format(@"     local questids = {{}};
+                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+                                                    if taskInfo then
+				                                                    for i, info in ipairs(taskInfo) do
+					                                                    if HaveQuestData(info.questId) then
+						                                                    if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+                                                                                    table.insert(questids, info.questId);
+							                                                    end
+						                                                    end
+					                                                    end
+				                                                    end
+                                                   return unpack(questids);
+                                                ", ZoneID, BrokenIslesMapArea);
+                ret = Lua.GetReturnValues(ToRun);
+                foreach (var q in ret)
+                {
+                    int questid = int.Parse(q);
+                    //TimeLeft is in minutes
+                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+                    var data = new WorldQuestData();
+                    data.ID = questid;
+                    data.Name = QuestInfo[0];
+                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+                    _cache.Add(data);
+                }
+            }
+            _dirty = false;
+        }
+        public static bool IsWorldQuest(int questid)
+        {
+            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+            var ret = Lua.GetReturnValues(lua);
+            if (ret[3] == null)
+                return false;
+            return true;
+        }
+    }
+				]]>
+			</CustomBehavior>
+	
+		
+<While Condition="WorldQuestInfo.HasWorldQuest(40951)" >
+	<!-- Get in range of quest to activate -->
+	<RunTo X="3514.004" Y="4621.652" Z="692.9422" />
+	<PickUp Nav="Fly" QuestName="Bitestone Bazaar" QuestId="40951" GiverName="" GiverId="" />
+
+	<Objective QuestName="Bitestone Bazaar" QuestId="40951" Type="KillMob" Nav="Fly" MobId="98653" KillCount="15" />
+
+	<Objective QuestName="Bitestone Bazaar" QuestId="40951" Type="UseObject" Nav="Fly" ObjectId="246865" UseCount="20" />
+
+	<Objective QuestName="Bitestone Bazaar" QuestId="40951" Type="UseObject" Nav="Fly" ObjectId="246874" UseCount="10" />
+
+	<Objective QuestName="Bitestone Bazaar" QuestId="40951" Type="KillMob" Nav="Fly" MobId="102827" KillCount="15" />
+
+	<TurnIn Nav="Fly" QuestName="Bitestone Bazaar" QuestId="40951" TurnInName="" TurnInId="" />
+
+
+</While>
+<!-- 
+<Vendor Name="Fathnyr" Entry="91803" Type="Repair" Nav="Fly" X="1922.743" Y="2315.998" Z="507.618" />
+-->
+<While Condition="WorldQuestInfo.HasWorldQuest(40951)" >
+	<RunTo X="3514.004" Y="4621.652" Z="692.9422" />
+	<CustomBehavior File="KillUntilComplete" MobIds="98653, 102827" QuestId="40951">
+		<HuntingGrounds>
+			<Hotspot X="3514.004" Y="4621.652" Z="692.9422" />
+			<Hotspot X="3499" Y="4559.782" Z="679.5479" />
+			<Hotspot X="3488.658" Y="4546.457" Z="679.7711" />
+			<Hotspot X="3489.379" Y="4519.839" Z="679.2573" />
+			<Hotspot X="3481.427" Y="4472.298" Z="679.773" />
+			<Hotspot X="3470.231" Y="4448.047" Z="679.5582" />
+			<Hotspot X="3451.737" Y="4443.504" Z="679.9271" />
+			<Hotspot X="3440.132" Y="4453.406" Z="680.527" />
+			<Hotspot X="3414.457" Y="4465.805" Z="680.8702" />
+			<Hotspot X="3412.867" Y="4509.038" Z="679.9722" />
+			<Hotspot X="3431.044" Y="4530.595" Z="679.1854" />
+			<Hotspot X="3463.353" Y="4562.586" Z="680.8664" />
+			<Hotspot X="3493.278" Y="4608.443" Z="684.9" />
+			<Hotspot X="3474.16" Y="4546.188" Z="681.0314" />
+			<Hotspot X="3446.439" Y="4576.996" Z="694.0297" />
+			<Hotspot X="3424.358" Y="4563.809" Z="703.1924" />
+		</HuntingGrounds>
+	</CustomBehavior>
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+</While>
+<RunTo X="3549.265" Y="4776.17" Z="712.9935" />
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 40951-[N]-[QUEST]-Wq-Bitestone Bazaar-Zinner, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
+</HBProfile>
