@@ -163,8 +163,8 @@
 interact <Objective QuestName="Reclaiming Morheim" QuestId="42177" Type="KillMob" Nav="Fly" MobId="113897" KillCount="3" />
 
 <TurnIn Nav="Fly" QuestName="Reclaiming Morheim" QuestId="42177" TurnInName="" TurnInId="" />
-
-
+<WoWUnit Name="Stolen Vrykul Armament" Entry="98516" X="2924.911" Y="269.6945" Z="2.494415" />
+<WoWUnit Name="Stolen Vrykul Armament" Entry="98517" X="2924.824" Y="268.2917" Z="2.58989" />
 -->		
 
 		<While Condition="WorldQuestInfo.HasWorldQuest(42177)" >
@@ -182,11 +182,11 @@ interact <Objective QuestName="Reclaiming Morheim" QuestId="42177" Type="KillMob
 			<Hotspot X="3017.157" Y="285.8343" Z="2.76485" />
 			<Hotspot X="2999.812" Y="307.9319" Z="2.790758" />
 			<Hotspot X="2769.274" Y="416.5719" Z="20.82936" />
-
 		</HuntingGrounds>
 		<PursuitList>
-			<PursueUnit Id="98516" Priority="300" PursueWhen="!IsObjectiveComplete(1, 42177) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-			<PursueUnit Id="113896" Priority="300" PursueWhen="!IsObjectiveComplete(2, 42177) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
+			<PursueUnit Id="98516" Priority="300" PursueWhen="!IsObjectiveComplete(1, 42177)" />
+			<PursueUnit Id="98517" Priority="300" PursueWhen="!IsObjectiveComplete(1, 42177)" />
+			<PursueUnit Id="113896" Priority="300" PursueWhen="!IsObjectiveComplete(2, 42177) &amp;&amp; (UNIT.IsAlive)" />
 		</PursuitList>
 	</CustomBehavior>
 				
