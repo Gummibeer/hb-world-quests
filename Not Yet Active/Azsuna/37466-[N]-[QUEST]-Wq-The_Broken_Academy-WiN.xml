@@ -1,0 +1,63 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>[37466] The Broken Academy - WiN</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>false</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 37466 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [37466] The Broken Academy - WiN!&quot;);" />
+    <While Condition="OnQuest" >
+      <If Condition="!HasQuest(37466)">
+        <RunTo X="-156.103" Y="6370.364" Z="16.64959" />
+      </If>
+      <If Condition="HasQuest(37466)">
+        <CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!OnQuest || !HasQuest(37466)" >
+          <HuntingGrounds>
+            <Hotspot X="-82.8965" Y="6217.087" Z="2.556621" />
+            <Hotspot X="-156.103" Y="6370.364" Z="16.64959" />
+            <Hotspot X="-163.5813" Y="6330.218" Z="13.29855" />
+            <Hotspot X="-151.7245" Y="6271.12" Z="6.350866" />
+            <Hotspot X="-161.2515" Y="6219.892" Z="3.800194" />
+            <Hotspot X="-115.3222" Y="6202.494" Z="2.819972" />
+            <Hotspot X="-63.67891" Y="6208.526" Z="2.089997" />
+            <Hotspot X="-195.6026" Y="6207.153" Z="4.976694" />
+          </HuntingGrounds>
+          <PursuitList>
+            <PursueUnit Id="88086" PursueWhen="!IsObjectiveComplete(1,37466) &amp;&amp; (UNIT.IsAlive)"/>
+            <PursueUnit Id="88087" PursueWhen="!IsObjectiveComplete(1,37466) &amp;&amp; (UNIT.IsAlive)"/>
+            <PursueUnit Id="91459" PursueWhen="!IsObjectiveComplete(1,37466) &amp;&amp; (UNIT.IsAlive)"/>
+            <PursueUnit Id="107447" PursueWhen="!IsObjectiveComplete(1,37466) &amp;&amp; (UNIT.IsAlive)"/>
+            <PursueUnit Id="106106" PursueWhen="!IsObjectiveComplete(1,37466)"/>
+          </PursuitList>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [37466] The Broken Academy - WiN!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>

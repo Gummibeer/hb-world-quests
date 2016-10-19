@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <!-- Original contribution by EchoTiger -->
+  <Name>[37963] Those Beyond Redemption - Win</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 37963 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [37963] Those Beyond Redemption - WiN!&quot;);" />
+    <If Condition="!HasQuest(37963)">
+      <RunTo X="990.3676" Y="6099.369" Z="99.38569" />
+    </If>
+      <While Condition="HasQuest(37963)">
+        <CustomBehavior File="KillUntilComplete" MobIds="90616, 109826, 89801, 90318, 90005" TerminateWhen="!OnQuest || !HasQuest(37963)">
+          <HuntingGrounds>
+            <Hotspot X="1004.57" Y="6123.871" Z="99.09881" />
+            <Hotspot X="1055.215" Y="6163.667" Z="96.53693" />
+            <Hotspot X="1121.816" Y="6156.637" Z="87.49875" />
+            <Hotspot X="1204.524" Y="6171.029" Z="86.43341" />
+            <Hotspot X="1266.225" Y="6146.162" Z="87.75005" />
+            <Hotspot X="1004.57" Y="6123.871" Z="99.09881" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </While>
+      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [37963] Those Beyond Redemption - WiN!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
