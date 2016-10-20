@@ -70,6 +70,7 @@ return false;", 0);
         <MoveTo X="-874.127" Y="5709.781" Z="-1.426562" />
         <CustomBehavior File="MyCTM" X="-895.646" Y="5694.116" Z="-12.60572" />
         <CustomBehavior File="MyCTM" X="-961.7546" Y="5633.25" Z="3.230609" />
+        <CustomBehavior File="MyCTM" X="-990.1156" Y="5622.589" Z="5.985932" />
 
         <CustomBehavior File="Hooks\DoWhen" ActivityName="TargetSwitcher" LogExecution="false" AllowUseDuringCombat="true" UseAtInterval="3000" >
           <!-- Using these hooks as a temporarily forced target switch since for whatever reason KUC isn't switching targets anymore...
