@@ -34,17 +34,17 @@ return false;", 0);]]></CustomBehavior>
       </If>
       <While Condition="Me.Z &lt; 200">
         <!--<GameObject Name="Legion Portal" Entry="250269" X="-349.3472" Y="8063.893" Z="91.42393" />-->
-        <CustomBehavior File="InteractWith" MobId="250269" TerminateWhen="Me.Z &gt; 200" X="-349.3472" Y="8063.893" Z="91.42393" />
+        <CustomBehavior File="InteractWith" MobId="250269" NonCompeteDistance="0" TerminateWhen="Me.Z &gt; 200" X="-349.3472" Y="8063.893" Z="91.42393" />
         <CustomBehavior File="WaitTimer" WaitTime="2000" />
       </While>
       <If Condition="HasQuest(42631)">
         <!--<WoWUnit Name="Inquisitor Tivos" Entry="107269" X="-486.3702" Y="7958.877" Z="294.6128" />-->
-        <CustomBehavior File="KillUntilComplete" MobId="107269" TerminateWhen="!OnQuest" X="-486.3702" Y="7958.877" Z="294.6128" />
+        <CustomBehavior File="KillUntilComplete" MobId="107269" NonCompeteDistance="0" TerminateWhen="!OnQuest" X="-486.3702" Y="7958.877" Z="294.6128" />
       </If>
     </While>
     <While Condition="Me.Z &gt; 200">
       <!--<GameObject Name="Legion Portal" Entry="250270" X="-473.2882" Y="7971.741" Z="329.3157" />-->
-      <CustomBehavior File="InteractWith" MobIds="250270" TerminateWhen="Me.Z &lt; 200" X="-473.2882" Y="7971.741" Z="329.3157" />
+      <CustomBehavior File="InteractWith" MobIds="250270" NonCompeteDistance="0" TerminateWhen="Me.Z &lt; 200" X="-473.2882" Y="7971.741" Z="329.3157" />
       <CustomBehavior File="WaitTimer" WaitTime="2000" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
