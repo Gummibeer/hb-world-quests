@@ -662,6 +662,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42277-[N]-[QUEST]-Wq-Interlopers-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42277-[N]-[QUEST]-Wq-Interlopers-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(42432) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42432) &amp;&amp; DoFaction(42432)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42432-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42432-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(42506) &amp;&amp; PassesSettings(42506) &amp;&amp; DoFaction(42506)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42506-[N]-[QUEST]-Wq-Tomes_of_Yore-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42506-[N]-[QUEST]-Wq-Tomes_of_Yore-WiN" RememberProfile="false" />
@@ -681,6 +685,10 @@ return 0", 0);
       <If Condition="OnQuest(42624) &amp;&amp; PassesSettings(42624) &amp;&amp; DoFaction(42624)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42624-[N]-[QUEST]-Wq-Heads_of_the_Fleet-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42624-[N]-[QUEST]-Wq-Heads_of_the_Fleet-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42631) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42631) &amp;&amp; DoFaction(42631)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42631-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42631-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(42633) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42633) &amp;&amp; DoFaction(42633)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42633-[N]-[QUEST]-Wq-WANTED_Vorthax-Pellepylly&quot;);" />
@@ -769,6 +777,10 @@ return 0", 0);
       <If Condition="OnQuest(43611) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43611) &amp;&amp; DoFaction(43611)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43611-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43611-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43612) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43612) &amp;&amp; DoFaction(43612)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43612-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43612-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(43613) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43613) &amp;&amp; DoFaction(43613)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43613-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN&quot;);" />
@@ -897,7 +909,6 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="false" />
       </If>
-
       <If Condition="OnQuest(41950) &amp;&amp; PassesSettings(41950) &amp;&amp; DoFaction(41950)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41950-[N]-[QUEST]-Wq-Cry_More_Thunder&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="false" />
@@ -1017,6 +1028,10 @@ return 0", 0);
       <If Condition="OnQuest(43628) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43628) &amp;&amp; DoFaction(43628)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43710) &amp;&amp; PassesSettings(43710) &amp;&amp; DoFaction(43710)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43710-[N]-[QUEST]-Wq-Dark Runes-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43710-[N]-[QUEST]-Wq-Dark Runes-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(43721) &amp;&amp; PassesSettings(43721) &amp;&amp; DoFaction(43721)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal&quot;);" />
@@ -1336,6 +1351,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40920-[N]-[QUEST]-Wq-Stonebinder_Bounty-Codex&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40920-[N]-[QUEST]-Wq-Stonebinder_Bounty-Codex" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(40951) &amp;&amp; PassesSettings(40951) &amp;&amp; DoFaction(40951)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40951-[N]-[QUEST]-Wq-Bitestone Bazaar-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40951-[N]-[QUEST]-Wq-Bitestone Bazaar-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(40978) &amp;&amp; PassesSettings(40978) &amp;&amp; DoFaction(40978)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40978-[N]-[QUEST]-Wq-Bears-Behaving-Badly-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40978-[N]-[QUEST]-Wq-Bears-Behaving-Badly-WiN" RememberProfile="false" />
@@ -1367,6 +1386,10 @@ return 0", 0);
       <If Condition="OnQuest(41095) &amp;&amp; PassesSettings(41095) &amp;&amp; DoFaction(41095)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41095-[N]-[QUEST]-Wq-Critical_Crops-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41095-[N]-[QUEST]-Wq-Critical_Crops-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41122) &amp;&amp; PassesSettings(41122) &amp;&amp; DoFaction(41122)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41122-[N]-[QUEST]-Wq-Mists Take You-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41122-[N]-[QUEST]-Wq-Mists Take You-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(41144) &amp;&amp; PassesSettings(41144) &amp;&amp; DoFaction(41144)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41144-[N]-[QUEST]-Wq-Return_to_the_River-WiN&quot;);" />
@@ -1738,6 +1761,10 @@ return 0", 0);
       <If Condition="OnQuest(44029) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44029) &amp;&amp; DoFaction(44029)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44029-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44029-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44030) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44030) &amp;&amp; DoFaction(44030)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(44121) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44121) &amp;&amp; DoFaction(44121)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous&quot;);" />
