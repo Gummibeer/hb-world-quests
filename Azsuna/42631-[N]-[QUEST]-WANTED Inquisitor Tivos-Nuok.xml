@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] WANTED: Inquisitor Tivos $Rev: 845 $</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42631 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(42631)">
+        <RunTo X="-349.3472" Y="8063.893" Z="91.42393" />
+        <!--<GameObject Name="Legion Portal" Entry="250269" X="-349.3472" Y="8063.893" Z="91.42393" />-->
+      </If>
+      <While Condition="Me.Z &lt; 200">
+        <!--<GameObject Name="Legion Portal" Entry="250269" X="-349.3472" Y="8063.893" Z="91.42393" />-->
+        <CustomBehavior File="InteractWith" MobId="250269" TerminateWhen="Me.Z &gt; 200" X="-349.3472" Y="8063.893" Z="91.42393" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" />
+      </While>
+      <If Condition="HasQuest(42631)">
+        <!--<WoWUnit Name="Inquisitor Tivos" Entry="107269" X="-486.3702" Y="7958.877" Z="294.6128" />-->
+        <CustomBehavior File="KillUntilComplete" MobId="107269" TerminateWhen="!OnQuest" X="-486.3702" Y="7958.877" Z="294.6128" />
+      </If>
+    </While>
+    <While Condition="Me.Z &gt; 200">
+      <!--<GameObject Name="Legion Portal" Entry="250270" X="-473.2882" Y="7971.741" Z="329.3157" />-->
+      <CustomBehavior File="InteractWith" MobIds="250270" TerminateWhen="Me.Z &lt; 200" X="-473.2882" Y="7971.741" Z="329.3157" />
+      <CustomBehavior File="WaitTimer" WaitTime="2000" />
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
