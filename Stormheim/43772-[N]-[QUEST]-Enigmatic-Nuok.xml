@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] Enigmatic $Rev$</Name>
+  <Name>[Nuok] Enigmatic ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -55,6 +55,7 @@ return false;", 0);
         <RunTo X="3949.654" Y="1830.07" Z="180.2683" />
       </If>
       <If Condition="HasQuest(43772)">
+        <DisableBehavior Name="All"/>
         <If Condition="!Me.HasAura(219247)">
           <!--<WoWUnit Name="Puzzle Box" Entry="110811" X="3946.62" Y="1829.314" Z="186.9149" />-->
           <CustomBehavior File="InteractWith" MobId="110811" X="3949.654" Y="1830.07" Z="180.2683" />
@@ -65,6 +66,7 @@ return false;", 0);
         </While>
       </If>
     </While>
+    <EnableBehavior Name="All"/>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

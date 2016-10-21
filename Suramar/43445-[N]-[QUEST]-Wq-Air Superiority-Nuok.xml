@@ -31,16 +31,14 @@ return false;", 0);]]></CustomBehavior>
       <If Condition="!HasQuest(43445)">
         <RunTo X="2635.615" Y="5129.074" Z="143.672" />
       </If>
-      <If Condition="HasQuest(43445)">
+      <While Condition="HasQuest(43445)">
           <!-- NOTE: <ConditionalCheck> : Make sure InVehicle returns true for this mob. -->
           <If Condition="!Me.InVehicle" >
             <CustomBehavior File="InteractWith" MobId="110565" X="2635.615" Y="5129.074" Z="143.672" TerminateWhen="Me.InVehicle"/>
           </If>
           <!-- NOTE: <QBUsage> : Make sure this behavior is setup properly. -->
           <CustomBehavior File="Vehicles\NoControlVehicle" TargetId1="114304" TargetId2="114300" TargetId3="114299" AttackButton="1" OftenToUse="1600" VehicleId="110567" MaxRange="100" />
-      </If>
-      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+      </While>
     </While>
     <While Condition="Me.InVehicle" >
       <CustomBehavior File="WaitTimer" WaitTime="5000" />

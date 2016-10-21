@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] The Magic of Flight</Name>
+  <Name>[Nuok] The Magic of Flight ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -67,6 +67,7 @@ return false;", 0);
         <RunTo X="195.3906" Y="6253.284" Z="0" />
       </If>
       <While Condition="HasQuest(43327)">
+        <DisableBehavior Name="All"/>
         <If Condition="Me.Z &lt; 2">
           <RunTo X="195.9727" Y="6254.149" Z="0" />
           <CustomBehavior File="ForcedDismount"/>
@@ -75,6 +76,7 @@ return false;", 0);
         <CustomBehavior File="RunCode" Code="await MoveInBubble();"/>
       </While>
     </While>
+    <EnableBehavior Name="All"/>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
