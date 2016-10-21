@@ -171,7 +171,7 @@
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43758)" >	
 				<RunTo X="2523.561" Y="8179.699" Z="12.62626" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="111459" QuestId="43758">
+			<CustomBehavior File="KillUntilComplete" MobIds="111459,111460" QuestId="43758">
 				<HuntingGrounds>
 					<Hotspot X="2521.182" Y="8266.822" Z="2.871578" />
 					<Hotspot X="2500.508" Y="8304.623" Z="1.206493" />
