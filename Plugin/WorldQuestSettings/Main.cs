@@ -51,7 +51,7 @@ namespace WorldQuestSettings
         public override void OnButtonPress()
         {
             if (Config == null)
-                Config = new ConfigWindow("World Quest Helper", Version.ToString(), "Nuok", 400, 500);
+                Config = new ConfigWindow("World Quest Helper", Version.ToString(), "Nuok", 400, 900);
             ThemeManager.ChangeAppStyle(Config, ThemeManager.GetAccent("Cobalt"), ThemeManager.GetAppTheme("BaseDark"));
             Config.Show();
             Config.Closed += config_Closed;
@@ -311,16 +311,8 @@ namespace WorldQuestSettings
         [Category("Utility")]
         [DisplayName("Loop Profile")]
         [Description("Runs the profile in a loop to try and prevent it from missing quests")]
-        [Styx.Helpers.DefaultValue(true)]
+        [Styx.Helpers.DefaultValue(false)]
         public bool LoopProfile { get; set; }
-        /*
-
-        [Setting]
-        [Category("Whistle")]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool UseWhistle { get; set; }
-
-    */
     }
 
     public class ConfigWindow : MetroWindow
@@ -386,13 +378,17 @@ namespace WorldQuestSettings
             };
             var tabPanel = new StackPanel();
             var sv = new ScrollViewer
-                {Content = tabPanel, BorderThickness = new Thickness(2)};
+            {
+                Content = tabPanel,
+                BorderThickness = new Thickness(2)
+            };
             tab.Content = sv;
 
             var settingsProperties =
                 source.GetType()
                     .GetProperties()
-                    .Where(p => p.GetCustomAttributes(false).Any(a => a is SettingAttribute));
+                    .Where(p => p.GetCustomAttributes(false)
+                        .Any(a => a is SettingAttribute));
 
             BuildSettings(tabPanel, settingsProperties, source);
 
@@ -402,9 +398,7 @@ namespace WorldQuestSettings
         private static T GetAttribute<T>(PropertyInfo pi) where T : Attribute
         {
             var attr = pi.GetCustomAttributes(false).FirstOrDefault(a => a is T);
-            if (attr != null)
-                return attr as T;
-            return null;
+            return attr as T;
         }
 
         private void BuildSettings(Panel tabPanel, IEnumerable<PropertyInfo> settings, object source)
