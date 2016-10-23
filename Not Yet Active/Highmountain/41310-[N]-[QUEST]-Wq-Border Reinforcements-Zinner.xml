@@ -1,7 +1,7 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Original contribution by EchoTiger -->
-  <Name>[41310] Border Reinforcements WorldQuest Zinner\Nuok $Rev: 852 $</Name>
+  <Name>[41310] Border Reinforcements WorldQuest Zinner\Nuok $Rev$</Name>
 
   <MinDurability>0.3</MinDurability>
   <MinFreeBagSlots>3</MinFreeBagSlots>

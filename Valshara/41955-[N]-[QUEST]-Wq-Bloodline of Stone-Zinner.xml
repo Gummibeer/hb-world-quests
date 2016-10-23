@@ -1,5 +1,5 @@
 <HBProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner ($Rev: 961 $)</Name>
+  <Name>41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner ($Rev$)</Name>
   <MinDurability>0.3</MinDurability>
   <MinFreeBagSlots>3</MinFreeBagSlots>
   <SellGrey>true</SellGrey>
