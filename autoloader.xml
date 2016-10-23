@@ -241,7 +241,7 @@ return unpack(ids)";
                 Log("Couldn't find the WorldQuestHelper plugin!");
                 return false;
             }
-            var latestVersion = new Version(1, 0, 908);
+            var latestVersion = new Version(1, 0, 1022);
             if (plugin.Version == latestVersion) return true;
             Log($"---Plugin Update {latestVersion} available---");
             Log("There is an updated version of the WorldQuestHelper settings plugin");
