@@ -158,6 +158,7 @@
 		
 <!--
 <Vendor Name="Brimstone Destroyer" Entry="93237" Type="Repair" Nav="Fly" X="2509.765" Y="1322.086" Z="177.8992" />
+<GameObject Name="Brimstone Destroyer Core" Entry="247964" X="2501.275" Y="1291.396" Z="185.3686" />
 -->
  <MoveTo X="3010.458" Y="1462.384" Z="166.8772" />
 <MoveTo  X="2674.064" Y="1139.227" Z="198.0239" />
@@ -180,11 +181,19 @@
 <CustomBehavior File="MyCTM" X="2597.829" Y="1219.941" Z="171.2928" />
 
 <CustomBehavior File="MyCTM" X="2507.046" Y="1284.728" Z="186.0294" /> 		
-			<CustomBehavior File="KillUntilComplete" MobIds="103594" QuestId="41488">
-				<HuntingGrounds>
-					<Hotspot X="2507.046" Y="1284.728" Z="186.0294" />
-				</HuntingGrounds>
-			</CustomBehavior>
+
+			
+					<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41488)" >
+		<HuntingGrounds>
+<Hotspot X="2507.046" Y="1284.728" Z="186.0294" />
+		</HuntingGrounds>
+		<PursuitList>
+			<PursueUnit Id="103594" PursueWhen="!IsObjectiveComplete(1,41488) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+			<PursueGameObject Id="247964" Priority="100" PursueWhen="!IsObjectiveComplete(1, 41488) &amp;&amp; (GAMEOBJECT.IsValid)" />
+		</PursuitList>
+	</CustomBehavior>
+	
+	
 		</While>
 	
 	
