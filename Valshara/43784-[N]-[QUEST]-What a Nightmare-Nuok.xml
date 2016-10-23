@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] Air Superiority</Name>
+  <Name>[Nuok] What a Nightmare ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -17,32 +17,36 @@
   <SellPurple>false</SellPurple>
   <TargetElites>true</TargetElites>
   <QuestOrder>
-    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033);
-local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1018);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1018)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
-        if info.questId == 43445 then
+        if info.questId == 43784 then
             return true;
             end
     end
 end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
-      <If Condition="!HasQuest(43445)">
-        <RunTo X="2635.615" Y="5129.074" Z="143.672" />
+      <If Condition="!HasQuest(43784)">
+        <RunTo X="3439.132" Y="6107.395" Z="207.6516" />
       </If>
-      <While Condition="HasQuest(43445)">
-          <!-- NOTE: <ConditionalCheck> : Make sure InVehicle returns true for this mob. -->
-          <If Condition="!Me.InVehicle" >
-            <CustomBehavior File="InteractWith" MobId="110565" X="2635.615" Y="5129.074" Z="143.672" TerminateWhen="Me.InVehicle"/>
-          </If>
+      <While Condition="HasQuest(43784)">
+        <If Condition="!Me.InVehicle" >
+          <!--<Vendor Name="Subdued Nightwing" Entry="111359" Type="Repair" Nav="Fly" X="3439.917" Y="6104.808" Z="207.706" />-->
+          <CustomBehavior File="InteractWith" MobId="111359" TerminateWhen="Me.InVehicle" X="3439.132" Y="6107.395" Z="207.6516" />
+        </If>
         <While Condition="Me.InVehicle" >
           <!--Credit to Echo for the Snip-->
+          <!--<Vendor Name="Creeping Horror" Entry="109929" Type="Repair" Nav="Fly" X="3618.752" Y="6169.099" Z="183.2093" />-->
+          <!--<Vendor Name="Corruptor's Keeper" Entry="109928" Type="Repair" Nav="Fly" X="3752.778" Y="6159.161" Z="186.0907" />-->
+          <!--<Vendor Name="Darkfiend Defiler" Entry="109959" Type="Repair" Nav="Fly" X="3709.144" Y="6333.129" Z="179.0518" />-->
+          <!--<Vendor Name="Dreamfiend" Entry="109926" Type="Repair" Nav="Fly" X="3728.872" Y="6318.002" Z="185.8277" />-->
           <CustomBehavior File="RunCode">
             <![CDATA[
 						while (OnQuest && Me.InVehicle)
 						{
-							WoWUnit attackUnit = ObjectManager.GetObjectsOfType<WoWUnit>().FirstOrDefault(x => new[]{114304, 114300, 114299}.Contains((int)x.Entry) && x.IsAlive && x.Distance < 100);
+							WoWUnit attackUnit = ObjectManager.GetObjectsOfType<WoWUnit>().FirstOrDefault(x => new[]{109929, 109928, 109959, 109926}.Contains((int)x.Entry) && x.IsAlive && x.Distance < 100);
 							if (attackUnit != null)
 							{
 								Lua.DoString("CastPetAction(1);");
@@ -53,7 +57,6 @@ return false;", 0);]]></CustomBehavior>
 						}
 						if (!OnQuest)
 						{
-              //Might need to be changed
 							Lua.DoString("CastPetAction(6);");
 							await Coroutine.Wait(45000, () => !Me.InVehicle);
 						}
@@ -61,12 +64,12 @@ return false;", 0);]]></CustomBehavior>
           </CustomBehavior>
         </While>
       </While>
+
     </While>
     <While Condition="Me.InVehicle" >
       <CustomBehavior File="WaitTimer" WaitTime="5000" />
-    </While>    
-    <If
-      Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />

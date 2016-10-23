@@ -937,6 +937,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(42013) &amp;&amp; PassesSettings(42013) &amp;&amp; DoFaction(42013)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42013-[N]-[QUEST]-Wq-The Helmouth-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42013-[N]-[QUEST]-Wq-The Helmouth-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(42025) &amp;&amp; PassesSettings(42025) &amp;&amp; DoFaction(42025)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42025-[H]-[QUEST]-Wq-Bareback_Brawl-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42025-[H]-[QUEST]-Wq-Bareback_Brawl-Staal" RememberProfile="false" />
@@ -1323,6 +1327,10 @@ return 0", 0);
       <If Condition="OnQuest(43759) &amp;&amp; PassesSettings(43759) &amp;&amp; DoFaction(43759)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43759-[N]-[QUEST]-Wq-Wheres_the_Reef-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\43759-[N]-[QUEST]-Wq-Wheres_the_Reef-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43784) &amp;&amp; PassesSettings(43784) &amp;&amp; DoFaction(43784)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43784-[N]-[QUEST]-What a Nightmare-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43784-[N]-[QUEST]-What a Nightmare-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(44033) &amp;&amp; PassesSettings(44033) &amp;&amp; DoFaction(44033)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44033-[N]-[QUEST]-Wq-Aw_Nuts-Zinner&quot;);" />
