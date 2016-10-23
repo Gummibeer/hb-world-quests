@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] Investigation at Mak'rana</Name>
+  <Name>[Nuok] Investigation at Mak'rana ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -29,6 +29,7 @@ if (taskInfo) then
     end
 end
 return false;", 0);
+
         public bool ObjectivesComplete(uint questId, params int[] obectives)
         {
             return obectives.All(o => IsObjectiveComplete(o, questId));
@@ -99,7 +100,7 @@ return false;", 0);
 
         <!-- NOTE: <ChangeTarget> : Attack Oublion <89350> to start fight.  Once he turns immune shield on, switch target to  <89287> to kill, then switch back to 89350. -->
         <!-- MOTE: <AddAvoid> : Mob 89287 spits water on the ground, need to dodge it. -->
-        <CustomBehavior File="KillUntilComplete" QuestId="42021" QuestObjectiveIndex="4" X="-1001.184" Y="5626.036" Z="6.287228" >
+        <CustomBehavior File="KillUntilComplete" X="-1001.184" Y="5626.036" Z="6.287228" TerminateWhen="!OnQuest" >
           <PursuitList>
             <PursueUnit Id="89350" Priority="1" PursueWhen="!UNIT.HasAura(178902)" />
             <PursuitUnit Id="89287" Priority="1000" PursueWhen="UNIT.IsHostile" />
