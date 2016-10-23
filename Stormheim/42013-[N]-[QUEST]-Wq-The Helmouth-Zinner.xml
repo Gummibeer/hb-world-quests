@@ -1,0 +1,197 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>42013-[N]-[QUEST]-Wq-The Helmouth-Zinner.xml</Name>
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+	<SellGrey>true</SellGrey>
+	<SellWhite>false</SellWhite>
+	<SellGreen>false</SellGreen>
+	<SellBlue>false</SellBlue>
+	<SellPurple>false</SellPurple>
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+	<TargetElites>true</TargetElites>
+	
+	<QuestOrder>
+	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			
+    public class WorldQuestData
+    {
+        public int ID;
+        public string Name;
+        public DateTime ExpireTime;
+    }
+    public static class WorldQuestInfo
+    {
+        static List<WorldQuestData> _cache = new List<WorldQuestData>();
+        static internal bool _dirty = true;
+        static internal bool _setup = false;
+        static WorldQuestInfo()
+        {
+            Setup();
+        }
+        public static void Setup()
+        {
+            if (_setup)
+                return;
+            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+            UpdateWorldQuests();
+            _setup = true;
+        }
+        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+        {
+            _dirty = true;
+        }
+        public static bool HasWorldQuest(int questid)
+        {
+            UpdateWorldQuests();
+            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+                return false;
+            return true;
+        }
+        public static void UpdateWorldQuests()
+        {
+            if (!_dirty)
+                return;
+            _cache = new List<WorldQuestData>();
+            
+            var player = StyxWoW.Me;
+            int BrokenIslesMapArea = 1007;
+            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+            
+            var NumZones = int.Parse(ret[0]);
+            for (int i = 1; i < NumZones; ++i)
+            {
+                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+                var ZoneID = int.Parse(ret[0]);
+                var ZoneName = ret[1];
+                var ZoneDepth = int.Parse(ret[2]);
+                if (ZoneDepth > 1) //Do not look at subzones
+                {
+                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+                    continue;
+                }
+                string ToRun = string.Format(@"     local questids = {{}};
+                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+                                                    if taskInfo then
+				                                                    for i, info in ipairs(taskInfo) do
+					                                                    if HaveQuestData(info.questId) then
+						                                                    if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+                                                                                    table.insert(questids, info.questId);
+							                                                    end
+						                                                    end
+					                                                    end
+				                                                    end
+                                                   return unpack(questids);
+                                                ", ZoneID, BrokenIslesMapArea);
+                ret = Lua.GetReturnValues(ToRun);
+                foreach (var q in ret)
+                {
+                    int questid = int.Parse(q);
+                    //TimeLeft is in minutes
+                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+                    var data = new WorldQuestData();
+                    data.ID = questid;
+                    data.Name = QuestInfo[0];
+                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+                    _cache.Add(data);
+                }
+            }
+            _dirty = false;
+        }
+        public static bool IsWorldQuest(int questid)
+        {
+            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+            var ret = Lua.GetReturnValues(lua);
+            if (ret[3] == null)
+                return false;
+            return true;
+        }
+    }
+    bool ShouldCastMask() 
+                     { 
+                         return Me.IsAlive && IsInCity() && !Me.HasAura(202477); 
+                     } 
+  
+                     void CastMask() 
+                     { 
+                         Lua.DoString("ExtraActionButton1:Click();"); 
+                     } 
+  
+                     bool IsInCity() 
+                     { 
+                        return  Me.MinimapZoneText == "The Grand Promenade" ||  
+                                Me.MinimapZoneText == "Starcaller Retreat"  || 
+                                 Me.MinimapZoneText == "The Waning Crescent" || 
+                                 Me.MinimapZoneText == "Artisan's Gallery" || 
+                                Me.MinimapZoneText == "Astravar Harbor" || 
+                                 Me.MinimapZoneText == "Evermoon Bazaar" || 
+                                 Me.MinimapZoneText == "Shimmershade Garden" || 
+                                 Me.MinimapZoneText == "Terrace of Order" || 
+                                 Me.MinimapZoneText == "Suramar City"; 
+                     } 
+
+				]]>
+			</CustomBehavior>
+	<While Condition="WorldQuestInfo.HasWorldQuest(42013)" >
+	<!-- Get in range of quest to activate -->
+	<RunTo X="3765.031" Y="1819.841" Z="2.118922" />
+	<PickUp Nav="Fly" QuestName="The Helmouth" QuestId="42013" GiverName="" GiverId="" />
+
+		<Objective QuestName="The Helmouth" QuestId="42013" Type="KillMob" Nav="Fly" MobId="105746" KillCount="13" />
+
+		<Objective QuestName="The Helmouth" QuestId="42013" Type="KillMob" Nav="Fly" MobId="105748" KillCount="17" />
+
+		<Objective QuestName="The Helmouth" QuestId="42013" Type="KillMob" Nav="Fly" MobId="105532" KillCount="25" />
+
+		<Objective QuestName="The Helmouth" QuestId="42013" Type="KillMob" Nav="Fly" MobId="105751" KillCount="5" />
+
+		<Objective QuestName="The Helmouth" QuestId="42013" Type="KillMob" Nav="Fly" MobId="105749" KillCount="13" />
+
+		<TurnIn Nav="Fly" QuestName="The Helmouth" QuestId="42013" TurnInName="" TurnInId="" />
+
+
+
+</While>
+		
+
+<While Condition="WorldQuestInfo.HasWorldQuest(42013)" >
+		<RunTo X="3765.031" Y="1819.841" Z="2.118922" />
+		<CustomBehavior File="KillUntilComplete" MobIds="105746, 105748, 105532, 105751, 105749" QuestId="42013">
+	<HuntingGrounds>
+		<Hotspot X="3765.031" Y="1819.841" Z="2.118922" />
+		<Hotspot X="3808.015" Y="1841.165" Z="1.367523" />
+		<Hotspot X="3818.567" Y="1877.383" Z="3.958602" />
+		<Hotspot X="3713.7" Y="1797.814" Z="0.2445005" />
+		<Hotspot X="3680.004" Y="1846.555" Z="0.2917267" />
+		<Hotspot X="3631.76" Y="1846.271" Z="2.821891" />
+		<Hotspot X="3628.164" Y="1839.607" Z="0.4993996" />
+		<Hotspot X="3657.248" Y="1823.871" Z="0.5168105" />
+		<Hotspot X="3604.847" Y="1766.076" Z="1.453691" />
+		<Hotspot X="3614.471" Y="1720.595" Z="0.7236341" />
+		<Hotspot X="3651.617" Y="1738.601" Z="0.2028107" />
+		<Hotspot X="3701.788" Y="1744.635" Z="0.9830143" />
+		<Hotspot X="3747.157" Y="1702.741" Z="1.845533" />
+	</HuntingGrounds>
+</CustomBehavior>
+<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+</While>
+
+
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 42013-[N]-[QUEST]-Wq-The Helmouth-Zinner.xml, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
+</HBProfile>
