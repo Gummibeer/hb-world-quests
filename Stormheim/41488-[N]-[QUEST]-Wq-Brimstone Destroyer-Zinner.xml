@@ -156,22 +156,30 @@
 			</CustomBehavior>
 	
 		
+<!--
+<Vendor Name="Brimstone Destroyer" Entry="93237" Type="Repair" Nav="Fly" X="2509.765" Y="1322.086" Z="177.8992" />
+-->
+ <MoveTo X="3010.458" Y="1462.384" Z="166.8772" />
+<MoveTo  X="2674.064" Y="1139.227" Z="198.0239" />
+
 		<While Condition="WorldQuestInfo.HasWorldQuest(41488)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="2507.046" Y="1284.728" Z="186.0294" /> 
-				<PickUp Nav="Fly" QuestName="Brimstone Destroyer" QuestId="41488" GiverName="" GiverId="0" />
 
-				<Objective QuestName="Brimstone Destroyer" QuestId="41488" Type="KillMob" Nav="Fly" MobId="103594" KillCount="1" />
+       
+	
+			
+<CustomBehavior File="MyCTM" X="2679.788" Y="1145.807" Z="198.2759" />
+<CustomBehavior File="MyCTM" X="2661.456" Y="1147.562" Z="198.4214" />
+<CustomBehavior File="MyCTM" X="2635.076" Y="1165.677" Z="197.7642" />
 
-				<TurnIn Nav="Fly" QuestName="Brimstone Destroyer" QuestId="41488" TurnInName="" TurnInId="0" />
+<CustomBehavior File="MyCTM" X="2631.492" Y="1168.128" Z="197.7819" />
+<CustomBehavior File="MyCTM" X="2631.019" Y="1171.772" Z="199.166" />
+<CustomBehavior File="MyCTM" X="2631.298" Y="1175.572" Z="201.5322" /> <!-- onto the wall here -->
 
+<CustomBehavior File="MyCTM" X="2628.319" Y="1191.939" Z="189.5136" />
+<CustomBehavior File="MyCTM" X="2610.922" Y="1197.04" Z="173.8498" />
+<CustomBehavior File="MyCTM" X="2597.829" Y="1219.941" Z="171.2928" />
 
-
-
-
-</While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(41488)" >	
-				<RunTo X="2507.046" Y="1284.728" Z="186.0294" /> 		
+<CustomBehavior File="MyCTM" X="2507.046" Y="1284.728" Z="186.0294" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="103594" QuestId="41488">
 				<HuntingGrounds>
 					<Hotspot X="2507.046" Y="1284.728" Z="186.0294" />
