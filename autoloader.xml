@@ -921,6 +921,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(41930) &amp;&amp; PassesSettings(41930) &amp;&amp; DoFaction(41930)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41930-[N]-[QUEST]-Wq-Valor Calls-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41930-[N]-[QUEST]-Wq-Valor Calls-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(41938) &amp;&amp; PassesSettings(41938) &amp;&amp; DoFaction(41938)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="false" />
@@ -1677,6 +1681,10 @@ return 0", 0);
       <If Condition="OnQuest(41353) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41353)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41353-[N]-[QUEST]-Wq-Odious Felslate Outcropping-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41353-[N]-[QUEST]-Wq-Odious Felslate Outcropping-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41354) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41354)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41354-[N]-[QUEST]-Wq-Shattered Felslate Seams-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41354-[N]-[QUEST]-Wq-Shattered Felslate Seams-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(41557) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41557)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41557-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
