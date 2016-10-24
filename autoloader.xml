@@ -1200,12 +1200,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win" RememberProfile="false" />
       </If>
-<!--
       <If Condition="OnQuest(42077) &amp;&amp; PassesSettings(42077) &amp;&amp; DoFaction(42077)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42077-[N]-[QUEST]-Wq-Waking_Nightmares-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42077-[N]-[QUEST]-Wq-Waking_Nightmares-Nuok" RememberProfile="false" />
       </If>
--->
       <If Condition="OnQuest(42080) &amp;&amp; PassesSettings(42080) &amp;&amp; DoFaction(42080)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42080-[N]-[QUEST]-Wq-Bastion_of_Bradensbrook-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42080-[N]-[QUEST]-Wq-Bastion_of_Bradensbrook-WiN" RememberProfile="false" />
@@ -1392,6 +1390,10 @@ return 0", 0);
       <If Condition="OnQuest(40951) &amp;&amp; PassesSettings(40951) &amp;&amp; DoFaction(40951)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40951-[N]-[QUEST]-Wq-Bitestone Bazaar-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40951-[N]-[QUEST]-Wq-Bitestone Bazaar-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(40966) &amp;&amp; PassesSettings(40966) &amp;&amp; DoFaction(40966)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40966-[N]-[QUEST]-Wq-Ritualists in Our Midsts-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40966-[N]-[QUEST]-Wq-Ritualists in Our Midsts-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(40978) &amp;&amp; PassesSettings(40978) &amp;&amp; DoFaction(40978)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40978-[N]-[QUEST]-Wq-Bears-Behaving-Badly-WiN&quot;);" />
@@ -1811,6 +1813,10 @@ return 0", 0);
       <If Condition="OnQuest(44017) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44017) &amp;&amp; DoFaction(44017)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44017-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44017-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44021) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44021) &amp;&amp; DoFaction(44021)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44021-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44021-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(44023) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44023) &amp;&amp; DoFaction(44023)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44023-[N]-[QUEST]-Wq-WANTED_Siegemaster_Aedrin-WiN&quot;);" />
