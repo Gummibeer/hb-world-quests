@@ -1200,10 +1200,12 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win" RememberProfile="false" />
       </If>
+<!--
       <If Condition="OnQuest(42077) &amp;&amp; PassesSettings(42077) &amp;&amp; DoFaction(42077)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42077-[N]-[QUEST]-Wq-Waking_Nightmares-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42077-[N]-[QUEST]-Wq-Waking_Nightmares-Nuok" RememberProfile="false" />
       </If>
+-->
       <If Condition="OnQuest(42080) &amp;&amp; PassesSettings(42080) &amp;&amp; DoFaction(42080)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42080-[N]-[QUEST]-Wq-Bastion_of_Bradensbrook-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42080-[N]-[QUEST]-Wq-Bastion_of_Bradensbrook-WiN" RememberProfile="false" />
