@@ -31,7 +31,8 @@ return false;", 0);]]>
       <RunTo X="341.1235" Y="6460.274" Z="8.075727" />
       <CustomBehavior File="InteractWith" MovementBy="NavigatorPreferred" PreInteractMountStrategy="DismountOrCancelShapeshift" 
                       MobId="249524" WaitTime="0" X="387.5121" Y="6424.865" Z="3.958915" TerminateWhen="IsObjectiveComplete(2, 42105) || !OnQuest"/>
-      <CustomBehavior File="KillUntilComplete" MobIds="109174, 88099, 88101" QuestId="42105" TerminateWhen="IsObjectiveComplete(1, 42105) || !OnQuest">
+      
+      <CustomBehavior File="KillUntilComplete" MobIds="109174, 88099, 88101" TerminateWhen="IsObjectiveComplete(1, 42105) || !OnQuest">
         <HuntingGrounds>
           <Hotspot X="287.5832" Y="6449.624" Z="1.100714" />
           <Hotspot X="286.1783" Y="6470.968" Z="1.922106" />
