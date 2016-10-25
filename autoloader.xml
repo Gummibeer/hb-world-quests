@@ -1096,6 +1096,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41334-[N]-[QUEST]-Wq-Musky_Bear_Hide-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41334-[N]-[QUEST]-Wq-Musky_Bear_Hide-WiN" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(41440) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41440)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41440-[N]-[QUEST]-Wq-Magnificent Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41440-[N]-[QUEST]-Wq-Magnificent Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(41457) &amp;&amp; PassesSettings(41457) &amp;&amp; DoFaction(41457)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41457-[N]-[QUEST]-Wq-Radiant Leystone Outcropping-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41457-[N]-[QUEST]-Wq-Radiant Leystone Outcropping-Zinner" RememberProfile="false" />
