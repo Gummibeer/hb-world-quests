@@ -1,184 +1,83 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<!-- Original contribution by EchoTiger -->
-	<Name>[42623] Piracy Doesn't Pay - Staal | Ksmaze</Name>
-	<MinDurability>0.3</MinDurability>
-	<MinFreeBagSlots>3</MinFreeBagSlots>
-	<SellGrey>true</SellGrey>
-	<SellWhite>false</SellWhite>
-	<SellGreen>false</SellGreen>
-	<SellBlue>false</SellBlue>
-	<SellPurple>false</SellPurple>
-	<MailGrey>false</MailGrey>
-	<MailWhite>true</MailWhite>
-	<MailGreen>true</MailGreen>
-	<MailBlue>true</MailBlue>
-	<MailPurple>true</MailPurple>
-	<TargetElites>true</TargetElites>
-	<AvoidMobs>
-		<Mob Name="Blerg" Entry="106629" />
-		<Mob Name="Sea Skrog" Entry="88094" />
-		<Mob Name="Hatecoil Skrog" Entry="89802" />
-		<Mob Name="Sentry Brute" Entry="88888" />
-		<Mob Name="Cove Skrog" Entry="89097" />
-	</AvoidMobs>
-	<QuestOrder>
-		<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
-			public class WorldQuestData
-			{
-			public int ID;
-			public string Name;
-			public DateTime ExpireTime;
-			}
-			public static class WorldQuestInfo
-			{
-			static List<WorldQuestData> _cache = new List<WorldQuestData>();
-				static internal bool _dirty = true;
-				static internal bool _setup = false;
-				static WorldQuestInfo()
-				{
-				Setup();
-				}
-				public static void Setup()
-				{
-				if (_setup)
-				return;
-				Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
-				Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
-				Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
-				UpdateWorldQuests();
-				_setup = true;
-				}
-				public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
-				{
-				_dirty = true;
-				}
-				public static bool HasWorldQuest(int questid)
-				{
-				UpdateWorldQuests();
-				var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
-				if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
-					return false;
-					return true;
-					}
-					public static void UpdateWorldQuests()
-					{
-					if (!_dirty)
-					return;
-					_cache = new List<WorldQuestData>();
-						var player = StyxWoW.Me;
-						int BrokenIslesMapArea = 1007;
-						var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
-						var NumZones = int.Parse(ret[0]);
-						for (int i = 1; i <= NumZones; ++i)
-							{
-							ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
-							var ZoneID = int.Parse(ret[0]);
-							var ZoneName = ret[1];
-							var ZoneDepth = int.Parse(ret[2]);
-							if (ZoneDepth > 1) //Do not look at subzones
-							{
-							Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
-							continue;
-							}
-							string ToRun = string.Format(@"     local questids = {{}};
-							local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
-							if taskInfo then
-							for i, info in ipairs(taskInfo) do
-							if HaveQuestData(info.questId) then
-							if QuestMapFrame_IsQuestWorldQuest(info.questId) then
-							table.insert(questids, info.questId);
-							end
-							end
-							end
-							end
-							return unpack(questids);
-							", ZoneID, BrokenIslesMapArea);
-							ret = Lua.GetReturnValues(ToRun);
-							foreach (var q in ret)
-							{
-							int questid = int.Parse(q);
-							//TimeLeft is in minutes
-							var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
-								var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
-								Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
-								var data = new WorldQuestData();
-								data.ID = questid;
-								data.Name = QuestInfo[0];
-								data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
-								_cache.Add(data);
-								}
-								}
-								_dirty = false;
-								}
-								public static bool IsWorldQuest(int questid)
-								{
-								string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
-								var ret = Lua.GetReturnValues(lua);
-								if (ret[3] == null)
-								return false;
-								return true;
-								}
-								}
-								]]>
-		</CustomBehavior>
-<!--
-<PickUp Nav="Fly" QuestName="Piracy Doesn't Pay" QuestId="42623" GiverName="" GiverId="" />
-<Objective QuestName="Piracy Doesn't Pay" QuestId="42623" Type="KillMob" Nav="Fly" MobId="108021" KillCount="12" />
-<Objective QuestName="Piracy Doesn't Pay" QuestId="42623" Type="KillMob" Nav="Fly" MobId="108019" KillCount="5" />
-<TurnIn Nav="Fly" QuestName="Piracy Doesn't Pay" QuestId="42623" TurnInName="" TurnInId="" />
+  <!-- Original contribution by EchoTiger -->
+  <Name>[42623] Piracy Doesn't Pay - Staal | Ksmaze</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+  <AvoidMobs>
+    <Mob Name="Blerg" Entry="106629" />
+    <Mob Name="Sea Skrog" Entry="88094" />
+    <Mob Name="Hatecoil Skrog" Entry="89802" />
+    <Mob Name="Sentry Brute" Entry="88888" />
+    <Mob Name="Cove Skrog" Entry="89097" />
+  </AvoidMobs>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42623 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42623] Piracy Doesn't Pay - WiN!&quot;);" />
+      <RunTo X="-1058.637" Y="5961.677" Z="9.401337" />
 
-
--->
-		<While Condition="WorldQuestInfo.HasWorldQuest(42623)" >
-				<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42623] Piracy Doesn't Pay - WiN!&quot;);" />
-			<RunTo X="-1058.637" Y="5961.677" Z="9.401337" />
-
-			<CustomBehavior File="Hooks\DoWhen" ActivityName="MakeARoll" AllowUseDuringCombat="true" AllowUseInVehicle="true" AllowUseWhileMounted="true" StopMovingToConductActivity="true" LogExecution="false" UseWhen="Styx.CommonBot.Bars.ActionBar.Extra.IsActive">
-				<CustomBehavior File="RunCode"><![CDATA[
+      <CustomBehavior File="Hooks\DoWhen" ActivityName="MakeARoll" AllowUseDuringCombat="true" AllowUseInVehicle="true" AllowUseWhileMounted="true" StopMovingToConductActivity="true" LogExecution="false" UseWhen="Styx.CommonBot.Bars.ActionBar.Extra.IsActive">
+        <CustomBehavior File="RunCode">
+          <![CDATA[
 					Lua.DoString("ExtraActionButton1:Click();");
 					await Coroutine.Sleep(500);
 					SpellManager.ClickRemoteLocation(Me.Location); 
 					await Coroutine.Sleep(1500);
 				]]>
-				</CustomBehavior>
-			</CustomBehavior>
+        </CustomBehavior>
+      </CustomBehavior>
 
-			<CustomBehavior File="InteractWith" NumOfTimes="100" TerminateWhen="IsObjectiveComplete(2, 42623)">
-				<HuntingGrounds>
-					<Hotspot X="-1042.743" Y="5872.994" Z="0.3137474" />
-					<Hotspot X="-1118.665" Y="5942.148" Z="3.29718" />
-					<Hotspot X="-1232.98" Y="5848.335" Z="4.559441" />
-					<Hotspot X="-1388.135" Y="5890.558" Z="2.044807" />
-					<Hotspot X="-1432.909" Y="5984.887" Z="4.445517" />
-					<Hotspot X="-1603.681" Y="5992.574" Z="3.195085" />
-					<Hotspot X="-1281.33" Y="5988.098" Z="18.16798" />
-				</HuntingGrounds>
-				<PursuitList>
-					<PursueGameObject Id="250867" Priority="200" PursueWhen="!IsObjectiveComplete(2, 42623) &amp;&amp; (GAMEOBJECT.IsValid)" />
-				</PursuitList>
-			</CustomBehavior>
-
-			<CustomBehavior File="Hooks\DoWhen" ActivityName="MakeARoll" Command="Remove" />
-
-			<CustomBehavior File="KillUntilComplete" MobIds="106818, 108010, 108137, 108174, 106819, 108139, 108186, 106820, 108133, 108146, 108212, 106821, 108136, 108153" TerminateWhen="IsObjectiveComplete(1, 42623)">
-				<HuntingGrounds>
-					<Hotspot X="-1042.743" Y="5872.994" Z="0.3137474" />
-					<Hotspot X="-1118.665" Y="5942.148" Z="3.29718" />
-					<Hotspot X="-1232.98" Y="5848.335" Z="4.559441" />
-					<Hotspot X="-1388.135" Y="5890.558" Z="2.044807" />
-					<Hotspot X="-1432.909" Y="5984.887" Z="4.445517" />
-					<Hotspot X="-1603.681" Y="5992.574" Z="3.195085" />
-					<Hotspot X="-1281.33" Y="5988.098" Z="18.16798" />
-				</HuntingGrounds>
-			</CustomBehavior>
-
-			<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-			<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-		</While>
-<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
-</If>
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42623] Piracy Doesnt Pay - WiN!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
-	</QuestOrder>
+      <CustomBehavior File="InteractWith" MobId="250867" NumOfTimes="100" TerminateWhen="IsObjectiveComplete(2, 42623) || !OnQuest">
+        <HuntingGrounds>
+          <Hotspot X="-1042.743" Y="5872.994" Z="0.3137474" />
+          <Hotspot X="-1118.665" Y="5942.148" Z="3.29718" />
+          <Hotspot X="-1232.98" Y="5848.335" Z="4.559441" />
+          <Hotspot X="-1388.135" Y="5890.558" Z="2.044807" />
+          <Hotspot X="-1432.909" Y="5984.887" Z="4.445517" />
+          <Hotspot X="-1603.681" Y="5992.574" Z="3.195085" />
+          <Hotspot X="-1281.33" Y="5988.098" Z="18.16798" />
+        </HuntingGrounds>
+      </CustomBehavior>
+      <CustomBehavior File="Hooks\DoWhen" ActivityName="MakeARoll" Command="Remove" />
+      <CustomBehavior File="KillUntilComplete" MobIds="106818, 108010, 108137, 108174, 106819, 108139, 108186, 106820, 108133, 108146, 108212, 106821, 108136, 108153"
+                      TerminateWhen="IsObjectiveComplete(1, 42623) || !OnQuest">
+        <HuntingGrounds>
+          <Hotspot X="-1042.743" Y="5872.994" Z="0.3137474" />
+          <Hotspot X="-1118.665" Y="5942.148" Z="3.29718" />
+          <Hotspot X="-1232.98" Y="5848.335" Z="4.559441" />
+          <Hotspot X="-1388.135" Y="5890.558" Z="2.044807" />
+          <Hotspot X="-1432.909" Y="5984.887" Z="4.445517" />
+          <Hotspot X="-1603.681" Y="5992.574" Z="3.195085" />
+          <Hotspot X="-1281.33" Y="5988.098" Z="18.16798" />
+        </HuntingGrounds>
+      </CustomBehavior>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [42623] Piracy Doesnt Pay - WiN!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
 </HBProfile>
