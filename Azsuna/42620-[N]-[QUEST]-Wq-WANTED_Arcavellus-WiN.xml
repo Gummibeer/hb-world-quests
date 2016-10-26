@@ -78,7 +78,7 @@
                             if taskInfo then
                             for i, info in ipairs(taskInfo) do
                             if HaveQuestData(info.questId) then
-                            if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+                            if QuestUtils_IsQuestWorldQuest(info.questId) then
                             table.insert(questids, info.questId);
                             end
                             end
