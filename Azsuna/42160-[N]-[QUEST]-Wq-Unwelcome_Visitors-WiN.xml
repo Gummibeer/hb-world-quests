@@ -79,7 +79,7 @@ return false;", 0);]]>
       <CustomBehavior File="KillUntilComplete" MobId="106582" TerminateWhen="IsObjectiveComplete(2, 42160) || !OnQuest" X="655.6233" Y="5326.372" Z="49.07125" />
 
       <!-- <Vendor Name="Arkethrax" Entry="106583" Type="Repair" Nav="Fly" X="460.4269" Y="5399.248" Z="36.35174" /> -->
-      <CustomBehavior File="KillUntilComplete" MobId=="106583" TerminateWhen="IsObjectiveComplete(3, 42160) || !OnQuest" X="460.4269" Y="5399.248" Z="36.35174" />
+      <CustomBehavior File="KillUntilComplete" MobId="106583" TerminateWhen="IsObjectiveComplete(3, 42160) || !OnQuest" X="460.4269" Y="5399.248" Z="36.35174" />
     </While>
 
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
