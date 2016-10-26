@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Snowfeather Swarm! ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 44892 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(44892)">
+        <RunTo X="5798.529" Y="5412.58" Z="6.897978" />
+      </If>
+      <If Condition="HasQuest(44892)">
+        <!--<Vendor Name="Snowfeather Nest-Keeper" Entry="115665" Type="Repair" Nav="Fly" X="5840.973" Y="5418.58" Z="7.920382" />-->
+        <!--<Vendor Name="Snowfeather Nest" Entry="115679" Type="Repair" Nav="Fly" X="5763.223" Y="5322.988" Z="18.3409" />-->
+        <!--<Vendor Name="Young Snowfeather" Entry="115677" Type="Repair" Nav="Fly" X="5786.277" Y="5341.07" Z="12.7814" />-->
+        <!--<Vendor Name="Snowfeather Patriarch" Entry="115669" Type="Repair" Nav="Fly" X="5913.408" Y="5172.647" Z="22.22135" />-->
+        <CustomBehavior File="KillUntilComplete" MobIds="115665, 115679, 115677" TerminateWhen="!OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="5798.529" Y="5412.58" Z="6.897978" />
+            <Hotspot X="5796.691" Y="5330.146" Z="10.85723" />
+            <Hotspot X="5886.351" Y="5211.524" Z="20.19466" />
+            <Hotspot X="6057.432" Y="5109.892" Z="23.79735" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>

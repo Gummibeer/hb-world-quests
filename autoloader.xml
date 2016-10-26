@@ -135,6 +135,9 @@
         public bool Valarjar { get; set; }
         [Setting]
         [Styx.Helpers.DefaultValue(true)]
+        public bool EmissaryFirst { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
         public bool Dreamweavers { get; set; }
         [Setting]
         [Styx.Helpers.DefaultValue(true)]
@@ -155,7 +158,7 @@ local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({zone})
 if (taskInfo) then
 	for i, info  in ipairs(taskInfo) do
 		if HaveQuestData(info.questId) then
-			if QuestMapFrame_IsQuestWorldQuest(info.questId) then
+			if QuestUtils_IsQuestWorldQuest(info.questId) and WorldMap_DoesWorldQuestInfoPassFilters(info) then
                     tinsert (ids, info.questId )
                     end
                 end
@@ -241,7 +244,7 @@ return unpack(ids)";
                 Log("Couldn't find the WorldQuestHelper plugin!");
                 return false;
             }
-            var latestVersion = new Version(1, 0, 1022);
+            var latestVersion = new Version(1, 1, 1044);
             if (plugin.Version == latestVersion) return true;
             Log($"---Plugin Update {latestVersion} available---");
             Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -320,7 +323,7 @@ return 0; ";
 
         public int GetFactionId(int questId)
             =>
-            Lua.GetReturnVal<int>($@"local title, factionId, capped = C_TaskQuest.GetQuestInfoByQuestID({ questId });
+            Lua.GetReturnVal<int>($@"local title, factionId, capped = C_TaskQuest.GetQuestInfoByQuestID({questId});
             if (factionId) then
 return factionId
 end
@@ -329,35 +332,39 @@ return 0", 0);
         public bool DoFaction(int questId)
         {
             var faction = GetFactionId(questId);
-            if (faction == TheWardens)
+            var hasEmissary = HasEmissary;
+            if (faction == TheWardens && (!hasEmissary || HasQuest(42422)))
                 return Settings.Instance.TheWardens;
-            if (faction == CourtOfFarondis)
+            if (faction == CourtOfFarondis && (!hasEmissary || HasQuest(42420)))
                 return Settings.Instance.CourtOfFarondis;
-            if (faction == Dreamweavers)
+            if (faction == Dreamweavers && (!hasEmissary || HasQuest(42170)))
                 return Settings.Instance.Dreamweavers;
-            if (faction == KirinTor)
+            if (faction == KirinTor && (!hasEmissary || HasQuest(43179)))
                 return Settings.Instance.KirinTor;
-            if (faction == HighmountainTribe)
+            if (faction == HighmountainTribe && (!hasEmissary || HasQuest(42233)))
                 return Settings.Instance.HighmountainTribe;
-            if (faction == TheNightfallen)
+            if (faction == TheNightfallen && (!hasEmissary || HasQuest(42421)))
                 return Settings.Instance.TheNightfallen;
-            if (faction == Valarjar)
+            if (faction == Valarjar && (!hasEmissary || HasQuest(42234)))
                 return Settings.Instance.Valarjar;
             return false;
         }
 
         public List<string> GetReward(int questId) =>
-            Lua.GetReturnValues($"local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, { questId }); return name, itemID");
+            Lua.GetReturnValues($"local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, {questId}); return name, itemID");
 
         public string GetQuestName(int questId) =>
-            Lua.GetReturnVal<string>($"local title, factionId, capped = C_TaskQuest.GetQuestInfoByQuestID({ questId }); return title; ", 0);
+            Lua.GetReturnVal<string>($"local title, factionId, capped = C_TaskQuest.GetQuestInfoByQuestID({questId }); return title; ", 0);
 
-        public bool EliteQuest(int questId) => Lua.GetReturnVal<bool>($"return GetQuestTagInfo({ questId})", 4);
+        public bool EliteQuest(int questId) => Lua.GetReturnVal<bool>($"return GetQuestTagInfo({questId})", 4);
 
         public bool QuestCompletedInLog(int questId) => 
                 Lua.GetReturnVal<bool>($@"for questIndex = 1, GetNumQuestLogEntries() do
                     _, _, _, _, _, isComplete, _, questID = GetQuestLogTitle(questIndex);
             if (questID == {questId}) then return isComplete; end end return false; ",  0);
+
+        public uint[] EmissaryIds = {42420, 42170, 42422, 42421, 42233, 43179, 42234};
+        public bool HasEmissary => Settings.Instance.EmissaryFirst && EmissaryIds.Any(q => StyxWoW.Me.QuestLog.ContainsQuest(q));
 
         public async Task ForceTurnin(int questId, string name, int npcId, float x, float y, float z)
         {
@@ -435,7 +442,8 @@ return 0", 0);
     <CustomBehavior File="RunCode" Code="Log($@&quot;Zone&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Azsuna {Settings.Instance.Azsuna} - Valsharah {Settings.Instance.Valsharah} - Stormheim {Settings.Instance.Stormheim} - Suramar {Settings.Instance.Suramar}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Highmountain {Settings.Instance.Highmountain} - EyeofAzshara {Settings.Instance.EyeofAzshara} - Dalaran {Settings.Instance.Dalaran}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Faction&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Faction EmissaryFirst&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;EmissaryFirst {Settings.Instance.EmissaryFirst} - HasEmissary {HasEmissary}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;TheWardens {Settings.Instance.TheWardens} - CourtOfFarondis {Settings.Instance.CourtOfFarondis} - KirinTor {Settings.Instance.KirinTor} - HighmountainTribe {Settings.Instance.HighmountainTribe}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Dreamweavers {Settings.Instance.Dreamweavers} - TheNightfallen {Settings.Instance.TheNightfallen} - Valarjar {Settings.Instance.Valarjar}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Rewards&quot;);" />
@@ -1691,6 +1699,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44292-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44292-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(44892) &amp;&amp; PassesSettings(44892) &amp;&amp; DoFaction(44892)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44892-[N]-[QUEST]-Snowfeather Swarm!-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44892-[N]-[QUEST]-Snowfeather Swarm!-Nuok" RememberProfile="false" />
+      </If>
     </If>
     <If Condition="ZoneEnabled(1033)">
       <!--Suramar-->
@@ -1817,6 +1829,10 @@ return 0", 0);
       <If Condition="OnQuest(44017) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44017) &amp;&amp; DoFaction(44017)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44017-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44017-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44018) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44018) &amp;&amp; DoFaction(44018)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44018-[N]-[QUEST]-Wq-WANTED Magister Phaedris-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44018-[N]-[QUEST]-Wq-WANTED Magister Phaedris-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(44021) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44021) &amp;&amp; DoFaction(44021)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44021-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner&quot;);" />
