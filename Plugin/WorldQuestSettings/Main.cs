@@ -24,7 +24,7 @@ namespace WorldQuestSettings
 
         public override string Name => "WorldQuestHelper";
         public override string Author => "Nuok";
-        public override Version Version => new Version(1, 0, GetSvnInt());
+        public override Version Version => new Version(1, 1, GetSvnInt());
 
         public override bool WantButton => true;
         public override string ButtonText => "Settings";
@@ -51,7 +51,7 @@ namespace WorldQuestSettings
         public override void OnButtonPress()
         {
             if (Config == null)
-                Config = new ConfigWindow("World Quest Helper", Version.ToString(), "Nuok", 400, 900);
+                Config = new ConfigWindow("World Quest Helper", Version.ToString(), "Nuok", 400, 910);
             ThemeManager.ChangeAppStyle(Config, ThemeManager.GetAccent("Cobalt"), ThemeManager.GetAppTheme("BaseDark"));
             Config.Show();
             Config.Closed += config_Closed;
@@ -249,6 +249,13 @@ namespace WorldQuestSettings
         [DisplayName("Valarjar")]
         [Styx.Helpers.DefaultValue(true)]
         public bool Valarjar { get; set; }
+
+        [Setting]
+        [Category("Faction")]
+        [DisplayName("Do Emissary First")]
+        [Description("Complete the Emissary Quest First")]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool EmissaryFirst { get; set; }
 
         #endregion
 
