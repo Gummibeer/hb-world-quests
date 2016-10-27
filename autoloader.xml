@@ -532,6 +532,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41437-[N]-[QUEST]-Wq-Fine_Leystone_Deposits-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41437-[N]-[QUEST]-Wq-Fine_Leystone_Deposits-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(41455) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41455)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41455-[N]-[QUEST]-Gleaming Leystone Outcropping-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41455-[N]-[QUEST]-Gleaming Leystone Outcropping-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(41482) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41482)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41482-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41482-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
@@ -971,9 +975,9 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42013-[N]-[QUEST]-Wq-The Helmouth-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42013-[N]-[QUEST]-Wq-The Helmouth-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(42025) &amp;&amp; PassesSettings(42025) &amp;&amp; DoFaction(42025)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42025-[H]-[QUEST]-Wq-Bareback_Brawl-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42025-[H]-[QUEST]-Wq-Bareback_Brawl-Staal" RememberProfile="false" />
+      <If Condition="OnQuest(42025) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(42025) &amp;&amp; DoFaction(42025)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(42176) &amp;&amp; PassesSettings(42176) &amp;&amp; DoFaction(42176)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN&quot;);" />
@@ -986,6 +990,10 @@ return 0", 0);
       <If Condition="OnQuest(42182) &amp;&amp; PassesSettings(42182) &amp;&amp; DoFaction(42182)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42182-[N]-[QUEST]-Wq-To_Battle-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42182-[N]-[QUEST]-Wq-To_Battle-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42183) &amp;&amp; PassesSettings(42183) &amp;&amp; DoFaction(42183)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42183-[N]-[QUEST]-To Battle!-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42183-[N]-[QUEST]-To Battle!-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(42785) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(42785) &amp;&amp; DoFaction(42785)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42785-[N]-[QUEST]-Wq-DANGER Den Mother Ylva-Zinner&quot;);" />
@@ -1111,6 +1119,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43963-[N]-[QUEST]-Wq-Vampirates-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(44893) &amp;&amp; PassesSettings(44893) &amp;&amp; DoFaction(44893)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44893-[N]-[QUEST]-Direbeak Swarm!-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44893-[N]-[QUEST]-Direbeak Swarm!-Nuok" RememberProfile="false" />
+      </If>
     </If>
     <If Condition="ZoneEnabled(1018)">
       <!--Valshara-->
@@ -1130,7 +1142,7 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41440-[N]-[QUEST]-Wq-Magnificent Leystone Deposits-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41440-[N]-[QUEST]-Wq-Magnificent Leystone Deposits-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(41457) &amp;&amp; PassesSettings(41457) &amp;&amp; DoFaction(41457)">
+      <If Condition="OnQuest(41457) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41457)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41457-[N]-[QUEST]-Wq-Radiant Leystone Outcropping-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41457-[N]-[QUEST]-Wq-Radiant Leystone Outcropping-Zinner" RememberProfile="false" />
       </If>
@@ -1477,7 +1489,7 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41145-[N]-[QUEST]-Wq-Water_of_Life-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41145-[N]-[QUEST]-Wq-Water_of_Life-WiN" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(41200) &amp;&amp; PassesSettings(41200) &amp;&amp; DoFaction(41200)">
+      <If Condition="OnQuest(41200) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41200)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41200-[N]-[QUEST]-Wq-Rough Leystone Outcropping-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41200-[N]-[QUEST]-Wq-Rough Leystone Outcropping-Zinner" RememberProfile="false" />
       </If>
