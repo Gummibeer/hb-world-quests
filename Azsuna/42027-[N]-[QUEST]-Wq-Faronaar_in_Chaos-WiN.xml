@@ -157,7 +157,7 @@
 			<PursueUnit Id="90661" PursueWhen="!IsObjectiveComplete(1,42027) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 			<PursueUnit Id="90660" PursueWhen="!IsObjectiveComplete(1,42027) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 			<PursueUnit Id="89731" PursueWhen="!IsObjectiveComplete(1,42027) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-			<PursueUnit Id="106090" PursueWhen="!IsObjectiveComplete(1,42027) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
+<!--			<PursueUnit Id="106090" PursueWhen="!IsObjectiveComplete(1,42027) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/> -->
 			
 			<PursueUnit Id="103231" PursueWhen="!IsObjectiveComplete(1,42027) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 			<PursueUnit Id="103176" PursueWhen="!IsObjectiveComplete(1,42027) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
