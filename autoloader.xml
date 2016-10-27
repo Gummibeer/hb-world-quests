@@ -1907,6 +1907,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43801-[N]-[QUEST]-Wq-Shell Out Some Pain-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="EyeOfAzshara\43801-[N]-[QUEST]-Wq-Shell Out Some Pain-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43804) &amp;&amp; PassesSettings(43804) &amp;&amp; DoFaction(43804)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43804-[N]-[QUEST]-Hate the Hatecoil-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="EyeOfAzshara\43804-[N]-[QUEST]-Hate the Hatecoil-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(43805) &amp;&amp; PassesSettings(43805) &amp;&amp; DoFaction(43805)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43805-[N]-[QUEST]-Aquatic Assassination-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="EyeOfAzshara\43805-[N]-[QUEST]-Aquatic Assassination-Nuok" RememberProfile="false" />
