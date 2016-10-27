@@ -329,23 +329,27 @@ return factionId
 end
 return 0", 0);
 
+        public uint[] EmissaryIds = {42420, 42170, 42422, 42421, 42233, 43179, 42234};
+        public bool HasEmissary => EmissaryIds.Any(q => HasQuest(q));
+
         public bool DoFaction(int questId)
         {
             var faction = GetFactionId(questId);
             var hasEmissary = HasEmissary;
-            if (faction == TheWardens && (!hasEmissary || HasQuest(42422)))
+            var emissaryFirst = Settings.Instance.EmissaryFirst;
+            if (faction == TheWardens && (!emissaryFirst || !hasEmissary || HasQuest(42422)))
                 return Settings.Instance.TheWardens;
-            if (faction == CourtOfFarondis && (!hasEmissary || HasQuest(42420)))
+            if (faction == CourtOfFarondis && (!emissaryFirst || !hasEmissary  || HasQuest(42420)))
                 return Settings.Instance.CourtOfFarondis;
-            if (faction == Dreamweavers && (!hasEmissary || HasQuest(42170)))
+            if (faction == Dreamweavers && (!emissaryFirst || !hasEmissary  || HasQuest(42170)))
                 return Settings.Instance.Dreamweavers;
-            if (faction == KirinTor && (!hasEmissary || HasQuest(43179)))
+            if (faction == KirinTor && (!emissaryFirst || !hasEmissary  || HasQuest(43179)))
                 return Settings.Instance.KirinTor;
-            if (faction == HighmountainTribe && (!hasEmissary || HasQuest(42233)))
+            if (faction == HighmountainTribe && (!emissaryFirst || !hasEmissary  || HasQuest(42233)))
                 return Settings.Instance.HighmountainTribe;
-            if (faction == TheNightfallen && (!hasEmissary || HasQuest(42421)))
+            if (faction == TheNightfallen && (!emissaryFirst || !hasEmissary  || HasQuest(42421)))
                 return Settings.Instance.TheNightfallen;
-            if (faction == Valarjar && (!hasEmissary || HasQuest(42234)))
+            if (faction == Valarjar && (!emissaryFirst || !hasEmissary  || HasQuest(42234)))
                 return Settings.Instance.Valarjar;
             return false;
         }
@@ -362,9 +366,6 @@ return 0", 0);
                 Lua.GetReturnVal<bool>($@"for questIndex = 1, GetNumQuestLogEntries() do
                     _, _, _, _, _, isComplete, _, questID = GetQuestLogTitle(questIndex);
             if (questID == {questId}) then return isComplete; end end return false; ",  0);
-
-        public uint[] EmissaryIds = {42420, 42170, 42422, 42421, 42233, 43179, 42234};
-        public bool HasEmissary => Settings.Instance.EmissaryFirst && EmissaryIds.Any(q => StyxWoW.Me.QuestLog.ContainsQuest(q));
 
         public async Task ForceTurnin(int questId, string name, int npcId, float x, float y, float z)
         {
@@ -422,6 +423,15 @@ return 0", 0);
             QuestFrame.Instance.SelectActiveGossipQuest(questF.Index);
             QuestFrame.Instance.SelectActiveQuest(questF.Index);
             await CommonCoroutines.SleepForRandomUiInteractionTime();
+        }
+
+        public async Task ForcedTurnin(int questId, string name, int npcId, float x, float y, float z)
+        {
+            while (QuestCompletedInLog(questId))
+			{
+                await ForceTurnin(questId, name, npcId, x, y, z);
+                await Coroutine.Yield();              
+            }
         }]]></CustomBehavior>
     <CustomBehavior File="RunCode" Code="Log(&quot;Welcome To The Community World Quest Project&quot;);" />
     <CustomBehavior File="RunCode" Code="Log(&quot;~Created by~&quot;);" />
@@ -442,7 +452,7 @@ return 0", 0);
     <CustomBehavior File="RunCode" Code="Log($@&quot;Zone&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Azsuna {Settings.Instance.Azsuna} - Valsharah {Settings.Instance.Valsharah} - Stormheim {Settings.Instance.Stormheim} - Suramar {Settings.Instance.Suramar}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Highmountain {Settings.Instance.Highmountain} - EyeofAzshara {Settings.Instance.EyeofAzshara} - Dalaran {Settings.Instance.Dalaran}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Faction EmissaryFirst&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Faction&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;EmissaryFirst {Settings.Instance.EmissaryFirst} - HasEmissary {HasEmissary}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;TheWardens {Settings.Instance.TheWardens} - CourtOfFarondis {Settings.Instance.CourtOfFarondis} - KirinTor {Settings.Instance.KirinTor} - HighmountainTribe {Settings.Instance.HighmountainTribe}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Dreamweavers {Settings.Instance.Dreamweavers} - TheNightfallen {Settings.Instance.TheNightfallen} - Valarjar {Settings.Instance.Valarjar}&quot;);" />
@@ -457,25 +467,25 @@ return 0", 0);
     <CustomBehavior File="RunCode" Code="Update(); Settings.Instance.Load();" />
     <CustomBehavior File="WaitTimer" WaitTime="1000" />
     <While Condition="HasQuest(42420) &amp;&amp; QuestCompletedInLog(42420)">
-      <CustomBehavior File="RunCode" Code="await ForceTurnin(42420, &quot;Court of Farondis&quot;, 107376, -8.559865f, 6736.977f, 55.58721f);" />
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42420, &quot;Court of Farondis&quot;, 107376, -8.559865f, 6736.977f, 55.58721f);" />
     </While>
     <While Condition="HasQuest(42170) &amp;&amp; QuestCompletedInLog(42170)">
-      <CustomBehavior File="RunCode" Code="await ForceTurnin(42170, &quot;The Dreamweavers&quot;, 106901, 2274.2f, 6592.066f, 138.8777f);" />
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42170, &quot;The Dreamweavers&quot;, 106901, 2274.2f, 6592.066f, 138.8777f);" />
     </While>
     <While Condition="HasQuest(42422) &amp;&amp; QuestCompletedInLog(42422)">
-      <CustomBehavior File="RunCode" Code="await ForceTurnin(42422, &quot;The Wardens&quot;, 107379, -1441.083f, 6656.882f, 12.00175f);" />
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42422, &quot;The Wardens&quot;, 107379, -1441.083f, 6656.882f, 12.00175f);" />
     </While>
     <While Condition="HasQuest(42421) &amp;&amp; QuestCompletedInLog(42421)">
-      <CustomBehavior File="RunCode" Code="await ForceTurnin(42421, &quot;The Nightfallen&quot;, 97140, 1720.796f, 4617.22f, 123.9455f);" />
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42421, &quot;The Nightfallen&quot;, 97140, 1720.796f, 4617.22f, 123.9455f);" />
     </While>
     <While Condition="HasQuest(42233) &amp;&amp; QuestCompletedInLog(42233)">
-      <CustomBehavior File="RunCode" Code="await ForceTurnin(42233, &quot;Highmountain Tribes&quot;, 106902, 4112.049f, 4445.559f, 768.3433f);" />
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42233, &quot;Highmountain Tribes&quot;, 106902, 4112.049f, 4445.559f, 768.3433f);" />
     </While>
     <While Condition="HasQuest(43179) &amp;&amp; QuestCompletedInLog(43179)">
-      <CustomBehavior File="RunCode" Code="await ForceTurnin(43179, &quot;The Kirin Tor of Dalaran&quot;, 32725, -849.4995f, 4597.092f, 748.7828f);" />
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(43179, &quot;The Kirin Tor of Dalaran&quot;, 32725, -849.4995f, 4597.092f, 748.7828f);" />
     </While>
     <While Condition="HasQuest(42234) &amp;&amp; QuestCompletedInLog(42234)">
-      <CustomBehavior File="RunCode" Code="await ForceTurnin(42234, &quot;The Valarjar&quot;, 106904, 3189.06f, 1536.94f, 182.54f);" />
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42234, &quot;The Valarjar&quot;, 106904, 3189.06f, 1536.94f, 182.54f);" />
     </While>
     <If Condition="ZoneEnabled(1014)">
       <!--Dalaran-->
@@ -730,6 +740,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43072-[N]-[QUEST]-Wq-DANGER The Whisperer-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43072-[N]-[QUEST]-Wq-DANGER The Whisperer-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43079) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43079) &amp;&amp; DoFaction(43079)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43079-[N]-[QUEST]-Wq-DANGER Immolian-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43079-[N]-[QUEST]-Wq-DANGER Immolian-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(43091) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43091) &amp;&amp; DoFaction(43091)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43091-[N]-[QUEST]-Wq-DANGER Arcanor Prime-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43091-[N]-[QUEST]-Wq-DANGER Arcanor Prime-Zinner" RememberProfile="false" />
@@ -818,6 +832,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43805-[N]-[QUEST]-Wq-Aquatic-Assassination-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43805-[N]-[QUEST]-Wq-Aquatic-Assassination-WiN" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(44049) &amp;&amp; PassesSettings(44049) &amp;&amp; DoFaction(44049)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44049-[N]-[QUEST]-Wq-Evil Has Many Legs-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44049-[N]-[QUEST]-Wq-Evil Has Many Legs-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(44054) &amp;&amp; PassesSettings(44054) &amp;&amp; DoFaction(44054)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44054-[N]-[QUEST]-Wq-Demonicide-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44054-[N]-[QUEST]-Wq-Demonicide-WiN" RememberProfile="false" />
@@ -841,6 +859,10 @@ return 0", 0);
       <If Condition="OnQuest(44287) &amp;&amp; Settings.Instance.DoWorldBosses &amp;&amp; PassesSettings(44287) &amp;&amp; DoFaction(44287)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44287-[N]-[QUEST]-Wq-DEADLY_Withered_Jim-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44287-[N]-[QUEST]-Wq-DEADLY_Withered_Jim-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44847) &amp;&amp; PassesSettings(44847) &amp;&amp; DoFaction(44847)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44847-[N]-[QUEST]-Wq-Straight From the Source-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44847-[N]-[QUEST]-Wq-Straight From the Source-Zinner" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1017)">
@@ -1380,6 +1402,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(44895) &amp;&amp; PassesSettings(44895) &amp;&amp; DoFaction(44895)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44895-[N]-[QUEST]-Wq-Sharptalon Swarm!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44895-[N]-[QUEST]-Wq-Sharptalon Swarm!-Zinner" RememberProfile="false" />
+      </If>
     </If>
     <If Condition="ZoneEnabled(1024)">
       <!--Highmountain-->
@@ -1651,6 +1677,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42183-[N]-[QUEST]-Wq-To_Battle-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42183-[N]-[QUEST]-Wq-To_Battle-WiN" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43448) &amp;&amp; Settings.Instance.DoWorldBosses &amp;&amp; PassesSettings(43448) &amp;&amp; DoFaction(43448)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43448-[N]-[QUEST]-Wq-WORLD-BOSS-The Frozen King-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43448-[N]-[QUEST]-Wq-WORLD-BOSS-The Frozen King-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(43450) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43450) &amp;&amp; DoFaction(43450)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
@@ -1702,6 +1732,10 @@ return 0", 0);
       <If Condition="OnQuest(44892) &amp;&amp; PassesSettings(44892) &amp;&amp; DoFaction(44892)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44892-[N]-[QUEST]-Snowfeather Swarm!-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44892-[N]-[QUEST]-Snowfeather Swarm!-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44892) &amp;&amp; PassesSettings(44892) &amp;&amp; DoFaction(44892)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44892[N]-[QUEST]-Wq-Snowfeather Swarm!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44892[N]-[QUEST]-Wq-Snowfeather Swarm!-Zinner" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1033)">
@@ -1777,6 +1811,10 @@ return 0", 0);
       <If Condition="OnQuest(42830) &amp;&amp; PassesSettings(42830) &amp;&amp; DoFaction(42830)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42830-[N]-[QUEST]-Pest Management-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\42830-[N]-[QUEST]-Pest Management-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42859) &amp;&amp; PassesSettings(42859) &amp;&amp; DoFaction(42859)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42859-[N]-[QUEST]-Wq-A Draught of Hope-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42859-[N]-[QUEST]-Wq-A Draught of Hope-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(43435) &amp;&amp; PassesSettings(43435) &amp;&amp; DoFaction(43435)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43435-[N]-[QUEST]-Wq-The Battle Rages On-Zinner&quot;);" />
@@ -1857,6 +1895,10 @@ return 0", 0);
       <If Condition="OnQuest(44121) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44121) &amp;&amp; DoFaction(44121)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44744) &amp;&amp; PassesSettings(44744) &amp;&amp; DoFaction(44744)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44744-[N]-[QUEST]-Wq-Lifelines-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44744-[N]-[QUEST]-Wq-Lifelines-Zinner" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1096)">
