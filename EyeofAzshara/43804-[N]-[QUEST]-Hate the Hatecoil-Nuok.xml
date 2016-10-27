@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Hate the Hatecoil ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1096);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1096)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 43804 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(43804)">
+        <RunTo X="-3372.315" Y="4814.298" Z="16.5499" />
+      </If>
+      <If Condition="HasQuest(43804)">
+        <CustomBehavior File="KillUntilComplete" MobIds="111635, 111636, 111637, 111638" TerminateWhen="!OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="-3449.305" Y="4766.797" Z="4.278101" />
+            <Hotspot X="-3542.323" Y="4721.679" Z="2.579865" />
+            <Hotspot X="-3763.94" Y="4477.93" Z="46.68665" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
