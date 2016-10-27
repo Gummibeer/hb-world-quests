@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Darkened Felslate Deposits ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41446 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41446)">
+        <RunTo X="2340.157" Y="4953.467" Z="124.1205" />
+      </If>
+      <If Condition="HasQuest(41446)">
+        <!--<GameObject Name="Darkened Felslate Deposit" Entry="247923" X="2325.554" Y="4974.817" Z="128.541" />-->
+        <Custombehavior File="InteractWith"  MobId="247923" Range="5" WaitTime="2000" TerminateWhen="!OnQuest" NumOfTimes="10"
+                PreInteractMountStrategy="DismountOrCancelShapeshift" NonCompeteDistance="0" X="2340.157" Y="4953.467" Z="124.1205" />
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
