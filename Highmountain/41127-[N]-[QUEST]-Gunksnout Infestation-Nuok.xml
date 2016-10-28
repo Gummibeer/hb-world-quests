@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Gunksnout Infestation ($Rev: 0 $)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41127 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41127)">
+        <RunTo X="3170.227" Y="3970.576" Z="1183.836" />
+      </If>
+      <If Condition="HasQuest(41127)">
+        <CustomBehavior File="KillUntilComplete" MobIds="103178, 102633, 103227, 103234" TerminateWhen="!OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="3170.227" Y="3970.576" Z="1183.836" />
+            <Hotspot X="3130.132" Y="3843.342" Z="1197.963" />
+            <Hotspot X="3201.713" Y="3860.912" Z="1205.115" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </If>
+    </While>
+    <RunTo X="3212.425" Y="4012.388" Z="1189.74" />
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>

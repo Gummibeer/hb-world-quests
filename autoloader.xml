@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[WQ] World Quest Auto Loader $Rev$</Name>
+  <Name>[WQ] World Quest Auto Loader ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -321,14 +321,10 @@ return 0; ";
         }
         public int TheWardens = 1894, CourtOfFarondis = 1900, Dreamweavers = 1883, KirinTor = 1090, HighmountainTribe = 1828, TheNightfallen = 1859, Valarjar = 1948;
 
-        public int GetFactionId(int questId)
-            =>
-            Lua.GetReturnVal<int>($@"local title, factionId, capped = C_TaskQuest.GetQuestInfoByQuestID({questId});
-            if (factionId) then
-return factionId
-end
-return 0", 0);
+        public int GetFactionId(int questId) => Lua.GetReturnVal<int>($@"local title, factionId, capped = C_TaskQuest.GetQuestInfoByQuestID({questId});
+            if (factionId) then return factionId end return 0", 0);
 
+        //Temp removed TheNightfallen 42421 not enough profiles
         public uint[] EmissaryIds = {42420, 42170, 42422, 42233, 43179, 42234};
         public bool HasEmissary => EmissaryIds.Any(q => HasQuest(q));
 
@@ -341,15 +337,15 @@ return 0", 0);
                 return Settings.Instance.TheWardens;
             if (faction == CourtOfFarondis && (!emissaryFirst || !hasEmissary  || HasQuest(42420)))
                 return Settings.Instance.CourtOfFarondis;
-            if (faction == Dreamweavers && (!emissaryFirst || !hasEmissary  || HasQuest(42170)))
+            if (faction == Dreamweavers && (!emissaryFirst || !hasEmissary || HasQuest(42170)))
                 return Settings.Instance.Dreamweavers;
-            if (faction == KirinTor && (!emissaryFirst || !hasEmissary  || HasQuest(43179)))
+            if (faction == KirinTor && (!emissaryFirst || !hasEmissary || HasQuest(43179)))
                 return Settings.Instance.KirinTor;
-            if (faction == HighmountainTribe && (!emissaryFirst || !hasEmissary  || HasQuest(42233)))
+            if (faction == HighmountainTribe && (!emissaryFirst || !hasEmissary || HasQuest(42233)))
                 return Settings.Instance.HighmountainTribe;
-            if (faction == TheNightfallen && (!emissaryFirst || !hasEmissary  || HasQuest(42421)))
+            if (faction == TheNightfallen && (!emissaryFirst || !hasEmissary || HasQuest(42421)))
                 return Settings.Instance.TheNightfallen;
-            if (faction == Valarjar && (!emissaryFirst || !hasEmissary  || HasQuest(42234)))
+            if (faction == Valarjar && (!emissaryFirst || !hasEmissary || HasQuest(42234)))
                 return Settings.Instance.Valarjar;
             return false;
         }
@@ -428,7 +424,7 @@ return 0", 0);
         public async Task ForcedTurnin(int questId, string name, int npcId, float x, float y, float z)
         {
             while (QuestCompletedInLog(questId))
-			{
+            {
                 await ForceTurnin(questId, name, npcId, x, y, z);
                 await Coroutine.Yield();              
             }
@@ -1457,6 +1453,10 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41024-[N]-[QUEST]-Wq-Dirge of the Dead-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41024-[N]-[QUEST]-Wq-Dirge of the Dead-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(41025) &amp;&amp; PassesSettings(41025) &amp;&amp; DoFaction(41025)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41025-[N]-[QUEST]-Rise of the Fallen-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41025-[N]-[QUEST]-Rise of the Fallen-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(41026) &amp;&amp; PassesSettings(41026) &amp;&amp; DoFaction(41026)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41026-[N]-[QUEST]-Wq-Back to the Shadows-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41026-[N]-[QUEST]-Wq-Back to the Shadows-Zinner" RememberProfile="false" />
@@ -1476,6 +1476,10 @@ return 0", 0);
       <If Condition="OnQuest(41122) &amp;&amp; PassesSettings(41122) &amp;&amp; DoFaction(41122)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41122-[N]-[QUEST]-Wq-Mists Take You-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41122-[N]-[QUEST]-Wq-Mists Take You-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41127) &amp;&amp; PassesSettings(41127) &amp;&amp; DoFaction(41127)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41127-[N]-[QUEST]-Gunksnout Infestation-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41127-[N]-[QUEST]-Gunksnout Infestation-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(41144) &amp;&amp; PassesSettings(41144) &amp;&amp; DoFaction(41144)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41144-[N]-[QUEST]-Wq-Return_to_the_River-WiN&quot;);" />

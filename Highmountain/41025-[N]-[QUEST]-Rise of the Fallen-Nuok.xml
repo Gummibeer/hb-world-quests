@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Rise of the Fallen ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41025 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41025)">
+        <RunTo X="4990.4" Y="5759.489" Z="30.72243" />
+      </If>
+      <If Condition="HasQuest(41025)">
+        <CustomBehavior File="KillUntilComplete" MobIds="101832, 102729, 101795, 101807, 101700" TerminateWhen="!OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="4905.092" Y="5795.799" Z="37.91068" />
+            <Hotspot X="4978.712" Y="5871.214" Z="40.61656" />
+            <Hotspot X="5000.871" Y="5948.236" Z="32.89921" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
