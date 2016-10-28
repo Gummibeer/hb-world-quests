@@ -34,18 +34,7 @@ return false;", 0);]]>
       </If>
       <CustomBehavior File="InteractWith" MobId="102795" NumOfTimes="70" TerminateWhen="IsObjectiveComplete(3, 40966) || !OnQuest" >
         <HuntingGrounds>
-          <Hotspot X="4477.399" Y="4094.906" Z="743.9103" />
-          <Hotspot X="4488.272" Y="4077.112" Z="743.572" />
-          <Hotspot X="4492.719" Y="4057.368" Z="744.3699" />
-          <Hotspot X="4476.012" Y="4022.102" Z="745.8035" />
-          <Hotspot X="4459.847" Y="3996.359" Z="743.069" />
-          <Hotspot X="4403.088" Y="3997.188" Z="741.1028" />
-          <Hotspot X="4478.02" Y="3968.255" Z="739.7694" />
-          <Hotspot X="4396.628" Y="3944.972" Z="740.2215" />
-          <Hotspot X="4399.277" Y="3927.832" Z="741.4965" />
-          <Hotspot X="4402.655" Y="3918.174" Z="741.6794" />
-          <Hotspot X="4496.065" Y="3934.99" Z="744.0004" />
-          <Hotspot X="4493.264" Y="3934.135" Z="744.0204" />
+          <Hotspot X="4443.327" Y="3991.824" Z="743.5008" />
           <Hotspot X="4498.648" Y="3933.302" Z="744.6835" />
         </HuntingGrounds>
       </CustomBehavior>
