@@ -329,7 +329,7 @@ return factionId
 end
 return 0", 0);
 
-        public uint[] EmissaryIds = {42420, 42170, 42422, 42421, 42233, 43179, 42234};
+        public uint[] EmissaryIds = {42420, 42170, 42422, 42233, 43179, 42234};
         public bool HasEmissary => EmissaryIds.Any(q => HasQuest(q));
 
         public bool DoFaction(int questId)
@@ -1051,10 +1051,6 @@ return 0", 0);
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43598-[H]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43598-[H]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(43598) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43598) &amp;&amp; DoFaction(43598)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43598-[H]-QUEST-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43598-[H]-QUEST-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal" RememberProfile="false" />
-      </If>
       <If Condition="OnQuest(43599) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43599) &amp;&amp; DoFaction(43599)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN" RememberProfile="false" />
@@ -1062,10 +1058,6 @@ return 0", 0);
       <If Condition="OnQuest(43600) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43600) &amp;&amp; DoFaction(43600)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43600-[H]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="false" />
-      </If>
-      <If Condition="OnQuest(43600) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43600) &amp;&amp; DoFaction(43600)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43600-[H]-QUEST-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-QUEST-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(43601) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43601) &amp;&amp; DoFaction(43601)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN&quot;);" />
@@ -1122,6 +1114,10 @@ return 0", 0);
       <If Condition="OnQuest(44893) &amp;&amp; PassesSettings(44893) &amp;&amp; DoFaction(44893)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44893-[N]-[QUEST]-Direbeak Swarm!-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44893-[N]-[QUEST]-Direbeak Swarm!-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44943) &amp;&amp; PassesSettings(44943) &amp;&amp; DoFaction(44943)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44943-[N]-[QUEST]-Wq-Now That's Just Clawful!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44943-[N]-[QUEST]-Wq-Now That's Just Clawful!-Zinner" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1018)">
@@ -1915,6 +1911,10 @@ return 0", 0);
       <If Condition="OnQuest(44744) &amp;&amp; PassesSettings(44744) &amp;&amp; DoFaction(44744)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44744-[N]-[QUEST]-Wq-Lifelines-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44744-[N]-[QUEST]-Wq-Lifelines-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(45307) &amp;&amp; PassesSettings(45307) &amp;&amp; DoFaction(45307)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45307-[N]-[QUEST]-Wq-Claws for Alarm!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\45307-[N]-[QUEST]-Wq-Claws for Alarm!-Zinner" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1096)">
