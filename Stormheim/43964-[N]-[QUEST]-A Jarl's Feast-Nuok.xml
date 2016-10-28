@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] A Jarl's Feast ($Rev: 0 $)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 43964 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(43964)">
+        <RunTo X="3044.547" Y="2779.753" Z="380.0489" />
+      </If>
+      <!--<WoWUnit Name="Fallen Jarl" Entry="112225" X="3053.249" Y="2766.467" Z="382.1107" />-->
+      <CustomBehavior File="InteractWith" NumOfTimes="100" MobIds="112225" NonCompeteDistance="0" TerminateWhen="IsObjectiveComplete(2, 43964) || !OnQuest" X="3044.547" Y="2779.753" Z="380.0489" />
+      <!--<GameObject Name="Feasting Plate" Entry="253119" X="3020.669" Y="2769.003" Z="378.9279" />-->
+      <!--<GameObject Name="Potent Horn of Mead" Entry="253094" X="3050.675" Y="2782.405" Z="383.3211" />-->
+      <CustomBehavior File="InteractWith" NumOfTimes="100" MobIds="253119, 253094, 112211, 112217, 112207, 112559" InteractByGossipOptions="1" NonCompeteDistance="0" TerminateWhen="!IsObjectiveComplete(2, 43964) || !OnQuest" X="3044.547" Y="2779.753" Z="380.0489" />
+
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>

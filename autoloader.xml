@@ -1107,6 +1107,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43963-[N]-[QUEST]-Wq-Vampirates-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43964) &amp;&amp; PassesSettings(43964) &amp;&amp; DoFaction(43964)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43964-[N]-[QUEST]-A Jarl's Feast-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43964-[N]-[QUEST]-A Jarl's Feast-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(44893) &amp;&amp; PassesSettings(44893) &amp;&amp; DoFaction(44893)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44893-[N]-[QUEST]-Direbeak Swarm!-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44893-[N]-[QUEST]-Direbeak Swarm!-Nuok" RememberProfile="false" />
