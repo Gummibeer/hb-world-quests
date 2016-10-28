@@ -1015,10 +1015,12 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
       </If>
+      <!--
       <If Condition="OnQuest(43438) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43438) &amp;&amp; DoFaction(43438)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
       </If>
+      -->
       <If Condition="OnQuest(43450) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43450) &amp;&amp; DoFaction(43450)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
@@ -1067,10 +1069,12 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
       </If>
+      <!--
       <If Condition="OnQuest(43625) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43625) &amp;&amp; DoFaction(43625)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
       </If>
+      -->
       <If Condition="OnQuest(43626) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43626) &amp;&amp; DoFaction(43626)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
