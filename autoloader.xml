@@ -883,10 +883,6 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(41488) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41488)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41488-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41488-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
-      </If>
       <If Condition="OnQuest(41489) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41489)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
