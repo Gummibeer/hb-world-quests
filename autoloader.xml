@@ -1951,6 +1951,9 @@ return 0; ";
     </If>
     <If Condition="Settings.Instance.LoopProfile">
       <CustomBehavior File="RunCode" Code="Log(&quot;Looping profile incase we missed something&quot;);" />
+      <If Condition="Settings.Instance.LoopProfile">
+        <CustomBehavior File="RunCode" Code="Settings.Instance.LoopProfile = false; Settings.Instance.Save();" />
+      </If>
       <CustomBehavior File="LoadProfile" ProfileName="autoloader" RememberProfile="false" />
     </If>
     <CustomBehavior File="RunCode" Code="Log(&quot;Finshed, nothing more todo&quot;);" />
