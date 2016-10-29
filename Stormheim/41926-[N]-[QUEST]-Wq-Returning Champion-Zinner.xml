@@ -1,213 +1,62 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<!-- Original contribution by EchoTiger -->
-	<Name>[A-Quest] Returning Champion WorldQuest Zinner</Name>
+  <!-- Original contribution by EchoTiger -->
+  <Name>[WQ] Returning Champion - Zinner ($Rev$)</Name>
 
-	<MinDurability>0.3</MinDurability>
-	<MinFreeBagSlots>3</MinFreeBagSlots>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
 
-	<SellGrey>true</SellGrey>
-	<SellWhite>false</SellWhite>
-	<SellGreen>false</SellGreen>
-	<SellBlue>false</SellBlue>
-	<SellPurple>false</SellPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
 
-	<MailGrey>false</MailGrey>
-	<MailWhite>true</MailWhite>
-	<MailGreen>true</MailGreen>
-	<MailBlue>true</MailBlue>
-	<MailPurple>true</MailPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
 
-	<TargetElites>true</TargetElites>
-
-	
-
-	<QuestOrder>
-	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
-			
-
-    public class WorldQuestData
-    {
-        public int ID;
-        public string Name;
-        public DateTime ExpireTime;
-    }
+  <TargetElites>true</TargetElites>
 
 
-    public static class WorldQuestInfo
-    {
-        static List<WorldQuestData> _cache = new List<WorldQuestData>();
-        static internal bool _dirty = true;
-        static internal bool _setup = false;
 
-        static WorldQuestInfo()
-        {
-            Setup();
-        }
-
-        public static void Setup()
-        {
-            if (_setup)
-                return;
-
-            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
-            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
-            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
-
-            UpdateWorldQuests();
-            _setup = true;
-        }
-
-        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
-        {
-            _dirty = true;
-        }
-
-        public static bool HasWorldQuest(int questid)
-        {
-            UpdateWorldQuests();
-
-            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
-
-            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
-                return false;
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41926 then
             return true;
-        }
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <RunTo X="3333.74" Y="2491.774" Z="258.64" />
+      <CustomBehavior File="KillUntilComplete" TerminateWhen="!OnQuest">
+        <HuntingGrounds>
+          <Hotspot X="3387.156" Y="2484.368" Z="256.5084" />
+          <Hotspot X="3465.622" Y="2516.976" Z="271.6886" />
+          <Hotspot X="3507.913" Y="2473.944" Z="266.0974" />
+          <Hotspot X="3561.494" Y="2456.71" Z="270.5084" />
+          <Hotspot X="3507.921" Y="2546.24" Z="287.8083" />
+        </HuntingGrounds>
+        <PursuitList>
+          <PursueUnit Id="108306" Priority="300" PursueWhen="!IsObjectiveComplete(3, 41926)" />
+          <PursueUnit Id="108289" Priority="200" PursueWhen="!IsObjectiveComplete(2, 41926)" />
+          <PursueUnit Id="108283" Priority="300" PursueWhen="!IsObjectiveComplete(1, 41926)" />
+        </PursuitList>
+      </CustomBehavior>
+    </While>
 
-        public static void UpdateWorldQuests()
-        {
-            if (!_dirty)
-                return;
-            _cache = new List<WorldQuestData>();
-            
-            var player = StyxWoW.Me;
-            int BrokenIslesMapArea = 1007;
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
 
-            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
-            
-            var NumZones = int.Parse(ret[0]);
-
-            for (int i = 1; i <= NumZones; ++i)
-            {
-                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
-
-                var ZoneID = int.Parse(ret[0]);
-                var ZoneName = ret[1];
-                var ZoneDepth = int.Parse(ret[2]);
-
-                if (ZoneDepth > 1) //Do not look at subzones
-                {
-                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
-                    continue;
-                }
-
-                string ToRun = string.Format(@"     local questids = {{}};
-
-                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
-
-                                                    if taskInfo then
-				                                                    for i, info in ipairs(taskInfo) do
-					                                                    if HaveQuestData(info.questId) then
-						                                                    if QuestUtils_IsQuestWorldQuest(info.questId) then
-                                                                                    table.insert(questids, info.questId);
-							                                                    end
-						                                                    end
-					                                                    end
-				                                                    end
-                                                   return unpack(questids);
-                                                ", ZoneID, BrokenIslesMapArea);
-
-                ret = Lua.GetReturnValues(ToRun);
-
-                foreach (var q in ret)
-                {
-                    int questid = int.Parse(q);
-
-                    //TimeLeft is in minutes
-                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
-                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
-
-                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
-
-                    var data = new WorldQuestData();
-                    data.ID = questid;
-                    data.Name = QuestInfo[0];
-                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
-                    _cache.Add(data);
-                }
-            }
-
-            _dirty = false;
-        }
-
-        public static bool IsWorldQuest(int questid)
-        {
-            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
-
-            var ret = Lua.GetReturnValues(lua);
-
-            if (ret[3] == null)
-                return false;
-            return true;
-        }
-    }
-
-
-				]]>
-			</CustomBehavior>
-	
-<!--
-<Vendor Name="Felskorn Raider" Entry="108306" Type="Repair" Nav="Fly" X="3409.978" Y="2428.722" Z="241.0467" /> 3
-<Vendor Name="Bloodtotem Skirmisher" Entry="108289" Type="Repair" Nav="Fly" X="3413.757" Y="2431.811" Z="241.2613" /> 2
-<Vendor Name="Mightstone Savage" Entry="108283" Type="Repair" Nav="Fly" X="3443.967" Y="2479.531" Z="259.1943" /> 1
--->
-	
-		<While Condition="WorldQuestInfo.HasWorldQuest(41926)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="3333.74" Y="2491.774" Z="258.64" /> 
-				<Objective QuestName="Returning Champion" QuestId="41926" Type="KillMob" Nav="Fly" MobId="108283" KillCount="3" />
-				<Objective QuestName="Returning Champion" QuestId="41926" Type="KillMob" Nav="Fly" MobId="108289" KillCount="3" />
-				<Objective QuestName="Returning Champion" QuestId="41926" Type="KillMob" Nav="Fly" MobId="108306" KillCount="3" />
-				<TurnIn Nav="Fly" QuestName="Returning Champion" QuestId="41926" TurnInName="" TurnInId="" />
-
-</While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(41926)" >	
-				<RunTo X="3333.74" Y="2491.774" Z="258.64" />
-				
-				
-					<CustomBehavior File="InteractWith" NumOfTimes="13" QuestId="41926" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41926)">
-		<HuntingGrounds>
-<!-- <Hotspot X="2254.566" Y="6833.607" Z="119.8187" />
-<Hotspot X="2143.868" Y="6858.059" Z="102.6098" />
-<Hotspot X="2117.691" Y="6896.333" Z="92.03596" />
-<Hotspot X="2171.211" Y="6896.655" Z="104.4865" />
-<Hotspot X="2215.741" Y="6841.834" Z="112.779" />
-
-<Hotspot X="2277.484" Y="6809.455" Z="124.5197" />
--->
-<Hotspot X="3387.156" Y="2484.368" Z="256.5084" />
-<Hotspot X="3465.622" Y="2516.976" Z="271.6886" />
-<Hotspot X="3507.913" Y="2473.944" Z="266.0974" />
-<Hotspot X="3561.494" Y="2456.71" Z="270.5084" />
-<Hotspot X="3507.921" Y="2546.24" Z="287.8083" />
-		</HuntingGrounds>
-		<PursuitList>
-			<PursueUnit Id="108306" Priority="300" PursueWhen="!IsObjectiveComplete(3, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-			<PursueUnit Id="108289" Priority="200" PursueWhen="!IsObjectiveComplete(2, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-			<PursueUnit Id="108283" Priority="300" PursueWhen="!IsObjectiveComplete(1, 41926) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)" />
-		</PursuitList>
-	</CustomBehavior>
-				
-				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-
-		</While>
-	
-	
-<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
-</If>
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
-</QuestOrder>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest Returning Champion, loading auto-loader!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
 </HBProfile>
