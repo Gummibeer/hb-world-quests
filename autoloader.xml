@@ -1,0 +1,1948 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[WQ] World Quest Auto Loader ($Rev: 1081 $)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <Vendors>
+    <Vendor Name="Gentle Rosh" Type="Food" Entry="91457" X="-811.0851" Y="6098.343" Z="7.00528" />
+    <Vendor Name="Cleave Thunderhill" Type="Repair" Entry="89257" X="-790.5798" Y="6109.849" Z="4.647335" />
+    <Vendor Name="Vestulio the Servant" Type="Repair" Entry="90638" X="1402.411" Y="7129.866" Z="60.92487" />
+    <Vendor Name="Enchanted Claw of Ceruledan" Type="Repair" Entry="89938" X="624.4566" Y="6616.471" Z="61.76412" />
+    <Vendor Name="Falara Nightsong" Type="Repair" Entry="89640" X="-89.1441" Y="6951.358" Z="14.10535" />
+    <Vendor Name="Galica Bravepaw" Type="Repair" Entry="97858" X="4069.965" Y="4410.103" Z="768.1867" />
+    <Vendor Name="Lucas Sigmund" Type="Repair" Entry="94100" X="4494.187" Y="4865.437" Z="662.1328" />
+    <Vendor Name="Bar'tu Silverstream" Type="Repair" Entry="97869" X="5114.556" Y="4973.081" Z="752.5872" />
+    <Vendor Name="Shale Greyfeather" Type="Repair" Entry="99905" X="4106.347" Y="4405.938" Z="768.1934" />
+    <Vendor Name="De'tu Frostwing" Type="Repair" Entry="97865" X="4814.677" Y="3915.732" Z="826.8667" />
+    <Vendor Name="Cale Fireheart" Type="Repair" Entry="97876" X="3935.39" Y="3899.267" Z="905.3173" />
+    <Vendor Name="Crafty Palu" Type="Repair" Entry="108537" X="6470.426" Y="4746.604" Z="12.73519" />
+    <Vendor Name="Adaleigh Mae Nelson" Type="Food" Entry="108534" X="6455.857" Y="4732.254" Z="13.12072" />
+    <Vendor Name="Darbrul" Type="Repair" Entry="99205" X="5867.962" Y="4547.085" Z="614.298" UsableWhen="IsQuestCompleted(40229)" />
+    <Vendor Name="Supplier Barleyfoot" Type="Repair" Entry="110521" X="3211.746" Y="3086.97" Z="440.2122" />
+    <Vendor Name="Tinkmaster Overspark" Type="Repair" Entry="90866" X="3395.593" Y="3077.832" Z="526.3278" UsableWhen="IsQuestCompleted(38060)" />
+    <Vendor Name="Supplier Barleyfoot" Type="Repair" Entry="110521" X="2702.516" Y="2855.519" Z="308.8194" />
+    <Vendor Name="Hankerin Ferinale" Type="Repair" Entry="98109" X="2832.689" Y="903.7344" Z="77.96029" UsableWhen="Me.IsAlliance" />
+    <Vendor Name="Provisioner Sheldon" Type="Repair" Entry="110534" X="4099.574" Y="2940.889" Z="27.33306" UsableWhen="Me.IsHorde &amp;&amp; IsQuestCompleted(39801)" />
+    <Vendor Name="Quartermaster Ricard" Type="Repair" Entry="91535" X="3974.075" Y="2892.368" Z="241.747" UsableWhen="Me.IsHorde &amp;&amp; IsQuestCompleted(38362)" />
+    <Vendor Name="Julietta Smythe" Type="Repair" Entry="92839" X="2403.472" Y="1842.389" Z="18.8205" UsableWhen="Me.IsHorde" />
+    <Vendor Name="Kah'chu" Type="Repair" Entry="27188" X="373.0156" Y="358.8663" Z="28.41259" UsableWhen="Me.ZoneId == 7588" />
+    <Vendor Name="Callista Swiftglaive" Type="Repair" Entry="93464" X="2319.413" Y="6611.955" Z="140.3525" />
+    <Vendor Name="Javan Clawthorn" Type="Repair" Entry="92000" X="1951.083" Y="6912.71" Z="52.50054" />
+    <Vendor Name="Anelas Moonstone" Type="Food" Entry="110531" X="2832.1" Y="6480.855" Z="206.4948" />
+    <Vendor Name="Vassallorand Nightmist" Type="Repair" Entry="112629" X="2876.16" Y="6754.713" Z="219.5564" />
+    <Vendor Name="Rhys Carrington" Type="Repair" Entry="93945" X="2817.958" Y="7264.667" Z="22.13581" />
+  </Vendors>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public class Settings : Styx.Helpers.Settings
+    {
+        public static readonly string _settingsPath = Path.Combine(CharacterSettingsDirectory, "Profiles",
+            "NuokWorldQuestSettings.xml");
+        private static Settings _instance;
+        public static Settings Instance => _instance ?? (_instance = new Settings());
+        public Settings() : base(_settingsPath)
+        {
+        }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoWanted { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoPvP { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoDangerQuests { get; set; }
+        [Setting]   
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoElite { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoWorldBosses { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool DoProfessions { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoWorkOrders { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool ArtifactPower { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Equipment { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Blood { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool OrderHall { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Gold { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Items { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Azsuna { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Valsharah { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Stormheim { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Suramar { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Highmountain { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool EyeofAzshara { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Dalaran { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool TheWardens { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool CourtOfFarondis { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool KirinTor { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool HighmountainTribe { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool TheNightfallen { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Valarjar { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool EmissaryFirst { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Dreamweavers { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool SkipHBRelog { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool SVNUpdate { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool LoopProfile { get; set; }
+    }
+
+private HashSet<int> GetWorldQuestsByZone(int zone)
+        {
+            var lua = $@"SetMapByID({zone})
+local ids = {{}}
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({zone})
+if (taskInfo) then
+	for i, info  in ipairs(taskInfo) do
+		if HaveQuestData(info.questId) then
+			if QuestUtils_IsQuestWorldQuest(info.questId) and WorldMap_DoesWorldQuestInfoPassFilters(info) then
+                    tinsert (ids, info.questId )
+                    end
+                end
+            end
+       end
+return unpack(ids)";
+            var getResult = Lua.GetReturnValues(lua);
+            var list = new HashSet<int>();
+            foreach (var r in getResult)
+            {
+                list.Add(Lua.ParseLuaValue<int>(r));
+            }
+            return list;
+        }
+
+        public Dictionary<int, int> WorldQuest = new Dictionary<int, int>();
+
+        public void Update()
+        {
+            WorldQuest.Clear();
+
+            var zones = new HashSet<int>
+            {
+                1015,
+                1018,
+                1024,
+                1017,
+                1033,
+                1096,
+                1014
+            };
+
+            foreach (var z in zones)
+            {
+                var quest = GetWorldQuestsByZone(z);
+                foreach (var q in quest)
+                {
+                    var t = QuestRewardType(q);
+                    //return error = 0, gold = 1, artifactpower = 2, items = 3, blood = 4, currency = 5
+                    if(t==1)
+                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Gold");
+                    if(t==2)
+                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Artifact Power");
+                    if(t == 3)
+                    {
+                        var rewards = GetReward(q);
+                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Item {rewards[0]} {rewards[1]}");
+                    }
+                    if(t==4)
+                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Blood of Sargeras");
+                    if(t==5)
+                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Order Hall Resources");
+                    if(t == 6)
+                    {
+                        var rewards = GetReward(q);
+                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Equipment {rewards[0]} {rewards[1]}");
+                    }
+                    WorldQuest.Add(q, t);
+                }
+            }
+        }
+
+        public bool OnQuest(int id)
+        {
+            return WorldQuest.ContainsKey(id);
+        }
+
+        public bool HasPlugin => PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper") != null;
+
+        public void EnablePlugin()
+        {
+            var plugin = PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper");
+            if (plugin == null) return;
+            plugin.Enabled = false;
+            plugin.Enabled = true;
+        }
+
+        public bool PluginUptoDate()
+        {
+            var plugin = PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper");
+            if (plugin == null)
+            {
+                Log("Couldn't find the WorldQuestHelper plugin!");
+                return false;
+            }
+            var latestVersion = new Version(1, 1, 1044);
+            if (plugin.Version == latestVersion) return true;
+            Log($"---Plugin Update {latestVersion} available---");
+            Log("There is an updated version of the WorldQuestHelper settings plugin");
+            Log("Please update from the SVN and copy the folder WorldQuestHelper from \\world-quests\\Plugin to your HB Plugins folder");
+            Log("Once you have done this please restart the bot");
+            return false;
+        }
+
+        public void Log(string text)
+        {
+            Logging.Write(System.Windows.Media.Colors.DodgerBlue, "[WQ] " + text);
+        }
+
+        public bool ZoneEnabled(int zoneId)
+        {
+			if(zoneId == 1015)
+                return Settings.Instance.Azsuna;
+        	if(zoneId == 1018)
+                return Settings.Instance.Valsharah;
+            if(zoneId ==  1017)
+                return Settings.Instance.Stormheim;
+            if(zoneId ==  1033)
+                return Settings.Instance.Suramar;
+            if(zoneId ==  1024)
+                return Settings.Instance.Highmountain;
+            if(zoneId ==  1096)
+                 return Settings.Instance.EyeofAzshara;
+            if(zoneId ==  1014)
+                 return Settings.Instance.Dalaran;
+            return false;
+        }
+
+public int QuestRewardType(int questId)
+        {
+            var questLua = $@"local numQuestCurrencies = GetNumQuestLogRewardCurrencies({ questId })
+local money = GetQuestLogRewardMoney({ questId})
+local artifactXP = GetQuestLogRewardArtifactXP({ questId})
+local numQuestRewards = GetNumQuestLogRewards({ questId})
+if numQuestCurrencies > 0 then return 5; end
+if money > 0 then return 1; end
+if artifactXP > 0 then return 2; end
+if numQuestRewards > 0 then
+    local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, { questId})
+    if itemID == 124124 then return 4; end
+    local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount, itemEquipLoc, itemTexture = GetItemInfo(itemID)
+    if (itemName ~= nil and itemType == 'Consumable' and itemSubType == 'Other') then return 2; end
+    if (itemName ~= nil and itemType == 'Armor') then return 6; end
+    if (itemName ~= nil and itemSubType == 'Artifact Relic') then return 6; end
+    return 3; end
+return 0; ";
+            return Lua.GetReturnVal<int>(questLua, 0);
+        }
+
+        public bool PassesSettings(int questId)
+        {
+            if(!Settings.Instance.DoElite && EliteQuest(questId))
+                return false;
+          
+            //return error = 0, gold = 1, artifactpower = 2, items = 3, blood = 4, currency = 5, gear =  6
+            var rewardType = WorldQuest[questId];
+            if(rewardType == 1)
+                return Settings.Instance.Gold;
+            if (rewardType == 2)
+                return Settings.Instance.ArtifactPower;
+            if (rewardType == 3)
+                return Settings.Instance.Items;
+            if (rewardType == 4)
+                return Settings.Instance.Blood;
+            if (rewardType == 5)
+                return Settings.Instance.OrderHall;
+            if (rewardType == 6)
+                return Settings.Instance.Equipment;
+            return false;
+        }
+        public int TheWardens = 1894, CourtOfFarondis = 1900, Dreamweavers = 1883, KirinTor = 1090, HighmountainTribe = 1828, TheNightfallen = 1859, Valarjar = 1948;
+
+        public int GetFactionId(int questId) => Lua.GetReturnVal<int>($@"local title, factionId, capped = C_TaskQuest.GetQuestInfoByQuestID({questId});
+            if (factionId) then return factionId end return 0", 0);
+
+        //Temp removed TheNightfallen 42421 not enough profiles
+        public uint[] EmissaryIds = {42420, 42170, 42422, 42233, 43179, 42234};
+        public bool HasEmissary => EmissaryIds.Any(q => HasQuest(q));
+
+        public bool DoFaction(int questId)
+        {
+            var faction = GetFactionId(questId);
+            var hasEmissary = HasEmissary;
+            var emissaryFirst = Settings.Instance.EmissaryFirst;
+            if (faction == TheWardens && (!emissaryFirst || !hasEmissary || HasQuest(42422)))
+                return Settings.Instance.TheWardens;
+            if (faction == CourtOfFarondis && (!emissaryFirst || !hasEmissary  || HasQuest(42420)))
+                return Settings.Instance.CourtOfFarondis;
+            if (faction == Dreamweavers && (!emissaryFirst || !hasEmissary || HasQuest(42170)))
+                return Settings.Instance.Dreamweavers;
+            if (faction == KirinTor && (!emissaryFirst || !hasEmissary || HasQuest(43179)))
+                return Settings.Instance.KirinTor;
+            if (faction == HighmountainTribe && (!emissaryFirst || !hasEmissary || HasQuest(42233)))
+                return Settings.Instance.HighmountainTribe;
+            if (faction == TheNightfallen && (!emissaryFirst || !hasEmissary || HasQuest(42421)))
+                return Settings.Instance.TheNightfallen;
+            if (faction == Valarjar && (!emissaryFirst || !hasEmissary || HasQuest(42234)))
+                return Settings.Instance.Valarjar;
+            return false;
+        }
+
+        public List<string> GetReward(int questId) =>
+            Lua.GetReturnValues($"local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, {questId}); return name, itemID");
+
+        public string GetQuestName(int questId) =>
+            Lua.GetReturnVal<string>($"local title, factionId, capped = C_TaskQuest.GetQuestInfoByQuestID({questId }); return title; ", 0);
+
+        public bool EliteQuest(int questId) => Lua.GetReturnVal<bool>($"return GetQuestTagInfo({questId})", 4);
+
+        public bool QuestCompletedInLog(int questId) => 
+                Lua.GetReturnVal<bool>($@"for questIndex = 1, GetNumQuestLogEntries() do
+                    _, _, _, _, _, isComplete, _, questID = GetQuestLogTitle(questIndex);
+            if (questID == {questId}) then return isComplete; end end return false; ",  0);
+
+        public async Task ForceTurnin(int questId, string name, int npcId, float x, float y, float z)
+        {
+            if (!QuestCompletedInLog(questId)) return;
+
+            TreeRoot.GoalText = $"Turnin {name}";
+            var turninNpc =
+                ObjectManager.GetObjectsOfType<WoWUnit>().FirstOrDefault(u => u.IsValid && u.Entry == npcId);
+
+            if (turninNpc == null)
+            {
+                TreeRoot.StatusText = $"Moving to {x} {y} {z}";
+                await CommonCoroutines.MoveTo(new Vector3(x, y, z));
+                return;
+            }
+
+            if (!GossipFrame.Instance.IsVisible && !QuestFrame.Instance.IsVisible)
+            {
+                if (!turninNpc.WithinInteractRange)
+                {
+                    TreeRoot.StatusText = $"Moving to {turninNpc}";
+                    await CommonCoroutines.MoveTo(turninNpc.Location);
+                    return;
+                }
+                TreeRoot.StatusText = $"Interacting with {turninNpc}";
+                turninNpc.Interact();
+                await CommonCoroutines.SleepForRandomUiInteractionTime();
+            }
+
+            if (GossipFrame.Instance.IsVisible)
+            {
+                var quest = GossipFrame.Instance.ActiveQuests.FirstOrDefault(q => q.Id == questId);
+                if (quest == null) return;
+                TreeRoot.StatusText =$"Selecting {quest.Name} (GF)";
+                GossipFrame.Instance.SelectActiveGossipQuest(quest.Index);
+                GossipFrame.Instance.SelectActiveQuest(quest.Index);
+                await CommonCoroutines.SleepForRandomUiInteractionTime();
+                return;
+            }
+
+            if (!QuestFrame.Instance.IsVisible) return;
+
+            if (QuestFrame.Instance.CurrentShownQuestId == questId)
+            {
+                TreeRoot.GoalText = $"Completing {QuestFrame.Instance.CurrentShownQuest.Name}";
+                QuestFrame.Instance.SelectQuestReward(1);
+                await CommonCoroutines.SleepForRandomUiInteractionTime();
+                QuestFrame.Instance.CompleteQuest();
+                await CommonCoroutines.SleepForRandomUiInteractionTime();
+                return;
+            }
+            var questF = QuestFrame.Instance.ActiveQuests.FirstOrDefault(que => que.Id == questId);
+            if (questF == null) return;
+            TreeRoot.GoalText = $"Selecting {questF.Name} (QF)";
+            QuestFrame.Instance.SelectActiveGossipQuest(questF.Index);
+            QuestFrame.Instance.SelectActiveQuest(questF.Index);
+            await CommonCoroutines.SleepForRandomUiInteractionTime();
+        }
+
+        public async Task ForcedTurnin(int questId, string name, int npcId, float x, float y, float z)
+        {
+            while (QuestCompletedInLog(questId))
+            {
+                await ForceTurnin(questId, name, npcId, x, y, z);
+                await Coroutine.Yield();              
+            }
+        }]]></CustomBehavior>
+    <CustomBehavior File="RunCode" Code="Log(&quot;Welcome To The Community World Quest Project&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log(&quot;~Created by~&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log(&quot;Zinner, WiN, Staal, Pellepylly, Codex, tsatsa, Nuok&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log(&quot;~Credit to~&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log(&quot;Echo, Apoc, and everyone else that has helped&quot;);" />
+    <If Condition="Settings.Instance.SVNUpdate">
+      <CustomBehavior File="RunCode" Code="Log(&quot;Updating WQ profiles from the SVN..&quot;);" />
+      <CustomBehavior File="RunCode"><![CDATA[if(File.Exists(@"Default Profiles\\world-quests\\Utilities\\updater.bat")) Process.Start(@"Default Profiles\\world-quests\\Utilities\\updater.bat");]]></CustomBehavior>
+      <CustomBehavior File="WaitTimer" WaitTime="5000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Update(); Settings.Instance.Load();" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Current Settings&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Hard Quests&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;DoWanted {Settings.Instance.DoWanted} - DoDangerQuests {Settings.Instance.DoDangerQuests} - DoElite {Settings.Instance.DoElite} - DoPvP {Settings.Instance.DoPvP}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Professions&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;DoProfessions {Settings.Instance.DoProfessions} - DoWorkOrders {Settings.Instance.DoWorkOrders}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Zone&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Azsuna {Settings.Instance.Azsuna} - Valsharah {Settings.Instance.Valsharah} - Stormheim {Settings.Instance.Stormheim} - Suramar {Settings.Instance.Suramar}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Highmountain {Settings.Instance.Highmountain} - EyeofAzshara {Settings.Instance.EyeofAzshara} - Dalaran {Settings.Instance.Dalaran}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Faction&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;EmissaryFirst {Settings.Instance.EmissaryFirst} - HasEmissary {HasEmissary}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;TheWardens {Settings.Instance.TheWardens} - CourtOfFarondis {Settings.Instance.CourtOfFarondis} - KirinTor {Settings.Instance.KirinTor} - HighmountainTribe {Settings.Instance.HighmountainTribe}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Dreamweavers {Settings.Instance.Dreamweavers} - TheNightfallen {Settings.Instance.TheNightfallen} - Valarjar {Settings.Instance.Valarjar}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Rewards&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;ArtifactPower {Settings.Instance.ArtifactPower} - Equipment {Settings.Instance.Equipment} - Items {Settings.Instance.Items} - Blood of Sargeras {Settings.Instance.Blood}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;OrderHall {Settings.Instance.OrderHall} - Gold {Settings.Instance.Gold}&quot;);" />
+    <If Condition="!HasPlugin">
+      <CustomBehavior File="UserDialog" StopOnContinue="true" AllowBotStop="true" Title="Missing Settings Plugin" Text="We couldn't find the plugin,\n Please make sure you have copied the folder 'WorldQuestSettings' from \Default Profiles\world-quests\Plugin to Honorbuddy 3\Plugins and restart the bot" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Log($&quot;Plugin Upto Date {PluginUptoDate()}&quot;);" />
+    <CustomBehavior File="RunCode" Code="EnablePlugin();" />
+    <CustomBehavior File="RunCode" Code="Update(); Settings.Instance.Load();" />
+    <CustomBehavior File="WaitTimer" WaitTime="1000" />
+    <While Condition="HasQuest(42420) &amp;&amp; QuestCompletedInLog(42420)">
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42420, &quot;Court of Farondis&quot;, 107376, -8.559865f, 6736.977f, 55.58721f);" />
+    </While>
+    <While Condition="HasQuest(42170) &amp;&amp; QuestCompletedInLog(42170)">
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42170, &quot;The Dreamweavers&quot;, 106901, 2274.2f, 6592.066f, 138.8777f);" />
+    </While>
+    <While Condition="HasQuest(42422) &amp;&amp; QuestCompletedInLog(42422)">
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42422, &quot;The Wardens&quot;, 107379, -1441.083f, 6656.882f, 12.00175f);" />
+    </While>
+    <While Condition="HasQuest(42421) &amp;&amp; QuestCompletedInLog(42421)">
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42421, &quot;The Nightfallen&quot;, 97140, 1720.796f, 4617.22f, 123.9455f);" />
+    </While>
+    <While Condition="HasQuest(42233) &amp;&amp; QuestCompletedInLog(42233)">
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42233, &quot;Highmountain Tribes&quot;, 106902, 4112.049f, 4445.559f, 768.3433f);" />
+    </While>
+    <While Condition="HasQuest(43179) &amp;&amp; QuestCompletedInLog(43179)">
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(43179, &quot;The Kirin Tor of Dalaran&quot;, 32725, -849.4995f, 4597.092f, 748.7828f);" />
+    </While>
+    <While Condition="HasQuest(42234) &amp;&amp; QuestCompletedInLog(42234)">
+      <CustomBehavior File="RunCode" Code="await ForcedTurnin(42234, &quot;The Valarjar&quot;, 106904, 3189.06f, 1536.94f, 182.54f);" />
+    </While>
+    <If Condition="ZoneEnabled(1014)">
+      <!--Dalaran-->
+      <If Condition="OnQuest(41656) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41656)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41656-[N]-[QUEST]-Wq-Work Work Order Azsunite Loop&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41656-[N]-[QUEST]-Wq-Work Work Order Azsunite Loop" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41674) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41674)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41674-[N]-[QUEST]-Wq-Work Order Word of Intellect&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41674-[N]-[QUEST]-Wq-Work Order Word of Intellect" RememberProfile="false" />
+      </If>
+    </If>
+    <If Condition="ZoneEnabled(1015)">
+      <!--Azsuna-->
+      <If Condition="OnQuest(41259) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41259)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41259-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41259-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41268) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41268)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41272) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41272)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41272-[N]-[QUEST]-Wq-Work Order Mossgill Perch&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41272-[N]-[QUEST]-Wq-Work Order Mossgill Perch" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41288) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41288)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41288-[N]-[QUEST]-Wq-Supplies Needed Aethril -BUY Aethri from ah&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41288-[N]-[QUEST]-Wq-Supplies Needed Aethril -BUY Aethri from ah" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41290) &amp;&amp; PassesSettings(41290) &amp;&amp; DoFaction(41290)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41290-[N]-[QUEST]-Wq-Aqueous_Aethril-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41290-[N]-[QUEST]-Wq-Aqueous_Aethril-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41434) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41434)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41434-[N]-[QUEST]-Wq-Glowing Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41434-[N]-[QUEST]-Wq-Glowing Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41435) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41435)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41435-[N]-[QUEST]-Wq-Smooth Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41437) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41437)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41437-[N]-[QUEST]-Wq-Fine_Leystone_Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41437-[N]-[QUEST]-Wq-Fine_Leystone_Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41455) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41455)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41455-[N]-[QUEST]-Gleaming Leystone Outcropping-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41455-[N]-[QUEST]-Gleaming Leystone Outcropping-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41482) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41482)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41482-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41482-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41483) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41483)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41483-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41483-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41496) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41496)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41496-[N]-[QUEST]-Wq-Raw Leystone Seams-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41496-[N]-[QUEST]-Wq-Raw Leystone Seams-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41513) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41513)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41513-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41513-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41514) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41514)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41514-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41514-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41520) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41520)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41520-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41520-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41545) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41545)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41545-[N]-[QUEST]-Wq-Aethril Cluster-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41545-[N]-[QUEST]-Wq-Aethril Cluster-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41551) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41551)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41551-[N]-[QUEST]-Wq-Slab of Bacon-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41551-[N]-[QUEST]-Wq-Slab of Bacon-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41552) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41552)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41552-[N]-[QUEST]-Wq-Slab_of_Bacon2-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41552-[N]-[QUEST]-Wq-Slab_of_Bacon2-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41560) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41560)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41560-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41560-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41563) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41563)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41563-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41563-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41564) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41564)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41564-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41564-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41633) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41633)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41633-[N]-[QUEST]-Wq-Work Order Leystone Greaves&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41633-[N]-[QUEST]-Wq-Work Order Leystone Greaves" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41651)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41669) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41669)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike -BUY Word of Critical Strike from ah&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike -BUY Word of Critical Strike from ah" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41669) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41669)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41896) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(41896) &amp;&amp; DoFaction(41896)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41896-[N]-[QUEST]-Wq-PVP_Operation_Murloc_Freedom-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41896-[N]-[QUEST]-Wq-PVP_Operation_Murloc_Freedom-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42014) &amp;&amp; PassesSettings(42014) &amp;&amp; DoFaction(42014)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42014-[N]-[QUEST]-Wq-A_Tainted_Vintage-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42014-[N]-[QUEST]-Wq-A_Tainted_Vintage-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42018) &amp;&amp; PassesSettings(42018) &amp;&amp; DoFaction(42018)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42018-[N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42018-[N]-[QUEST]-Wq-Those_Beyond_Redemption-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42019) &amp;&amp; PassesSettings(42019) &amp;&amp; DoFaction(42019)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42019-[N]-[QUEST]-Wq-Tip the Scales-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42019-[N]-[QUEST]-Wq-Tip the Scales-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42021) &amp;&amp; PassesSettings(42021) &amp;&amp; DoFaction(42021)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42021-[N]-[QUEST] Investigation at Mak'rana-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42021-[N]-[QUEST] Investigation at Mak'rana-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42022) &amp;&amp; PassesSettings(42022) &amp;&amp; DoFaction(42022)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42022-[N]-[QUEST]-Wq-The_Broken_Academy-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42022-[N]-[QUEST]-Wq-The_Broken_Academy-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42024) &amp;&amp; PassesSettings(42024) &amp;&amp; DoFaction(42024)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42024-[N]-[QUEST]-Wq-A_Friend_of_My_Enemy-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42024-[N]-[QUEST]-Wq-A_Friend_of_My_Enemy-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42024) &amp;&amp; PassesSettings(42024) &amp;&amp; DoFaction(42024)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42024-[N]-[QUEST]-Wq-ELITE_A_Friend_of_My_Enemy-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42024-[N]-[QUEST]-Wq-ELITE_A_Friend_of_My_Enemy-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42026) &amp;&amp; PassesSettings(42026) &amp;&amp; DoFaction(42026)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42026-[N]-[QUEST]-Wq-Faronaar_in_Ruin-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42026-[N]-[QUEST]-Wq-Faronaar_in_Ruin-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42027) &amp;&amp; PassesSettings(42027) &amp;&amp; DoFaction(42027)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42027-[N]-[QUEST]-Wq-Faronaar_in_Chaos-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42027-[N]-[QUEST]-Wq-Faronaar_in_Chaos-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42101) &amp;&amp; PassesSettings(42101) &amp;&amp; DoFaction(42101)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42101-[N]-[QUEST]-Wq-Language_of_the_Lost-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42101-[N]-[QUEST]-Wq-Language_of_the_Lost-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42105) &amp;&amp; PassesSettings(42105) &amp;&amp; DoFaction(42105)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42105-[N]-[QUEST]-Wq-Mixology-Mix-up-Aszuna-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42105-[N]-[QUEST]-Wq-Mixology-Mix-up-Aszuna-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42108) &amp;&amp; PassesSettings(42108) &amp;&amp; DoFaction(42108)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42108-[N]-[QUEST]-Rally the Nightwatchers-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42108-[N]-[QUEST]-Rally the Nightwatchers-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42112) &amp;&amp; PassesSettings(42112) &amp;&amp; DoFaction(42112)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42112-[N]-[QUEST]-Wq-The_Withered_Return-WiN-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42112-[N]-[QUEST]-Wq-The_Withered_Return-WiN-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42119) &amp;&amp; PassesSettings(42119) &amp;&amp; DoFaction(42119)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42119-[N]-[QUEST]-Wq-A_Cleansing_Cocktail-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42119-[N]-[QUEST]-Wq-A_Cleansing_Cocktail-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42123) &amp;&amp; PassesSettings(42123) &amp;&amp; DoFaction(42123)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42123-[N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42123-[N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42160) &amp;&amp; PassesSettings(42160) &amp;&amp; DoFaction(42160)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42160-[N]-[QUEST]-Wq-Unwelcome_Visitors-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42160-[N]-[QUEST]-Wq-Unwelcome_Visitors-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42172) &amp;&amp; PassesSettings(42172) &amp;&amp; DoFaction(42172)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42172-[N]-[QUEST]-Wq-Leyhollow Infestation-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42172-[N]-[QUEST]-Wq-Leyhollow Infestation-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42211) &amp;&amp; PassesSettings(42211) &amp;&amp; DoFaction(42211)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42211-[N]-[QUEST]-Wq-Leodraths_Kin-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42211-[N]-[QUEST]-Wq-Leodraths_Kin-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42275) &amp;&amp; PassesSettings(42275) &amp;&amp; DoFaction(42275)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42275-[N]-[QUEST]-Wq-Not_On_My_Watch-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42275-[N]-[QUEST]-Wq-Not_On_My_Watch-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42276) &amp;&amp; PassesSettings(42276) &amp;&amp; DoFaction(42276)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42276-[N]-[QUEST]-Wq-Disgusting_but_Useful-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42276-[N]-[QUEST]-Wq-Disgusting_but_Useful-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42277) &amp;&amp; PassesSettings(42277) &amp;&amp; DoFaction(42277)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42277-[N]-[QUEST]-Wq-Interlopers-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42277-[N]-[QUEST]-Wq-Interlopers-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42432) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42432) &amp;&amp; DoFaction(42432)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42432-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42432-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42506) &amp;&amp; PassesSettings(42506) &amp;&amp; DoFaction(42506)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42506-[N]-[QUEST]-Wq-Tomes_of_Yore-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42506-[N]-[QUEST]-Wq-Tomes_of_Yore-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42511) &amp;&amp; PassesSettings(42511) &amp;&amp; DoFaction(42511)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42511-[N]-[QUEST]-Wq-Twisted Souls-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42511-[N]-[QUEST]-Wq-Twisted Souls-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42620) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42620) &amp;&amp; DoFaction(42620)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42620-[N]-[QUEST]-Wq-WANTED_Arcavellus-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42620-[N]-[QUEST]-Wq-WANTED_Arcavellus-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42623) &amp;&amp; PassesSettings(42623) &amp;&amp; DoFaction(42623)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42623-[N]-[QUEST]-Wq-Piracy_doesnt_Pay-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42623-[N]-[QUEST]-Wq-Piracy_doesnt_Pay-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42624) &amp;&amp; PassesSettings(42624) &amp;&amp; DoFaction(42624)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42624-[N]-[QUEST]-Wq-Heads_of_the_Fleet-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42624-[N]-[QUEST]-Wq-Heads_of_the_Fleet-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42631) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42631) &amp;&amp; DoFaction(42631)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42631-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42631-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42633) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42633) &amp;&amp; DoFaction(42633)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42633-[N]-[QUEST]-Wq-WANTED_Vorthax-Pellepylly&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42633-[N]-[QUEST]-Wq-WANTED_Vorthax-Pellepylly" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42636) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42636) &amp;&amp; DoFaction(42636)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42636-[N]-[QUEST]-Wq-WANTED_Arcanist_Shaliman-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42636-[N]-[QUEST]-Wq-WANTED_Arcanist_Shaliman-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42652) &amp;&amp; PassesSettings(42652) &amp;&amp; DoFaction(42652)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42652-[N]-[QUEST]-Wq-Ancient_Exemplars-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42652-[N]-[QUEST]-Wq-Ancient_Exemplars-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42711) &amp;&amp; PassesSettings(42711) &amp;&amp; DoFaction(42711)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42711-[N]-[QUEST]-Wq-The_Eternal_Mages-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42711-[N]-[QUEST]-Wq-The_Eternal_Mages-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43027) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43027) &amp;&amp; DoFaction(43027)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43063) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43063) &amp;&amp; DoFaction(43063)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43063-[N]-[QUEST]-Wq-DANGER-Stormfeather-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43063-[N]-[QUEST]-Wq-DANGER-Stormfeather-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43072) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43072) &amp;&amp; DoFaction(43072)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43072-[N]-[QUEST]-Wq-DANGER The Whisperer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43072-[N]-[QUEST]-Wq-DANGER The Whisperer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43079) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43079) &amp;&amp; DoFaction(43079)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43079-[N]-[QUEST]-Wq-DANGER Immolian-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43079-[N]-[QUEST]-Wq-DANGER Immolian-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43091) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43091) &amp;&amp; DoFaction(43091)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43091-[N]-[QUEST]-Wq-DANGER Arcanor Prime-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43091-[N]-[QUEST]-Wq-DANGER Arcanor Prime-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43192) &amp;&amp; Settings.Instance.DoWorldBosses &amp;&amp; PassesSettings(43192) &amp;&amp; DoFaction(43192)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43192-[N]-[QUEST]-Wq-Terror_of_the_Deep-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43192-[N]-[QUEST]-Wq-Terror_of_the_Deep-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43193) &amp;&amp; Settings.Instance.DoWorldBosses &amp;&amp; PassesSettings(43193) &amp;&amp; DoFaction(43193)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43193-[N]-[QUEST]-Wq-DEADLY_Calamitous_Intent-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43193-[N]-[QUEST]-Wq-DEADLY_Calamitous_Intent-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43325) &amp;&amp; PassesSettings(43325) &amp;&amp; DoFaction(43325)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43325-[N]-[QUEST]-Wq-Ley Race-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43325-[N]-[QUEST]-Wq-Ley Race-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43327) &amp;&amp; PassesSettings(43327) &amp;&amp; DoFaction(43327)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43327-[N]-[QUEST]-The Magic of Flight-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43327-[N]-[QUEST]-The Magic of Flight-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43426) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43426) &amp;&amp; DoFaction(43426)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43426-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43426-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43427) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43427) &amp;&amp; DoFaction(43427)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43427-[N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43427-[N]-[QUEST]-Wq-WANTED Infernal Lord-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43428) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43428) &amp;&amp; DoFaction(43428)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43428) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43428) &amp;&amp; DoFaction(43428)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43428-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43429) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43429) &amp;&amp; DoFaction(43429)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43429-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43429-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43430) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43430) &amp;&amp; DoFaction(43430)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43430-[N]-[QUEST]-Wq-WANTED Captain Volo'ren-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43430-[N]-[QUEST]-Wq-WANTED Captain Volo'ren-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43431) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43431) &amp;&amp; DoFaction(43431)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43431-[N]-[QUEST]-Wq-WANTED_Warbringer_Moxna-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43431-[N]-[QUEST]-Wq-WANTED_Warbringer_Moxna-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43606) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43606) &amp;&amp; DoFaction(43606)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43606-[N]-[QUEST]-WANTED Arcavellus-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43606-[N]-[QUEST]-WANTED Arcavellus-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43607) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43607) &amp;&amp; DoFaction(43607)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43607-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43607-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43609) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43609) &amp;&amp; DoFaction(43609)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43609-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43609-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43610) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43610) &amp;&amp; DoFaction(43610)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43610-[N]-[QUEST]-Wq-WANTED Infernal Lord-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43610-[N]-[QUEST]-Wq-WANTED Infernal Lord-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43611) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43611) &amp;&amp; DoFaction(43611)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43611-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43611-[N]-[QUEST]-WANTED Inquisitor Tivos-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43612) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43612) &amp;&amp; DoFaction(43612)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43612-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43612-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43613) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43613) &amp;&amp; DoFaction(43613)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43613-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43613-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43614) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43614) &amp;&amp; DoFaction(43614)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43614-[N]-[QUEST]-Wq-WANTED_Vorthax-Pellepylly&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43614-[N]-[QUEST]-Wq-WANTED_Vorthax-Pellepylly" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43615) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43615) &amp;&amp; DoFaction(43615)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43615-[N]-[QUEST]-Wq-WANTED_Warbringer_Moxna-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43615-[N]-[QUEST]-Wq-WANTED_Warbringer_Moxna-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43805) &amp;&amp; PassesSettings(43805) &amp;&amp; DoFaction(43805)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43805-[N]-[QUEST]-Wq-Aquatic-Assassination-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43805-[N]-[QUEST]-Wq-Aquatic-Assassination-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44049) &amp;&amp; PassesSettings(44049) &amp;&amp; DoFaction(44049)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44049-[N]-[QUEST]-Wq-Evil Has Many Legs-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44049-[N]-[QUEST]-Wq-Evil Has Many Legs-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44054) &amp;&amp; PassesSettings(44054) &amp;&amp; DoFaction(44054)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44054-[N]-[QUEST]-Wq-Demonicide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44054-[N]-[QUEST]-Wq-Demonicide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44190) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44190) &amp;&amp; DoFaction(44190)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44190-[N]-[QUEST]-Wq-DANGER Jade Darkhaven-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44190-[N]-[QUEST]-Wq-DANGER Jade Darkhaven-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44192) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44192) &amp;&amp; DoFaction(44192)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44192-[N]-[QUEST]-Wq-DANGER_Lysanis_Shadesoul-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44192-[N]-[QUEST]-Wq-DANGER_Lysanis_Shadesoul-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44193) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44193) &amp;&amp; DoFaction(44193)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44193-[N]-[QUEST]-Wq-DANGER Sea King Tildross-WiN_super_dangerous&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44193-[N]-[QUEST]-Wq-DANGER Sea King Tildross-WiN_super_dangerous" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44194) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44194) &amp;&amp; DoFaction(44194)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44194-[N]-[QUEST]-Wq-DANGER_Torrentius-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44194-[N]-[QUEST]-Wq-DANGER_Torrentius-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44287) &amp;&amp; Settings.Instance.DoWorldBosses &amp;&amp; PassesSettings(44287) &amp;&amp; DoFaction(44287)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44287-[N]-[QUEST]-Wq-DEADLY_Withered_Jim-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44287-[N]-[QUEST]-Wq-DEADLY_Withered_Jim-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44847) &amp;&amp; PassesSettings(44847) &amp;&amp; DoFaction(44847)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44847-[N]-[QUEST]-Wq-Straight From the Source-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44847-[N]-[QUEST]-Wq-Straight From the Source-Zinner" RememberProfile="false" />
+      </If>
+    </If>
+    <If Condition="ZoneEnabled(1017)">
+      <!--Stormheim-->
+      <If Condition="OnQuest(41275) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41275)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41427) &amp;&amp; PassesSettings(41427) &amp;&amp; DoFaction(41427)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41442) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41442)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41442-[N]-[QUEST]-Wq-Striking Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41442-[N]-[QUEST]-Wq-Striking Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41444) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41444)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41488) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41488)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41488-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41488-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41489) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41489)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41519) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41519)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41519-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41519-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41534) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41534)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41534-[N]-[QUEST]-Wq-Brambly_Fjarnskaggl-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41534-[N]-[QUEST]-Wq-Brambly_Fjarnskaggl-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41536) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41536)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41556) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41556)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41568) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41568)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41568-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41568-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41569) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41569)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41569-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41569-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41615) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41615)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41636) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41636)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41636-[N]-[QUEST]-Wq-Work Order Leystone Breastplate&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41636-[N]-[QUEST]-Wq-Work Order Leystone Breastplate" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41648) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41648)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41651)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41654) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41654)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41654-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41654-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41794) &amp;&amp; PassesSettings(41794) &amp;&amp; DoFaction(41794)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41794-[N]-[QUEST]-Wq-Drakestalker-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41794-[N]-[QUEST]-Wq-Drakestalker-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41925) &amp;&amp; PassesSettings(41925) &amp;&amp; DoFaction(41925)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41925-[N]-[QUEST]-Wq-Razing_Hel&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41925-[N]-[QUEST]-Wq-Razing_Hel" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41926) &amp;&amp; PassesSettings(41926) &amp;&amp; DoFaction(41926)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41926-[N]-[QUEST]-Wq-Returning Champion-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41926-[N]-[QUEST]-Wq-Returning Champion-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41927) &amp;&amp; PassesSettings(41927) &amp;&amp; DoFaction(41927)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41930) &amp;&amp; PassesSettings(41930) &amp;&amp; DoFaction(41930)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41930-[N]-[QUEST]-Wq-Valor Calls-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41930-[N]-[QUEST]-Wq-Valor Calls-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41938) &amp;&amp; PassesSettings(41938) &amp;&amp; DoFaction(41938)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41950) &amp;&amp; PassesSettings(41950) &amp;&amp; DoFaction(41950)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41950-[N]-[QUEST]-Wq-Cry_More_Thunder&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41984) &amp;&amp; PassesSettings(41984) &amp;&amp; DoFaction(41984)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42013) &amp;&amp; PassesSettings(42013) &amp;&amp; DoFaction(42013)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42013-[N]-[QUEST]-Wq-The Helmouth-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42013-[N]-[QUEST]-Wq-The Helmouth-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42025) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(42025) &amp;&amp; DoFaction(42025)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42176) &amp;&amp; PassesSettings(42176) &amp;&amp; DoFaction(42176)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42177) &amp;&amp; PassesSettings(42177) &amp;&amp; DoFaction(42177)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42177-[N]-[QUEST]-Wq-Reclaiming Morheim-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42177-[N]-[QUEST]-Wq-Reclaiming Morheim-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42182) &amp;&amp; PassesSettings(42182) &amp;&amp; DoFaction(42182)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42182-[N]-[QUEST]-Wq-To_Battle-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42182-[N]-[QUEST]-Wq-To_Battle-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42183) &amp;&amp; PassesSettings(42183) &amp;&amp; DoFaction(42183)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42183-[N]-[QUEST]-To Battle!-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42183-[N]-[QUEST]-To Battle!-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42785) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(42785) &amp;&amp; DoFaction(42785)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42785-[N]-[QUEST]-Wq-DANGER Den Mother Ylva-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42785-[N]-[QUEST]-Wq-DANGER Den Mother Ylva-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42798) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(42798) &amp;&amp; DoFaction(42798)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42798-[N]-[QUEST]-Wq-DANGER Huntress Estrid-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42798-[N]-[QUEST]-Wq-DANGER Huntress Estrid-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42806) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42806) &amp;&amp; DoFaction(42806)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42806-[N]-[QUEST]-Wq-WANTED_Fjorlag-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42806-[N]-[QUEST]-Wq-WANTED_Fjorlag-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42964) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(42964) &amp;&amp; DoFaction(42964)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42964-[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42964-[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43434) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43434) &amp;&amp; DoFaction(43434)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43434-[N]-[QUEST]-Wq-WANTED_Fathnyr-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43434-[N]-[QUEST]-Wq-WANTED_Fathnyr-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43436) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43436) &amp;&amp; DoFaction(43436)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
+      </If>
+        <If Condition="OnQuest(43450) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43450) &amp;&amp; DoFaction(43450)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43451) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43451) &amp;&amp; DoFaction(43451)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43451-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43451-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43452) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43452) &amp;&amp; DoFaction(43452)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43452-[N]-[QUEST]-Wq-WANTED_Isel_the_Hammer&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43452-[N]-[QUEST]-Wq-WANTED_Isel_the_Hammer" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43453) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43453) &amp;&amp; DoFaction(43453)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43453-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43453-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43454) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43454) &amp;&amp; DoFaction(43454)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43454-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43454-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43455) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43455) &amp;&amp; DoFaction(43455)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43598) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43598) &amp;&amp; DoFaction(43598)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43598-[H]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43598-[H]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43599) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43599) &amp;&amp; DoFaction(43599)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43600) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43600) &amp;&amp; DoFaction(43600)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43600-[H]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43601) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43601) &amp;&amp; DoFaction(43601)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43622) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43622) &amp;&amp; DoFaction(43622)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43623) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43623) &amp;&amp; DoFaction(43623)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
+      </If>
+      <!--
+      <If Condition="OnQuest(43625) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43625) &amp;&amp; DoFaction(43625)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
+      </If>
+      -->
+      <If Condition="OnQuest(43626) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43626) &amp;&amp; DoFaction(43626)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43627) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43627) &amp;&amp; DoFaction(43627)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43627-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43627-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43628) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43628) &amp;&amp; DoFaction(43628)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43710) &amp;&amp; PassesSettings(43710) &amp;&amp; DoFaction(43710)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43710-[N]-[QUEST]-Wq-Dark Runes-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43710-[N]-[QUEST]-Wq-Dark Runes-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43721) &amp;&amp; PassesSettings(43721) &amp;&amp; DoFaction(43721)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43722) &amp;&amp; PassesSettings(43722) &amp;&amp; DoFaction(43722)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43772) &amp;&amp; PassesSettings(43772) &amp;&amp; DoFaction(43772)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43772-[N]-[QUEST]-Enigmatic-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43772-[N]-[QUEST]-Enigmatic-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43951) &amp;&amp; PassesSettings(43951) &amp;&amp; DoFaction(43951)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43963) &amp;&amp; PassesSettings(43963) &amp;&amp; DoFaction(43963)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43963-[N]-[QUEST]-Wq-Vampirates-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43964) &amp;&amp; PassesSettings(43964) &amp;&amp; DoFaction(43964)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43964-[N]-[QUEST]-A Jarl's Feast-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43964-[N]-[QUEST]-A Jarl's Feast-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44893) &amp;&amp; PassesSettings(44893) &amp;&amp; DoFaction(44893)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44893-[N]-[QUEST]-Direbeak Swarm!-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44893-[N]-[QUEST]-Direbeak Swarm!-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44943) &amp;&amp; PassesSettings(44943) &amp;&amp; DoFaction(44943)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44943-[N]-[QUEST]-Wq-Now That's Just Clawful!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44943-[N]-[QUEST]-Wq-Now That's Just Clawful!-Zinner" RememberProfile="false" />
+      </If>
+    </If>
+    <If Condition="ZoneEnabled(1018)">
+      <!--Valshara-->
+      <If Condition="OnQuest(41291) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41291)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41291-[N]-[QUEST]-Wq-Dreamleaf_Cluster-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41291-[N]-[QUEST]-Wq-Dreamleaf_Cluster-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41293) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41293)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41293-[N]-[QUEST]-Wq-Supplies Needed Dreamleaf-Zinner-BUY 40 Dreamleaf from ah&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41293-[N]-[QUEST]-Wq-Supplies Needed Dreamleaf-Zinner-BUY 40 Dreamleaf from ah" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41334) &amp;&amp; PassesSettings(41334) &amp;&amp; DoFaction(41334)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41334-[N]-[QUEST]-Wq-Musky_Bear_Hide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41334-[N]-[QUEST]-Wq-Musky_Bear_Hide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41440) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41440)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41440-[N]-[QUEST]-Wq-Magnificent Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41440-[N]-[QUEST]-Wq-Magnificent Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41457) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41457)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41457-[N]-[QUEST]-Wq-Radiant Leystone Outcropping-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41457-[N]-[QUEST]-Wq-Radiant Leystone Outcropping-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41486) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41486)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41486-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41486-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41516) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41516)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41516-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41516-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41518) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41518)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41518-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41518-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41553) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41553)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41553-[N]-[QUEST]-Wq-Slab of Bacon-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41553-[N]-[QUEST]-Wq-Slab of Bacon-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41553) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41553)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41553-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41553-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41554) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41554)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41554-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41554-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41566) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41566)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41566-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41566-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41612) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41612)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41612-[N]-[QUEST]-Wq-Huge Mossgill Perch-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41612-[N]-[QUEST]-Wq-Huge Mossgill Perch-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41613) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41613)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41613-[N]-[QUEST]-Wq-Huge_Mossgill_Perch-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41613-[N]-[QUEST]-Wq-Huge_Mossgill_Perch-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41634) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41634)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41634-[N]-[QUEST]-Wq-Work Order Leystone Armguards&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41634-[N]-[QUEST]-Wq-Work Order Leystone Armguards" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41652) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41652)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41652-[N]-[QUEST]-Wq-Work Order Deep Amber Loop&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41652-[N]-[QUEST]-Wq-Work Order Deep Amber Loop" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41670) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41670)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41670-[N]-[QUEST]-Wq-Work Order Word of Agility -BUY Word of Agility from ah&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41670-[N]-[QUEST]-Wq-Work Order Word of Agility -BUY Word of Agility from ah" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41955) &amp;&amp; PassesSettings(41955) &amp;&amp; DoFaction(41955)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41956) &amp;&amp; PassesSettings(41956) &amp;&amp; DoFaction(41956)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41956-[N]-[QUEST]-Wq-Petrified Acolytes-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41956-[N]-[QUEST]-Wq-Petrified Acolytes-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41964) &amp;&amp; PassesSettings(41964) &amp;&amp; DoFaction(41964)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41964-[N]-[QUEST]-Wq-Poisoned_Waters-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41964-[N]-[QUEST]-Wq-Poisoned_Waters-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41965) &amp;&amp; PassesSettings(41965) &amp;&amp; DoFaction(41965)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41965-[N]-[QUEST]-Wq-Lunarwing-Liberation-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41965-[N]-[QUEST]-Wq-Lunarwing-Liberation-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41980) &amp;&amp; PassesSettings(41980) &amp;&amp; DoFaction(41980)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41980-[N]-[QUEST]-Wq-Temple_Defense-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41980-[N]-[QUEST]-Wq-Temple_Defense-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41992) &amp;&amp; PassesSettings(41992) &amp;&amp; DoFaction(41992)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41992-[N]-[QUEST]-Wq-Twisted_Ash-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41992-[N]-[QUEST]-Wq-Twisted_Ash-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41995) &amp;&amp; PassesSettings(41995) &amp;&amp; DoFaction(41995)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41995-[N]-[QUEST]-Wq-Dark_Corruption-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41995-[N]-[QUEST]-Wq-Dark_Corruption-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41996) &amp;&amp; PassesSettings(41996) &amp;&amp; DoFaction(41996)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41996-[N]-[QUEST]-Wq-Tangled_Nightmare-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41996-[N]-[QUEST]-Wq-Tangled_Nightmare-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42028) &amp;&amp; PassesSettings(42028) &amp;&amp; DoFaction(42028)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42028-[N]-[QUEST]-Wq-Into_the_Nightmare-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42028-[N]-[QUEST]-Wq-Into_the_Nightmare-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42070) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(42070) &amp;&amp; DoFaction(42070)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42070-[H]-[QUEST]-Wq-Warden_Tower_Assault_Starstalkers_Point-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42070-[H]-[QUEST]-Wq-Warden_Tower_Assault_Starstalkers_Point-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42075) &amp;&amp; PassesSettings(42075) &amp;&amp; DoFaction(42075)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42075-[N]-[QUEST]-Wq-Botanical_Backlash-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42075-[N]-[QUEST]-Wq-Botanical_Backlash-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42075) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42075) &amp;&amp; DoFaction(42075)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42075-[N]-[QUEST]-Wq-WANTED_Botanical_Backlash-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42075-[N]-[QUEST]-Wq-WANTED_Botanical_Backlash-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42076) &amp;&amp; PassesSettings(42076) &amp;&amp; DoFaction(42076)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42076-[N]-[QUEST]-Wq-Shadowfen_Village-Win" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42077) &amp;&amp; PassesSettings(42077) &amp;&amp; DoFaction(42077)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42077-[N]-[QUEST]-Wq-Waking_Nightmares-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42077-[N]-[QUEST]-Wq-Waking_Nightmares-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42080) &amp;&amp; PassesSettings(42080) &amp;&amp; DoFaction(42080)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42080-[N]-[QUEST]-Wq-Bastion_of_Bradensbrook-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42080-[N]-[QUEST]-Wq-Bastion_of_Bradensbrook-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42087) &amp;&amp; PassesSettings(42087) &amp;&amp; DoFaction(42087)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42087-[N]-[QUEST]-Wq-Green Horror-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42087-[N]-[QUEST]-Wq-Green Horror-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42124) &amp;&amp; PassesSettings(42124) &amp;&amp; DoFaction(42124)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42124-[N]-[QUEST]-Wq-Hags_and_Hexes-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42124-[N]-[QUEST]-Wq-Hags_and_Hexes-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42145) &amp;&amp; PassesSettings(42145) &amp;&amp; DoFaction(42145)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42145-[N]-[QUEST]-Wq-Out_of_the_Woodwork-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42145-[N]-[QUEST]-Wq-Out_of_the_Woodwork-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42150) &amp;&amp; PassesSettings(42150) &amp;&amp; DoFaction(42150)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42174) &amp;&amp; PassesSettings(42174) &amp;&amp; DoFaction(42174)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42174-[N]-[QUEST]-Wq-Champions of Elune-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42174-[N]-[QUEST]-Wq-Champions of Elune-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42870) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(42870) &amp;&amp; DoFaction(42870)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42870-[N]-[QUEST]-Wq-DANGER-Kathaw_the_Savage-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42870-[N]-[QUEST]-Wq-DANGER-Kathaw_the_Savage-WiN" RememberProfile="false" />
+      </If>
+        <If Condition="OnQuest(43101) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43101) &amp;&amp; DoFaction(43101)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43101-[N]-[QUEST]-Wq-DANGER Witchdoctor Grgl-Brgl-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43101-[N]-[QUEST]-Wq-DANGER Witchdoctor Grgl-Brgl-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43152) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43152) &amp;&amp; DoFaction(43152)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43152-[N]-[QUEST]-Wq-DANGER_Lytheron-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43152-[N]-[QUEST]-Wq-DANGER_Lytheron-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43183) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43183) &amp;&amp; DoFaction(43183)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43183-[A]-[QUEST]-Wq-Warden_Tower_Assault_Starstalkers_Point-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43183-[A]-[QUEST]-Wq-Warden_Tower_Assault_Starstalkers_Point-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43247) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43247) &amp;&amp; DoFaction(43247)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43247-[H]-[QUEST]-Wq-Warden_Tower_Darkfollows_Spire-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43247-[H]-[QUEST]-Wq-Warden_Tower_Darkfollows_Spire-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43248) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(43248) &amp;&amp; DoFaction(43248)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43248-[A]-[QUEST]-Wq-Warden_Tower_Assault_Darkfollows_Spire-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43248-[A]-[QUEST]-Wq-Warden_Tower_Assault_Darkfollows_Spire-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43324) &amp;&amp; PassesSettings(43324) &amp;&amp; DoFaction(43324)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43324-[N]-[QUEST]-Wq-Rage_of_the_Owlbeasts-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43324-[N]-[QUEST]-Wq-Rage_of_the_Owlbeasts-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43332) &amp;&amp; PassesSettings(43332) &amp;&amp; DoFaction(43332)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43332-[N]-[QUEST]-Wq-Grell_in_a_Handbasket-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43332-[N]-[QUEST]-Wq-Grell_in_a_Handbasket-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43336) &amp;&amp; PassesSettings(43336) &amp;&amp; DoFaction(43336)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43336-[N]-[QUEST]-Wq-Purge of the Nightmare-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43336-[N]-[QUEST]-Wq-Purge of the Nightmare-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43346) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43346) &amp;&amp; DoFaction(43346)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43346-[N]-[QUEST]-DANGER Ealdis-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43346-[N]-[QUEST]-DANGER Ealdis-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43347) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43347) &amp;&amp; DoFaction(43347)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43347-[N]-[QUEST]-Wq-DANGER_Rabxach-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43347-[N]-[QUEST]-Wq-DANGER_Rabxach-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43456) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43456) &amp;&amp; DoFaction(43456)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43456-[N]-[QUEST]-Wq-WANTED_Skulvrax-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43456-[N]-[QUEST]-Wq-WANTED_Skulvrax-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43458) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43458) &amp;&amp; DoFaction(43458)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43458-[N]-[QUEST]-Wq-WANTED_Perrexx-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43458-[N]-[QUEST]-Wq-WANTED_Perrexx-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43459) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43459) &amp;&amp; DoFaction(43459)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43459-[N]-[QUEST]-Wq-WANTED_Thondrax&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43459-[N]-[QUEST]-Wq-WANTED_Thondrax" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43460) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43460) &amp;&amp; DoFaction(43460)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43460-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43460-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43610) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43610) &amp;&amp; DoFaction(43610)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43610-[N]-[QUEST]-Wq-WANTED_Infernal_Lord-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43610-[N]-[QUEST]-Wq-WANTED_Infernal_Lord-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43629) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43629) &amp;&amp; DoFaction(43629)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43631) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43631) &amp;&amp; DoFaction(43631)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43631-[N]-[QUEST]-Wq-WANTED_Skulvrax-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43631-[N]-[QUEST]-Wq-WANTED_Skulvrax-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43633) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43633) &amp;&amp; DoFaction(43633)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43633-[N]-[QUEST]-Wq-WANTED_Thondrax&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43633-[N]-[QUEST]-Wq-WANTED_Thondrax" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43709) &amp;&amp; PassesSettings(43709) &amp;&amp; DoFaction(43709)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43709-[N]-[QUEST]-Seal Clubbing-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43709-[N]-[QUEST]-Seal Clubbing-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43738) &amp;&amp; PassesSettings(43738) &amp;&amp; DoFaction(43738)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43738-[N]-[QUEST]-Wq-Coastal_Gloom-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43738-[N]-[QUEST]-Wq-Coastal_Gloom-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43753) &amp;&amp; PassesSettings(43753) &amp;&amp; DoFaction(43753)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43753-[N]-[QUEST]-Wq-Ley Race-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43753-[N]-[QUEST]-Wq-Ley Race-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43758) &amp;&amp; PassesSettings(43758) &amp;&amp; DoFaction(43758)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43758-[N]-[QUEST]-Wq-Wherever I May Gloam-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43758-[N]-[QUEST]-Wq-Wherever I May Gloam-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43759) &amp;&amp; PassesSettings(43759) &amp;&amp; DoFaction(43759)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43759-[N]-[QUEST]-Wq-Wheres_the_Reef-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43759-[N]-[QUEST]-Wq-Wheres_the_Reef-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43784) &amp;&amp; PassesSettings(43784) &amp;&amp; DoFaction(43784)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43784-[N]-[QUEST]-What a Nightmare-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43784-[N]-[QUEST]-What a Nightmare-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44033) &amp;&amp; PassesSettings(44033) &amp;&amp; DoFaction(44033)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44033-[N]-[QUEST]-Wq-Aw_Nuts-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44033-[N]-[QUEST]-Wq-Aw_Nuts-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44298) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44298) &amp;&amp; DoFaction(44298)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44298-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44298-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44299) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44299) &amp;&amp; DoFaction(44299)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44299-[N]-[QUEST]-Wq-WANTED Darkshade-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44299-[N]-[QUEST]-Wq-WANTED Darkshade-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44300) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44300) &amp;&amp; DoFaction(44300)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44300-[N]-[QUEST]-Wq-WANTED Seersei-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44300-[N]-[QUEST]-Wq-WANTED Seersei-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44301) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44301) &amp;&amp; DoFaction(44301)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44301-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44301-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44302) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44302) &amp;&amp; DoFaction(44302)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44302-[N]-[QUEST]-Wq-WANTED Seersei-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44302-[N]-[QUEST]-Wq-WANTED Seersei-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44303) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44303) &amp;&amp; DoFaction(44303)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44303-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44303-[N]-[QUEST]-Wq-WANTED_Dreadbog-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44304) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44304) &amp;&amp; DoFaction(44304)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44304-[N]-[QUEST]-Wq-WANTED_Darkshade-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44304-[N]-[QUEST]-Wq-WANTED_Darkshade-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44305) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44305) &amp;&amp; DoFaction(44305)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44895) &amp;&amp; PassesSettings(44895) &amp;&amp; DoFaction(44895)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44895-[N]-[QUEST]-Wq-Sharptalon Swarm!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44895-[N]-[QUEST]-Wq-Sharptalon Swarm!-Zinner" RememberProfile="false" />
+      </If>
+    </If>
+    <If Condition="ZoneEnabled(1024)">
+      <!--Highmountain-->
+      <If Condition="OnQuest(39424) &amp;&amp; PassesSettings(39424) &amp;&amp; DoFaction(39424)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 39424-[N]-[QUEST]-Wq-Everything-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\39424-[N]-[QUEST]-Wq-Everything-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(39462) &amp;&amp; PassesSettings(39462) &amp;&amp; DoFaction(39462)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 39462-[N]-[QUEST] Primal Payback -Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\39462-[N]-[QUEST] Primal Payback -Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(40896) &amp;&amp; PassesSettings(40896) &amp;&amp; DoFaction(40896)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40896-[N]-[QUEST]-Wq-Threnody_of_Chieftains-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40896-[N]-[QUEST]-Wq-Threnody_of_Chieftains-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(40920) &amp;&amp; PassesSettings(40920) &amp;&amp; DoFaction(40920)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40920-[N]-[QUEST]-Wq-Stonebinder_Bounty-Codex&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40920-[N]-[QUEST]-Wq-Stonebinder_Bounty-Codex" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(40951) &amp;&amp; PassesSettings(40951) &amp;&amp; DoFaction(40951)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40951-[N]-[QUEST]-Wq-Bitestone Bazaar-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40951-[N]-[QUEST]-Wq-Bitestone Bazaar-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(40966) &amp;&amp; PassesSettings(40966) &amp;&amp; DoFaction(40966)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40966-[N]-[QUEST]-Wq-Ritualists in Our Midsts-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40966-[N]-[QUEST]-Wq-Ritualists in Our Midsts-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(40978) &amp;&amp; PassesSettings(40978) &amp;&amp; DoFaction(40978)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40978-[N]-[QUEST]-Wq-Bears-Behaving-Badly-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40978-[N]-[QUEST]-Wq-Bears-Behaving-Badly-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(40980) &amp;&amp; PassesSettings(40980) &amp;&amp; DoFaction(40980)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40980-[N]-[QUEST]-Wq-Boilback_Plague-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41011) &amp;&amp; PassesSettings(41011) &amp;&amp; DoFaction(41011)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41011-[N]-[QUEST]-Wq-Umbralshard Rituals-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41011-[N]-[QUEST]-Wq-Umbralshard Rituals-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41024) &amp;&amp; PassesSettings(41024) &amp;&amp; DoFaction(41024)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41024-[N]-[QUEST]-Wq-Dirge of the Dead-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41024-[N]-[QUEST]-Wq-Dirge of the Dead-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41025) &amp;&amp; PassesSettings(41025) &amp;&amp; DoFaction(41025)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41025-[N]-[QUEST]-Rise of the Fallen-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41025-[N]-[QUEST]-Rise of the Fallen-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41026) &amp;&amp; PassesSettings(41026) &amp;&amp; DoFaction(41026)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41026-[N]-[QUEST]-Wq-Back to the Shadows-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41026-[N]-[QUEST]-Wq-Back to the Shadows-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41091) &amp;&amp; PassesSettings(41091) &amp;&amp; DoFaction(41091)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41093) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41093) &amp;&amp; DoFaction(41093)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41093-[N]-[QUEST]-Wq-DANGER_Durguth-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41093-[N]-[QUEST]-Wq-DANGER_Durguth-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41095) &amp;&amp; PassesSettings(41095) &amp;&amp; DoFaction(41095)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41095-[N]-[QUEST]-Wq-Critical_Crops-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41095-[N]-[QUEST]-Wq-Critical_Crops-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41122) &amp;&amp; PassesSettings(41122) &amp;&amp; DoFaction(41122)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41122-[N]-[QUEST]-Wq-Mists Take You-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41122-[N]-[QUEST]-Wq-Mists Take You-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41127) &amp;&amp; PassesSettings(41127) &amp;&amp; DoFaction(41127)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41127-[N]-[QUEST]-Gunksnout Infestation-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41127-[N]-[QUEST]-Gunksnout Infestation-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41144) &amp;&amp; PassesSettings(41144) &amp;&amp; DoFaction(41144)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41144-[N]-[QUEST]-Wq-Return_to_the_River-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41144-[N]-[QUEST]-Wq-Return_to_the_River-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41145) &amp;&amp; PassesSettings(41145) &amp;&amp; DoFaction(41145)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41145-[N]-[QUEST]-Wq-Water_of_Life-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41145-[N]-[QUEST]-Wq-Water_of_Life-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41200) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41200)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41200-[N]-[QUEST]-Wq-Rough Leystone Outcropping-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41200-[N]-[QUEST]-Wq-Rough Leystone Outcropping-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41202) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41202)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41202-[N]-[QUEST]-Crude Leystone Seams-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41202-[N]-[QUEST]-Crude Leystone Seams-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41204) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41204)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41204-[N]-[QUEST]-Wq-Hard Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41204-[N]-[QUEST]-Wq-Hard Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41208) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41208)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41208-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41208-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41209) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41209)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41209-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41209-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41210) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41210)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41210-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41210-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41225) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41225)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41225-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41225-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41227) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(41227) &amp;&amp; DoFaction(41227)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41227-[H]-QUEST-Wq-Warden_Tower_Assault_Cordanas_Apex-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41227-[H]-QUEST-Wq-Warden_Tower_Assault_Cordanas_Apex-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41228) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41228)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41228-[N]-[QUEST]-Wq-Foxflower_Cluster-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41228-[N]-[QUEST]-Wq-Foxflower_Cluster-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41234) &amp;&amp; PassesSettings(41234) &amp;&amp; DoFaction(41234)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41234-[N]-[QUEST]-Wq-Shaggy_Saber_Hide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41234-[N]-[QUEST]-Wq-Shaggy_Saber_Hide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41237) &amp;&amp; PassesSettings(41237) &amp;&amp; DoFaction(41237)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41237-[N]-[QUEST]-Wq-Supplies Needed Stonehide Leather-Zinner-BUY 40 lether from ah-&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41237-[N]-[QUEST]-Wq-Supplies Needed Stonehide Leather-Zinner-BUY 40 lether from ah-" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41238) &amp;&amp; PassesSettings(41238) &amp;&amp; DoFaction(41238)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41238-[N]-[QUEST]-Wq-Calcified Wormscales-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41238-[N]-[QUEST]-Wq-Calcified Wormscales-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41239) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41239)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41239-[N]-[QUEST]-Wq-Felhide-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41239-[N]-[QUEST]-Wq-Felhide-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41240) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41240)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41240-[N]-[QUEST]-Wq-Work Order Highmountain Salmonr-BUY 40 Highmountain Salmon from ah&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41240-[N]-[QUEST]-Wq-Work Order Highmountain Salmonr-BUY 40 Highmountain Salmon from ah" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41242) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41242)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41242-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41242-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41257) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(41257) &amp;&amp; DoFaction(41257)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41257-[A]-[QUEST]-Wq-Warden_Tower_Assault_Cordanas_Apex-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41257-[A]-[QUEST]-Wq-Warden_Tower_Assault_Cordanas_Apex-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41308) &amp;&amp; PassesSettings(41308) &amp;&amp; DoFaction(41308)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41308-[N]-[QUEST]-Wq-Border Reinforcements-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41416) &amp;&amp; PassesSettings(41416) &amp;&amp; DoFaction(41416)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41416-[N]-[QUEST]-Wq-Retake_the_Skyhorn-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41420) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(41420) &amp;&amp; DoFaction(41420)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41420-[H]-QUEST-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41420-[H]-QUEST-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41421) &amp;&amp; Settings.Instance.DoPvP &amp;&amp; PassesSettings(41421) &amp;&amp; DoFaction(41421)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41421-[A]-[QUEST]-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41421-[A]-[QUEST]-Wq-Warden_Tower_Assault_Nightwatchers_Perch-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41428) &amp;&amp; PassesSettings(41428) &amp;&amp; DoFaction(41428)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41428-[N]-[QUEST]-Wq-Unstable-Portal-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41428-[N]-[QUEST]-Wq-Unstable-Portal-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41433) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41433)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41433-[N]-[QUEST]-Wq-Massive Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41433-[N]-[QUEST]-Wq-Massive Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41511) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41511)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41511-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41511-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41549) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41549)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41549-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41549-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41550) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41550)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41550-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41550-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41560) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41560)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41560-[N]-[QUEST]-Wq-Felhide-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41560-[N]-[QUEST]-Wq-Felhide-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41622) &amp;&amp; PassesSettings(41622) &amp;&amp; DoFaction(41622)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41635) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41635)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41635-[N]-[QUEST]-Wq-Work Order Leystone Boots&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41635-[N]-[QUEST]-Wq-Work Order Leystone Boots" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41647) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41647)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41647-[N]-[QUEST]-Wq-Work Order Silkweave Robe&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41647-[N]-[QUEST]-Wq-Work Order Silkweave Robe" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41653) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41653)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41653-[N]-[QUEST]-Wq-Work Order Skystone Pendant&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41653-[N]-[QUEST]-Wq-Work Order Skystone Pendant" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41685) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41685) &amp;&amp; DoFaction(41685)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41691) &amp;&amp; PassesSettings(41691) &amp;&amp; DoFaction(41691)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41691-[N]-[QUEST]-Wq-Sea_of_Feathers-Ruela&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41691-[N]-[QUEST]-Wq-Sea_of_Feathers-Ruela" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41692) &amp;&amp; PassesSettings(41692) &amp;&amp; DoFaction(41692)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41692-[N]-[QUEST]-Wq-Shipwreck_Scavengers-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41692-[N]-[QUEST]-Wq-Shipwreck_Scavengers-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41696) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41696) &amp;&amp; DoFaction(41696)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41696-[N]-[QUEST]-Wq-DANGER Mawat'aki-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41696-[N]-[QUEST]-Wq-DANGER Mawat'aki-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41703) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41703) &amp;&amp; DoFaction(41703)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41703-[N]-[QUEST]-Wq-DANGER_Ormagrogg-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41703-[N]-[QUEST]-Wq-DANGER_Ormagrogg-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41705) &amp;&amp; PassesSettings(41705) &amp;&amp; DoFaction(41705)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41705-[N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41705-[N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41789) &amp;&amp; PassesSettings(41789) &amp;&amp; DoFaction(41789)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41794) &amp;&amp; PassesSettings(41794) &amp;&amp; DoFaction(41794)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41794-[N]-[QUEST]-Wq-Drakestalker-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41794-[N]-[QUEST]-Wq-Drakestalker-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41816) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(41816) &amp;&amp; DoFaction(41816)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41816-[N]-[QUEST]-Wq-DANGER_Oubdob_da_Smasher-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41816-[N]-[QUEST]-Wq-DANGER_Oubdob_da_Smasher-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41818) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41818) &amp;&amp; DoFaction(41818)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41818-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41818-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41819) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41819) &amp;&amp; DoFaction(41819)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41819-[N]-[QUEST]-Wq-WANTED Gurbog da Basher-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41819-[N]-[QUEST]-Wq-WANTED Gurbog da Basher-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41821) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41821) &amp;&amp; DoFaction(41821)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41821-[N]-[QUEST]-Wq-WANTED Shara Felbreath-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41821-[N]-[QUEST]-Wq-WANTED Shara Felbreath-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41824) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41824) &amp;&amp; DoFaction(41824)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41824-[N]-[QUEST]-Wq-WANTED_ArruNew-Quest-ID41824-Codex&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41824-[N]-[QUEST]-Wq-WANTED_ArruNew-Quest-ID41824-Codex" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41826) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41826) &amp;&amp; DoFaction(41826)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41826-[N]-[QUEST]-Wq-WANTED_Crawshuk_the_Hungry&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41826-[N]-[QUEST]-Wq-WANTED_Crawshuk_the_Hungry" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41828) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41828) &amp;&amp; DoFaction(41828)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41828-[N]-[QUEST]-Wq-WANTED_Bristlemaul-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41828-[N]-[QUEST]-Wq-WANTED_Bristlemaul-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41836) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41836) &amp;&amp; DoFaction(41836)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41836-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41836-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41838) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41838) &amp;&amp; DoFaction(41838)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41838-[N]-[QUEST]-Wq-WANTED Slumber-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41838-[N]-[QUEST]-Wq-WANTED Slumber-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41844) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(41844) &amp;&amp; DoFaction(41844)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41844-[N]-[QUEST]-Wq-WANTED Sekhan-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41844-[N]-[QUEST]-Wq-WANTED Sekhan-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42086) &amp;&amp; PassesSettings(42086) &amp;&amp; DoFaction(42086)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42086-[N]-[QUEST]-Wq-The_Feltotem-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42086-[N]-[QUEST]-Wq-The_Feltotem-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42183) &amp;&amp; PassesSettings(42183) &amp;&amp; DoFaction(42183)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42183-[N]-[QUEST]-Wq-To_Battle-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42183-[N]-[QUEST]-Wq-To_Battle-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43448) &amp;&amp; Settings.Instance.DoWorldBosses &amp;&amp; PassesSettings(43448) &amp;&amp; DoFaction(43448)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43448-[N]-[QUEST]-Wq-WORLD-BOSS-The Frozen King-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43448-[N]-[QUEST]-Wq-WORLD-BOSS-The Frozen King-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43450) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43450) &amp;&amp; DoFaction(43450)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43455) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43455) &amp;&amp; DoFaction(43455)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43455-[N]-[QUEST]-Wq-WANTED_Devouring_Darkness-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43455-[N]-[QUEST]-Wq-WANTED_Devouring_Darkness-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43616) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43616) &amp;&amp; DoFaction(43616)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43616-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43616-[N]-[QUEST]-Wq-WANTED_Bodash_the_Hoarder-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43617) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43617) &amp;&amp; DoFaction(43617)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43617-[N]-[QUEST]-Wq-WANTED_Devouring_Darkness-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43617-[N]-[QUEST]-Wq-WANTED_Devouring_Darkness-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43618) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43618) &amp;&amp; DoFaction(43618)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43618-[N]-[QUEST]-Wq-WANTED_Gurbog_da_Basher-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43618-[N]-[QUEST]-Wq-WANTED_Gurbog_da_Basher-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43619) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43619) &amp;&amp; DoFaction(43619)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43619-[N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43619-[N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43764) &amp;&amp; PassesSettings(43764) &amp;&amp; DoFaction(43764)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43764-[N]-[QUEST]-Wq-Ley Race-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43764-[N]-[QUEST]-Wq-Ley Race-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43767) &amp;&amp; PassesSettings(43767) &amp;&amp; DoFaction(43767)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43767-[N]-[QUEST]-Wq-Enigmatic-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43767-[N]-[QUEST]-Wq-Enigmatic-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44289) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44289) &amp;&amp; DoFaction(44289)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44289-[N]-[QUEST]-Wq-WANTED Arru-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44289-[N]-[QUEST]-Wq-WANTED Arru-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44290) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44290) &amp;&amp; DoFaction(44290)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44290-[N]-[QUEST]-Wq-WANTED_Bristlemaul-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44290-[N]-[QUEST]-Wq-WANTED_Bristlemaul-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44291) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44291) &amp;&amp; DoFaction(44291)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44291-[N]-[QUEST]-Wq-WANTED_Crawshuk_the_Hungry&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44291-[N]-[QUEST]-Wq-WANTED_Crawshuk_the_Hungry" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44292) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44292) &amp;&amp; DoFaction(44292)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44292-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44292-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44892) &amp;&amp; PassesSettings(44892) &amp;&amp; DoFaction(44892)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44892-[N]-[QUEST]-Snowfeather Swarm!-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44892-[N]-[QUEST]-Snowfeather Swarm!-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44892) &amp;&amp; PassesSettings(44892) &amp;&amp; DoFaction(44892)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44892[N]-[QUEST]-Wq-Snowfeather Swarm!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44892[N]-[QUEST]-Wq-Snowfeather Swarm!-Zinner" RememberProfile="false" />
+      </If>
+    </If>
+    <If Condition="ZoneEnabled(1033)">
+      <!--Suramar-->
+      <If Condition="OnQuest(41353) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41353)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41353-[N]-[QUEST]-Wq-Odious Felslate Outcropping-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41353-[N]-[QUEST]-Wq-Odious Felslate Outcropping-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41354) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41354)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41354-[N]-[QUEST]-Wq-Shattered Felslate Seams-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41354-[N]-[QUEST]-Wq-Shattered Felslate Seams-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41446) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41446)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41446-[N]-[QUEST]-Darkened Felslate Deposits-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41446-[N]-[QUEST]-Darkened Felslate Deposits-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41557) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41557)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41557-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41557-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41558) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41558)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41558-[N]-[QUEST]-Wq-Slab of Bacon-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41558-[N]-[QUEST]-Wq-Slab of Bacon-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41571) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Skinning).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41571)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41571-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41571-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41617) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41617)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41617-[N]-[QUEST]-Wq-Huge Runescale Koi-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41617-[N]-[QUEST]-Wq-Huge Runescale Koi-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41649) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41649)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41649-[N]-[QUEST]-Wq-Work Order Silkweave Slippers&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41649-[N]-[QUEST]-Wq-Work Order Silkweave Slippers" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41655) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41655)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41655-[N]-[QUEST]-Wq-WorkOrder Queen's Opal Pendant -BUY Queens Opal Pendant from ah&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41655-[N]-[QUEST]-Wq-WorkOrder Queen's Opal Pendant -BUY Queens Opal Pendant from ah" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41673) &amp;&amp; Settings.Instance.DoWorkOrders &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41673)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41673-[N]-[QUEST]-Wq-Work Order Word of Mastery -BUY Word of Mastery from ah&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41673-[N]-[QUEST]-Wq-Work Order Word of Mastery -BUY Word of Mastery from ah" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42089) &amp;&amp; PassesSettings(42089) &amp;&amp; DoFaction(42089)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42089-[N]-[QUEST]-Wq-The_Fallen_Ones-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42089-[N]-[QUEST]-Wq-The_Fallen_Ones-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42111) &amp;&amp; PassesSettings(42111) &amp;&amp; DoFaction(42111)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42111-[N]-[QUEST]-Wq-Aggressive_Reconnaisance-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42111-[N]-[QUEST]-Wq-Aggressive_Reconnaisance-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42169) &amp;&amp; PassesSettings(42169) &amp;&amp; DoFaction(42169)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42169-[N]-[QUEST]-Wq-Left for Dead-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42169-[N]-[QUEST]-Wq-Left for Dead-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42209) &amp;&amp; PassesSettings(42209) &amp;&amp; DoFaction(42209)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42209-[N]-[QUEST]-Wq-Freeing the Taken-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42209-[N]-[QUEST]-Wq-Freeing the Taken-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42725) &amp;&amp; PassesSettings(42725) &amp;&amp; DoFaction(42725)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42725-[N]-[QUEST]-Wq-Sharing the Wealth-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42725-[N]-[QUEST]-Wq-Sharing the Wealth-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42795) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42795) &amp;&amp; DoFaction(42795)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42795-[N]-[QUEST]-Wq-WANTED Sanaar-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42795-[N]-[QUEST]-Wq-WANTED Sanaar-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42796) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(42796) &amp;&amp; DoFaction(42796)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42796-[N]-[QUEST]-Wq-WANTED_Broodmother_Shumalis-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42796-[N]-[QUEST]-Wq-WANTED_Broodmother_Shumalis-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42799) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(42799) &amp;&amp; DoFaction(42799)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42799-[N]-[QUEST]-Wq-DANGER_Oglok_the_Furious-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42799-[N]-[QUEST]-Wq-DANGER_Oglok_the_Furious-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42830) &amp;&amp; PassesSettings(42830) &amp;&amp; DoFaction(42830)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42830-[N]-[QUEST]-Pest Management-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42830-[N]-[QUEST]-Pest Management-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(42859) &amp;&amp; PassesSettings(42859) &amp;&amp; DoFaction(42859)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42859-[N]-[QUEST]-Wq-A Draught of Hope-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42859-[N]-[QUEST]-Wq-A Draught of Hope-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43435) &amp;&amp; PassesSettings(43435) &amp;&amp; DoFaction(43435)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43435-[N]-[QUEST]-Wq-The Battle Rages On-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43435-[N]-[QUEST]-Wq-The Battle Rages On-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43445) &amp;&amp; PassesSettings(43445) &amp;&amp; DoFaction(43445)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43445-[N]-[QUEST]-Wq-Air Superiority-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43445-[N]-[QUEST]-Wq-Air Superiority-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43607) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43607) &amp;&amp; DoFaction(43607)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43774) &amp;&amp; PassesSettings(43774) &amp;&amp; DoFaction(43774)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43774-[N]-[QUEST]-Ley Race-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43774-[N]-[QUEST]-Ley Race-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43777) &amp;&amp; PassesSettings(43777) &amp;&amp; DoFaction(43777)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43777-[N]-[QUEST]-The Magic of Flight-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43777-[N]-[QUEST]-The Magic of Flight-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43930) &amp;&amp; PassesSettings(43930) &amp;&amp; DoFaction(43930)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43930-[N]-[QUEST]-Wq-Fiends_of_Telanor-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43930-[N]-[QUEST]-Wq-Fiends_of_Telanor-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43932) &amp;&amp; PassesSettings(43932) &amp;&amp; DoFaction(43932)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43932-[N]-[QUEST]-Wq-Forces of Oppression-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43932-[N]-[QUEST]-Wq-Forces of Oppression-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44002) &amp;&amp; PassesSettings(44002) &amp;&amp; DoFaction(44002)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44002-[N]-[QUEST]-Wq-Undersea_Survey-Codex&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44002-[N]-[QUEST]-Wq-Undersea_Survey-Codex" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44010) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44010) &amp;&amp; DoFaction(44010)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44010-[N]-[QUEST]-Wq-WANTED Oreth the Vile-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44010-[N]-[QUEST]-Wq-WANTED Oreth the Vile-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44012) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44012) &amp;&amp; DoFaction(44012)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44012-[N]-[QUEST]-Wq-WANTED_Siegemaster_Aedrin-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44012-[N]-[QUEST]-Wq-WANTED_Siegemaster_Aedrin-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44015) &amp;&amp; PassesSettings(44015) &amp;&amp; DoFaction(44015)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44015-[N]-[QUEST]-Wq-Mal'Dreth the Corruptor-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44015-[N]-[QUEST]-Wq-Mal'Dreth the Corruptor-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44016) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44016) &amp;&amp; DoFaction(44016)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44016-[N]-[QUEST]-Wq-WANTED_Cadraeus-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44016-[N]-[QUEST]-Wq-WANTED_Cadraeus-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44017) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44017) &amp;&amp; DoFaction(44017)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44017-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44017-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44018) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44018) &amp;&amp; DoFaction(44018)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44018-[N]-[QUEST]-Wq-WANTED Magister Phaedris-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44018-[N]-[QUEST]-Wq-WANTED Magister Phaedris-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44021) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44021) &amp;&amp; DoFaction(44021)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44021-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44021-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44023) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44023) &amp;&amp; DoFaction(44023)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44023-[N]-[QUEST]-Wq-WANTED_Siegemaster_Aedrin-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44023-[N]-[QUEST]-Wq-WANTED_Siegemaster_Aedrin-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44028) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44028) &amp;&amp; DoFaction(44028)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44028-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44028-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44029) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44029) &amp;&amp; DoFaction(44029)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44029-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44029-[N]-[QUEST]-Wq-WANTED Hertha Grimdottir-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44030) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44030) &amp;&amp; DoFaction(44030)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44121) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44121) &amp;&amp; DoFaction(44121)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44744) &amp;&amp; PassesSettings(44744) &amp;&amp; DoFaction(44744)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44744-[N]-[QUEST]-Wq-Lifelines-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44744-[N]-[QUEST]-Wq-Lifelines-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(45307) &amp;&amp; PassesSettings(45307) &amp;&amp; DoFaction(45307)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45307-[N]-[QUEST]-Wq-Claws for Alarm!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\45307-[N]-[QUEST]-Wq-Claws for Alarm!-Zinner" RememberProfile="false" />
+      </If>
+    </If>
+    <If Condition="ZoneEnabled(1096)">
+      <!--EyeOfAzshara-->
+      <If Condition="OnQuest(43801) &amp;&amp; PassesSettings(43801) &amp;&amp; DoFaction(43801)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43801-[N]-[QUEST]-Wq-Shell Out Some Pain-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="EyeOfAzshara\43801-[N]-[QUEST]-Wq-Shell Out Some Pain-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43804) &amp;&amp; PassesSettings(43804) &amp;&amp; DoFaction(43804)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43804-[N]-[QUEST]-Hate the Hatecoil-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="EyeOfAzshara\43804-[N]-[QUEST]-Hate the Hatecoil-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43805) &amp;&amp; PassesSettings(43805) &amp;&amp; DoFaction(43805)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43805-[N]-[QUEST]-Aquatic Assassination-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="EyeOfAzshara\43805-[N]-[QUEST]-Aquatic Assassination-Nuok" RememberProfile="false" />
+      </If>
+    </If>
+    <If Condition="!Settings.Instance.SkipHBRelog">
+      <CustomBehavior File="RunCode" Code="Log(&quot;Switching HBRelog task&quot;);" />
+      <CustomBehavior File="RunCode" Type="Definition"><![CDATA[Bots.Professionbuddy.Dynamic.HBRelogApi HBRelogRemoteApi = Bots.Professionbuddy.Dynamic.Helpers.HBRelog;]]></CustomBehavior>
+      <CustomBehavior File="RunCode" Code="HBRelogRemoteApi.SkipCurrentTask(HBRelogRemoteApi.CurrentProfileName);" />
+    </If>
+    <If Condition="Settings.Instance.LoopProfile">
+      <CustomBehavior File="RunCode" Code="Log(&quot;Looping profile incase we missed something&quot;);" />
+      <CustomBehavior File="LoadProfile" ProfileName="autoloader" RememberProfile="false" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Log(&quot;Finshed, nothing more todo&quot;);" />
+  </QuestOrder>
+</HBProfile>
