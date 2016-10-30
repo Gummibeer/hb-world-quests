@@ -1111,6 +1111,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43772-[N]-[QUEST]-Enigmatic-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43772-[N]-[QUEST]-Enigmatic-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43827) &amp;&amp; PassesSettings(43827) &amp;&amp; DoFaction(43827)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43827-[N]-[QUEST]-Stormwing the Portals-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43827-[N]-[QUEST]-Stormwing the Portals-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(43951) &amp;&amp; PassesSettings(43951) &amp;&amp; DoFaction(43951)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN" RememberProfile="false" />
