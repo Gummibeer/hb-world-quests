@@ -1,0 +1,196 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>44801-[N]-[QUEST]-Wq-Defending Shal'aran-Zinner.xml</Name>
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+	<SellGrey>true</SellGrey>
+	<SellWhite>false</SellWhite>
+	<SellGreen>false</SellGreen>
+	<SellBlue>false</SellBlue>
+	<SellPurple>false</SellPurple>
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+	<TargetElites>true</TargetElites>
+	
+	<QuestOrder>
+	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			
+    public class WorldQuestData
+    {
+        public int ID;
+        public string Name;
+        public DateTime ExpireTime;
+    }
+    public static class WorldQuestInfo
+    {
+        static List<WorldQuestData> _cache = new List<WorldQuestData>();
+        static internal bool _dirty = true;
+        static internal bool _setup = false;
+        static WorldQuestInfo()
+        {
+            Setup();
+        }
+        public static void Setup()
+        {
+            if (_setup)
+                return;
+            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+            UpdateWorldQuests();
+            _setup = true;
+        }
+        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+        {
+            _dirty = true;
+        }
+        public static bool HasWorldQuest(int questid)
+        {
+            UpdateWorldQuests();
+            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+                return false;
+            return true;
+        }
+        public static void UpdateWorldQuests()
+        {
+            if (!_dirty)
+                return;
+            _cache = new List<WorldQuestData>();
+            
+            var player = StyxWoW.Me;
+            int BrokenIslesMapArea = 1007;
+            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+            
+            var NumZones = int.Parse(ret[0]);
+            for (int i = 1; i < NumZones; ++i)
+            {
+                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+                var ZoneID = int.Parse(ret[0]);
+                var ZoneName = ret[1];
+                var ZoneDepth = int.Parse(ret[2]);
+                if (ZoneDepth > 1) //Do not look at subzones
+                {
+                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+                    continue;
+                }
+                string ToRun = string.Format(@"     local questids = {{}};
+                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+                                                    if taskInfo then
+				                                                    for i, info in ipairs(taskInfo) do
+					                                                    if HaveQuestData(info.questId) then
+						                                                    if QuestUtils_IsQuestWorldQuest(info.questId) then
+                                                                                    table.insert(questids, info.questId);
+							                                                    end
+						                                                    end
+					                                                    end
+				                                                    end
+                                                   return unpack(questids);
+                                                ", ZoneID, BrokenIslesMapArea);
+                ret = Lua.GetReturnValues(ToRun);
+                foreach (var q in ret)
+                {
+                    int questid = int.Parse(q);
+                    //TimeLeft is in minutes
+                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+                    var data = new WorldQuestData();
+                    data.ID = questid;
+                    data.Name = QuestInfo[0];
+                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+                    _cache.Add(data);
+                }
+            }
+            _dirty = false;
+        }
+        public static bool IsWorldQuest(int questid)
+        {
+            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+            var ret = Lua.GetReturnValues(lua);
+            if (ret[3] == null)
+                return false;
+            return true;
+        }
+    }
+    bool ShouldCastMask() 
+                     { 
+                         return Me.IsAlive && IsInCity() && !Me.HasAura(202477); 
+                     } 
+  
+                     void CastMask() 
+                     { 
+                         Lua.DoString("ExtraActionButton1:Click();"); 
+                     } 
+  
+                     bool IsInCity() 
+                     { 
+                        return  Me.MinimapZoneText == "The Grand Promenade" ||  
+                                Me.MinimapZoneText == "Starcaller Retreat"  || 
+                                 Me.MinimapZoneText == "The Waning Crescent" || 
+                                 Me.MinimapZoneText == "Artisan's Gallery" || 
+                                Me.MinimapZoneText == "Astravar Harbor" || 
+                                 Me.MinimapZoneText == "Evermoon Bazaar" || 
+                                 Me.MinimapZoneText == "Shimmershade Garden" || 
+                                 Me.MinimapZoneText == "Terrace of Order" || 
+                                 Me.MinimapZoneText == "Suramar City"; 
+                     } 
+
+				]]>
+			</CustomBehavior>
+	
+		
+<While Condition="WorldQuestInfo.HasWorldQuest(44801)" >
+	<!-- Get in range of quest to activate -->
+	<RunTo X="1580.635" Y="4879.65" Z="160.3938" />
+	<PickUp Nav="Fly" QuestName="Defending Shal'aran" QuestId="44801" GiverName="" GiverId="" />
+
+	<Objective QuestName="Defending Shal'aran" QuestId="44801" Type="KillMob" MobId="115623" KillCount="12" />
+
+	<Objective QuestName="Defending Shal'aran" QuestId="44801" Type="KillMob" MobId="117155" KillCount="1" />
+
+	<TurnIn Nav="Fly" QuestName="Defending Shal'aran" QuestId="44801" TurnInName="" TurnInId="" />
+
+
+
+
+
+</While>
+<!-- 
+<Vendor Name="Fathnyr" Entry="91803" Type="Repair" Nav="Fly" X="1922.743" Y="2315.998" Z="507.618" />
+-->
+<While Condition="WorldQuestInfo.HasWorldQuest(44801)" >
+ 		<RunTo X="1580.635" Y="4879.65" Z="160.3938" />
+	<CustomBehavior File="KillUntilComplete" MobIds="115623, 115562, 115561, 115547, 117155" QuestId="44801" TerminateWhen="IsObjectiveComplete(1, 44801)">
+		<HuntingGrounds>
+		<Hotspot X="1580.635" Y="4879.65" Z="160.3938" />
+		<Hotspot X="1458.056" Y="4896.2" Z="185.4249" />
+		<Hotspot X="1436.999" Y="4950.879" Z="187.2791" />
+		<Hotspot X="1407.6" Y="4844.724" Z="175.5255" />
+		<Hotspot X="1397.38" Y="4795.52" Z="160.8608" />
+		<Hotspot X="1477.022" Y="4838.57" Z="160.4063" />
+		<Hotspot X="1482.054" Y="4881.535" Z="181.4545" />
+		<Hotspot X="1526.971" Y="4881.434" Z="169.6249" />
+		</HuntingGrounds>
+		</CustomBehavior>
+	<CustomBehavior File="KillUntilComplete" MobIds="115623, 117155" QuestId="44801" TerminateWhen="IsObjectiveComplete(2, 44801)">
+		<HuntingGrounds>
+		<Hotspot X="1463.551" Y="4941.818" Z="187.2032" />
+		</HuntingGrounds>
+		</CustomBehavior>
+<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+</While>
+
+<RunTo X="1710.055" Y="4956.443" Z="129.0029" />
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 44801-[N]-[QUEST]-Wq-Defending Shal'aran-Zinner.xml, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
+</HBProfile>
