@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[WQ] World Quest Auto Loader ($Rev: 0 $)</Name>
+  <Name>[WQ] World Quest Auto Loader ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -1764,6 +1764,10 @@ return 0; ";
       <If Condition="OnQuest(44292) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44292) &amp;&amp; DoFaction(44292)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44292-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44292-[N]-[QUEST]-Wq-WANTED Majestic_Elderhorn-Ruela" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44823) &amp;&amp; PassesSettings(44823) &amp;&amp; DoFaction(44823)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44823-[N]-[QUEST]-Thunder Totem Cleanup Detail-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44823-[N]-[QUEST]-Thunder Totem Cleanup Detail-WQ-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(44892) &amp;&amp; PassesSettings(44892) &amp;&amp; DoFaction(44892)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44892-[N]-[QUEST]-Snowfeather Swarm!-Nuok&quot;);" />

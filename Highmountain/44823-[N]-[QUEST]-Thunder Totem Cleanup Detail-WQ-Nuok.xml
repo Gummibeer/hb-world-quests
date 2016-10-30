@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] Gunksnout Infestation ($Rev$)</Name>
+  <Name>[Nuok] Thunder Totem Cleanup Detail - WQ ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -21,27 +21,34 @@
 local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
-        if info.questId == 41127 then
+        if info.questId == 44823 then
             return true;
             end
     end
 end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
-      <If Condition="!HasQuest(41127)">
-        <RunTo X="3170.227" Y="3970.576" Z="1183.836" />
+      <If Condition="!HasQuest(44823)">
+        <RunTo X="4156.51" Y="4374.45" Z="768.16" />
       </If>
-      <If Condition="HasQuest(41127)">
-        <CustomBehavior File="KillUntilComplete" MobIds="103178, 102633, 103227, 103234" TerminateWhen="!OnQuest">
+      <If Condition="HasQuest(44823)">
+        <!--<GameObject Name="Small Ceremonial Drum" Entry="250905" X="4017.993" Y="4334.641" Z="768.6037" />-->
+        <!--<GameObject Name="Large Ceremonial Drum" Entry="266655" X="4060.674" Y="4354.926" Z="667.8383" />-->
+        <!--<GameObject Name="Medium Ceremonial Drum" Entry="266689" X="4123.049" Y="4405.591" Z="667.7467" />-->
+        <CustomBehavior File="InteractWith" NonCompeteDistance="0" NumOfTimes="100" TerminateWhen="!OnQuest">
           <HuntingGrounds>
-            <Hotspot X="3170.227" Y="3970.576" Z="1183.836" />
-            <Hotspot X="3130.132" Y="3843.342" Z="1197.963" />
-            <Hotspot X="3201.713" Y="3860.912" Z="1205.115" />
+            <Hotspot X="4156.51" Y="4374.45" Z="768.16" />
+            <Hotspot X="4038.856" Y="4312.56" Z="768.5013" />
           </HuntingGrounds>
+          <PursuitList>
+            <PursueGameObject Id="250905" Priority="100"/>
+            <PursueGameObject Id="266655" Priority="100"/>
+            <PursueGameObject Id="266689" Priority="100"/>
+            <PursueUnit Id="108145" PursueWhen="UNIT.IsAlive" Priority="1"/>
+          </PursuitList>
         </CustomBehavior>
       </If>
     </While>
-    <RunTo X="3212.425" Y="4012.388" Z="1189.74" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
