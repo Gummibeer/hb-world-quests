@@ -141,33 +141,6 @@
 
 				]]>
 			</CustomBehavior>
-	
-		
-<While Condition="WorldQuestInfo.HasWorldQuest(44894)" >
-	<!-- Get in range of quest to activate -->
-	<RunTo X="1484.578" Y="7337.492" Z="1.737016" />
-	<PickUp Nav="Fly" QuestName="Bloodgazer Swarm!" QuestId="44894" GiverName="" GiverId="" />
-
-	<Objective QuestName="Bloodgazer Swarm!" QuestId="44894" Type="KillMob" MobId="115681" KillCount="25" />
-
-	<Objective QuestName="Bloodgazer Swarm!" QuestId="44894" Type="KillMob" MobId="115675" KillCount="50" />
-
-	<Objective QuestName="Bloodgazer Swarm!" QuestId="44894" Type="KillMob" MobId="115666" KillCount="25" />
-
-	<Objective QuestName="Bloodgazer Swarm!" QuestId="44894" Type="KillMob" MobId="115670" KillCount="10" />
-
-	<Objective QuestName="Bloodgazer Swarm!" QuestId="44894" Type="KillMob" MobId="115674" KillCount="7" />
-
-	<Objective QuestName="Bloodgazer Swarm!" QuestId="44894" Type="KillMob" MobId="115922" KillCount="13" />
-
-	<TurnIn Nav="Fly" QuestName="Bloodgazer Swarm!" QuestId="44894" TurnInName="" TurnInId="" />
-
-
-
-
-
-
-</While>
 <!-- 
 <Vendor Name="Fathnyr" Entry="91803" Type="Repair" Nav="Fly" X="1922.743" Y="2315.998" Z="507.618" />
 -->

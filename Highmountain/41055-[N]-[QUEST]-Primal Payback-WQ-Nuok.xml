@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] Primal Payback $Rev$</Name>
+  <Name>[Nuok] Primal Payback - WQ ($Rev: 0 $)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -18,11 +18,11 @@
   <TargetElites>true</TargetElites>
   <QuestOrder>
     <CustomBehavior File="RunCode" Type="Definition">
-      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+  <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
 local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
-        if info.questId == 39462 then
+        if info.questId == 41055 then
             return true;
             end
     end
@@ -33,7 +33,7 @@ return false;", 0);
 					{
             if(!OnQuest) return;
 						WoWUnit killMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && u.Entry == unitId && u.IsAlive);
-						if (killMe == null || Blacklist.Contains(killMe, BlacklistFlags.Combat)) return;
+						if (killMe == null) return;
 
 						while (killMe != null && killMe.IsAlive && OnQuest)
 						{
@@ -55,7 +55,7 @@ return false;", 0);
 
 					async Task VehicleCombat(WoWUnit vehicleKill)
 					{
-						if (vehicleKill.Distance > 5) return;
+						if (vehicleKill.Distance > 45) return;
             
             Navigator.PlayerMover.MoveStop();
             
@@ -68,10 +68,6 @@ return false;", 0);
             if(!Me.IsAutoAttacking)
               Me.ToggleAttack();  
               
-            Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D3);  
-            await Coroutine.Sleep(500);
-            Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D2);  
-            await Coroutine.Sleep(500);
             Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D1);
 						await Coroutine.Sleep(1050);
 					}
@@ -91,31 +87,28 @@ return false;", 0);
 								await Coroutine.Yield();
 							}
 						}
-					}]]>
-    </CustomBehavior>
+					}]]></CustomBehavior>
     <While Condition="OnQuest">
-      <If Condition="!HasQuest(39462)">
+      <If Condition="!HasQuest(41055)">
         <RunTo X="4677.002" Y="4801.015" Z="687.8562" />
       </If>
-      <If Condition="HasQuest(39462)">
-        <!--<Aura Name="Mountain Prowler" SpellId="189252" StackCount="0" Creator="Lvl 110 Alliance DemonHunter" CreatorGuid="0834FC000000000000000000087CB531" TimeLeft="00:00:00" Flags="Passive, Cancelable" />-->
-        <If Condition="!Me.HasAura(189252)">
+      <If Condition="HasQuest(41055)">
+        <!--<Aura Name="Rockhorn Stag" SpellId="201284" StackCount="0" TimeLeft="00:00:00" Flags="Passive, Cancelable" />-->
+        <If Condition="!Me.HasAura(201284)">
           <!--<Vendor Name="Enforcer Narissa" Entry="101957" Type="Repair" Nav="Fly" X="4675.083" Y="4798.682" Z="687.8572" />-->
           <CustomBehavior File="InteractWith" MobId="101957" GossipOptions="1" X="4675.083" Y="4798.682" Z="687.8572" />
         </If>
-        <If Condition="Me.HasAura(189252)">
+        <If Condition="Me.HasAura(201284)">
           <RunTo X="4692.958" Y="4742.398" Z="691.9426" />
-          <CustomBehavior File="RunCode" Code="await VehicleKill(101997);" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102946);" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102929);" />
           <RunTo X="4574.196" Y="4634.613" Z="668.2407" />
-          <CustomBehavior File="RunCode" Code="await VehicleKill(101997);" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102946);" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102929);" />
         </If>
       </If>
-    </While>   
-    <While Condition="Me.HasAura(189252)">
+    </While>
+    <While Condition="Me.HasAura(201284)">
       <CustomBehavior File="RunMacro" Macro="/leavevehicle" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
