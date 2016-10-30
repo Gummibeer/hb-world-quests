@@ -879,10 +879,6 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(41345) &amp;&amp; PassesSettings(41345) &amp;&amp; DoFaction(41345)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41345-[N]-[QUEST]-Wq-Supplies Needed Stormscales&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41345-[N]-[QUEST]-Wq-Supplies Needed Stormscales" RememberProfile="false" />
-      </If>
       <If Condition="OnQuest(41427) &amp;&amp; PassesSettings(41427) &amp;&amp; DoFaction(41427)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN" RememberProfile="false" />
@@ -898,6 +894,10 @@ return 0; ";
       <If Condition="OnQuest(41489) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41489)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41497) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41497)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41497-[N]-[QUEST]-Wild Leystone Seams-MiningWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41497-[N]-[QUEST]-Wild Leystone Seams-MiningWQ-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(41519) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41519)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41519-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Wild Leystone Seams - MiningWQ ($Rev: 0 $)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41497 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41497)">
+        <RunTo X="4110.08" Y="2576.993" Z="230.7415" />
+      </If>
+      <If Condition="HasQuest(41497)">
+        <!--<GameObject Name="Wild Leystone Seam" Entry="247989" X="4147.035" Y="2600.76" Z="161.2624" />-->
+        <CustomBehavior File="InteractWith" MobIds="247989" NumOfTimes="100" NonCompeteDistance="0" Range="5" TerminateWhen="!OnQuest">
+          <HuntingGrounds>
+            <Hotspot X="4110.08" Y="2576.993" Z="230.7415" />
+            <Hotspot X="4157.564" Y="2507.186" Z="205.3236" />
+            <Hotspot X="4086.692" Y="2378.014" Z="303.1418" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
