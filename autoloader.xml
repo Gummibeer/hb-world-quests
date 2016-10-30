@@ -1952,6 +1952,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(44157) &amp;&amp; PassesSettings(44157) &amp;&amp; DoFaction(44157)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44157-[N]-[QUEST]-Withered Wrangling Tel'anor-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44157-[N]-[QUEST]-Withered Wrangling Tel'anor-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(44185) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44185) &amp;&amp; DoFaction(44185)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44185-[N]-[QUEST]-Wq-WANTED Sanaar-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44185-[N]-[QUEST]-Wq-WANTED Sanaar-Zinner" RememberProfile="false" />
