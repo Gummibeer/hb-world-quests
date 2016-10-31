@@ -166,7 +166,6 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 
-<RunTo X="4615.885" Y="6962.997" Z="128.903" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
