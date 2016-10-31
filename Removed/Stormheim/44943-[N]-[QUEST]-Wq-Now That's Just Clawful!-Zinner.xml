@@ -141,28 +141,25 @@
 
 				]]>
 			</CustomBehavior>
-	
-		
+
+<!--
+<GameObject Name="Doodad_7VR_Vrykul_ElevatorPlatform001" Entry="250089" X="4054.526" Y="2919.366" Z="-152.0186" />
+<WoWUnit Name="Murky's Egg" Entry="116083" X="4169.163" Y="1819.677" Z="34.0949" />
+-->	
+
+
 <While Condition="WorldQuestInfo.HasWorldQuest(44943)" >
-	<!-- Get in range of quest to activate -->
-	<RunTo X="4205.609" Y="1828.878" Z="11.67292" />
-	<PickUp Nav="Fly" QuestName="Now That's Just Clawful!" QuestId="44943" GiverName="" GiverId="0" />
-
-	<Objective QuestName="Now That's Just Clawful!" QuestId="44943" Type="CollectItem" Nav="Fly" ItemId="116083" CollectCount="1" />
-
-	<Objective QuestName="Now That's Just Clawful!" QuestId="44943" Type="KillMob" Nav="Fly" MobId="116038" KillCount="10" />
-
-	<Objective QuestName="Now That's Just Clawful!" QuestId="44943" Type="KillMob" Nav="Fly" MobId="116039" KillCount="1" />
-	<TurnIn Nav="Fly" QuestName="Now That's Just Clawful!" QuestId="44943" TurnInName="" TurnInId="0" />
-
-
-
-</While>
-<!-- 
-<Vendor Name="Fathnyr" Entry="91803" Type="Repair" Nav="Fly" X="1922.743" Y="2315.998" Z="507.618" />
--->
-<While Condition="WorldQuestInfo.HasWorldQuest(44943)" >
- 		<RunTo X="4205.609" Y="1828.878" Z="11.67292" />
+	<If Condition="!HasQuest(41455)">
+        <RunTo X="4217.972" Y="1839.578" Z="3.747361" />
+      </If>
+ 		
+ 		<CustomBehavior File="MyCTM" X="4208.441" Y="1823.616" Z="13.34458" />
+<CustomBehavior File="MyCTM" X="4196.187" Y="1796.141" Z="28.54879" />
+<CustomBehavior File="MyCTM" X="4193.735" Y="1793.184" Z="32.59189" />
+<CustomBehavior File="MyCTM" X="4191.87" Y="1792.054" Z="34.80264" />
+<CustomBehavior File="MyCTM" X="4179.73" Y="1800.048" Z="33.24374" />
+<CustomBehavior File="MyCTM" X="4172.528" Y="1811.61" Z="35.98717" />
+<!-- <CustomBehavior File="MyCTM" X="4170.817" Y="1815.277" Z="34.99911" /> -->
 	<CustomBehavior File="InteractWith" MobIds="116083" NumOfTimes="1" TerminateWhen="IsObjectiveComplete(1, 44943)" >
 		<HuntingGrounds>
 		<Hotspot X="4170.545" Y="1817.116" Z="34.67756" />
