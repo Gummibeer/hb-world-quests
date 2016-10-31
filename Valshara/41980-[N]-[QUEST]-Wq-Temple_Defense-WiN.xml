@@ -1,9 +1,7 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- Original contribution by EchoTiger -->
 	<Name>[41980] Temple Defense - Win</Name>
-	<AvoidMobs>
-	<Mob Name="Gravax the Desecrator" Entry="92802" />
-</AvoidMobs>
+
 	<MinDurability>0.3</MinDurability>
 	<MinFreeBagSlots>3</MinFreeBagSlots>
 	<SellGrey>true</SellGrey>
@@ -137,11 +135,15 @@
 <WoWUnit Name="Nightmare Rider" Entry="92792" X="2938.817" Y="6422.401" Z="252.0558" /> 1
 
 <WoWUnit Name="Gravax the Desecrator" Entry="92802" X="2956.257" Y="6509.627" Z="206.4749" /> avoid this elite
+
+	<ignoremob>
+	<Mob Name="Gravax the Desecrator" Entry="92802" />
+</ignoremob>
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41980)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41980] Temple Defense - WiN!&quot;);" />
 <RunTo X="2896.689" Y="6441.658" Z="212.1233" />
-
+<CustomBehavior File="Hooks\Avoid" AvoidName="Gravax the Desecrator" IgnoreLootInAvoid="true" ObjectId="92802" Radius="30" AvoidWhen="UNIT.IsAlive" />
 	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(41980)">
 		<HuntingGrounds>
 
@@ -162,7 +164,7 @@
 
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-
+<CustomBehavior File="Hooks\Avoid" AvoidName="Gravax the Desecrator" Command="Remove" />
 </While>
 
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
