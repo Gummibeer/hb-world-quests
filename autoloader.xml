@@ -740,12 +740,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="false" />
       </If>
-      <!--
       <If Condition="OnQuest(43063) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43063) &amp;&amp; DoFaction(43063)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43063-[N]-[QUEST]-Wq-DANGER-Stormfeather-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43063-[N]-[QUEST]-Wq-DANGER-Stormfeather-WiN" RememberProfile="false" />
       </If>
-      -->
       <If Condition="OnQuest(43072) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43072) &amp;&amp; DoFaction(43072)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43072-[N]-[QUEST]-Wq-DANGER The Whisperer-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43072-[N]-[QUEST]-Wq-DANGER The Whisperer-Zinner" RememberProfile="false" />
@@ -1041,12 +1039,14 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
       </If>
-      <!--
+      <If Condition="OnQuest(43437) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43437) &amp;&amp; DoFaction(43437)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43437-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43437-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(43438) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43438) &amp;&amp; DoFaction(43438)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
       </If>
-      -->
       <If Condition="OnQuest(43450) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43450) &amp;&amp; DoFaction(43450)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
@@ -1095,12 +1095,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
       </If>
-      <!--
       <If Condition="OnQuest(43625) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43625) &amp;&amp; DoFaction(43625)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
       </If>
-      -->
       <If Condition="OnQuest(43626) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43626) &amp;&amp; DoFaction(43626)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
@@ -1739,10 +1737,6 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43448-[N]-[QUEST]-Wq-WORLD-BOSS-The Frozen King-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43448-[N]-[QUEST]-Wq-WORLD-BOSS-The Frozen King-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(43450) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43450) &amp;&amp; DoFaction(43450)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
-      </If>
       <If Condition="OnQuest(43455) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43455) &amp;&amp; DoFaction(43455)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43455-[N]-[QUEST]-Wq-WANTED_Devouring_Darkness-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43455-[N]-[QUEST]-Wq-WANTED_Devouring_Darkness-WiN" RememberProfile="false" />
@@ -1790,6 +1784,10 @@ return 0; ";
       <If Condition="OnQuest(44293) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44293) &amp;&amp; DoFaction(44293)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44293-[N]-[QUEST]-Wq-WANTED Slumber-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44293-[N]-[QUEST]-Wq-WANTED Slumber-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44294) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44294) &amp;&amp; DoFaction(44294)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44294-[N]-[QUEST]-Wq-WANTED Sekhan-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44294-[N]-[QUEST]-Wq-WANTED Sekhan-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(44823) &amp;&amp; PassesSettings(44823) &amp;&amp; DoFaction(44823)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44823-[N]-[QUEST]-Thunder Totem Cleanup Detail-WQ-Nuok&quot;);" />
