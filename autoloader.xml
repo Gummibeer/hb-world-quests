@@ -1406,6 +1406,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43784-[N]-[QUEST]-What a Nightmare-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\43784-[N]-[QUEST]-What a Nightmare-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(44011) &amp;&amp; PassesSettings(44011) &amp;&amp; DoFaction(44011)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44011-[N]-[QUEST]-Lost Wisp-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44011-[N]-[QUEST]-Lost Wisp-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(44033) &amp;&amp; PassesSettings(44033) &amp;&amp; DoFaction(44033)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44033-[N]-[QUEST]-Wq-Aw_Nuts-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\44033-[N]-[QUEST]-Wq-Aw_Nuts-Zinner" RememberProfile="false" />

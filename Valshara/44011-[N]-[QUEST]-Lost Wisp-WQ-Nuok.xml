@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Lost Wisp - WQ ($Rev: 0 $)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1018);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1018)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 44011 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+        public void GrowTree()
+        {
+            var growTree = Styx.CommonBot.Bars.ActionBar.Active.Buttons.FirstOrDefault(b => b.Id == 222728);
+            growTree?.Use();
+        }
+        ]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(44011)">
+        <RunTo X="2561.243" Y="6970.671" Z="152.6622" />
+      </If>
+      <If Condition="HasQuest(44011)">
+        <RunTo X="2561.243" Y="6970.671" Z="152.6622" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2562.318" Y="6927.311" Z="145.2733" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2563.803" Y="6910.537" Z="145.228" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2550.294" Y="6898.945" Z="145.0454" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2530.799" Y="6862.816" Z="143.9797" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2600.33" Y="6874.001" Z="144.6661" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2610.975" Y="6883.233" Z="146.0456" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2625.772" Y="6890.697" Z="146.7497" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2637.523" Y="6908.585" Z="143.511" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2669.685" Y="6929.675" Z="144.2815" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2661.597" Y="6954.683" Z="146.1975" />
+        <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="RunCode" Code="GrowTree();" TerminateWhen="!Me.InVehicle" />
+        <CustomBehavior File="WaitTimer" WaitTime="2000" TerminateWhen="!Me.InVehicle" />
+
+        <CustomBehavior File="EjectVeh" />
+
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
