@@ -183,6 +183,8 @@ return unpack(ids)";
             {
                 var t = QuestRewardType(q);
                 //return error = 0, gold = 1, artifactpower = 2, items = 3, blood = 4, currency = 5
+                if(t==0)
+                    Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}), but couldn't work out the reward");
                 if(t==1)
                     Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}), rewards Gold");
                 if(t==2)
@@ -834,6 +836,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43805-[N]-[QUEST]-Wq-Aquatic-Assassination-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43805-[N]-[QUEST]-Wq-Aquatic-Assassination-WiN" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(44048) &amp;&amp; PassesSettings(44048) &amp;&amp; DoFaction(44048)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44048-[N]-[QUEST]-Wq-Nagana Happen-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44048-[N]-[QUEST]-Wq-Nagana Happen-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(44049) &amp;&amp; PassesSettings(44049) &amp;&amp; DoFaction(44049)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44049-[N]-[QUEST]-Wq-Evil Has Many Legs-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44049-[N]-[QUEST]-Wq-Evil Has Many Legs-Zinner" RememberProfile="false" />
@@ -916,6 +922,10 @@ return 0; ";
       <If Condition="OnQuest(41536) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Herbalism).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41536)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(41555) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41555)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41555-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41555-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(41556) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41556)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
@@ -1112,6 +1122,10 @@ return 0; ";
       <If Condition="OnQuest(43772) &amp;&amp; PassesSettings(43772) &amp;&amp; DoFaction(43772)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43772-[N]-[QUEST]-Enigmatic-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43772-[N]-[QUEST]-Enigmatic-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43786) &amp;&amp; PassesSettings(43786) &amp;&amp; DoFaction(43786)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43786-[N]-[QUEST]-Pesty Nests-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43786-[N]-[QUEST]-Pesty Nests-WQ-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(43827) &amp;&amp; PassesSettings(43827) &amp;&amp; DoFaction(43827)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43827-[N]-[QUEST]-Stormwing the Portals-WQ-Nuok&quot;);" />
