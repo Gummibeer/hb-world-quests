@@ -150,28 +150,27 @@
         public bool LoopProfile { get; set; }
     }
 
-private HashSet<int> GetWorldQuestsByZone(int zone)
+        public List<int> GetAllWorldQuests()
         {
-            var lua = $@"SetMapByID({zone})
-local ids = {{}}
-local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({zone})
-if (taskInfo) then
-	for i, info  in ipairs(taskInfo) do
-		if HaveQuestData(info.questId) then
-			if QuestUtils_IsQuestWorldQuest(info.questId) and WorldMap_DoesWorldQuestInfoPassFilters(info) then
-                    tinsert (ids, info.questId )
+             var lua = @"local ids =  {} 
+for zoneIndex = 1, C_MapCanvas.GetNumZones(1007) do
+    local zoneMapID, zoneName, zoneDepth = C_MapCanvas.GetZoneInfo(1007, zoneIndex);
+    if zoneDepth <= 1 then
+        local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(zoneMapID, 1007);
+        if (taskInfo) then
+            for i, info  in ipairs(taskInfo) do
+                if HaveQuestData(info.questId) then
+                    if QuestUtils_IsQuestWorldQuest(info.questId) and WorldMap_DoesWorldQuestInfoPassFilters(info)then
+                    tinsert(ids, info.questId)
                     end
                 end
             end
-       end
+        end
+    end
+end
 return unpack(ids)";
-            var getResult = Lua.GetReturnValues(lua);
-            var list = new HashSet<int>();
-            foreach (var r in getResult)
-            {
-                list.Add(Lua.ParseLuaValue<int>(r));
-            }
-            return list;
+            var list = Lua.GetReturnValues(lua);
+            return list.Select(Lua.ParseLuaValue<int>).ToList();
         }
 
         public Dictionary<int, int> WorldQuest = new Dictionary<int, int>();
@@ -179,46 +178,33 @@ return unpack(ids)";
         public void Update()
         {
             WorldQuest.Clear();
-
-            var zones = new HashSet<int>
+            var quest = GetAllWorldQuests();
+            foreach (var q in quest)
             {
-                1015,
-                1018,
-                1024,
-                1017,
-                1033,
-                1096,
-                1014
-            };
-
-            foreach (var z in zones)
-            {
-                var quest = GetWorldQuestsByZone(z);
-                foreach (var q in quest)
+                var t = QuestRewardType(q);
+                //return error = 0, gold = 1, artifactpower = 2, items = 3, blood = 4, currency = 5
+                if(t==1)
+                    Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}), rewards Gold");
+                if(t==2)
+                    Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) , rewards Artifact Power");
+                if(t == 3)
                 {
-                    var t = QuestRewardType(q);
-                    //return error = 0, gold = 1, artifactpower = 2, items = 3, blood = 4, currency = 5
-                    if(t==1)
-                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Gold");
-                    if(t==2)
-                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Artifact Power");
-                    if(t == 3)
-                    {
-                        var rewards = GetReward(q);
-                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Item {rewards[0]} {rewards[1]}");
-                    }
-                    if(t==4)
-                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Blood of Sargeras");
-                    if(t==5)
-                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Order Hall Resources");
-                    if(t == 6)
-                    {
-                        var rewards = GetReward(q);
-                        Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}) in {z}, rewards Equipment {rewards[0]} {rewards[1]}");
-                    }
-                    WorldQuest.Add(q, t);
+                    var rewards = GetReward(q);
+                    Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}), rewards Item {rewards[0]} {rewards[1]}");
                 }
+                if(t==4)
+                    Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}), rewards Blood of Sargeras");
+                if(t==5)
+                    Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}), rewards Order Hall Resources");
+                if(t == 6)
+                {
+                    var rewards = GetReward(q);
+                    Logging.WriteDiagnostic($"Found {GetQuestName(q)} ({q}), rewards Equipment {rewards[0]} {rewards[1]}");
+                }
+                WorldQuest.Add(q, t);
             }
+            Logging.WriteDiagnostic($"Found {WorldQuest.Count} WQ's");
+            
         }
 
         public bool OnQuest(int id)
