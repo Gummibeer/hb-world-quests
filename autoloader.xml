@@ -1043,10 +1043,6 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42964-[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42964-[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(43434) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43434) &amp;&amp; DoFaction(43434)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43434-[N]-[QUEST]-Wq-WANTED_Fathnyr-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43434-[N]-[QUEST]-Wq-WANTED_Fathnyr-WiN" RememberProfile="false" />
-      </If>
       <If Condition="OnQuest(43436) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43436) &amp;&amp; DoFaction(43436)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
