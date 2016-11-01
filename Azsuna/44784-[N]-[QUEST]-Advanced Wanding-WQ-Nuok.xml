@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] Wild Leystone Seams - MiningWQ ($Rev$)</Name>
+  <Name>[Nuok] Advanced Wanding - WQ ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -17,31 +17,40 @@
   <SellPurple>false</SellPurple>
   <TargetElites>true</TargetElites>
   <QuestOrder>
-    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017);
-local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
-        if info.questId == 41497 then
+        if info.questId == 44784 then
             return true;
             end
     end
 end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
-      <If Condition="!HasQuest(41497)">
-        <RunTo X="4110.08" Y="2576.993" Z="230.7415" />
+      <If Condition="!HasQuest(44784)">
+        <RunTo X="200.573" Y="6453.273" Z="-53.77725" />
       </If>
-      <If Condition="HasQuest(41497)">
-        <!--<GameObject Name="Wild Leystone Seam" Entry="247989" X="4147.035" Y="2600.76" Z="161.2624" />-->
-        <CustomBehavior File="InteractWith" MobIds="247989" NumOfTimes="100" NonCompeteDistance="0" Range="5" TerminateWhen="!OnQuest">
-          <HuntingGrounds>
-            <Hotspot X="4110.08" Y="2576.993" Z="230.7415" />
-            <Hotspot X="4157.564" Y="2507.186" Z="205.3236" />
-            <Hotspot X="4086.692" Y="2378.014" Z="303.1418" />
-          </HuntingGrounds>
-        </CustomBehavior>
+      <If Condition="HasQuest(44784)">
+        <RunTo X="200.573" Y="6453.273" Z="-53.77725" />
+				<CustomBehavior File="RunCode"><![CDATA[
+						WoWGuid blacklistTarget = new WoWGuid();
+            var wand = Styx.CommonBot.Bars.ActionBar.Extra.Buttons.FirstOrDefault(b => b.Id == 212782);
+						while (HasQuest(44784))
+						{
+							var wandTarget = Unit(117780, u => u.Guid != blacklistTarget);
+							blacklistTarget = wandTarget.Guid;
+							wandTarget.Face();
+							await Coroutine.Sleep(750);
+							wand.Use();
+              await Coroutine.Sleep(1000);
+              await Coroutine.Yield();
+						}
+					]]>
+				</CustomBehavior>
       </If>
     </While>
+    <RunTo X="34.08396" Y="6287.536" Z="12.62869" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

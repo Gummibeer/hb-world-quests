@@ -34,7 +34,7 @@ return false;", 0);]]></CustomBehavior>
 					{
 						while (Me.Location.Distance(moveTo) >= 5)
 						{
-							Navigator.MoveTo(moveTo);
+							await CommonCoroutines.MoveTo(moveTo);
 							await CombatAwareness();
 							await Coroutine.Yield();
 						}
@@ -49,7 +49,7 @@ return false;", 0);]]></CustomBehavior>
 						{
 							if (Me.Location.Distance(killMe.Location) >= 5)
 							{
-								Navigator.MoveTo(killMe.Location);
+								await CommonCoroutines.MoveTo(killMe.Location);
 								await CombatAwareness();
 								await Coroutine.Yield();
 							}
@@ -102,8 +102,7 @@ return false;", 0);]]></CustomBehavior>
 				]]>
     </CustomBehavior>
     <While Condition="OnQuest">
-      <CustomBehavior File="RunCode"
-                      Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42174] Champions of Elune - Nuok!&quot;);" />
+      <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42174] Champions of Elune - Nuok!&quot;);" />
       <If Condition="!Me.InVehicle">
         <If Condition="!HasQuest(42174)">
           <RunTo X="3515.886" Y="5538.995" Z="323.084" />
@@ -116,11 +115,27 @@ return false;", 0);]]></CustomBehavior>
       </If>
       <While Condition="Me.InVehicle">
         <DisableBehavior Name="All" />
-        <!--Dryad Vehicle: Maintain-->
-        <CustomBehavior File="RunCode" Code="await VehicleKill(97796);" />
+        <!--[1] 1/1 Speak with Leafbeard the Storied monster 1
+            [2] 25/25 Demons slain monster 1
+            [3] 2/2 Infernal Siegebreaker slain monster 1
+            [4] 1/1 Pit Lord slain monster 1-->
+        <!--<Vendor Name="Felguard Legionnaire" Entry="98020" Type="Repair" Nav="Fly" X="3502.546" Y="-5047.392" Z="85.65852" /> 2-->
+        <!--<Vendor Name="Infernal Siegebreaker" Entry="97808" Type="Repair" Nav="Fly" X="3414.167" Y="-4928.497" Z="108.7138" />-->
+        <!--<Vendor Name="Pit Lord" Entry="98757" Type="Repair" Nav="Fly" X="3470.844" Y="-4994.091" Z="94.70699" /> 3-->
+        <!--<Hotspot X="3449.01" Y="-4995.166" Z="95.77437" />-->
+        <If Condition="!IsObjectiveComplete(2, 42174)">
+          <CustomBehavior File="RunCode" Code="await VehicleKill(98020);" TerminateWhen="!Me.InVehicle || !OnQuest || IsObjectiveComplete(2, 42174)"/>
+          <CustomBehavior File="RunCode" Code="await VehicleMove(new Vector3(33449.01f, -4995.166f, 95.77437f));" TerminateWhen="!Me.InVehicle || !OnQuest || IsObjectiveComplete(2, 42174)"/>
+        </If>
+        <If Condition="!IsObjectiveComplete(3, 42174)">
+          <CustomBehavior File="RunCode" Code="await VehicleKill(97808);" TerminateWhen="!Me.InVehicle || !OnQuest || IsObjectiveComplete(3, 42174)"/>
+          <CustomBehavior File="RunCode" Code="await VehicleMove(new Vector3(33449.01f, -4995.166f, 95.77437f));" TerminateWhen="!Me.InVehicle || !OnQuest || IsObjectiveComplete(3, 42174)"/>
+        </If>
+        <If Condition="!IsObjectiveComplete(4, 42174)">
+          <CustomBehavior File="RunCode" Code="await VehicleKill(98757);" TerminateWhen="!Me.InVehicle || !OnQuest || IsObjectiveComplete(4, 42174)"/>
+          <CustomBehavior File="RunCode" Code="await VehicleMove(new Vector3(33449.01f, -4995.166f, 95.77437f));" TerminateWhen="!Me.InVehicle || !OnQuest || IsObjectiveComplete(4, 42174)"/>
+        </If>
       </While>
-      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
     </While>
     <EnableBehavior Name="All" />
     <If
