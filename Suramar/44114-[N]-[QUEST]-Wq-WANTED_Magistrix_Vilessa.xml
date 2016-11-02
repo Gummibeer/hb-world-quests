@@ -1,0 +1,77 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>44114 DANGER: Magistrix Vilessa - Staal</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 44114 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool NeedsMask()
+        {
+            if (Me.Combat || Me.HasAura(202477)) return false;
+            var extraAction = Styx.CommonBot.Bars.ActionBar.Extra;
+            return extraAction.IsActive && extraAction.Buttons[0].Id == 202477;
+        }
+
+        public async Task UseMask()
+        {
+          while (NeedsMask())
+						{
+            var extraAction = Styx.CommonBot.Bars.ActionBar.Extra;
+            await CommonCoroutines.StopMoving();
+            extraAction.Buttons[0].Use();
+            await Coroutine.Sleep(1500);
+            await Coroutine.Yield();
+            }
+        }]]>
+<!--	<PickUp Nav="Fly" QuestName="DANGER: Magistrix Vilessa" QuestId="44114" GiverName="" GiverId="" />
+<Objective QuestName="DANGER: Magistrix Vilessa" QuestId="44114" Type="KillMob" MobId="112757" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="DANGER: Magistrix Vilessa" QuestId="44114" TurnInName="" TurnInId="" />
+-->
+
+    </CustomBehavior>
+    <CustomBehavior File="Hooks\Avoid" AvoidName="DispelIllusions" Command="Add" AvoidWhen="UNIT.CastingSpellId == 203750" Radius="18" IgnoreLootInAvoid="true" IgnoreIfBlocking="true" />
+    <CustomBehavior File="Hooks\DoWhen" UseWhen="NeedsMask()" LogExecution="true" ActivityName="apply_mask" StopMovingToConductActivity="true" AllowUseWhileMounted="true">
+      <CustomBehavior File="RunCode" Code="UseMask()" />
+      <CustomBehavior File="WaitTimer" WaitTime="4000" />
+    </CustomBehavior>
+    <While Condition="OnQuest" >
+      <RunTo X="543.9437" Y="3954.224" Z="39.10023" />
+      <CustomBehavior File="KillUntilComplete" MobIds="112757" QuestId="44114">
+        <HuntingGrounds>
+<Hotspot X="506.7986" Y="3908.779" Z="38.83073" />
+        </HuntingGrounds>
+      </CustomBehavior>
+    </While>
+
+   <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest DANGER: Magistrix Vilessa - Staal, loading auto-loader!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
