@@ -1123,6 +1123,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43751) &amp;&amp; PassesSettings(43751) &amp;&amp; DoFaction(43751)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43751-[N]-[QUEST]-Oh, Ship!-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43751-[N]-[QUEST]-Oh, Ship!-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(43772) &amp;&amp; PassesSettings(43772) &amp;&amp; DoFaction(43772)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43772-[N]-[QUEST]-Enigmatic-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43772-[N]-[QUEST]-Enigmatic-Nuok" RememberProfile="false" />
@@ -1752,6 +1756,10 @@ return 0; ";
       <If Condition="OnQuest(43619) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43619) &amp;&amp; DoFaction(43619)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43619-[N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43619-[N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(43624) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43624) &amp;&amp; DoFaction(43624)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(43764) &amp;&amp; PassesSettings(43764) &amp;&amp; DoFaction(43764)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43764-[N]-[QUEST]-Wq-Ley Race-Nuok&quot;);" />
