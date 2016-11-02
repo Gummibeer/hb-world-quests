@@ -732,6 +732,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43027-[N]-[QUEST]-Wq-DANGER_Mortiferous-WiN" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43040) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43040) &amp;&amp; DoFaction(43040)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43040-[N]-[QUEST]-Wq-DANGER Valakar the Thirsty-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43040-[N]-[QUEST]-Wq-DANGER Valakar the Thirsty-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(43063) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(43063) &amp;&amp; DoFaction(43063)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43063-[N]-[QUEST]-Wq-DANGER-Stormfeather-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43063-[N]-[QUEST]-Wq-DANGER-Stormfeather-WiN" RememberProfile="false" />
@@ -1442,12 +1446,6 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="false" />
       </If>
-      <!--
-      <If Condition="OnQuest(44895) &amp;&amp; PassesSettings(44895) &amp;&amp; DoFaction(44895)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44895-[N]-[QUEST]-Wq-Sharptalon Swarm!-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44895-[N]-[QUEST]-Wq-Sharptalon Swarm!-Zinner" RememberProfile="false" />
-      </If>
-      -->
     </If>
     <If Condition="ZoneEnabled(1024)">
       <!--Highmountain-->
@@ -1759,10 +1757,6 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43619-[N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43619-[N]-[QUEST]-Wq-WANTED Shara Felbreath-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="OnQuest(43624) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43624) &amp;&amp; DoFaction(43624)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok" RememberProfile="false" />
-      </If>
       <If Condition="OnQuest(43764) &amp;&amp; PassesSettings(43764) &amp;&amp; DoFaction(43764)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43764-[N]-[QUEST]-Wq-Ley Race-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43764-[N]-[QUEST]-Wq-Ley Race-Nuok" RememberProfile="false" />
@@ -1806,6 +1800,10 @@ return 0; ";
       <If Condition="OnQuest(44892) &amp;&amp; PassesSettings(44892) &amp;&amp; DoFaction(44892)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44892[N]-[QUEST]-Wq-Snowfeather Swarm!-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44892[N]-[QUEST]-Wq-Snowfeather Swarm!-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44895) &amp;&amp; PassesSettings(44895) &amp;&amp; DoFaction(44895)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44895-[N]-[QUEST]-Sharptalon Swarm!-RareWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44895-[N]-[QUEST]-Sharptalon Swarm!-RareWQ-Nuok" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1033)">
