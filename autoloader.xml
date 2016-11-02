@@ -1446,6 +1446,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(44895) &amp;&amp; PassesSettings(44895) &amp;&amp; DoFaction(44895)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44895-[N]-[QUEST]-Sharptalon Swarm!-RareWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\44895-[N]-[QUEST]-Sharptalon Swarm!-RareWQ-Nuok" RememberProfile="false" />
+      </If>
     </If>
     <If Condition="ZoneEnabled(1024)">
       <!--Highmountain-->
@@ -1765,6 +1769,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43767-[N]-[QUEST]-Wq-Enigmatic-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43767-[N]-[QUEST]-Wq-Enigmatic-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43985) &amp;&amp; Settings.Instance.DoWorldBosses &amp;&amp; PassesSettings(43985) &amp;&amp; DoFaction(43985)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43985-[N]-[QUEST]-A Dark Tide-EpicEliteWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\43985-[N]-[QUEST]-A Dark Tide-EpicEliteWQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(44289) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44289) &amp;&amp; DoFaction(44289)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44289-[N]-[QUEST]-Wq-WANTED Arru-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44289-[N]-[QUEST]-Wq-WANTED Arru-Zinner" RememberProfile="false" />
@@ -1800,10 +1808,6 @@ return 0; ";
       <If Condition="OnQuest(44892) &amp;&amp; PassesSettings(44892) &amp;&amp; DoFaction(44892)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44892[N]-[QUEST]-Wq-Snowfeather Swarm!-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44892[N]-[QUEST]-Wq-Snowfeather Swarm!-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="OnQuest(44895) &amp;&amp; PassesSettings(44895) &amp;&amp; DoFaction(44895)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44895-[N]-[QUEST]-Sharptalon Swarm!-RareWQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\44895-[N]-[QUEST]-Sharptalon Swarm!-RareWQ-Nuok" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1033)">
