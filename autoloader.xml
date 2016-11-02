@@ -1442,10 +1442,12 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\44305-[N]-[QUEST]-Wq-WANTED Bahagar-Zinner" RememberProfile="false" />
       </If>
+      <!--
       <If Condition="OnQuest(44895) &amp;&amp; PassesSettings(44895) &amp;&amp; DoFaction(44895)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44895-[N]-[QUEST]-Wq-Sharptalon Swarm!-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\44895-[N]-[QUEST]-Wq-Sharptalon Swarm!-Zinner" RememberProfile="false" />
       </If>
+      -->
     </If>
     <If Condition="ZoneEnabled(1024)">
       <!--Highmountain-->
