@@ -1095,6 +1095,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(43624) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43624) &amp;&amp; DoFaction(43624)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(43626) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(43626) &amp;&amp; DoFaction(43626)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
