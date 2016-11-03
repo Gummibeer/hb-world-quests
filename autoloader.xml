@@ -1011,6 +1011,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(42173) &amp;&amp; PassesSettings(42173) &amp;&amp; DoFaction(42173)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42173-[N]-[QUEST]-Electrosnack-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42173-[N]-[QUEST]-Electrosnack-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(42176) &amp;&amp; PassesSettings(42176) &amp;&amp; DoFaction(42176)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN" RememberProfile="false" />

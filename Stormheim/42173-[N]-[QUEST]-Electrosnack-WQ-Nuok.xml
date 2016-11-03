@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Electrosnack - WQ ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42173 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(42173)">
+        <RunTo X="3074.376" Y="1978.334" Z="184.5374" />
+      </If>
+      <While Condition="HasQuest(42173)">
+        //Lightning Rod 211466
+        <CustomBehavior File="InteractWith" MobIds="107803, 107805, 107758, 97091" Range="1" NumOfTimes="1" MobState="Dead" AuraIdMissingFromMob="211466" >
+          <HuntingGrounds>
+            <Hotspot X="3048.065" Y="2000.384" Z="190.4173" />
+            <Hotspot X="2946.88" Y="2155.77" Z="202.8789" />
+            <Hotspot X="3099.45" Y="2075.383" Z="191.125" />
+          </HuntingGrounds>
+        </CustomBehavior>
+        <!--Little hacky as interactwith clears the target....-->
+        <CustomBehavior File="RunMacro" Macro="/targetlasttarget"/>
+        <CustomBehavior File="RunMacro" Macro="/click ExtraActionButton1"/>
+      </While>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
