@@ -1832,6 +1832,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41446-[N]-[QUEST]-Darkened Felslate Deposits-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41446-[N]-[QUEST]-Darkened Felslate Deposits-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(41491) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41491)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41491-[N]-[QUEST]-Brimstone Destroyer-MiningWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41491-[N]-[QUEST]-Brimstone Destroyer-MiningWQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(41557) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Cooking).CurrentValue &gt; 100 &amp;&amp; PassesSettings(41557)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41557-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41557-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="false" />
@@ -1999,6 +2003,10 @@ return 0; ";
       <If Condition="OnQuest(44801) &amp;&amp; PassesSettings(44801) &amp;&amp; DoFaction(44801)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44801-[N]-[QUEST]-Wq-Defending Shal'aran-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44801-[N]-[QUEST]-Wq-Defending Shal'aran-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44857) &amp;&amp; PassesSettings(44857) &amp;&amp; DoFaction(44857)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44857-[N]-[QUEST]-Wq-Not There, Not Then, Not Forever-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44857-[N]-[QUEST]-Wq-Not There, Not Then, Not Forever-Zinner" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(45307) &amp;&amp; PassesSettings(45307) &amp;&amp; DoFaction(45307)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45307-[N]-[QUEST]-Wq-Claws for Alarm!-Zinner&quot;);" />
