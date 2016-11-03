@@ -987,6 +987,10 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41930-[N]-[QUEST]-Wq-Valor Calls-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41930-[N]-[QUEST]-Wq-Valor Calls-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="OnQuest(41936) &amp;&amp; PassesSettings(41936) &amp;&amp; DoFaction(41936)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41936-[N]-[QUEST]-You Have Been Challenged-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41936-[N]-[QUEST]-You Have Been Challenged-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="OnQuest(41938) &amp;&amp; PassesSettings(41938) &amp;&amp; DoFaction(41938)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="false" />
@@ -1971,6 +1975,10 @@ return 0; ";
       <If Condition="OnQuest(44030) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44030) &amp;&amp; DoFaction(44030)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
+      </If>
+      <If Condition="OnQuest(44114) &amp;&amp; Settings.Instance.DoWanted &amp;&amp; PassesSettings(44114) &amp;&amp; DoFaction(44114)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44114-[N]-[QUEST]-Wq-WANTED_Magistrix_Vilessa-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44114-[N]-[QUEST]-Wq-WANTED_Magistrix_Vilessa-Staal" RememberProfile="false" />
       </If>
       <If Condition="OnQuest(44121) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(44121) &amp;&amp; DoFaction(44121)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous&quot;);" />

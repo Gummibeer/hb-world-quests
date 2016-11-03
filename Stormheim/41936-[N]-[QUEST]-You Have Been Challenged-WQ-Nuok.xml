@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] You Have Been Challenged - WQ ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41936 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41936)">
+        <RunTo X="2542.041" Y="1504.683" Z="23.14341" />
+      </If>
+      <While Condition="HasQuest(41936)">
+        <!--<Vendor Name="Froijla Axebearer" Entry="105424" Type="Repair" Nav="Fly" X="2543.643" Y="1490.826" Z="23.14324" />-->
+        <!--<Vendor Name="Silent Shale" Entry="105433" Type="Repair" Nav="Fly" X="2543.159" Y="1484.91" Z="23.14321" />-->
+        <!--<Vendor Name="Lafayla Mightblade" Entry="105432" Type="Repair" Nav="Fly" X="2543.921" Y="1493.806" Z="23.14333" />-->
+        <!--<Vendor Name="Bretta the Bold" Entry="105399" Type="Repair" Nav="Fly" X="2546.073" Y="1491.737" Z="23.14317" />-->
+        <!--<GameObject Name="Challenge Horn" Entry="248882" X="2541.878" Y="1476.432" Z="23.1042" />-->
+        <CustomBehavior File="KillUntilComplete" MobIds="105424, 105433, 105432, 105399" WaitForNpcs="false" TerminateWhen="!OnQuest" X="2542.041" Y="1504.683" Z="23.14341" />
+        <CustomBehavior File="InteractWith" MobIds="248882" WaitForNpcs="false" TerminateWhen="!OnQuest" X="2542.041" Y="1504.683" Z="23.14341" />
+        <CustomBehavior File="WaitTimer" WaitTime="1000"/>
+      </While>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
