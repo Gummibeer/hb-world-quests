@@ -1316,10 +1316,12 @@ return 0; ";
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN" RememberProfile="false" />
       </If>
+      <!--
       <If Condition="OnQuest(42174) &amp;&amp; PassesSettings(42174) &amp;&amp; DoFaction(42174)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42174-[N]-[QUEST]-Wq-Champions of Elune-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42174-[N]-[QUEST]-Wq-Champions of Elune-Nuok" RememberProfile="false" />
       </If>
+      -->
       <If Condition="OnQuest(42870) &amp;&amp; Settings.Instance.DoDangerQuests &amp;&amp; PassesSettings(42870) &amp;&amp; DoFaction(42870)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42870-[N]-[QUEST]-Wq-DANGER-Kathaw_the_Savage-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42870-[N]-[QUEST]-Wq-DANGER-Kathaw_the_Savage-WiN" RememberProfile="false" />
