@@ -21,7 +21,7 @@
 local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
-        if info.questId == 44784 then
+        if info.questId == 44894 then
             return true;
             end
     end
