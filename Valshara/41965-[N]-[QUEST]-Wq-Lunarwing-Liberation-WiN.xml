@@ -29,9 +29,9 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <RunTo X="2029.949" Y="6626.144" Z="84.34957" />
-      <CustomBehavior File="InteractWith" MobId="93444" NumOfTimes="1" TerminateWhen="IsObjectiveComplete(3, 41965) || !OnQuest" X="1978.535" Y="6578.545" Z="77.02016" />
+      <CustomBehavior File="KillUntilComplete" MobId="93444" TerminateWhen="IsObjectiveComplete(3, 41965) || !OnQuest" X="1978.535" Y="6578.545" Z="77.02016" />
 
-      <CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!IsObjectiveComplete(3, 41965) || !OnQuest" >
+      <CustomBehavior File="InteractWith" MobId="93489" NumOfTimes="30" TerminateWhen="IsObjectiveComplete(1,41965) || !OnQuest" >
         <HuntingGrounds>
           <Hotspot X="1989.112" Y="6704.925" Z="74.27997" />
           <Hotspot X="1936.84" Y="6656.384" Z="75.84156" />
@@ -39,11 +39,16 @@ return false;", 0);]]>
           <Hotspot X="1805.49" Y="6577.72" Z="74.4251" />
           <Hotspot X="1912.48" Y="6574.791" Z="74.4779" />
         </HuntingGrounds>
-        <PursuitList>
-          <PursueUnit Id="93489" PursueWhen="!IsObjectiveComplete(1,41965) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-          <PursueUnit Id="91474" PursueWhen="!IsObjectiveComplete(2,41965) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-          <PursueUnit Id="91472" PursueWhen="!IsObjectiveComplete(2,41965) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
-        </PursuitList>
+      </CustomBehavior>
+
+      <CustomBehavior File="KillUntilComplete" MobIds="91474, 91472" TerminateWhen="IsObjectiveComplete(2, 41965) || !OnQuest" >
+        <HuntingGrounds>
+          <Hotspot X="1989.112" Y="6704.925" Z="74.27997" />
+          <Hotspot X="1936.84" Y="6656.384" Z="75.84156" />
+          <Hotspot X="1863.962" Y="6623.967" Z="74.78177" />
+          <Hotspot X="1805.49" Y="6577.72" Z="74.4251" />
+          <Hotspot X="1912.48" Y="6574.791" Z="74.4779" />
+        </HuntingGrounds>
       </CustomBehavior>
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
