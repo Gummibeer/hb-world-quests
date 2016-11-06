@@ -124,12 +124,15 @@
 <WoWUnit Name="Rimescale Legionnaire" Entry="102170" X="1713.892" Y="899.4774" Z="0.5384644" />
 <WoWUnit Name="Rimescale Rejuvenator" Entry="102625" X="1734.53" Y="794.5399" Z="23.18931" />
 <WoWUnit Name="Rimescale Sentry" Entry="101974" X="1790.134" Y="878.6336" Z="33.12123" />
-<WoWUnit Name="Rimescale Hulk" Entry="102060" X="1685.957" Y="788.316" Z="1.697462" /> - avoid these
 
+
+avoid
+<Vendor Name="Rimescale Hulk" Entry="102060" Type="Repair" Nav="Fly" X="1793.239" Y="819.3513" Z="64.56717" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41427)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41427] Get Vrekt - WiN!&quot;);" />
 	<RunTo X="1747.316" Y="630.53" Z="7.076106" />
+	<CustomBehavior File="Hooks\Avoid" AvoidName="Rimescale Hulk" IgnoreLootInAvoid="true" ObjectId="102060" Radius="30" AvoidWhen="UNIT.IsAlive" />
 	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41427)" >
 		<HuntingGrounds>
 		<Hotspot X="1740.732" Y="756.7278" Z="21.53387" />
@@ -148,6 +151,7 @@
 	</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+	<CustomBehavior File="Hooks\Avoid" AvoidName="Rimescale Hulk" Command="Remove" />
 </While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
