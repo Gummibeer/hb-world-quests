@@ -207,10 +207,11 @@
         Unkown3 = 123,
         SkinningWorldQuest = 124,
         JewelcraftingWorldQuest = 125,
-        Unkown4 = 126,
-        RareEliteWorldQuest = 136,
+        Unkown4 = 126, 
+        FishingWorldQuest = 130,
         CookingWorldQuest = 131,
         RareWorldQuest = 135,
+        RareEliteWorldQuest = 136,
         DungeonWorldQuest = 137,    
     }
 
