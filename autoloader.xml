@@ -228,6 +228,7 @@
 
     public enum Emissary
     {
+        None = 0,
         TheWardens = 1894,
         CourtOfFarondis = 1900,
         Dreamweavers = 1883,
@@ -265,6 +266,10 @@
         var list = Lua.GetReturnValues(lua);
         Log($"Found {list.Count} WorldQuests");
         WorldQuests = list.Select(q => new WorldQuest(q)).ToList();
+        foreach (var q in WorldQuests)
+        {
+            Logging.WriteDiagnostic($"Found {q.Name} ({q.QuestId}) - {q.Tag} - {q.Faction} - {q.RewardType}");
+        }
     }
 
      public static List<WorldQuest> WorldQuests = new List<WorldQuest>();
@@ -277,7 +282,8 @@
             Log($"Player Has Emissary Quest {quest.Name}");
     }
 
-        public static HashSet<uint> CodedProfiles = new HashSet<uint>();
+    public static HashSet<uint> CodedProfiles = new HashSet<uint>();
+
     public void LogUncoded()
     {
         var quests = WorldQuests.Where(q => !CodedProfiles.Contains(q.QuestId));
