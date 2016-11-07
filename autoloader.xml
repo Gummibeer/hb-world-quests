@@ -1248,6 +1248,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43620) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43620-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43620-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43622) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
@@ -2136,6 +2140,10 @@
       <If Condition="DoQuest(44030) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(44113) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44113-[N]-[QUEST]-Wq-DANGER Achronos-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44113-[N]-[QUEST]-Wq-DANGER Achronos-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(44114) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44114-[N]-[QUEST]-Wq-WANTED_Magistrix_Vilessa-Staal&quot;);" />
