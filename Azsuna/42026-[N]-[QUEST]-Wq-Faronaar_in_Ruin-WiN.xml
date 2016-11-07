@@ -51,7 +51,7 @@ return false;", 0);]]>
         <RunTo X="-614.1506" Y="7275.886" Z="27.65965" />
       </If>
 
-      <CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead" TerminateWhen="!OnQuest">
+      <CustomBehavior File="InteractWith" MobId="249416" NonCompeteDistance="0" NumOfTimes="20" MobState="Dead" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 42026)">
         <HuntingGrounds>
           <Hotspot X="-614.1506" Y="7275.886" Z="27.65965" />
           <Hotspot X="-712.4473" Y="7220.84" Z="32.35116" />
@@ -59,14 +59,16 @@ return false;", 0);]]>
           <Hotspot X="-832.6381" Y="7169.594" Z="20.19445" />
           <Hotspot X="-833.0221" Y="7248.004" Z="33.60348" />
         </HuntingGrounds>
-        <PursuitList>
-          <PursueUnit Id="249416" Priority="1" PursueWhen="!IsObjectiveComplete(1, 42026)" />
-          <PursueGameObject Id="249416" Priority="100" PursueWhen="!IsObjectiveComplete(1, 42026)" />
-          <PursueUnit Id="103363" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42026) &amp;&amp; (UNIT.IsAlive)" />
-          <PursueUnit Id="90659" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42026) &amp;&amp; (UNIT.IsAlive)" />
-          <PursueUnit Id="103162" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42026) &amp;&amp; (UNIT.IsAlive)" />
-          <PursueUnit Id="103231" Priority="1" PursueWhen="!IsObjectiveComplete(2, 42026) &amp;&amp; (UNIT.IsAlive)" />
-        </PursuitList>
+      </CustomBehavior>
+
+      <CustomBehavior File="KillUntilComplete" MobIds="103363, 90659, 103162, 103231" TerminateWhen="!OnQuest || IsObjectiveComplete(2, 42026)">
+        <HuntingGrounds>
+          <Hotspot X="-614.1506" Y="7275.886" Z="27.65965" />
+          <Hotspot X="-712.4473" Y="7220.84" Z="32.35116" />
+          <Hotspot X="-775.9566" Y="7144.25" Z="27.47298" />
+          <Hotspot X="-832.6381" Y="7169.594" Z="20.19445" />
+          <Hotspot X="-833.0221" Y="7248.004" Z="33.60348" />
+        </HuntingGrounds>
       </CustomBehavior>
     </While>
 
