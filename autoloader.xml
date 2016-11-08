@@ -150,7 +150,7 @@
         public bool LoopProfile { get; set; }
     }
 
-     public class WorldQuest
+    public class WorldQuest
     {
         public WorldQuest(string luaIn)
         {
@@ -238,7 +238,7 @@
         Valarjar = 1948
     }
 
-     public void UpdateWorldQuests()
+    public void UpdateWorldQuests()
     {
         WorldQuests.Clear();
          var lua = @"local ids = {}
@@ -272,11 +272,11 @@
         }
     }
 
-     public static List<WorldQuest> WorldQuests = new List<WorldQuest>();
+    public static List<WorldQuest> WorldQuests = new List<WorldQuest>();
 
     public uint[] EmissaryIds = { 42420, 42170, 42422, 42233, 43179, 42234, 43179 };
 
-     public void LogEmissaryQuests()
+    public void LogEmissaryQuests()
     {
         foreach (var quest in StyxWoW.Me.QuestLog.GetAllQuests().Where(q => EmissaryIds.Contains(q.Id)))
             Log($"Player Has Emissary Quest {quest.Name}");
@@ -292,7 +292,7 @@
             Log($"We Dont Currently Have a Profile for {q.Name} ({q.QuestId})");
     }
 
-        public bool DoQuest(uint questId)
+    public bool DoQuest(uint questId)
     {
         if (!CodedProfiles.Contains(questId)) CodedProfiles.Add(questId);
         var quest = WorldQuests.FirstOrDefault(q => q.QuestId == questId);
@@ -301,13 +301,19 @@
 
         if (quest.Tag == QuestTag.RareEliteWorldQuest && !s.DoElite)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} Elites Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} Disabled");
+            return false;
+        }
+
+        if (quest.Tag == QuestTag.RareWorldQuest && !s.DoElite)
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} Disabled");
             return false;
         }
 
         if (quest.Tag == QuestTag.PvPWorldQuest && !s.DoPvP)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} PVP Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} Disabled");
             return false;
         }
 
@@ -319,12 +325,12 @@
 
         if (quest.RewardType == RewardType.ArtifactPower && !s.ArtifactPower)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards ArtifactPower Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Artifact Power Disabled");
             return false;
         }
         if (quest.RewardType == RewardType.Blood && !s.Blood)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Blood Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Blood of Sargeras Disabled");
             return false;
         }
         if (quest.RewardType == RewardType.Equipment && !s.Equipment)
@@ -344,7 +350,7 @@
         }
         if (quest.RewardType == RewardType.OrderHall && !s.OrderHall)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards OrderHall Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Order Hall resources Disabled");
             return false;
         }
 
@@ -451,130 +457,128 @@
         return true;
     }
 
+    public bool HasPlugin => PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper") != null;
 
+    public void EnablePlugin()
+    {
+        var plugin = PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper");
+        if (plugin == null) return;
+        plugin.Enabled = false;
+        plugin.Enabled = true;
+    }
 
-        public bool HasPlugin => PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper") != null;
-
-        public void EnablePlugin()
+    public bool PluginUptoDate()
+    {
+        var plugin = PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper");
+        if (plugin == null)
         {
-            var plugin = PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper");
-            if (plugin == null) return;
-            plugin.Enabled = false;
-            plugin.Enabled = true;
-        }
-
-        public bool PluginUptoDate()
-        {
-            var plugin = PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper");
-            if (plugin == null)
-            {
-                Log("Couldn't find the WorldQuestHelper plugin!");
-                return false;
-            }
-            var latestVersion = new Version(1, 1, 1044);
-            if (plugin.Version == latestVersion) return true;
-            Log($"---Plugin Update {latestVersion} available---");
-            Log("There is an updated version of the WorldQuestHelper settings plugin");
-            Log("Please update from the SVN and copy the folder WorldQuestHelper from \\world-quests\\Plugin to your HB Plugins folder");
-            Log("Once you have done this please restart the bot");
+            Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
+        var latestVersion = new Version(1, 1, 1044);
+        if (plugin.Version == latestVersion) return true;
+        Log($"---Plugin Update {latestVersion} available---");
+        Log("There is an updated version of the WorldQuestHelper settings plugin");
+        Log("Please update from the SVN and copy the folder WorldQuestHelper from \\world-quests\\Plugin to your HB Plugins folder");
+        Log("Once you have done this please restart the bot");
+        return false;
+    }
 
-        public void Log(string text)
+    public void Log(string text)
+    {
+        Logging.Write(System.Windows.Media.Colors.DodgerBlue, "[WQ] " + text);
+    }
+
+    public bool ZoneEnabled(int zoneId)
+    {
+		if(zoneId == 1015)
+            return Settings.Instance.Azsuna;
+        if(zoneId == 1018)
+            return Settings.Instance.Valsharah;
+        if(zoneId ==  1017)
+            return Settings.Instance.Stormheim;
+        if(zoneId ==  1033)
+            return Settings.Instance.Suramar;
+        if(zoneId ==  1024)
+            return Settings.Instance.Highmountain;
+        if(zoneId ==  1096)
+                return Settings.Instance.EyeofAzshara;
+        if(zoneId ==  1014)
+                return Settings.Instance.Dalaran;
+        return false;
+    }
+
+    public bool QuestCompletedInLog(int questId) => 
+            Lua.GetReturnVal<bool>($@"for questIndex = 1, GetNumQuestLogEntries() do
+                _, _, _, _, _, isComplete, _, questID = GetQuestLogTitle(questIndex);
+        if (questID == {questId}) then return isComplete; end end return false; ",  0);
+
+    public async Task ForceTurnin(int questId, string name, int npcId, float x, float y, float z)
+    {
+        if (!QuestCompletedInLog(questId)) return;
+
+        TreeRoot.GoalText = $"Turnin {name}";
+        var turninNpc =
+            ObjectManager.GetObjectsOfType<WoWUnit>().FirstOrDefault(u => u.IsValid && u.Entry == npcId);
+
+        if (turninNpc == null)
         {
-            Logging.Write(System.Windows.Media.Colors.DodgerBlue, "[WQ] " + text);
+            TreeRoot.StatusText = $"Moving to {x} {y} {z}";
+            await CommonCoroutines.MoveTo(new Vector3(x, y, z));
+            return;
         }
 
-        public bool ZoneEnabled(int zoneId)
+        if (!GossipFrame.Instance.IsVisible && !QuestFrame.Instance.IsVisible)
         {
-			if(zoneId == 1015)
-                return Settings.Instance.Azsuna;
-        	if(zoneId == 1018)
-                return Settings.Instance.Valsharah;
-            if(zoneId ==  1017)
-                return Settings.Instance.Stormheim;
-            if(zoneId ==  1033)
-                return Settings.Instance.Suramar;
-            if(zoneId ==  1024)
-                return Settings.Instance.Highmountain;
-            if(zoneId ==  1096)
-                 return Settings.Instance.EyeofAzshara;
-            if(zoneId ==  1014)
-                 return Settings.Instance.Dalaran;
-            return false;
-        }
-
-        public bool QuestCompletedInLog(int questId) => 
-                Lua.GetReturnVal<bool>($@"for questIndex = 1, GetNumQuestLogEntries() do
-                    _, _, _, _, _, isComplete, _, questID = GetQuestLogTitle(questIndex);
-            if (questID == {questId}) then return isComplete; end end return false; ",  0);
-
-        public async Task ForceTurnin(int questId, string name, int npcId, float x, float y, float z)
-        {
-            if (!QuestCompletedInLog(questId)) return;
-
-            TreeRoot.GoalText = $"Turnin {name}";
-            var turninNpc =
-                ObjectManager.GetObjectsOfType<WoWUnit>().FirstOrDefault(u => u.IsValid && u.Entry == npcId);
-
-            if (turninNpc == null)
+            if (!turninNpc.WithinInteractRange)
             {
-                TreeRoot.StatusText = $"Moving to {x} {y} {z}";
-                await CommonCoroutines.MoveTo(new Vector3(x, y, z));
+                TreeRoot.StatusText = $"Moving to {turninNpc}";
+                await CommonCoroutines.MoveTo(turninNpc.Location);
                 return;
             }
-
-            if (!GossipFrame.Instance.IsVisible && !QuestFrame.Instance.IsVisible)
-            {
-                if (!turninNpc.WithinInteractRange)
-                {
-                    TreeRoot.StatusText = $"Moving to {turninNpc}";
-                    await CommonCoroutines.MoveTo(turninNpc.Location);
-                    return;
-                }
-                TreeRoot.StatusText = $"Interacting with {turninNpc}";
-                turninNpc.Interact();
-                await CommonCoroutines.SleepForRandomUiInteractionTime();
-            }
-
-            if (GossipFrame.Instance.IsVisible)
-            {
-                var quest = GossipFrame.Instance.ActiveQuests.FirstOrDefault(q => q.Id == questId);
-                if (quest == null) return;
-                TreeRoot.StatusText =$"Selecting {quest.Name} (GF)";
-                GossipFrame.Instance.SelectActiveGossipQuest(quest.Index);
-                GossipFrame.Instance.SelectActiveQuest(quest.Index);
-                await CommonCoroutines.SleepForRandomUiInteractionTime();
-                return;
-            }
-
-            if (!QuestFrame.Instance.IsVisible) return;
-
-            if (QuestFrame.Instance.CurrentShownQuestId == questId)
-            {
-                TreeRoot.GoalText = $"Completing {QuestFrame.Instance.CurrentShownQuest.Name}";
-                QuestFrame.Instance.SelectQuestReward(1);
-                await CommonCoroutines.SleepForRandomUiInteractionTime();
-                QuestFrame.Instance.CompleteQuest();
-                await CommonCoroutines.SleepForRandomUiInteractionTime();
-                return;
-            }
-            var questF = QuestFrame.Instance.ActiveQuests.FirstOrDefault(que => que.Id == questId);
-            if (questF == null) return;
-            TreeRoot.GoalText = $"Selecting {questF.Name} (QF)";
-            QuestFrame.Instance.SelectActiveGossipQuest(questF.Index);
-            QuestFrame.Instance.SelectActiveQuest(questF.Index);
+            TreeRoot.StatusText = $"Interacting with {turninNpc}";
+            turninNpc.Interact();
             await CommonCoroutines.SleepForRandomUiInteractionTime();
         }
 
-        public async Task ForcedTurnin(int questId, string name, int npcId, float x, float y, float z)
+        if (GossipFrame.Instance.IsVisible)
         {
-            while (QuestCompletedInLog(questId))
-            {
-                await ForceTurnin(questId, name, npcId, x, y, z);
-                await Coroutine.Yield();              
-            }
-        }]]></CustomBehavior>
+            var quest = GossipFrame.Instance.ActiveQuests.FirstOrDefault(q => q.Id == questId);
+            if (quest == null) return;
+            TreeRoot.StatusText =$"Selecting {quest.Name} (GF)";
+            GossipFrame.Instance.SelectActiveGossipQuest(quest.Index);
+            GossipFrame.Instance.SelectActiveQuest(quest.Index);
+            await CommonCoroutines.SleepForRandomUiInteractionTime();
+            return;
+        }
+
+        if (!QuestFrame.Instance.IsVisible) return;
+
+        if (QuestFrame.Instance.CurrentShownQuestId == questId)
+        {
+            TreeRoot.GoalText = $"Completing {QuestFrame.Instance.CurrentShownQuest.Name}";
+            QuestFrame.Instance.SelectQuestReward(1);
+            await CommonCoroutines.SleepForRandomUiInteractionTime();
+            QuestFrame.Instance.CompleteQuest();
+            await CommonCoroutines.SleepForRandomUiInteractionTime();
+            return;
+        }
+        var questF = QuestFrame.Instance.ActiveQuests.FirstOrDefault(que => que.Id == questId);
+        if (questF == null) return;
+        TreeRoot.GoalText = $"Selecting {questF.Name} (QF)";
+        QuestFrame.Instance.SelectActiveGossipQuest(questF.Index);
+        QuestFrame.Instance.SelectActiveQuest(questF.Index);
+        await CommonCoroutines.SleepForRandomUiInteractionTime();
+    }
+
+    public async Task ForcedTurnin(int questId, string name, int npcId, float x, float y, float z)
+    {
+        while (QuestCompletedInLog(questId))
+        {
+            await ForceTurnin(questId, name, npcId, x, y, z);
+            await Coroutine.Yield();              
+        }
+    }]]></CustomBehavior>
     <CustomBehavior File="RunCode" Code="Log(&quot;Welcome To The Community World Quest Project&quot;);" />
     <CustomBehavior File="RunCode" Code="Log(&quot;~Created by~&quot;);" />
     <CustomBehavior File="RunCode" Code="Log(&quot;Zinner, WiN, Staal, Pellepylly, Codex, tsatsa, Nuok&quot;);" />
