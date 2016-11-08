@@ -29,13 +29,13 @@ if (taskInfo) then
 end
 return false;", 0);
 
-     public bool Withered => Me.CurrentTarget != null && Me.CurrentTarget.Entry == 98979;
+     public bool Withered => Me.CurrentTarget != null && (Me.CurrentTarget.Entry == 98979 || Me.CurrentTarget.Entry == 113572);
      
      public bool CombatEnabled = true;
       
      public async Task DoQuest()
      {
-          var getMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && u.Entry == 98979 && u.IsAlive);
+          var getMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && (u.Entry == 98979 || u.Entry == 113572) && u.IsAlive);
       while (getMe != null)
 			{
         getMe.Target();
