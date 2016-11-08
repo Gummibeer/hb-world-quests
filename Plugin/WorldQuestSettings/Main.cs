@@ -24,7 +24,7 @@ namespace WorldQuestSettings
 
         public override string Name => "WorldQuestHelper";
         public override string Author => "Nuok";
-        public override Version Version => new Version(1, 1, GetSvnInt());
+        public override Version Version => new Version(1, 2, GetSvnInt());
 
         public override bool WantButton => true;
         public override string ButtonText => "Settings";
@@ -51,7 +51,7 @@ namespace WorldQuestSettings
         public override void OnButtonPress()
         {
             if (Config == null)
-                Config = new ConfigWindow("World Quest Helper", Version.ToString(), "Nuok", 400, 910);
+                Config = new ConfigWindow("World Quest Helper", Version.ToString(), "Nuok", 400, 930);
             ThemeManager.ChangeAppStyle(Config, ThemeManager.GetAccent("Cobalt"), ThemeManager.GetAppTheme("BaseDark"));
             Config.Show();
             Config.Closed += config_Closed;
@@ -134,8 +134,16 @@ namespace WorldQuestSettings
         [Setting]
         [Category("Hard Quests")]
         [DisplayName("Do Elite Quests")]
+        [Description("Quests the require a group")]
         [Styx.Helpers.DefaultValue(false)]
         public bool DoElite { get; set; }
+
+        [Setting]
+        [Category("Hard Quests")]
+        [DisplayName("Do Rare Quests")]
+        [Description("Quests that are hard but can be done solo")]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoRare { get; set; }
 
         [Setting]
         [Category("Hard Quests")]
