@@ -66,6 +66,9 @@
         public bool DoDangerQuests { get; set; }
         [Setting]   
         [Styx.Helpers.DefaultValue(false)]
+        public bool DoRare { get; set; }
+        [Setting]   
+        [Styx.Helpers.DefaultValue(false)]
         public bool DoElite { get; set; }
         [Setting]
         [Styx.Helpers.DefaultValue(false)]
@@ -204,7 +207,7 @@
         MiningWorldQuest = 120,
         TailoringWorldQuest = 121,
         EngineeringWorldQuest = 122,
-        Unkown3 = 123,
+        EnchantingWorldQuest = 123,
         SkinningWorldQuest = 124,
         JewelcraftingWorldQuest = 125,
         Unkown4 = 126, 
@@ -274,7 +277,7 @@
 
     public static List<WorldQuest> WorldQuests = new List<WorldQuest>();
 
-    public uint[] EmissaryIds = { 42420, 42170, 42422, 42233, 43179, 42234, 43179 };
+    public uint[] EmissaryIds = { 42420, 42170, 42422, 42233, 43179, 42234, 42421 };
 
     public void LogEmissaryQuests()
     {
@@ -305,7 +308,7 @@
             return false;
         }
 
-        if (quest.Tag == QuestTag.RareWorldQuest && !s.DoElite)
+        if (quest.Tag == QuestTag.RareWorldQuest && !s.DoRare)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} Disabled");
             return false;
@@ -475,7 +478,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(1, 1, 1044);
+        var latestVersion = new Version(1, 2, 1173);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
