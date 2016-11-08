@@ -2154,10 +2154,12 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
       </If>
+      <!--
       <If Condition="DoQuest(44113) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44113-[N]-[QUEST]-Wq-DANGER Achronos-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44113-[N]-[QUEST]-Wq-DANGER Achronos-Zinner" RememberProfile="false" />
       </If>
+      -->
       <If Condition="DoQuest(44114) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44114-[N]-[QUEST]-Wq-WANTED_Magistrix_Vilessa-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44114-[N]-[QUEST]-Wq-WANTED_Magistrix_Vilessa-Staal" RememberProfile="false" />
