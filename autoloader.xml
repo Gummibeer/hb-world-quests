@@ -1488,6 +1488,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(42779)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42779-[N]-[QUEST]-Wq-WORLD BOSS-The Sleeping Corruption&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42779-[N]-[QUEST]-Wq-WORLD BOSS-The Sleeping Corruption" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(42870) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42870-[N]-[QUEST]-Wq-DANGER-Kathaw_the_Savage-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42870-[N]-[QUEST]-Wq-DANGER-Kathaw_the_Savage-WiN" RememberProfile="false" />
@@ -1523,6 +1527,10 @@
       <If Condition="DoQuest(43332)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43332-[N]-[QUEST]-Wq-Grell_in_a_Handbasket-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\43332-[N]-[QUEST]-Wq-Grell_in_a_Handbasket-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43333) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43333-[N]-[QUEST]-Wq-DANGER Nylaathria the Forgotten&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43333-[N]-[QUEST]-Wq-DANGER Nylaathria the Forgotten" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(43336)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43336-[N]-[QUEST]-Wq-Purge of the Nightmare-Zinner&quot;);" />
@@ -1682,6 +1690,14 @@
       <If Condition="DoQuest(41055)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41055-[N]-[QUEST]-Primal Payback-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41055-[N]-[QUEST]-Primal Payback-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41057)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41057-[N]-[QUEST]-Primal Payback-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41057-[N]-[QUEST]-Primal Payback-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41077)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41077-[N]-[QUEST]-Munitions Testing-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41077-[N]-[QUEST]-Munitions Testing-WQ-Nuok" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41089)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41089-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN&quot;);" />
@@ -2154,12 +2170,6 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
       </If>
-      <!--
-      <If Condition="DoQuest(44113) &amp;&amp; Settings.Instance.DoDangerQuests">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44113-[N]-[QUEST]-Wq-DANGER Achronos-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44113-[N]-[QUEST]-Wq-DANGER Achronos-Zinner" RememberProfile="false" />
-      </If>
-      -->
       <If Condition="DoQuest(44114) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44114-[N]-[QUEST]-Wq-WANTED_Magistrix_Vilessa-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44114-[N]-[QUEST]-Wq-WANTED_Magistrix_Vilessa-Staal" RememberProfile="false" />
