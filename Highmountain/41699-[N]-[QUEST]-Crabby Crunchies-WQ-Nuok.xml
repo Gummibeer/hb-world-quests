@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Crabby Crunchies - WQ ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41699 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+  async Task VehicleKill(uint unitId)
+    {
+      if(!OnQuest) return;
+      WoWUnit killMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && u.Entry == unitId && u.IsAlive);
+      if (killMe == null) return;
+
+      WoWUnit loot = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && u.CanLoot && u.Lootable);
+      while (loot != null && loot.IsValid && loot.CanLoot && loot.Lootable)
+      {
+        await Loot(loot);  
+        await Coroutine.Yield();
+      }
+
+      while (killMe != null && killMe.IsAlive && OnQuest)
+      {
+        if (Me.Location.Distance(killMe.Location) >= 5)
+        {
+          await CommonCoroutines.MoveTo(killMe.Location);
+          await CombatAwareness();
+          await Coroutine.Yield();
+        }
+
+        if (killMe.IsAlive)
+        {
+          await VehicleCombat(killMe);
+          await Coroutine.Yield();
+        }
+              
+      await Coroutine.Yield();
+    }
+  }
+          
+  async Task VehicleMove(float x, float y, float z)
+  {
+    var location = new Vector3(x, y, z);
+    if (StyxWoW.Me.Location.Distance(location) < 5) return;
+
+    await CommonCoroutines.MoveTo(location);
+    await CombatAwareness();
+    await Coroutine.Yield();
+  }
+          
+  async Task Loot(WoWUnit loot)
+  {
+    while (loot.IsValid && loot.CanLoot)
+    {
+      while (!loot.WithinInteractRange)
+      {
+        await CommonCoroutines.MoveTo(loot.Location);
+        await Coroutine.Yield();
+      }
+
+      Navigator.PlayerMover.MoveStop();
+      if (!LootFrame.Instance.IsVisible)
+      {                
+        loot.Interact();
+        await CommonCoroutines.SleepForRandomReactionTime();
+      }
+
+      if (LootFrame.Instance.IsVisible)
+      {
+        LootFrame.Instance.LootAll();
+        await CommonCoroutines.SleepForRandomReactionTime();
+      }
+      await Coroutine.Yield();
+    }
+  }
+
+  async Task VehicleCombat(WoWUnit vehicleKill)
+  {
+    if (vehicleKill.Distance > 5) return;
+            
+    Navigator.PlayerMover.MoveStop();
+            
+    if (Me.CurrentTarget != vehicleKill)    
+      vehicleKill.Target();
+    
+    Me.SetFacing(vehicleKill.Location);
+      
+    if(!Me.IsAutoAttacking)
+      Me.ToggleAttack();  
+              
+    Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D1);
+    await Coroutine.Sleep(100);
+    Styx.Helpers.KeyboardManager.KeyUpDown((char)System.Windows.Forms.Keys.D2);
+    await CommonCoroutines.SleepForLagDuration();
+    SpellManager.ClickRemoteLocation(vehicleKill.Location);
+    await Coroutine.Sleep(100);
+  }
+
+  async Task CombatAwareness()
+  {
+    var killArray = ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.IsTargetingMeOrPet && u.Distance <= 5);
+    if (killArray == null) return;
+
+    foreach (WoWUnit killMe in killArray)
+    {
+      while (killMe != null && killMe.IsTargetingMeOrPet && killMe.Distance <= 5)
+      {
+        await CommonCoroutines.StopMoving();
+        StyxWoW.Me.SetFacing(killMe.Location);
+        await VehicleCombat(killMe);
+        await Coroutine.Yield();
+      }
+    }
+  }]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41699)">
+        <RunTo X="6482.59" Y="4167.9" Z="2.695112" />
+      </If>
+      <!--<Aura Name="Murky" SpellId="206919" StackCount="0" Flags="Passive, Cancelable" />-->
+      <If Condition="!Me.HasAura(206919)">
+        <RunTo X="6479.882" Y="4143.53" Z="3.777412" TerminateWhen="!OnQuest" />
+      </If>
+      <If Condition="HasQuest(41699)">
+        <!--<Vendor Name="Brinescuttle Crab" Entry="104585" Type="Repair" Nav="Fly" X="6463.043" Y="4059.078" Z="0.2495988" />-->
+        <If Condition="Me.HasAura(206919)">
+          <DisableBehavior Name="All"/>       
+          <CustomBehavior File="RunCode" Code="await VehicleKill(104585);" TerminateWhen="!OnQuest || !Me.HasAura(206919)" />
+          <CustomBehavior File="RunCode" Code="await VehicleMove(6389.655f, 3978.708f, 0.5347847f);" TerminateWhen="!OnQuest || !Me.HasAura(206919)" />
+        </If>
+      </If>
+    </While>
+        <While Condition="Me.HasAura(206919)">
+      <CustomBehavior File="RunMacro" Macro="/leavevehicle" />
+    </While>
+    <EnableBehavior Name="All"/>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
