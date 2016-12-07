@@ -151,6 +151,9 @@
         [Setting]
         [Styx.Helpers.DefaultValue(true)]
         public bool LoopProfile { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool WQGF { get; set; }
     }
 
     public class WorldQuest
@@ -207,7 +210,7 @@
         MiningWorldQuest = 120,
         TailoringWorldQuest = 121,
         EngineeringWorldQuest = 122,
-        Unkown3 = 123,
+        EnchantingWorldQuest = 123,
         SkinningWorldQuest = 124,
         JewelcraftingWorldQuest = 125,
         Unkown4 = 126, 
@@ -478,7 +481,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(1, 2, 1173);
+        var latestVersion = new Version(2, 0, 1218);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -594,7 +597,8 @@
     </If>
     <CustomBehavior File="RunCode" Code="UpdateWorldQuests(); Settings.Instance.Load();" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Current Settings&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Hard Quests&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;WQGF &quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Hard Quests {Settings.Instance.WQGF}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;DoWanted {Settings.Instance.DoWanted} - DoDangerQuests {Settings.Instance.DoDangerQuests} - DoElite {Settings.Instance.DoElite} - DoPvP {Settings.Instance.DoPvP}&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;Professions&quot;);" />
     <CustomBehavior File="RunCode" Code="Log($@&quot;DoProfessions {Settings.Instance.DoProfessions} - DoWorkOrders {Settings.Instance.DoWorkOrders}&quot;);" />
@@ -1050,6 +1054,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44287-[N]-[QUEST]-Wq-DEADLY_Withered_Jim-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44287-[N]-[QUEST]-Wq-DEADLY_Withered_Jim-Staal" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(44737)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44737-[N]-[QUEST]-Wq-Helarjar Landing Grey Shoals-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44737-[N]-[QUEST]-Wq-Helarjar Landing Grey Shoals-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(44784)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44784-[N]-[QUEST]-Advanced Wanding-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44784-[N]-[QUEST]-Advanced Wanding-WQ-Nuok" RememberProfile="false" />
@@ -1220,6 +1228,10 @@
       <If Condition="DoQuest(42183)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42183-[N]-[QUEST]-To Battle!-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42183-[N]-[QUEST]-To Battle!-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42270)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42270-[N]-[QUEST]-Wq-WORLD BOSS-Scourge of the Skies&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42270-[N]-[QUEST]-Wq-WORLD BOSS-Scourge of the Skies" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42785) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42785-[N]-[QUEST]-Wq-DANGER Den Mother Ylva-Zinner&quot;);" />
@@ -1759,6 +1771,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41089-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41089-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41090)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41090-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41090-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41091)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41091-[N]-[QUEST]-Wq-Hill_Prince_Ruggu-WiN" RememberProfile="false" />
@@ -2190,6 +2206,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43445-[N]-[QUEST]-Wq-Air Superiority-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\43445-[N]-[QUEST]-Wq-Air Superiority-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43513)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43513-[N]-[QUEST]-Wq-WORLD BOSS-Na'zak the Fiend&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43513-[N]-[QUEST]-Wq-WORLD BOSS-Na'zak the Fiend" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43607) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\43607-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
@@ -2324,6 +2344,10 @@
       <If Condition="DoQuest(43801)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43801-[N]-[QUEST]-Wq-Shell Out Some Pain-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="EyeOfAzshara\43801-[N]-[QUEST]-Wq-Shell Out Some Pain-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43802)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43802-[N]-[QUEST]-Wq-Watery Graves-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="EyeOfAzshara\43802-[N]-[QUEST]-Wq-Watery Graves-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(43804)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43804-[N]-[QUEST]-Hate the Hatecoil-Nuok&quot;);" />
