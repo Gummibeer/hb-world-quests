@@ -643,19 +643,19 @@
     </While>
     <If Condition="ZoneEnabled(1014)">
       <!--Dalaran-->
-      <If Condition="DoQuest(41656) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41656) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41656-[N]-[QUEST]-Wq-Work Work Order Azsunite Loop&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41656-[N]-[QUEST]-Wq-Work Work Order Azsunite Loop" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41662) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Alchemy).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41662) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41662-[N]-[QUEST]-Wq-Work Order Ancient Rejuvenation Potions&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41662-[N]-[QUEST]-Wq-Work Order Ancient Rejuvenation Potions" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41668) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Inscription).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41668) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41668-[N]-[QUEST]-Wq-Vantus Rune Work Order Il'gynoth, The Heart of Corruption&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41668-[N]-[QUEST]-Wq-Vantus Rune Work Order Il'gynoth, The Heart of Corruption" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41674) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41674) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41674-[N]-[QUEST]-Wq-Work Order Word of Intellect&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41674-[N]-[QUEST]-Wq-Work Order Word of Intellect" RememberProfile="false" />
       </If>
@@ -670,7 +670,7 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41268-[N]-[QUEST]-Wq-Queen Queenfish-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41272) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41272) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41272-[N]-[QUEST]-Wq-Work Order Mossgill Perch&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41272-[N]-[QUEST]-Wq-Work Order Mossgill Perch" RememberProfile="false" />
       </If>
@@ -754,19 +754,19 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41611-[N]-[QUEST]-Wq-Huge Cursed Queenfish-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41611-[N]-[QUEST]-Wq-Huge Cursed Queenfish-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41633) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41633) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41633-[N]-[QUEST]-Wq-Work Order Leystone Greaves&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41633-[N]-[QUEST]-Wq-Work Order Leystone Greaves" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41651) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41669) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41669) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike -BUY Word of Critical Strike from ah&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike -BUY Word of Critical Strike from ah" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41669) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41669) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41669-[N]-[QUEST]-Wq-Work Order Word of Critical Strike" RememberProfile="false" />
       </If>
@@ -1141,23 +1141,23 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41636) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41636) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41636-[N]-[QUEST]-Wq-Work Order Leystone Breastplate&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41636-[N]-[QUEST]-Wq-Work Order Leystone Breastplate" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41648) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41648) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41651) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41654) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41654) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41654-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41654-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41678) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Engineering).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41678) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41678-[N]-[QUEST]-Wq-Work Order Gunpack&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41678-[N]-[QUEST]-Wq-Work Order Gunpack" RememberProfile="false" />
       </If>
@@ -1456,15 +1456,15 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41613-[N]-[QUEST]-Wq-Huge_Mossgill_Perch-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41613-[N]-[QUEST]-Wq-Huge_Mossgill_Perch-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41634) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41634) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41634-[N]-[QUEST]-Wq-Work Order Leystone Armguards&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41634-[N]-[QUEST]-Wq-Work Order Leystone Armguards" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41652) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41652) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41652-[N]-[QUEST]-Wq-Work Order Deep Amber Loop&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41652-[N]-[QUEST]-Wq-Work Order Deep Amber Loop" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41670) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41670) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41670-[N]-[QUEST]-Wq-Work Order Word of Agility -BUY Word of Agility from ah&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41670-[N]-[QUEST]-Wq-Work Order Word of Agility -BUY Word of Agility from ah" RememberProfile="false" />
       </If>
@@ -1855,7 +1855,7 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41239-[N]-[QUEST]-Wq-Felhide-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41239-[N]-[QUEST]-Wq-Felhide-Nuok" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41240) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41240) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41240-[N]-[QUEST]-Wq-Work Order Highmountain Salmonr-BUY 40 Highmountain Salmon from ah&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41240-[N]-[QUEST]-Wq-Work Order Highmountain Salmonr-BUY 40 Highmountain Salmon from ah" RememberProfile="false" />
       </If>
@@ -1923,15 +1923,15 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41635) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Blacksmithing).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41635) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41635-[N]-[QUEST]-Wq-Work Order Leystone Boots&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41635-[N]-[QUEST]-Wq-Work Order Leystone Boots" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41647) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41647) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41647-[N]-[QUEST]-Wq-Work Order Silkweave Robe&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41647-[N]-[QUEST]-Wq-Work Order Silkweave Robe" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41653) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41653) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41653-[N]-[QUEST]-Wq-Work Order Skystone Pendant&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41653-[N]-[QUEST]-Wq-Work Order Skystone Pendant" RememberProfile="false" />
       </If>
@@ -2102,7 +2102,7 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41283-[N]-[QUEST]-Wq-The Angler Mangler-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41283-[N]-[QUEST]-Wq-The Angler Mangler-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41314) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Mining).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41314) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41314-[N]-[QUEST]-Wq-Work Order Felslate&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41314-[N]-[QUEST]-Wq-Work Order Felslate" RememberProfile="false" />
       </If>
@@ -2142,15 +2142,15 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41617-[N]-[QUEST]-Wq-Huge Runescale Koi-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41617-[N]-[QUEST]-Wq-Huge Runescale Koi-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41649) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Tailoring).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41649) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41649-[N]-[QUEST]-Wq-Work Order Silkweave Slippers&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41649-[N]-[QUEST]-Wq-Work Order Silkweave Slippers" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41655) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Jewelcrafting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41655) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41655-[N]-[QUEST]-Wq-WorkOrder Queen's Opal Pendant -BUY Queens Opal Pendant from ah&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41655-[N]-[QUEST]-Wq-WorkOrder Queen's Opal Pendant -BUY Queens Opal Pendant from ah" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41673) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Enchanting).CurrentValue &gt; 100">
+      <If Condition="DoQuest(41673) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41673-[N]-[QUEST]-Wq-Work Order Word of Mastery -BUY Word of Mastery from ah&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41673-[N]-[QUEST]-Wq-Work Order Word of Mastery -BUY Word of Mastery from ah" RememberProfile="false" />
       </If>
