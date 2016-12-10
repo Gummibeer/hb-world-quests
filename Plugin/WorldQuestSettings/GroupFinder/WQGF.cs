@@ -98,7 +98,16 @@ namespace WorldQuestSettings.GroupFinder
             if (_currentQuestId == 0) return;
             if (!StyxWoW.Me.QuestLog.ContainsQuest(_currentQuestId))
             {
-                _currentQuestId = 0;
+                Log("No longer have quest in log leaving group");
+                _currentQuestId = 0;         
+                LfgList.LeaveGroup();
+                return;
+            }
+
+            if (StyxWoW.Me.GroupInfo.IsInParty && StyxWoW.Me.GroupInfo.NumPartyMembers == 1)
+            {
+                Log("Leaving group were the only one in it :(");
+                LfgList.LeaveGroup();
                 return;
             }
 

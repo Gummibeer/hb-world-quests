@@ -58,6 +58,13 @@ namespace WorldQuestSettings
 
         [Setting]
         [Category("Hard Quests")]
+        [DisplayName("Do Pet Battle Quests")]
+        [Description("Requires a pet battle plugin like ")]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoPetBattles { get; set; }
+
+        [Setting]
+        [Category("Hard Quests")]
         [DisplayName("Do World Bosses")]
         [Styx.Helpers.DefaultValue(false)]
         public bool DoWorldBosses { get; set; }
