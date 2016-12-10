@@ -48,8 +48,7 @@
   <QuestOrder>
     <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public class Settings : Styx.Helpers.Settings
     {
-        public static readonly string _settingsPath = Path.Combine(CharacterSettingsDirectory, "Profiles",
-            "NuokWorldQuestSettings.xml");
+        public static readonly string _settingsPath = Path.Combine(CharacterSettingsDirectory, "Profiles", "NuokWorldQuestSettings.xml");
         private static Settings _instance;
         public static Settings Instance => _instance ?? (_instance = new Settings());
         public Settings() : base(_settingsPath)
@@ -154,6 +153,9 @@
         [Setting]
         [Styx.Helpers.DefaultValue(false)]
         public bool WQGF { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool DoPetBattles { get; set; }
     }
 
     public class WorldQuest
@@ -481,7 +483,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(2, 0, 1218);
+        var latestVersion = new Version(2, 1, 1226);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -2098,6 +2100,14 @@
     </If>
     <If Condition="ZoneEnabled(1033)">
       <!--Suramar-->
+      <If Condition="DoQuest(41280) &amp;&amp; Settings.Instance.DoProfessions &amp;&amp; Me.GetSkill(Styx.SkillLine.Fishing).CurrentValue &gt; 100">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41280-[N]-[QUEST]-Wq-Huge Runescale Koi-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41280-[N]-[QUEST]-Wq-Huge Runescale Koi-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41282) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41282-[N]-[QUEST]-Wq-Work Order Runescale Koi&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41282-[N]-[QUEST]-Wq-Work Order Runescale Koi" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41283)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41283-[N]-[QUEST]-Wq-The Angler Mangler-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41283-[N]-[QUEST]-Wq-The Angler Mangler-Zinner" RememberProfile="false" />
@@ -2241,6 +2251,10 @@
       <If Condition="DoQuest(44012) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44012-[N]-[QUEST]-Wq-WANTED_Siegemaster_Aedrin-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44012-[N]-[QUEST]-Wq-WANTED_Siegemaster_Aedrin-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(44013) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44013-[N]-[QUEST]-Wq-WANTED Guardian Thor'el-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44013-[N]-[QUEST]-Wq-WANTED Guardian Thor'el-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(44015)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44015-[N]-[QUEST]-Wq-Mal'Dreth the Corruptor-Zinner&quot;);" />
