@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] The Magic of Flight - WQ ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 43771 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+        public WoWUnit FlightBubble => ObjectManager.GetObjectsOfType<WoWUnit>().
+            Where(u => u.IsValid && u.Entry == 110657 && u.IsMoving && u.Distance < 10).
+            OrderBy(u => u.DistanceSqr).FirstOrDefault();
+
+        public WoWUnit ArcaneArtifact => ObjectManager.GetObjectsOfType<WoWUnit>().
+            Where(u => u.IsValid && u.Entry == 110664 && u.DistanceSqr < 10).
+            OrderBy(u => u.DistanceSqr).FirstOrDefault();
+
+        public async Task MoveInBubble()
+        {
+            ObjectManager.Update();
+            var bubble = FlightBubble;
+            var artifact = ArcaneArtifact;
+
+            if (artifact != null)
+            {
+                Logging.Write($"Interacting with {artifact}");
+                artifact.Interact();
+                await CommonCoroutines.SleepForRandomReactionTime();
+            }
+
+            if (bubble == null)
+            {
+                Logging.Write("Waiting for a bubble");
+                await CommonCoroutines.SleepForRandomReactionTime();
+                return;
+            }
+
+            Logging.Write($"Moving in {bubble}");
+            Navigator.PlayerMover.MoveTowards(bubble.Location);
+            await CommonCoroutines.SleepForRandomReactionTime();
+        }
+
+]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <RunTo X="3877.614" Y="2360.776" Z="420.8137" />
+      <CustomBehavior File="ForcedDismount"/>
+      <!-- <WoWUnit Name="Grapple Point" Entry="92072" X="3858.324" Y="2335.8" Z="464.5368" /> -->
+      <CustomBehavior File="RunCode" Code="
+						WoWUnit grapplePoi = Unit(92072);
+						if (grapplePoi != null)
+						{
+							grapplePoi.Interact();
+							await Coroutine.Sleep(10000);
+						}
+					"/>
+      <!-- <WoWUnit Name="Grapple Point" Entry="91983" X="3824.829" Y="2368.627" Z="465.2447" /> -->
+      <CustomBehavior File="RunCode" Code="
+						WoWUnit grapplePoi = Unit(91983);
+						if (grapplePoi != null)
+						{
+							grapplePoi.Interact();
+							await Coroutine.Sleep(10000);
+						}
+					"/>
+      <!-- <WoWUnit Name="Grapple Point" Entry="91975" X="3802.056" Y="2417.198" Z="466.3293" /> -->
+      <CustomBehavior File="RunCode" Code="
+						WoWUnit grapplePoi = Unit(91975);
+						if (grapplePoi != null)
+						{
+							grapplePoi.Interact();
+							await Coroutine.Sleep(10000);
+						}
+					"/>
+      <!--<Hotspot X="3790.661" Y="2415.618" Z="473.1063" />-->
+      <CustomBehavior File="MyCTM" X="3790.661" Y="2415.618" Z="473.1063" />
+      <While Condition="OnQuest">
+        <While Condition="FlightBubble != null || ArcaneArtifact != null">
+          <CustomBehavior File="RunCode" Code="await MoveInBubble();"/>
+        </While>
+      </While>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>

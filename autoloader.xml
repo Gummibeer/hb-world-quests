@@ -1355,6 +1355,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43751-[N]-[QUEST]-Oh, Ship!-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43751-[N]-[QUEST]-Oh, Ship!-WQ-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43771)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43771-[N]-[QUEST]-The Magic of Flight-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43771-[N]-[QUEST]-The Magic of Flight-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43772)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43772-[N]-[QUEST]-Enigmatic-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43772-[N]-[QUEST]-Enigmatic-Nuok" RememberProfile="false" />
