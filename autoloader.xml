@@ -1072,6 +1072,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44894-[N]-[QUEST]-Wq-Bloodgazer Swarm!-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44894-[N]-[QUEST]-Wq-Bloodgazer Swarm!-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(45069)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45069-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\45069-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
+      </If>
     </If>
     <If Condition="ZoneEnabled(1017)">
       <!--Stormheim-->
@@ -1390,6 +1394,10 @@
       <If Condition="DoQuest(44923)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44923-[N]-[QUEST]-Wq-Helarjar Landing Vrekt&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44923-[N]-[QUEST]-Wq-Helarjar Landing Vrekt" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45072)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45072-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\45072-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1018)">
