@@ -483,7 +483,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(2, 1, 1226);
+        var latestVersion = new Version(2, 2, 1231);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -2171,6 +2171,10 @@
       <If Condition="DoQuest(41673) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41673-[N]-[QUEST]-Wq-Work Order Word of Mastery -BUY Word of Mastery from ah&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41673-[N]-[QUEST]-Wq-Work Order Word of Mastery -BUY Word of Mastery from ah" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41697) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41697-[N]-[QUEST]-Wq-DANGER Colerian, Alteria, and Selenyi-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41697-[N]-[QUEST]-Wq-DANGER Colerian, Alteria, and Selenyi-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42071)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42071-[N]-[QUEST]-Wq-Honoring the Past-Zinner&quot;);" />
