@@ -16,7 +16,7 @@ namespace WorldQuestSettings
 
         public override string Name => "WorldQuestHelper";
         public override string Author => "Nuok";
-        public override Version Version => new Version(2, 1, GetSvnInt());
+        public override Version Version => new Version(2, 2, GetSvnInt());
 
         public override bool WantButton => true;
         public override string ButtonText => "Settings";

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Media;
 using Styx;
 using Styx.Common;
+using Styx.CommonBot;
 using Styx.WoWInternals;
 
 namespace WorldQuestSettings.GroupFinder
@@ -18,16 +20,27 @@ namespace WorldQuestSettings.GroupFinder
         {
             Lua.Events.AttachEvent("LFG_LIST_SEARCH_RESULT_UPDATED", SearchResultsUpdated);
             Lua.Events.AttachEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED", ResultsReceived);
-            Lua.Events.AttachEvent("QUEST_ACCEPTED", QuestAccepted);
             Lua.Events.AttachEvent("QUEST_TURNED_IN", QuestTurnedIn);
+            BotEvents.Profile.OnNewProfileLoaded += Profile_OnNewProfileLoaded;
+        }
+
+        private static void Profile_OnNewProfileLoaded(BotEvents.Profile.NewProfileLoadedEventArgs args)
+        {
+            var file = Path.GetFileNameWithoutExtension(args.NewProfile.Path);         
+            if (file != null)
+            {
+                var quest = file.Substring(0, 5);
+                if (!uint.TryParse(quest, out _currentQuestId)) return;
+                Log($"Current quest id set too {_currentQuestId}");
+            }
         }
 
         public static void DetachEvent()
         {
             Lua.Events.DetachEvent("LFG_LIST_SEARCH_RESULT_UPDATED", SearchResultsUpdated);
             Lua.Events.DetachEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED", ResultsReceived);
-            Lua.Events.DetachEvent("QUEST_ACCEPTED", QuestAccepted);
             Lua.Events.DetachEvent("QUEST_TURNED_IN", QuestTurnedIn);
+            BotEvents.Profile.OnNewProfileLoaded -= Profile_OnNewProfileLoaded;
         }
 
         private static void QuestTurnedIn(object sender, LuaEventArgs args)
@@ -40,24 +53,6 @@ namespace WorldQuestSettings.GroupFinder
             LfgList.LeaveGroup();
             _currentQuestId = 0;
         }
-
-        private static void QuestAccepted(object sender, LuaEventArgs args)
-        {
-            if (!Setting) return;
-            Log("QUEST_ACCEPTED");
-            if (args.Args.Length == 0) return;
-            if (args.Args[1] == null) return;
-            var id = Lua.ParseLuaValue<uint>(args.Args[1].ToString());
-            if (!IsWorldQuest(id)) return;
-
-            _currentQuestId = id;
-            Log($"Current Objective Id Set To {id}");
-            LfgList.Search(LFGCategory.Questing, $"#WQ:{_currentQuestId}");
-            _lastSearchTime = DateTime.Now;
-        }
-
-        private static bool IsWorldQuest(uint questId)
-            => Lua.GetReturnVal<bool>($"return QuestUtils_IsQuestWorldQuest({questId})", 0);
 
         private static void ResultsReceived(object sender, LuaEventArgs args)
         {
@@ -97,12 +92,7 @@ namespace WorldQuestSettings.GroupFinder
             if (!Setting) return;
             if (_currentQuestId == 0) return;
             if (!StyxWoW.Me.QuestLog.ContainsQuest(_currentQuestId))
-            {
-                Log("No longer have quest in log leaving group");
-                _currentQuestId = 0;         
-                LfgList.LeaveGroup();
                 return;
-            }
 
             if (StyxWoW.Me.GroupInfo.IsInParty && StyxWoW.Me.GroupInfo.NumPartyMembers == 1)
             {
@@ -113,7 +103,7 @@ namespace WorldQuestSettings.GroupFinder
 
             if (StyxWoW.Me.GroupInfo.IsInParty || StyxWoW.Me.GroupInfo.IsInRaid) return;
             var diff = DateTime.Now.Subtract(_lastSearchTime).TotalSeconds;
-            if (diff < 30) return;
+            if (diff < 15) return;
             Log("Starting a new search last timed out");
             LfgList.Search(LFGCategory.Questing, $"#WQ:{_currentQuestId}");
             _lastSearchTime = DateTime.Now;
