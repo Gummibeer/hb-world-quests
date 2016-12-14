@@ -1,191 +1,47 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<!-- Original contribution by EchoTiger -->
-	<Name>[A-Quest] Brothers of Skovald WorldQuest Zinner</Name>
-
-	<MinDurability>0.3</MinDurability>
-	<MinFreeBagSlots>3</MinFreeBagSlots>
-
-	<SellGrey>true</SellGrey>
-	<SellWhite>false</SellWhite>
-	<SellGreen>false</SellGreen>
-	<SellBlue>false</SellBlue>
-	<SellPurple>false</SellPurple>
-
-	<MailGrey>false</MailGrey>
-	<MailWhite>true</MailWhite>
-	<MailGreen>true</MailGreen>
-	<MailBlue>true</MailBlue>
-	<MailPurple>true</MailPurple>
-
-	<TargetElites>true</TargetElites>
-
-	
-
-	<QuestOrder>
-	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
-			
-
-    public class WorldQuestData
-    {
-        public int ID;
-        public string Name;
-        public DateTime ExpireTime;
-    }
-
-
-    public static class WorldQuestInfo
-    {
-        static List<WorldQuestData> _cache = new List<WorldQuestData>();
-        static internal bool _dirty = true;
-        static internal bool _setup = false;
-
-        static WorldQuestInfo()
-        {
-            Setup();
-        }
-
-        public static void Setup()
-        {
-            if (_setup)
-                return;
-
-            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
-            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
-            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
-
-            UpdateWorldQuests();
-            _setup = true;
-        }
-
-        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
-        {
-            _dirty = true;
-        }
-
-        public static bool HasWorldQuest(int questid)
-        {
-            UpdateWorldQuests();
-
-            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
-
-            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
-                return false;
+  <!-- Original contribution by EchoTiger -->
+  <Name>[WQ] Brothers of Skovald WorldQuest Zinner</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41938 then
             return true;
-        }
-
-        public static void UpdateWorldQuests()
-        {
-            if (!_dirty)
-                return;
-            _cache = new List<WorldQuestData>();
-            
-            var player = StyxWoW.Me;
-            int BrokenIslesMapArea = 1007;
-
-            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
-            
-            var NumZones = int.Parse(ret[0]);
-
-            for (int i = 1; i <= NumZones; ++i)
-            {
-                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
-
-                var ZoneID = int.Parse(ret[0]);
-                var ZoneName = ret[1];
-                var ZoneDepth = int.Parse(ret[2]);
-
-                if (ZoneDepth > 1) //Do not look at subzones
-                {
-                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
-                    continue;
-                }
-
-                string ToRun = string.Format(@"     local questids = {{}};
-
-                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
-
-                                                    if taskInfo then
-				                                                    for i, info in ipairs(taskInfo) do
-					                                                    if HaveQuestData(info.questId) then
-						                                                    if QuestUtils_IsQuestWorldQuest(info.questId) then
-                                                                                    table.insert(questids, info.questId);
-							                                                    end
-						                                                    end
-					                                                    end
-				                                                    end
-                                                   return unpack(questids);
-                                                ", ZoneID, BrokenIslesMapArea);
-
-                ret = Lua.GetReturnValues(ToRun);
-
-                foreach (var q in ret)
-                {
-                    int questid = int.Parse(q);
-
-                    //TimeLeft is in minutes
-                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
-                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
-
-                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
-
-                    var data = new WorldQuestData();
-                    data.ID = questid;
-                    data.Name = QuestInfo[0];
-                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
-                    _cache.Add(data);
-                }
-            }
-
-            _dirty = false;
-        }
-
-        public static bool IsWorldQuest(int questid)
-        {
-            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
-
-            var ret = Lua.GetReturnValues(lua);
-
-            if (ret[3] == null)
-                return false;
-            return true;
-        }
-    }
-
-
-				]]>
-			</CustomBehavior>
-	
-		
-		<While Condition="WorldQuestInfo.HasWorldQuest(41938)" >
-				<!-- Get in range of quest to activate -->
-				<RunTo X="3387.973" Y="1248.403" Z="121.2863" /> 
-		<Objective QuestName="Brothers of Skovald" QuestId="41938" Type="KillMob" Nav="Fly" MobId="105443" KillCount="1" />
-		<Objective QuestName="Brothers of Skovald" QuestId="41938" Type="KillMob" Nav="Fly" MobId="105436" KillCount="1" />
-		<Objective QuestName="Brothers of Skovald" QuestId="41938" Type="KillMob" Nav="Fly" MobId="105440" KillCount="1" />
-		<TurnIn Nav="Fly" QuestName="Brothers of Skovald" QuestId="41938" TurnInName="" TurnInId="" />
-
-</While>
-		<While Condition="WorldQuestInfo.HasWorldQuest(41938)" >	
-				<RunTo X="3387.973" Y="1248.403" Z="121.2863" />		
-			<CustomBehavior File="KillUntilComplete" MobIds="105443, 105436, 105440 " QuestId="41938">
-				<HuntingGrounds>
-					<Hotspot X="3387.973" Y="1248.403" Z="121.2863" />
-					<Hotspot X="3415.689" Y="1182.106" Z="134.522" />
-					<Hotspot X="3375.725" Y="1291.655" Z="128.6739" />
-					<Hotspot X="3616.261" Y="1115.784" Z="139.632" />
-
-
-				</HuntingGrounds>
-			</CustomBehavior>
-				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-		</While>
-	
-<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
-    <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
-</If>
-	
-<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
-<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
-</QuestOrder>
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest" >
+      <If Condition="!HasQuest(41938)">
+        <RunTo X="3387.973" Y="1248.403" Z="121.2863" />
+      </If>
+      <!--<Vendor Name="Uldgar" Entry="105443" Type="Repair" Nav="Fly" X="3381.458" Y="1297.198" Z="128.2336" />-->
+      <CustomBehavior File="KillUntilComplete" MobIds="105443" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 41938)" X="3381.458" Y="1297.198" Z="128.2336" />
+      <!--<Vendor Name="Agnol" Entry="105440" Type="Repair" Nav="Fly" X="3435.146" Y="1165.808" Z="135.8609" />-->
+      <CustomBehavior File="KillUntilComplete" MobIds="105440" TerminateWhen="!OnQuest || IsObjectiveComplete(3, 41938)" X="3435.146" Y="1165.808" Z="135.8609" />
+      <!--<Vendor Name="Voldgar" Entry="105436" Type="Repair" Nav="Fly" X="3616.637" Y="1116.724" Z="140.4977" />-->
+      <CustomBehavior File="KillUntilComplete" MobIds="105436" TerminateWhen="!OnQuest || IsObjectiveComplete(2, 41938)" X="3616.637" Y="1116.724" Z="140.4977" />
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner, loading auto-loader!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
 </HBProfile>
