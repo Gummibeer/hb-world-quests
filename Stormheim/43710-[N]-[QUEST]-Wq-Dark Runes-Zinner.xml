@@ -1,5 +1,5 @@
 <HBProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>43710-[N]-[QUEST]-Wq-Dark Runes-Zinner.xml ($Rev$)</Name>
+  <Name>43710-[N]-[QUEST]-Wq-Dark Runes-Zinner ($Rev$)</Name>
   <MinDurability>0.3</MinDurability>
   <MinFreeBagSlots>3</MinFreeBagSlots>
   <SellGrey>true</SellGrey>
@@ -31,29 +31,29 @@ return false;", 0);]]>
       <If Condition="!HasQuest(43710)">
         <RunTo X="3472.821" Y="1011.088" Z="99.98548" />
       </If>
-        <CustomBehavior File="InteractWith" MobId="252394" NumOfTimes="12" QuestId="43710" >
+      <CustomBehavior File="InteractWith" MobId="252394" NumOfTimes="12" TerminateWhen="!OnQuest" >
         <HuntingGrounds>
-        	<Hotspot X="3501.247" Y="935.9011" Z="96.13712" />
-		<Hotspot X="3489.107" Y="946.441" Z="96.13712" />
-		<Hotspot X="3472.678" Y="1013.049" Z="99.9719" />
-		<Hotspot X="3532.751" Y="878.0502" Z="53.27185" />
-		<Hotspot X="3540.566" Y="887.2999" Z="53.21301" />
-		<Hotspot X="3517.057" Y="978.8646" Z="103.4503" />
-		<Hotspot X="3538.963" Y="1017.927" Z="104.6652" />
-		<Hotspot X="3538.51" Y="913.5729" Z="95.92252" />
-		<Hotspot X="3541.507" Y="888.0087" Z="53.21281" />
-		<Hotspot X="3572.526" Y="939.9566" Z="106.9677" />
-		<Hotspot X="3461.912" Y="787.1667" Z="79.32136" />
-		<Hotspot X="3541.507" Y="888.0087" Z="53.21281" />
-		<Hotspot X="3531.303" Y="877.8663" Z="53.27114" />
-		<Hotspot X="3594.591" Y="759.0938" Z="41.3378" />
-		<Hotspot X="3626.547" Y="811.7795" Z="38.93537" />
-		<Hotspot X="3522.567" Y="749.5799" Z="72.84291" />
-		<Hotspot X="3609.691" Y="841.0521" Z="36.79026" />
-		<Hotspot X="3603.081" Y="789.1563" Z="39.54243" />
-		<Hotspot X="3575.631" Y="808.2118" Z="36.14786" />
+          <Hotspot X="3501.247" Y="935.9011" Z="96.13712" />
+          <Hotspot X="3489.107" Y="946.441" Z="96.13712" />
+          <Hotspot X="3472.678" Y="1013.049" Z="99.9719" />
+          <Hotspot X="3532.751" Y="878.0502" Z="53.27185" />
+          <Hotspot X="3540.566" Y="887.2999" Z="53.21301" />
+          <Hotspot X="3517.057" Y="978.8646" Z="103.4503" />
+          <Hotspot X="3538.963" Y="1017.927" Z="104.6652" />
+          <Hotspot X="3538.51" Y="913.5729" Z="95.92252" />
+          <Hotspot X="3541.507" Y="888.0087" Z="53.21281" />
+          <Hotspot X="3572.526" Y="939.9566" Z="106.9677" />
+          <Hotspot X="3461.912" Y="787.1667" Z="79.32136" />
+          <Hotspot X="3541.507" Y="888.0087" Z="53.21281" />
+          <Hotspot X="3531.303" Y="877.8663" Z="53.27114" />
+          <Hotspot X="3594.591" Y="759.0938" Z="41.3378" />
+          <Hotspot X="3626.547" Y="811.7795" Z="38.93537" />
+          <Hotspot X="3522.567" Y="749.5799" Z="72.84291" />
+          <Hotspot X="3609.691" Y="841.0521" Z="36.79026" />
+          <Hotspot X="3603.081" Y="789.1563" Z="39.54243" />
+          <Hotspot X="3575.631" Y="808.2118" Z="36.14786" />
         </HuntingGrounds>
-        </CustomBehavior>
+      </CustomBehavior>
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />

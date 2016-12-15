@@ -980,6 +980,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43432-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43432-[N]-[QUEST]-Wq-WANTED Normantis the Deposed-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43605) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43605-[N]-[QUEST]-WANTED Arcanist Shal'iman-RareWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43605-[N]-[QUEST]-WANTED Arcanist Shal'iman-RareWQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43606) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43606-[N]-[QUEST]-WANTED Arcavellus-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43606-[N]-[QUEST]-WANTED Arcavellus-Nuok" RememberProfile="false" />
