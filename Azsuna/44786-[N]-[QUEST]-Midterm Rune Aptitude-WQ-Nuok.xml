@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Midterm: Rune Aptitude - WQ ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 44786 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(44786)">
+        <RunTo X="194.2192" Y="6437.875" Z="-53.77689" />
+      </If>
+      <While Condition="HasQuest(44786) &amp;&amp; !IsObjectiveComplete(1, 44786)">
+        <CustomBehavior File="MyCTM" X="195.3633" Y="6445.876" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="195.3633" Y="6445.876" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="194.2192" Y="6437.875" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="195.3633" Y="6445.876" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="193.8216" Y="6448.965" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="194.7387" Y="6451.674" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.2027" Y="6452.637" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.4368" Y="6451.894" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.2789" Y="6450.847" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.5594" Y="6449.315" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.615" Y="6447.173" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="198.1969" Y="6446.115" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="195.8578" Y="6446.198" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.8277" Y="6451.877" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.8657" Y="6452.552" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="205.6912" Y="6452.093" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="207.1362" Y="6450.539" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="207.3078" Y="6448.345" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="205.39" Y="6446.376" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.4136" Y="6446.12" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.5805" Y="6447.397" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.2873" Y="6453.781" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.2641" Y="6456.124" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="198.4454" Y="6457.792" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.7767" Y="6458.56" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.032" Y="6457.397" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.6792" Y="6456.001" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.3949" Y="6453.419" Z="-53.77689" />
+      </While>
+      <While Condition="HasQuest(44786) &amp;&amp; !IsObjectiveComplete(2, 44786)">
+        <CustomBehavior File="MyCTM" X="200.8589" Y="6459.809" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.0604" Y="6459.085" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.6526" Y="6457.676" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.0278" Y="6455.582" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.73" Y="6455.088" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.0927" Y="6456.167" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.865" Y="6458.894" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="196.45" Y="6456.85" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="196.5703" Y="6455.188" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.518" Y="6453.082" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.1437" Y="6451.858" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="198.5126" Y="6452.104" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.5344" Y="6451.688" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.6369" Y="6452.668" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.553" Y="6454.361" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.3999" Y="6456.042" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.0466" Y="6457.813" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.8322" Y="6459.628" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="205.22" Y="6457.751" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="206.9814" Y="6455.69" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="207.317" Y="6452.751" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="206.0932" Y="6449.916" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.0327" Y="6447.979" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.2725" Y="6447.112" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="198.5618" Y="6447.346" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="196.051" Y="6448.803" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="194.6922" Y="6451.066" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="193.9698" Y="6453.916" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="195.4771" Y="6457.697" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="198.2278" Y="6459.453" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="195.1662" Y="6458.197" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="193.3373" Y="6455.76" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="192.307" Y="6452.785" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="192.1387" Y="6449.014" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="193.38" Y="6446.725" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="194.9933" Y="6444.828" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.2134" Y="6443.389" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.7055" Y="6442.971" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.1414" Y="6442.978" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="205.0148" Y="6443.517" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="207.3719" Y="6445.456" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="208.7343" Y="6448.345" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="209.3668" Y="6451.3" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="208.4261" Y="6454.871" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="206.815" Y="6456.808" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.6277" Y="6459.358" Z="-53.77689" />
+      </While>
+      <While Condition="HasQuest(44786) &amp;&amp; !IsObjectiveComplete(3, 44786)">
+        <CustomBehavior File="MyCTM" X="204.0553" Y="6456.063" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="205.6908" Y="6455.547" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="207.3995" Y="6454.464" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="208.3301" Y="6453.037" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="207.8419" Y="6451.069" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="206.9816" Y="6450.188" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="205.6117" Y="6449.191" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.1648" Y="6448.894" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.0269" Y="6449.402" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.0281" Y="6449.968" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.8133" Y="6451.178" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.933" Y="6452.882" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.2731" Y="6454.545" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.5001" Y="6455.521" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.0245" Y="6455.968" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.1109" Y="6457.523" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.3819" Y="6458.542" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.6075" Y="6458.879" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.7776" Y="6458.505" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="198.7444" Y="6458.038" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.4534" Y="6457.131" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.2043" Y="6455.021" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.7521" Y="6454.044" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="198.6362" Y="6452.478" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.7523" Y="6451.893" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.4308" Y="6451.542" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.2643" Y="6452.156" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.9928" Y="6452.987" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.1909" Y="6453.827" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.3544" Y="6454.949" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.196" Y="6456.058" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.6268" Y="6451.043" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.9347" Y="6451.665" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.0253" Y="6451.372" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="206.3008" Y="6449.38" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="206.4418" Y="6447.088" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="205.5585" Y="6445.776" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="204.3318" Y="6444.788" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="203.3712" Y="6444.093" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.3368" Y="6444.925" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.8673" Y="6446.322" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.2302" Y="6447.646" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.4976" Y="6448.762" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.6156" Y="6450.553" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.0691" Y="6451.826" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.6108" Y="6448.241" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="202.0979" Y="6448.174" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="201.5807" Y="6446.429" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.2167" Y="6444.58" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.738" Y="6444.619" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="195.7553" Y="6445.668" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="194.7449" Y="6447.241" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="194.7132" Y="6449.044" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="195.8831" Y="6450.988" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="196.6964" Y="6451.629" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.8703" Y="6452.067" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.2344" Y="6452.116" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.6449" Y="6451.667" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.8875" Y="6454.548" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="198.9752" Y="6454.977" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.5545" Y="6454.99" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.8938" Y="6455.742" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="196.2629" Y="6456.125" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="194.8661" Y="6455.143" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="193.6577" Y="6454.14" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="193.5913" Y="6452.345" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="193.9336" Y="6450.922" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="195.1004" Y="6449.558" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="196.2848" Y="6449.194" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="197.2074" Y="6449.246" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="199.1944" Y="6449.694" Z="-53.77689" />
+        <CustomBehavior File="MyCTM" X="200.3182" Y="6451.264" Z="-53.77689" />
+      </While>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <RunTo X="33.91953" Y="6288.097" Z="12.66002" />
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
