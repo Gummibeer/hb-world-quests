@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[Nuok] Munitions Testing - WQ ($Rev$)</Name>
+  <Name>[Nuok] Munitions Testing - WQ ($Rev: 0 $)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>1</MinLevel>
@@ -22,16 +22,16 @@
 local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1024)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
-        if info.questId == 41077 then
+        if info.questId == 41076 then
             return true;
             end
     end
 end
-return false;", 0);
+return false;", 0);     
 
      public async Task DoQuest()
      {
-      var getMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && (u.Entry == 97957 || u.Entry == 94098) && u.IsAlive);
+      var getMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && (u.Entry == 97957 || u.Entry == 94098 || u.Entry == 98273) && u.IsAlive);
       while (getMe != null && getMe.IsAlive && OnQuest)
 			{
         getMe.Target();
@@ -49,25 +49,26 @@ return false;", 0);
         Lua.DoString("ExtraActionButton1:Click();");
         await Coroutine.Sleep(1500);
         await Coroutine.Yield();
-        getMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && (u.Entry == 97957 || u.Entry == 94098) && u.IsAlive);
+        getMe = ObjectManager.GetObjectsOfType<WoWUnit>().OrderBy(u => u.Distance).FirstOrDefault(u => u.IsValid && (u.Entry == 97957 || u.Entry == 94098 || u.Entry == 98273) && u.IsAlive);
         }     
-     }]]></CustomBehavior>
+     }]]>
+</CustomBehavior>
     <While Condition="OnQuest">
-      <If Condition="!HasQuest(41077)">
+      <If Condition="!HasQuest(41076)">
         <RunTo X="4296.785" Y="3622.991" Z="898.5236" />
       </If>
-      <If Condition="HasQuest(41077)">
+      <If Condition="HasQuest(41076)">
         <!--[1] 1/1 Speak to Gertie-->
-        <While Condition="HasQuest(41077) &amp;&amp; !IsObjectiveComplete(1, 41077)">
+        <While Condition="HasQuest(41076) &amp;&amp; !IsObjectiveComplete(1, 41076)">
           <!--<Vendor Name="Gertie" Entry="99468" Type="Repair" Nav="Fly" X="4296.845" Y="3612.227" Z="898.94" />-->
-          <CustomBehavior File="InteractWith" MobId="99468" NonCompeteDistance="0" TerminateWhen="IsObjectiveComplete(1, 41077)" X="4296.785" Y="3622.991" Z="898.5236" />
+          <CustomBehavior File="InteractWith" MobId="99468" NonCompeteDistance="0" TerminateWhen="IsObjectiveComplete(1, 41076)" X="4296.785" Y="3622.991" Z="898.5236" />
         </While>
         <!--[2] 1/1 Grab a prototype from Razik's weapon rack -->
-        <While Condition="HasQuest(41077) &amp;&amp; !IsObjectiveComplete(2, 41077)">
+        <While Condition="HasQuest(41076) &amp;&amp; !IsObjectiveComplete(2, 41076)">
           <!--<GameObject Name="Razik's Weapon Rack" Entry="246975" X="4303.542" Y="3612.95" Z="898.8768" />-->
-          <CustomBehavior File="InteractWith" MobId="246975" NonCompeteDistance="0" TerminateWhen="IsObjectiveComplete(2, 41077)" X="4296.785" Y="3622.991" Z="898.5236" />
+          <CustomBehavior File="InteractWith" MobId="246975" NonCompeteDistance="0" TerminateWhen="IsObjectiveComplete(2, 41076)" X="4296.785" Y="3622.991" Z="898.5236" />
         </While>
-        <While Condition="HasQuest(41077) &amp;&amp; !IsObjectiveComplete(3, 41077)">
+        <While Condition="HasQuest(41076) &amp;&amp; !IsObjectiveComplete(3, 41076)">
           <!--Scorching Shot 203948-->
           <CustomBehavior File="RunCode" Code="await DoQuest();"/>
           <RunTo X="4340.9" Y="3683.22" Z="880.6274" />
