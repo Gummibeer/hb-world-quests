@@ -1222,10 +1222,6 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41451)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41451-[N]-[QUEST]-Wq-Assault_on_Hrydshal-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41451-[N]-[QUEST]-Wq-Assault_on_Hrydshal-Staal" RememberProfile="false" />
-      </If>
       <If Condition="DoQuest(41489)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
@@ -1689,10 +1685,6 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41996-[N]-[QUEST]-Wq-Tangled_Nightmare-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41996-[N]-[QUEST]-Wq-Tangled_Nightmare-WiN" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(42023)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42023-[N]-[QUEST]-Wq-Black_Rook_Rumble-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42023-[N]-[QUEST]-Wq-Black_Rook_Rumble-Staal" RememberProfile="false" />
-      </If>
       <If Condition="DoQuest(42028)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42028-[N]-[QUEST]-Wq-Into_the_Nightmare-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42028-[N]-[QUEST]-Wq-Into_the_Nightmare-WiN" RememberProfile="false" />
@@ -2136,10 +2128,6 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41623)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41623-[N]-[QUEST]-Wq-Champions of Highmountain-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41623-[N]-[QUEST]-Wq-Champions of Highmountain-Staal" RememberProfile="false" />
-      </If>
       <If Condition="DoQuest(41635) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41635-[N]-[QUEST]-Wq-Work Order Leystone Boots&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41635-[N]-[QUEST]-Wq-Work Order Leystone Boots" RememberProfile="false" />
@@ -2574,10 +2562,6 @@
       <If Condition="DoQuest(44811)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44811-[N]-[QUEST]-Wq-Help on the Way-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44811-[N]-[QUEST]-Wq-Help on the Way-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(44815)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44815-[N]-[QUEST]-Sick-of-the-Sycophants-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44815-[N]-[QUEST]-Sick-of-the-Sycophants-Staal" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(44857)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44857-[N]-[QUEST]-Wq-Not There, Not Then, Not Forever-Zinner&quot;);" />
