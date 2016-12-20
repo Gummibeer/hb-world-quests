@@ -1422,6 +1422,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43437-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43437-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43438) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43450) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
@@ -1477,6 +1481,10 @@
       <If Condition="DoQuest(43624) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43625) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(43626) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
@@ -1805,9 +1813,17 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43459-[N]-[QUEST]-Wq-WANTED_Thondrax&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\43459-[N]-[QUEST]-Wq-WANTED_Thondrax" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43460) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43460-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43460-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43610) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43610-[N]-[QUEST]-Wq-WANTED_Infernal_Lord-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\43610-[N]-[QUEST]-Wq-WANTED_Infernal_Lord-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43629) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43629-[N]-[QUEST]-Wq-WANTED-Kiranys-Duskwhisper-WiN" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(43630) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43630-[N]-[QUEST]-Wq-WANTED_Perrexx-WiN&quot;);" />
