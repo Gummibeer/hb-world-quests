@@ -353,16 +353,21 @@
             Log($"Skipping {quest.Name} {quest.QuestId} Rewards Items Disabled");
             return false;
         }
+
         if (quest.RewardType == RewardType.OrderHall && !s.OrderHall)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} Rewards Order Hall resources Disabled");
             return false;
         }
 
-         if (quest.Tag == QuestTag.BattlePetWorldQuest && !s.DoPetBattles)
+        if (quest.Tag == QuestTag.BattlePetWorldQuest && !s.DoPetBattles)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} Pet Battles Disabled");
+            return false;
         }
+
+        if (quest.Tag == QuestTag.BattlePetWorldQuest && s.DoPetBattles)
+            return true;
 
         if (quest.Tag == QuestTag.AlchemyWorldQuest &&
             (Me.GetSkill(SkillLine.Alchemy).CurrentValue < 100 || !s.DoProfessions))
@@ -691,6 +696,14 @@
     </While>
     <If Condition="ZoneEnabled(1014)">
       <!--Dalaran-->
+      <If Condition="DoQuest(40277)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40277-[N]-[QUEST]-PETBATTLE-Wq-Fight Night Tiffany Nelson-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Dalaran\40277-[N]-[QUEST]-PETBATTLE-Wq-Fight Night Tiffany Nelson-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(40298)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40298-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Sir_Galveston-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Dalaran\40298-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Sir_Galveston-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41656) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41656-[N]-[QUEST]-Wq-Work Work Order Azsunite Loop&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41656-[N]-[QUEST]-Wq-Work Work Order Azsunite Loop" RememberProfile="false" />
@@ -706,6 +719,18 @@
       <If Condition="DoQuest(41674) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41674-[N]-[QUEST]-Wq-Work Order Word of Intellect&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41674-[N]-[QUEST]-Wq-Work Order Word of Intellect" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41886)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41886-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Rats-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41886-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Rats-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42062)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42062-[N]-[QUEST]-PETBATTLE-Wq-Nazak_the_Fiend-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Dalaran\42062-[N]-[QUEST]-PETBATTLE-Wq-Nazak_the_Fiend-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42442)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42442-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Amalia-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Dalaran\42442-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Amalia-Zinner" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1015)">
@@ -810,6 +835,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41633-[N]-[QUEST]-Wq-Work Order Leystone Greaves&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41633-[N]-[QUEST]-Wq-Work Order Leystone Greaves" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41645) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41645-[N]-[QUEST]-Wq-Work Order Silkweave Epaulets&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41645-[N]-[QUEST]-Wq-Work Order Silkweave Epaulets" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41651-[N]-[QUEST]-Wq-Work Order Azsunite Pendant" RememberProfile="false" />
@@ -862,6 +891,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42027-[N]-[QUEST]-Wq-Faronaar_in_Chaos-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42027-[N]-[QUEST]-Wq-Faronaar_in_Chaos-WiN" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(42063)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42063-[N]-[QUEST]-PETBATTLE-Wq-Size_Doesnt_Matter-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42063-[N]-[QUEST]-PETBATTLE-Wq-Size_Doesnt_Matter-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(42101)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42101-[N]-[QUEST]-Wq-Language_of_the_Lost-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42101-[N]-[QUEST]-Wq-Language_of_the_Lost-WiN" RememberProfile="false" />
@@ -886,9 +919,29 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42123-[N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42123-[N]-[QUEST]-Wq-Reclaiming_Llothien-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(42146)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42146-[N]-[QUEST]-PETBATTLE-Wq-Dazed and Confused and Adorable-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42146-[N]-[QUEST]-PETBATTLE-Wq-Dazed and Confused and Adorable-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42148)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42148-[N]-[QUEST]-PETBATTLE-Wq-The Wine's Gone Bad-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42148-[N]-[QUEST]-PETBATTLE-Wq-The Wine's Gone Bad-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42154)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42154-[N]-[QUEST]-PETBATTLE-Wq-Help_A_Whelp-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42154-[N]-[QUEST]-PETBATTLE-Wq-Help_A_Whelp-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42159)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42159-[N]-[QUEST]-PETBATTLE-Wq-Training with the Nightwatchers-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42159-[N]-[QUEST]-PETBATTLE-Wq-Training with the Nightwatchers-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(42160)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42160-[N]-[QUEST]-Wq-Unwelcome_Visitors-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42160-[N]-[QUEST]-Wq-Unwelcome_Visitors-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42165)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42165-[N]-[QUEST]-PETBATTLE-Wq-Azsuna Specimens-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42165-[N]-[QUEST]-PETBATTLE-Wq-Azsuna Specimens-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42172)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42172-[N]-[QUEST]-Wq-Leyhollow Infestation-Nuok&quot;);" />
@@ -897,6 +950,10 @@
       <If Condition="DoQuest(42211)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42211-[N]-[QUEST]-Wq-Leodraths_Kin-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42211-[N]-[QUEST]-Wq-Leodraths_Kin-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42274)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42274-[N]-[QUEST]-Wq-Wont_anyone_think_of_the_whelps-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\42274-[N]-[QUEST]-Wq-Wont_anyone_think_of_the_whelps-Staal" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42275)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42275-[N]-[QUEST]-Wq-Not_On_My_Watch-WiN&quot;);" />
@@ -1042,6 +1099,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43607-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43607-[N]-[QUEST]-Wq-WANTED_Brogozog-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43608) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43608-[N]-[QUEST]-Wq-WANTED Captain Volo'ren-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43608-[N]-[QUEST]-Wq-WANTED Captain Volo'ren-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43609) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43609-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43609-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="false" />
@@ -1137,6 +1198,10 @@
     </If>
     <If Condition="ZoneEnabled(1017)">
       <!--Stormheim-->
+      <If Condition="DoQuest(40278)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40278-[N]-[QUEST]-PETBATTLE-Wq-My Beasts's Bidding-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\40278-[N]-[QUEST]-PETBATTLE-Wq-My Beasts's Bidding-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41275)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner" RememberProfile="false" />
@@ -1156,6 +1221,10 @@
       <If Condition="DoQuest(41444)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41451)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41451-[N]-[QUEST]-Wq-Assault_on_Hrydshal-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41451-[N]-[QUEST]-Wq-Assault_on_Hrydshal-Staal" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41489)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
@@ -1245,6 +1314,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41930-[N]-[QUEST]-Wq-Valor Calls-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41930-[N]-[QUEST]-Wq-Valor Calls-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41935)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41935-[N]-[QUEST]-PETBATTLE-Wq-Beasts_of_Burden-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41935-[N]-[QUEST]-PETBATTLE-Wq-Beasts_of_Burden-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41936)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41936-[N]-[QUEST]-You Have Been Challenged-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41936-[N]-[QUEST]-You Have Been Challenged-WQ-Nuok" RememberProfile="false" />
@@ -1253,6 +1326,14 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41944)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41944-[N]-[QUEST]-PETBATTLE-Wq-Jarruns_Ladder-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41944-[N]-[QUEST]-PETBATTLE-Wq-Jarruns_Ladder-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41948)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41948-[N]-[QUEST]-PETBATTLE-Wq-All_Pets_Go_to_Heaven-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41948-[N]-[QUEST]-PETBATTLE-Wq-All_Pets_Go_to_Heaven-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41949)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-Staal" RememberProfile="false" />
@@ -1260,6 +1341,10 @@
       <If Condition="DoQuest(41950)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41950-[N]-[QUEST]-Wq-Cry_More_Thunder&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41958)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41958-[N]-[QUEST]-PETBATTLE-Wq-Oh_Ominitron-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41958-[N]-[QUEST]-PETBATTLE-Wq-Oh_Ominitron-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41984)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN&quot;);" />
@@ -1272,6 +1357,10 @@
       <If Condition="DoQuest(42025)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42067)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42067-[N]-[QUEST]-PETBATTLE-Wq-All_Howl_No_Bite-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42067-[N]-[QUEST]-PETBATTLE-Wq-All_Howl_No_Bite-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42176)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN&quot;);" />
@@ -1464,6 +1553,10 @@
     </If>
     <If Condition="ZoneEnabled(1018)">
       <!--Valshara-->
+      <If Condition="DoQuest(40279)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40279-[N]-[QUEST]-PETBATTLE-Wq-Training with Durian-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\40279-[N]-[QUEST]-PETBATTLE-Wq-Training with Durian-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41291)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41291-[N]-[QUEST]-Wq-Dreamleaf_Cluster-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41291-[N]-[QUEST]-Wq-Dreamleaf_Cluster-WiN" RememberProfile="false" />
@@ -1548,6 +1641,14 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41700-[N]-[QUEST]-Wq-DANGER Shalas'aman-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41700-[N]-[QUEST]-Wq-DANGER Shalas'aman-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41855)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41855-[N]-[QUEST]-PETBATTLE-Wq-Stand Up to Bullies-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41855-[N]-[QUEST]-PETBATTLE-Wq-Stand Up to Bullies-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41860)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41860-[N]-[QUEST]-PETBATTLE-Wq-Dealing with Satyrs-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41860-[N]-[QUEST]-PETBATTLE-Wq-Dealing with Satyrs-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41955)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner" RememberProfile="false" />
@@ -1579,6 +1680,10 @@
       <If Condition="DoQuest(41996)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41996-[N]-[QUEST]-Wq-Tangled_Nightmare-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41996-[N]-[QUEST]-Wq-Tangled_Nightmare-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42023)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42023-[N]-[QUEST]-Wq-Black_Rook_Rumble-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42023-[N]-[QUEST]-Wq-Black_Rook_Rumble-Staal" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42028)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42028-[N]-[QUEST]-Wq-Into_the_Nightmare-WiN&quot;);" />
@@ -1623,6 +1728,10 @@
       <If Condition="DoQuest(42150)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\42150-[N]-[QUEST]-Wq-Kal-delar_Naga_Incursion-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42190)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42190-[N]-[QUEST]-PETBATTLE-Wq-Wildlife Conservationist-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\42190-[N]-[QUEST]-PETBATTLE-Wq-Wildlife Conservationist-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42779)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42779-[N]-[QUEST]-Wq-WORLD BOSS-The Sleeping Corruption&quot;);" />
@@ -1794,6 +1903,10 @@
       <If Condition="DoQuest(39462)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 39462-[N]-[QUEST] Primal Payback -Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\39462-[N]-[QUEST] Primal Payback -Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(40282)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40282-[N]-[QUEST]-PETBATTLE-Wq-Tiny_Poacher_Tiny_Animals-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\40282-[N]-[QUEST]-PETBATTLE-Wq-Tiny_Poacher_Tiny_Animals-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(40896)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40896-[N]-[QUEST]-Wq-Threnody_of_Chieftains-WiN&quot;);" />
@@ -2007,6 +2120,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41623)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41623-[N]-[QUEST]-Wq-Champions of Highmountain-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41623-[N]-[QUEST]-Wq-Champions of Highmountain-Staal" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41635) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41635-[N]-[QUEST]-Wq-Work Order Leystone Boots&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41635-[N]-[QUEST]-Wq-Work Order Leystone Boots" RememberProfile="false" />
@@ -2022,6 +2139,10 @@
       <If Condition="DoQuest(41685) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41687)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41687-[N]-[QUEST]-PETBATTLE-Wq-Snail_Fight-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41687-[N]-[QUEST]-PETBATTLE-Wq-Snail_Fight-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41691)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41691-[N]-[QUEST]-Wq-Sea_of_Feathers-Ruela&quot;);" />
@@ -2094,6 +2215,10 @@
       <If Condition="DoQuest(41844) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41844-[N]-[QUEST]-Wq-WANTED Sekhan-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41844-[N]-[QUEST]-Wq-WANTED Sekhan-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42064)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42064-[N]-[QUEST]-PETBATTLE-Wq-Its_Illid..._Wait.-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\42064-[N]-[QUEST]-PETBATTLE-Wq-Its_Illid..._Wait.-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42086)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42086-[N]-[QUEST]-Wq-The_Feltotem-WiN&quot;);" />
@@ -2433,6 +2558,10 @@
       <If Condition="DoQuest(44811)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44811-[N]-[QUEST]-Wq-Help on the Way-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44811-[N]-[QUEST]-Wq-Help on the Way-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(44815)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44815-[N]-[QUEST]-Sick-of-the-Sycophants-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44815-[N]-[QUEST]-Sick-of-the-Sycophants-Staal" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(44857)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44857-[N]-[QUEST]-Wq-Not There, Not Then, Not Forever-Zinner&quot;);" />
