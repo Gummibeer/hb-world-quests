@@ -216,9 +216,9 @@ namespace WorldQuestSettings
             {
                 s.Maximum = attr.High;
                 s.Minimum = attr.Low;
-                s.TickFrequency = Math.Abs(attr.High - attr.Low)/100;
+                s.TickFrequency = Math.Abs(attr.High - attr.Low) / 100;
                 s.SmallChange = s.TickFrequency;
-                s.LargeChange = s.TickFrequency*10f;
+                s.LargeChange = s.TickFrequency * 10f;
             }
             s.MinWidth = 65;
             s.TickPlacement = TickPlacement.BottomRight;

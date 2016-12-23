@@ -49,6 +49,31 @@ return unpack(results)";
             }
         }
 
+        public static List<ApplicantInfo> GetApplicants
+        {
+            get
+            {
+                var l = new List<ApplicantInfo>();
+                const string getAppIds = @"local applicants = C_LFGList.GetApplicants();
+local results = {}
+if (applicants) then
+for i=1, #applicants do   
+local id = C_LFGList.GetApplicantInfo(applicants[i]);
+if (id ~= nil) then 
+table.insert(results, id) 
+end
+end
+end
+return unpack(results)";
+                using (StyxWoW.Memory.AcquireFrame())
+                {
+                    var getResults = Lua.GetReturnValues(getAppIds);
+                    l.AddRange(getResults.Select(r => ApplicantInfo.GetApplicantInfo(Lua.ParseLuaValue<uint>(r))));
+                }
+                return l;
+            }
+        }
+
         /// <summary>
         ///     Retrieve the search information for the last search only
         /// </summary>
@@ -78,6 +103,12 @@ return unpack(results)";
         }
 
         public static int NumActiveApplications => Lua.GetReturnVal<int>("return C_LFGList.GetNumApplications()", 1);
+
+        public static int GetNumInvitedApplicantMembers
+            => Lua.GetReturnVal<int>("return C_LFGList.GetNumInvitedApplicantMembers()", 0);
+
+        public static bool IsGroupLeader =>
+            Lua.GetReturnVal<bool>("return UnitIsGroupLeader(\"player\")", 0);
 
         /// <summary>
         ///     Gets all the currently applied for groups
@@ -127,7 +158,7 @@ return unpack(results)";
                 // /dump C_LFGList.GetAvailableActivities()
                 const string lua = "return unpack(C_LFGList.GetAvailableActivities());";
                 var r = Lua.GetReturnValues(lua);
-                return Enumerable.ToList(r.Select(Lua.ParseLuaValue<int>));
+                return r.Select(Lua.ParseLuaValue<int>).ToList();
             }
         }
 
@@ -147,6 +178,8 @@ return unpack(results)";
                 return r;
             }
         }
+
+        public static void InviteApplicant(uint id) => Lua.DoString($"C_LFGList.InviteApplicant({id})");
 
         /// <summary>
         ///     Opens the LFG Frame in game
@@ -364,7 +397,7 @@ return unpack(results)";
         /// </summary>
         /// <param name="application"></param>
         /// <returns></returns>
-        private static ApplicationState GetApplicationState(string application)
+        public static ApplicationState GetApplicationState(string application)
         {
             switch (application)
             {
@@ -382,6 +415,8 @@ return unpack(results)";
                     return ApplicationState.None;
                 case "declined":
                     return ApplicationState.Declined;
+                case "invitedeclined":
+                    return ApplicationState.InviteDeclined;
                 default:
                 {
                     Log($"{application} not listed as a state");
@@ -467,6 +502,7 @@ return unpack(results)";
         Applied,
         InviteAccepted,
         Declined,
+        InviteDeclined,
         None
     }
 
@@ -537,6 +573,33 @@ return unpack(results)";
         protected bool Equals(SearchResultInfo other)
         {
             return Id == other.Id;
+        }
+    }
+
+    public class ApplicantInfo
+    {
+        public uint Id { get; set; }
+        public uint ApplicantId { get; set; }
+        public ApplicationState Status { get; set; }
+        public bool PendingStatus { get; set; }
+        public uint NumMembers { get; set; }
+        public bool IsNew { get; set; }
+        public string Comment { get; set; }
+
+        public static ApplicantInfo GetApplicantInfo(uint applicantId)
+        {
+            var info = Lua.GetReturnValues($"return C_LFGList.GetApplicantInfo({applicantId})");
+            //local id, status, pendingStatus, numMembers, isNew, comment = C_LFGList.GetApplicantInfo(applicantID)
+            return new ApplicantInfo
+            {
+                ApplicantId = applicantId,
+                Id = Lua.ParseLuaValue<uint>(info[0]),
+                Status = LfgList.GetApplicationState(info[1]),
+                PendingStatus = Lua.ParseLuaValue<bool>(info[2]),
+                NumMembers = Lua.ParseLuaValue<uint>(info[3]),
+                IsNew = Lua.ParseLuaValue<bool>(info[4]),
+                Comment = info[5]
+            };
         }
     }
 

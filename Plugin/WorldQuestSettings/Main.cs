@@ -16,7 +16,7 @@ namespace WorldQuestSettings
 
         public override string Name => "WorldQuestHelper";
         public override string Author => "Nuok";
-        public override Version Version => new Version(2, 2, GetSvnInt());
+        public override Version Version => new Version(2, 3, GetSvnInt());
 
         public override bool WantButton => true;
         public override string ButtonText => "Settings";
@@ -24,11 +24,11 @@ namespace WorldQuestSettings
 
         private static int GetSvnInt()
         {
-            string re1 = ".*?"; // Non-greedy match on filler
-            string re2 = "(\\d+)";  // Integer Number 1
+            var re1 = ".*?"; // Non-greedy match on filler
+            var re2 = "(\\d+)"; // Integer Number 1
 
-            Regex r = new Regex(re1 + re2, RegexOptions.IgnoreCase | RegexOptions.Singleline);
-            Match m = r.Match(SvnVersion);
+            var r = new Regex(re1 + re2, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            var m = r.Match(SvnVersion);
             if (!m.Success) return 0;
 
             var int1 = m.Groups[1].ToString();
@@ -96,9 +96,7 @@ namespace WorldQuestSettings
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            OnButtonPress();          
+            OnButtonPress();
         }
-
-        
     }
 }

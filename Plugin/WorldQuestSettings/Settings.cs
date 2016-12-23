@@ -59,7 +59,7 @@ namespace WorldQuestSettings
         [Setting]
         [Category("Hard Quests")]
         [DisplayName("Do Pet Battle Quests")]
-        [Description("Requires a pet battle plugin like ")]
+        [Description("Requires a pet battle plugin like Pairidaeza")]
         [Styx.Helpers.DefaultValue(false)]
         public bool DoPetBattles { get; set; }
 
@@ -80,6 +80,26 @@ namespace WorldQuestSettings
         [DisplayName("Do Work Order Quests")]
         [Styx.Helpers.DefaultValue(false)]
         public bool DoWorkOrders { get; set; }
+
+        [Setting]
+        [Category("Utility")]
+        [DisplayName("Skip HB Relog Task")]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool SkipHBRelog { get; set; }
+
+        [Setting]
+        [Category("Utility")]
+        [DisplayName("SVN Update")]
+        [Description("Runs the updater.bat file to try and update profiles.")]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool SVNUpdate { get; set; }
+
+        [Setting]
+        [Category("Utility")]
+        [DisplayName("Loop Profile")]
+        [Description("Runs the profile in a loop to try and prevent it from missing quests")]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool LoopProfile { get; set; }
 
         #region zones
 
@@ -128,6 +148,7 @@ namespace WorldQuestSettings
         #endregion
 
         #region factions
+
         [Setting]
         [Category("Faction")]
         [DisplayName("The Wardens")]
@@ -180,6 +201,7 @@ namespace WorldQuestSettings
         #endregion
 
         #region rewards
+
         [Setting]
         [Category("Rewards")]
         [DisplayName("Artifact Power")]
@@ -220,25 +242,5 @@ namespace WorldQuestSettings
         public bool Gold { get; set; }
 
         #endregion
-
-        [Setting]
-        [Category("Utility")]
-        [DisplayName("Skip HB Relog Task")]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool SkipHBRelog { get; set; }
-
-        [Setting]
-        [Category("Utility")]
-        [DisplayName("SVN Update")]
-        [Description("Runs the updater.bat file to try and update profiles.")]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool SVNUpdate { get; set; }
-
-        [Setting]
-        [Category("Utility")]
-        [DisplayName("Loop Profile")]
-        [Description("Runs the profile in a loop to try and prevent it from missing quests")]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool LoopProfile { get; set; }
     }
 }
