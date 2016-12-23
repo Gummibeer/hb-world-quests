@@ -534,7 +534,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(2, 2, 1231);
+        var latestVersion = new Version(2, 3, 1278);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -1653,6 +1653,14 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41860-[N]-[QUEST]-PETBATTLE-Wq-Dealing with Satyrs-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41860-[N]-[QUEST]-PETBATTLE-Wq-Dealing with Satyrs-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41861)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41861-[N]-[QUEST]-PETBATTLE-Wq-Meet The Maw-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41861-[N]-[QUEST]-PETBATTLE-Wq-Meet The Maw-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41862)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41862-[N]-[QUEST]-PETBATTLE-Wq-Only Pets Can Prevent Forest Fires-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41862-[N]-[QUEST]-PETBATTLE-Wq-Only Pets Can Prevent Forest Fires-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41955)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41955-[N]-[QUEST]-Wq-Bloodline of Stone-Zinner" RememberProfile="false" />
@@ -2171,6 +2179,10 @@
       <If Condition="DoQuest(41705)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41705-[N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41705-[N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41776)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41776-[N]-[QUEST]-PETBATTLE-Wq-Wildlife Protection Force-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41776-[N]-[QUEST]-PETBATTLE-Wq-Wildlife Protection Force-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41789)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN&quot;);" />
