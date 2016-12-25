@@ -2579,6 +2579,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44857-[N]-[QUEST]-Wq-Not There, Not Then, Not Forever-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44857-[N]-[QUEST]-Wq-Not There, Not Then, Not Forever-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(45068)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45068-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\45068-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(45307)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45307-[N]-[QUEST]-Wq-Claws for Alarm!-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\45307-[N]-[QUEST]-Wq-Claws for Alarm!-Zinner" RememberProfile="false" />
