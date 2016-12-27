@@ -747,7 +747,7 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41272-[N]-[QUEST]-Wq-Work Order Mossgill Perch&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41272-[N]-[QUEST]-Wq-Work Order Mossgill Perch" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41288)">
+      <If Condition="DoQuest(41288) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41288-[N]-[QUEST]-Wq-Supplies Needed Aethril -BUY Aethri from ah&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41288-[N]-[QUEST]-Wq-Supplies Needed Aethril -BUY Aethri from ah" RememberProfile="false" />
       </If>
@@ -1565,7 +1565,7 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41291-[N]-[QUEST]-Wq-Dreamleaf_Cluster-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41291-[N]-[QUEST]-Wq-Dreamleaf_Cluster-WiN" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41293)">
+      <If Condition="DoQuest(41293) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41293-[N]-[QUEST]-Wq-Supplies Needed Dreamleaf-Zinner-BUY 40 Dreamleaf from ah&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41293-[N]-[QUEST]-Wq-Supplies Needed Dreamleaf-Zinner-BUY 40 Dreamleaf from ah" RememberProfile="false" />
       </If>
@@ -2056,7 +2056,7 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41234-[N]-[QUEST]-Wq-Shaggy_Saber_Hide-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41234-[N]-[QUEST]-Wq-Shaggy_Saber_Hide-WiN" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41237)">
+      <If Condition="DoQuest(41237) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41237-[N]-[QUEST]-Wq-Supplies Needed Stonehide Leather-Zinner-BUY 40 lether from ah-&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41237-[N]-[QUEST]-Wq-Supplies Needed Stonehide Leather-Zinner-BUY 40 lether from ah-" RememberProfile="false" />
       </If>
