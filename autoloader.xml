@@ -1196,365 +1196,6 @@
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\45069-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
       </If>
     </If>
-    <If Condition="ZoneEnabled(1017)">
-      <!--Stormheim-->
-      <If Condition="DoQuest(40278)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40278-[N]-[QUEST]-PETBATTLE-Wq-My Beasts's Bidding-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\40278-[N]-[QUEST]-PETBATTLE-Wq-My Beasts's Bidding-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41275)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41427)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41442)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41442-[N]-[QUEST]-Wq-Striking Leystone Deposits-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41442-[N]-[QUEST]-Wq-Striking Leystone Deposits-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41443)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41443-[N]-[QUEST]-Wq-Ancient Leystone Deposits-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41443-[N]-[QUEST]-Wq-Ancient Leystone Deposits-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41444)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41489)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41497)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41497-[N]-[QUEST]-Wild Leystone Seams-MiningWQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41497-[N]-[QUEST]-Wild Leystone Seams-MiningWQ-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41519)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41519-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41519-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41534)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41534-[N]-[QUEST]-Wq-Brambly_Fjarnskaggl-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41534-[N]-[QUEST]-Wq-Brambly_Fjarnskaggl-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41535)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41535-[N]-[QUEST]-Wq-Prickly Fjarnskaggl-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41535-[N]-[QUEST]-Wq-Prickly Fjarnskaggl-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41536)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41547)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41547-[N]-[QUEST]-Wq-Fjarnskaggl Cluster-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41547-[N]-[QUEST]-Wq-Fjarnskaggl Cluster-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41555)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41555-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41555-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41556)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41568)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41568-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41568-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41569)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41569-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41569-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41615)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41636) &amp;&amp; Settings.Instance.DoWorkOrders">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41636-[N]-[QUEST]-Wq-Work Order Leystone Breastplate&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41636-[N]-[QUEST]-Wq-Work Order Leystone Breastplate" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41648) &amp;&amp; Settings.Instance.DoWorkOrders">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41654) &amp;&amp; Settings.Instance.DoWorkOrders">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41654-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41654-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41678) &amp;&amp; Settings.Instance.DoWorkOrders">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41678-[N]-[QUEST]-Wq-Work Order Gunpack&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41678-[N]-[QUEST]-Wq-Work Order Gunpack" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41794)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41794-[N]-[QUEST]-Wq-Drakestalker-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41794-[N]-[QUEST]-Wq-Drakestalker-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41925)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41925-[N]-[QUEST]-Wq-Razing_Hel&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41925-[N]-[QUEST]-Wq-Razing_Hel" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41926)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41926-[N]-[QUEST]-Wq-Returning Champion-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41926-[N]-[QUEST]-Wq-Returning Champion-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41927)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41930)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41930-[N]-[QUEST]-Wq-Valor Calls-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41930-[N]-[QUEST]-Wq-Valor Calls-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41935)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41935-[N]-[QUEST]-PETBATTLE-Wq-Beasts_of_Burden-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41935-[N]-[QUEST]-PETBATTLE-Wq-Beasts_of_Burden-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41936)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41936-[N]-[QUEST]-You Have Been Challenged-WQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41936-[N]-[QUEST]-You Have Been Challenged-WQ-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41938)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41944)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41944-[N]-[QUEST]-PETBATTLE-Wq-Jarruns_Ladder-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41944-[N]-[QUEST]-PETBATTLE-Wq-Jarruns_Ladder-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41948)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41948-[N]-[QUEST]-PETBATTLE-Wq-All_Pets_Go_to_Heaven-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41948-[N]-[QUEST]-PETBATTLE-Wq-All_Pets_Go_to_Heaven-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41949)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-Staal" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41950)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41950-[N]-[QUEST]-Wq-Cry_More_Thunder&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41958)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41958-[N]-[QUEST]-PETBATTLE-Wq-Oh_Ominitron-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41958-[N]-[QUEST]-PETBATTLE-Wq-Oh_Ominitron-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(41984)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42013)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42013-[N]-[QUEST]-Wq-The Helmouth-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42013-[N]-[QUEST]-Wq-The Helmouth-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42025)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42067)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42067-[N]-[QUEST]-PETBATTLE-Wq-All_Howl_No_Bite-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42067-[N]-[QUEST]-PETBATTLE-Wq-All_Howl_No_Bite-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42176)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42177)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42177-[N]-[QUEST]-Wq-Reclaiming Morheim-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42177-[N]-[QUEST]-Wq-Reclaiming Morheim-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42178)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42178-[N]-[QUEST]-Shock Absorber-WQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42178-[N]-[QUEST]-Shock Absorber-WQ-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42182)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42182-[N]-[QUEST]-Wq-To_Battle-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42182-[N]-[QUEST]-Wq-To_Battle-Staal" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42183)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42183-[N]-[QUEST]-To Battle!-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42183-[N]-[QUEST]-To Battle!-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42270)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42270-[N]-[QUEST]-Wq-WORLD BOSS-Scourge of the Skies&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42270-[N]-[QUEST]-Wq-WORLD BOSS-Scourge of the Skies" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42785) &amp;&amp; Settings.Instance.DoDangerQuests">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42785-[N]-[QUEST]-Wq-DANGER Den Mother Ylva-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42785-[N]-[QUEST]-Wq-DANGER Den Mother Ylva-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42798) &amp;&amp; Settings.Instance.DoDangerQuests">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42798-[N]-[QUEST]-Wq-DANGER Huntress Estrid-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42798-[N]-[QUEST]-Wq-DANGER Huntress Estrid-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42806) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42806-[N]-[QUEST]-Wq-WANTED_Fjorlag-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42806-[N]-[QUEST]-Wq-WANTED_Fjorlag-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42864) &amp;&amp; Settings.Instance.DoDangerQuests">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42864-[N]-[QUEST]-Wq-DANGER Captain Dargun&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42864-[N]-[QUEST]-Wq-DANGER Captain Dargun" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42963) &amp;&amp; Settings.Instance.DoDangerQuests">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42963-[N]-[QUEST]-Wq-DANGER Rulf Bonesnapper-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42963-[N]-[QUEST]-Wq-DANGER Rulf Bonesnapper-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42964) &amp;&amp; Settings.Instance.DoDangerQuests">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42964-[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42964-[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(42991) &amp;&amp; Settings.Instance.DoDangerQuests">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42991-[N]-[QUEST]-Wq-DANGER Runeseer Sigvid-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42991-[N]-[QUEST]-Wq-DANGER Runeseer Sigvid-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43436) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43437) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43437-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43437-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43438) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43450) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43451) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43451-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43451-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43452) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43452-[N]-[QUEST]-Wq-WANTED_Isel_the_Hammer&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43452-[N]-[QUEST]-Wq-WANTED_Isel_the_Hammer" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43453) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43453-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43453-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43454) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43454-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43454-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43455) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43598)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43598-[H]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43598-[H]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43599)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43600)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43600-[H]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43601)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43620) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43620-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43620-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43622) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43623) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43624) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43625) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43626) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43627) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43627-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43627-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43628) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43710)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43710-[N]-[QUEST]-Wq-Dark Runes-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43710-[N]-[QUEST]-Wq-Dark Runes-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43721)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43722)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43745)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43745-[N]-[QUEST]-Wq-Culling the Storm-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43745-[N]-[QUEST]-Wq-Culling the Storm-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43751)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43751-[N]-[QUEST]-Oh, Ship!-WQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43751-[N]-[QUEST]-Oh, Ship!-WQ-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43771)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43771-[N]-[QUEST]-The Magic of Flight-WQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43771-[N]-[QUEST]-The Magic of Flight-WQ-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43772)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43772-[N]-[QUEST]-Enigmatic-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43772-[N]-[QUEST]-Enigmatic-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43786)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43786-[N]-[QUEST]-Pesty Nests-WQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43786-[N]-[QUEST]-Pesty Nests-WQ-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43827)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43827-[N]-[QUEST]-Stormwing the Portals-WQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43827-[N]-[QUEST]-Stormwing the Portals-WQ-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43951)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43963)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43963-[N]-[QUEST]-Wq-Vampirates-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(43964)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43964-[N]-[QUEST]-A Jarl's Feast-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43964-[N]-[QUEST]-A Jarl's Feast-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(44893)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44893-[N]-[QUEST]-Direbeak Swarm!-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44893-[N]-[QUEST]-Direbeak Swarm!-Nuok" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(44923)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44923-[N]-[QUEST]-Wq-Helarjar Landing Vrekt&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44923-[N]-[QUEST]-Wq-Helarjar Landing Vrekt" RememberProfile="false" />
-      </If>
-      <If Condition="DoQuest(45072)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45072-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\45072-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
-      </If>
-    </If>
     <If Condition="ZoneEnabled(1018)">
       <!--Valshara-->
       <If Condition="DoQuest(40279)">
@@ -2323,6 +1964,365 @@
       <If Condition="DoQuest(45071)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45071-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\45071-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
+      </If>
+    </If>
+    <If Condition="ZoneEnabled(1017)">
+      <!--Stormheim-->
+      <If Condition="DoQuest(40278)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40278-[N]-[QUEST]-PETBATTLE-Wq-My Beasts's Bidding-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\40278-[N]-[QUEST]-PETBATTLE-Wq-My Beasts's Bidding-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41275)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41427)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41442)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41442-[N]-[QUEST]-Wq-Striking Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41442-[N]-[QUEST]-Wq-Striking Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41443)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41443-[N]-[QUEST]-Wq-Ancient Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41443-[N]-[QUEST]-Wq-Ancient Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41444)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41444-[N]-[QUEST]-Wq-Dark Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41489)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41497)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41497-[N]-[QUEST]-Wild Leystone Seams-MiningWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41497-[N]-[QUEST]-Wild Leystone Seams-MiningWQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41519)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41519-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41519-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41534)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41534-[N]-[QUEST]-Wq-Brambly_Fjarnskaggl-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41534-[N]-[QUEST]-Wq-Brambly_Fjarnskaggl-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41535)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41535-[N]-[QUEST]-Wq-Prickly Fjarnskaggl-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41535-[N]-[QUEST]-Wq-Prickly Fjarnskaggl-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41536)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41536-[N]-[QUEST]-Wq-Pungent_Fjarnskaggl-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41547)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41547-[N]-[QUEST]-Wq-Fjarnskaggl Cluster-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41547-[N]-[QUEST]-Wq-Fjarnskaggl Cluster-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41555)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41555-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41555-[N]-[QUEST]-Wq-Slab_of_Bacon-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41556)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41556-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41568)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41568-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41568-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41569)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41569-[N]-[QUEST]-Wq-Felhide-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41569-[N]-[QUEST]-Wq-Felhide-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41615)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41615-[N]-[QUEST]-Wq-Huge Stormrays-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41636) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41636-[N]-[QUEST]-Wq-Work Order Leystone Breastplate&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41636-[N]-[QUEST]-Wq-Work Order Leystone Breastplate" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41648) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41648-[N]-[QUEST]-Wq-Work Order Silkweave Bracers" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41651) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41651-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41654) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41654-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41654-[N]-[QUEST]-Wq-Work Order Queen's Opal Loop" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41678) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41678-[N]-[QUEST]-Wq-Work Order Gunpack&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41678-[N]-[QUEST]-Wq-Work Order Gunpack" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41794)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41794-[N]-[QUEST]-Wq-Drakestalker-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41794-[N]-[QUEST]-Wq-Drakestalker-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41925)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41925-[N]-[QUEST]-Wq-Razing_Hel&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41925-[N]-[QUEST]-Wq-Razing_Hel" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41926)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41926-[N]-[QUEST]-Wq-Returning Champion-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41926-[N]-[QUEST]-Wq-Returning Champion-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41927)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41927-[N]-[QUEST]-Wq-Ruining_the_Runewood-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41930)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41930-[N]-[QUEST]-Wq-Valor Calls-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41930-[N]-[QUEST]-Wq-Valor Calls-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41935)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41935-[N]-[QUEST]-PETBATTLE-Wq-Beasts_of_Burden-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41935-[N]-[QUEST]-PETBATTLE-Wq-Beasts_of_Burden-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41936)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41936-[N]-[QUEST]-You Have Been Challenged-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41936-[N]-[QUEST]-You Have Been Challenged-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41938)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41938-[N]-[QUEST]-Wq-Brothers of Skovald-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41944)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41944-[N]-[QUEST]-PETBATTLE-Wq-Jarruns_Ladder-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41944-[N]-[QUEST]-PETBATTLE-Wq-Jarruns_Ladder-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41948)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41948-[N]-[QUEST]-PETBATTLE-Wq-All_Pets_Go_to_Heaven-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41948-[N]-[QUEST]-PETBATTLE-Wq-All_Pets_Go_to_Heaven-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41949)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41949-[N]-[QUEST]-Wq-The_Drekirjar_Return-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41950)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41950-[N]-[QUEST]-Wq-Cry_More_Thunder&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41950-[N]-[QUEST]-Wq-Cry_More_Thunder" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41958)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41958-[N]-[QUEST]-PETBATTLE-Wq-Oh_Ominitron-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41958-[N]-[QUEST]-PETBATTLE-Wq-Oh_Ominitron-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41984)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41984-[N]-[QUEST]-Wq-The-Creeping-Mist-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42013)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42013-[N]-[QUEST]-Wq-The Helmouth-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42013-[N]-[QUEST]-Wq-The Helmouth-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42025)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42025-[H]-[QUEST]-Wq-PVP-Bareback_Brawl-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42067)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42067-[N]-[QUEST]-PETBATTLE-Wq-All_Howl_No_Bite-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42067-[N]-[QUEST]-PETBATTLE-Wq-All_Howl_No_Bite-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42176)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42176-[N]-[QUEST]-Wq-Rise_of_Skovald-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42177)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42177-[N]-[QUEST]-Wq-Reclaiming Morheim-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42177-[N]-[QUEST]-Wq-Reclaiming Morheim-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42178)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42178-[N]-[QUEST]-Shock Absorber-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42178-[N]-[QUEST]-Shock Absorber-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42182)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42182-[N]-[QUEST]-Wq-To_Battle-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42182-[N]-[QUEST]-Wq-To_Battle-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42183)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42183-[N]-[QUEST]-To Battle!-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42183-[N]-[QUEST]-To Battle!-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42270)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42270-[N]-[QUEST]-Wq-WORLD BOSS-Scourge of the Skies&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42270-[N]-[QUEST]-Wq-WORLD BOSS-Scourge of the Skies" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42785) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42785-[N]-[QUEST]-Wq-DANGER Den Mother Ylva-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42785-[N]-[QUEST]-Wq-DANGER Den Mother Ylva-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42798) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42798-[N]-[QUEST]-Wq-DANGER Huntress Estrid-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42798-[N]-[QUEST]-Wq-DANGER Huntress Estrid-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42806) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42806-[N]-[QUEST]-Wq-WANTED_Fjorlag-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42806-[N]-[QUEST]-Wq-WANTED_Fjorlag-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42864) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42864-[N]-[QUEST]-Wq-DANGER Captain Dargun&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42864-[N]-[QUEST]-Wq-DANGER Captain Dargun" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42963) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42963-[N]-[QUEST]-Wq-DANGER Rulf Bonesnapper-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42963-[N]-[QUEST]-Wq-DANGER Rulf Bonesnapper-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42964) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42964-[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42964-[N]-[QUEST]-Wq-DANGER-Lagertha-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42991) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42991-[N]-[QUEST]-Wq-DANGER Runeseer Sigvid-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42991-[N]-[QUEST]-Wq-DANGER Runeseer Sigvid-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43436) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43437) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43437-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43437-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43438) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43438-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43450) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43450-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43451) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43451-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43451-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43452) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43452-[N]-[QUEST]-Wq-WANTED_Isel_the_Hammer&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43452-[N]-[QUEST]-Wq-WANTED_Isel_the_Hammer" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43453) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43453-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43453-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43454) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43454-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43454-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43455) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43455-[N]-[QUEST]-Wq-WANTED Devouring Darkness-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43598)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43598-[H]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43598-[H]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43599)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43599-[A]-[QUEST]-Wq-Warden_Tower_Assault_Blackhawks_Bulwark-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43600)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43600-[H]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43600-[H]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43601)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43601-[A]-[QUEST]-Wq-Warden_Tower_Assault_Whisperwinds_Citadel-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43620) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43620-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43620-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43622) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43623) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43623-[N]-[QUEST]-Wq-WANTED Hannval the Butcher-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43624) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43624-[N]-[QUEST]-WANTED Isel the Hammer-RareWQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43625) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43625-[N]-[QUEST]-Wq-WANTED Nameless King-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43626) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43626-[N]-[QUEST]-Wq-WANTED Thane Irglov-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43627) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43627-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43627-[N]-[QUEST]-Wq-WANTED Tiptog the Lost-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43628) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43628-[N]-[QUEST]-Wq-WANTED_Urgev_the_Flayer" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43710)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43710-[N]-[QUEST]-Wq-Dark Runes-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43710-[N]-[QUEST]-Wq-Dark Runes-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43721)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43721-[N]-[QUEST]-Wq-ELITE_The_Helarjar_Have_Surfaced-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43722)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43722-[N]-[QUEST]-Wq-Sacred_Bones-Staal" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43745)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43745-[N]-[QUEST]-Wq-Culling the Storm-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43745-[N]-[QUEST]-Wq-Culling the Storm-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43751)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43751-[N]-[QUEST]-Oh, Ship!-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43751-[N]-[QUEST]-Oh, Ship!-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43771)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43771-[N]-[QUEST]-The Magic of Flight-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43771-[N]-[QUEST]-The Magic of Flight-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43772)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43772-[N]-[QUEST]-Enigmatic-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43772-[N]-[QUEST]-Enigmatic-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43786)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43786-[N]-[QUEST]-Pesty Nests-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43786-[N]-[QUEST]-Pesty Nests-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43827)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43827-[N]-[QUEST]-Stormwing the Portals-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43827-[N]-[QUEST]-Stormwing the Portals-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43951)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43951-[N]-[QUEST]-Wq-An_Overdue_Debt-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43963)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43963-[N]-[QUEST]-Wq-Vampirates-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43963-[N]-[QUEST]-Wq-Vampirates-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43964)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43964-[N]-[QUEST]-A Jarl's Feast-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43964-[N]-[QUEST]-A Jarl's Feast-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(44893)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44893-[N]-[QUEST]-Direbeak Swarm!-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44893-[N]-[QUEST]-Direbeak Swarm!-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(44923)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44923-[N]-[QUEST]-Wq-Helarjar Landing Vrekt&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\44923-[N]-[QUEST]-Wq-Helarjar Landing Vrekt" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45072)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45072-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\45072-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1033)">
