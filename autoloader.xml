@@ -4,7 +4,7 @@
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>110</MinLevel>
-  <MaxLevel>110</MaxLevel>
+  <MaxLevel>200</MaxLevel>
   <MailGrey>false</MailGrey>
   <MailWhite>true</MailWhite>
   <MailGreen>true</MailGreen>
