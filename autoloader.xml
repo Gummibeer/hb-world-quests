@@ -3,8 +3,8 @@
   <Name>[WQ] World Quest Auto Loader ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
-  <MinLevel>1</MinLevel>
-  <MaxLevel>1000</MaxLevel>
+  <MinLevel>110</MinLevel>
+  <MaxLevel>110</MaxLevel>
   <MailGrey>false</MailGrey>
   <MailWhite>true</MailWhite>
   <MailGreen>true</MailGreen>
@@ -1793,6 +1793,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41685-[N]-[QUEST]-Wq-DANGER Ala'washte-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41686) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41686-[N]-[QUEST]-DANGER Olokk the Shipbreaker-RareEliteWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41686-[N]-[QUEST]-DANGER Olokk the Shipbreaker-RareEliteWQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41687)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41687-[N]-[QUEST]-PETBATTLE-Wq-Snail_Fight-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41687-[N]-[QUEST]-PETBATTLE-Wq-Snail_Fight-Zinner" RememberProfile="false" />
@@ -2180,6 +2184,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42991-[N]-[QUEST]-Wq-DANGER Runeseer Sigvid-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42991-[N]-[QUEST]-Wq-DANGER Runeseer Sigvid-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43434) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43434-[N]-[QUEST]-WANTED Fathnyr-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43434-[N]-[QUEST]-WANTED Fathnyr-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43436) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43436-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist" RememberProfile="false" />
@@ -2235,6 +2243,10 @@
       <If Condition="DoQuest(43620) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43620-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43620-[N]-[QUEST]-Wq-WANTED Egyl the Enduring-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(43621) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43621-[N]-[QUEST]-WANTED Fathnyr-RareWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\43621-[N]-[QUEST]-WANTED Fathnyr-RareWQ-Nuok" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(43622) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43622-[N]-[QUEST]-Wq-WANTED_Glimar_Ironfist&quot;);" />
