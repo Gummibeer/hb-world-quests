@@ -1,6 +1,5 @@
 <HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <!-- Original contribution by EchoTiger -->
   <Name>41930-[N]-[QUEST]-Wq-Valor Calls-Zinner $Rev$</Name>
   <MinDurability>0.3</MinDurability>
   <MinFreeBagSlots>3</MinFreeBagSlots>
@@ -29,28 +28,28 @@ end
 return false;", 0);]]>
     </CustomBehavior>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41930-[N]-[QUEST]-Wq-Valor Calls-Zinner!&quot;);" />
-    <While Condition="OnQuest">    
+    <While Condition="OnQuest">
       <If Condition="!HasQuest(41930)">
         <RunTo X="2708.979" Y="1169.242" Z="198.13" />
       </If>
-      <CustomBehavior File="KillUntilComplete" MobIds="97825, 97821, 97816, 97851, 97945, 97946, 97947, 97948, 97949" QuestId="41930">
+      <CustomBehavior File="KillUntilComplete" MobIds="97825, 97821, 97816, 97851, 97945, 97946, 97947, 97948, 97949" TerminateWhen="!OnQuest">
         <HuntingGrounds>
-       <Hotspot X="2706.901" Y="1077.896" Z="197.7679" />
-	<Hotspot X="2687.515" Y="1092.933" Z="197.767" />
-	<Hotspot X="2649.475" Y="1037.999" Z="205.797" />
-	<Hotspot X="2689.323" Y="1017.328" Z="205.854" />
-	<Hotspot X="2689.996" Y="1014.912" Z="205.8598" />
-	<Hotspot X="2706.533" Y="986.1368" Z="205.798" />
-	<Hotspot X="2671.199" Y="947.2649" Z="205.7976" />
-	<Hotspot X="2695.801" Y="931.2296" Z="205.7974" />
-	<Hotspot X="2676.615" Y="902.2548" Z="205.8981" />
-	<Hotspot X="2610.383" Y="932.86" Z="217.1311" />
-	<Hotspot X="2645.28" Y="988.015" Z="216.6865" />
-	<Hotspot X="2581.573" Y="989.4893" Z="216.6865" />
+          <Hotspot X="2706.901" Y="1077.896" Z="197.7679" />
+          <Hotspot X="2687.515" Y="1092.933" Z="197.767" />
+          <Hotspot X="2649.475" Y="1037.999" Z="205.797" />
+          <Hotspot X="2689.323" Y="1017.328" Z="205.854" />
+          <Hotspot X="2689.996" Y="1014.912" Z="205.8598" />
+          <Hotspot X="2706.533" Y="986.1368" Z="205.798" />
+          <Hotspot X="2671.199" Y="947.2649" Z="205.7976" />
+          <Hotspot X="2695.801" Y="931.2296" Z="205.7974" />
+          <Hotspot X="2676.615" Y="902.2548" Z="205.8981" />
+          <Hotspot X="2610.383" Y="932.86" Z="217.1311" />
+          <Hotspot X="2645.28" Y="988.015" Z="216.6865" />
+          <Hotspot X="2581.573" Y="989.4893" Z="216.6865" />
         </HuntingGrounds>
       </CustomBehavior>
     </While>
-    
+
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
