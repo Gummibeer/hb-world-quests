@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Thick Bear Hide - SkinningWQ ($Rev: 0 $)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41342 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41342)">
+        <RunTo X="4139.417" Y="3026.948" Z="21.2624" />
+      </If>
+      <If Condition="HasQuest(41342)">
+        <CustomBehavior File="InteractWith" TerminateWhen="!OnQuest" MobState="Dead">
+          <HuntingGrounds>
+            <Hotspot X="4186.991" Y="3026.648" Z="7.748491" />
+            <Hotspot X="4086.835" Y="3117.287" Z="14.08384" />
+          </HuntingGrounds>
+          <PursuitList>
+            <PursueUnit Id="91569" PursueWhen="UNIT.IsAlive || UNIT.Lootable || UNIT.Skinnable" />
+          </PursuitList>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>

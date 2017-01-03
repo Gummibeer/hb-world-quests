@@ -1039,6 +1039,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43098-[N]-[QUEST]-Wq-DANGER Marblub the Massive-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43098-[N]-[QUEST]-Wq-DANGER Marblub the Massive-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43121) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43121-[N]-[QUEST]-DANGER Chief Treasurer Jabrill-RareEliteWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43121-[N]-[QUEST]-DANGER Chief Treasurer Jabrill-RareEliteWQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43192)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43192-[N]-[QUEST]-Wq-Terror_of_the_Deep-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43192-[N]-[QUEST]-Wq-Terror_of_the_Deep-WiN" RememberProfile="false" />
@@ -1979,6 +1983,10 @@
       <If Condition="DoQuest(41275)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41275-[N]-[QUEST]-Wq-Huge_Stormrays-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41342)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41342-[N]-[QUEST]-Thick Bear Hide-SkinningWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41342-[N]-[QUEST]-Thick Bear Hide-SkinningWQ-Nuok" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41427)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41427-[N]-[QUEST]-Wq-Get_Vrekt-WiN&quot;);" />
