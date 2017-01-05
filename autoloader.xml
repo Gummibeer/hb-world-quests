@@ -154,6 +154,12 @@
         [Styx.Helpers.DefaultValue(false)]
         public bool WQGF { get; set; }
         [Setting]
+        [Styx.Helpers.DefaultValue(3)]
+        public int WQGFMin { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(10)]
+        public int WQGFMax { get; set; }
+        [Setting]
         [Styx.Helpers.DefaultValue(false)]
         public bool DoPetBattles { get; set; }
     }
@@ -534,7 +540,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(2, 3, 1278);
+        var latestVersion = new Version(2, 5, 1296);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
