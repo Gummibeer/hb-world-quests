@@ -14,6 +14,7 @@ namespace WorldQuestSettings.GroupFinder
     {
         private const string WqgfComment = "WorldQuestGroupFinder User";
         private static uint _currentQuestId;
+        private static string _currentQuestName;
         private static DateTime _lastSearchTime = DateTime.MinValue;
         private static WaitTimer _leaveTimer;
         private static bool Setting => Settings.Instance.WQGF;
@@ -44,9 +45,19 @@ namespace WorldQuestSettings.GroupFinder
             var id = Lua.ParseLuaValue<uint>(args.Args[0].ToString());
             if (id != _currentQuestId) return;
             var rnd = new Random();
-            _leaveTimer = new WaitTimer(TimeSpan.FromSeconds(rnd.Next(3, 10)));
+
+            var min = Settings.Instance.WQGFMin;
+            var max = Settings.Instance.WQGFMax;
+            if (min > max)
+            {
+                Log($"WARNING Max ({max}) leave time is less than min ({min}) leave time");
+                max = min+max;
+            }
+
+            _leaveTimer = new WaitTimer(TimeSpan.FromSeconds(rnd.Next(min, max)));
             _leaveTimer.Reset();
             Log($"Quest Completed {id} leaving group in {_leaveTimer.TimeLeft.TotalSeconds}");
+            Lua.DoString($"local title = C_TaskQuest.GetQuestInfoByQuestID({_currentQuestId}); SendChatMessage(string.format(\"[WQGF] \\\"%s\\\" done. World Quest Complete! :)\", title), \"PARTY\", \"\", \"\");");
             _currentQuestId = 0;
         }
 
@@ -82,7 +93,8 @@ namespace WorldQuestSettings.GroupFinder
             {
                 var quest = file.Substring(0, 5);
                 if (!uint.TryParse(quest, out _currentQuestId)) return;
-                Log($"Current quest id set too {_currentQuestId}");
+                _currentQuestName = GetQuestName(quest);
+                Log($"Current Quest Set To {_currentQuestName} ({_currentQuestId})");
             }
         }
 
@@ -118,6 +130,9 @@ namespace WorldQuestSettings.GroupFinder
         {
             Logging.WriteDiagnostic(Colors.GreenYellow, "WQGF: " + format, args);
         }
+
+        private static string GetQuestName(string questId)
+            => Lua.GetReturnVal<string>($"return C_TaskQuest.GetQuestInfoByQuestID({questId})", 0);
 
         public static void Pulse()
         {

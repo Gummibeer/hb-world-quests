@@ -25,6 +25,22 @@ namespace WorldQuestSettings
         public bool WQGF { get; set; }
 
         [Setting]
+        [Category("WQGF")]
+        [DisplayName("Min Leave Time")]
+        [Description("The minium time in seconds to leave the group after completing a quest")]
+        [Styx.Helpers.DefaultValue(3)]
+        [Limit(1,100)]
+        public int WQGFMin { get; set; }
+
+        [Setting]
+        [Category("WQGF")]
+        [DisplayName("Max Leave Time")]
+        [Description("The maximum time in seconds to leave the group after completing a quest")]
+        [Styx.Helpers.DefaultValue(10)]
+        [Limit(1, 100)]
+        public int WQGFMax { get; set; }
+
+        [Setting]
         [Category("Hard Quests")]
         [DisplayName("Do Wanted Quests")]
         [Styx.Helpers.DefaultValue(true)]
