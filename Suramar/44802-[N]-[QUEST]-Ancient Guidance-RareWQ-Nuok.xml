@@ -17,7 +17,8 @@
   <SellPurple>false</SellPurple>
   <TargetElites>true</TargetElites>
   <QuestOrder>
-    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033)
+    <CustomBehavior File="RunCode" Type="Definition">
+  <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033)
 local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
@@ -26,9 +27,15 @@ if (taskInfo) then
             end
     end
 end
-return false;", 0);]]></CustomBehavior>
+return false;", 0);
+
+public bool InRange => Me.Location.Distance(new Vector3(2787.88f, 4378.993f, 418.8143f)) < 40f;
+]]></CustomBehavior>
     <While Condition="OnQuest">
-      <If Condition="!HasQuest(44802)">
+      <If Condition="!HasQuest(44802) || !InRange">
+        <RunTo X="2664.787" Y="5107.52" Z="148.6794" />
+        <!--<WoWUnit Name="Lunar Crucible Portal" Entry="116373" X="2660.772" Y="5097.935" Z="148.1909" />-->
+        <CustomBehavior File="InteractWith" MobId="116373" NonCompeteDistance="0" TerminateWhen="!OnQuest" X="2660.772" Y="5097.935" Z="148.1909" />
         <RunTo X="2787.88" Y="4378.993" Z="418.8143" />
       </If>
       <If Condition="HasQuest(44802)">
