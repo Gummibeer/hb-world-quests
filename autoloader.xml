@@ -192,9 +192,13 @@
             if money > 0 then return 1; end
             if artifactXP > 0 then return 2; end
             if numQuestRewards > 0 then
-            local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, {questId})
+                local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, {questId})
                 if itemID == 124124 then return 4; end
                 local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount, itemEquipLoc, itemTexture = GetItemInfo(itemID)
+     		    if (itemLink and itemLink:match (""|cFFE6CC80"")) then
+	                local power = GameTooltipFrameTextLeft3:GetText()
+		            if (power) then return 2; end
+                end
                 if (itemName ~= nil and itemType == 'Consumable' and itemSubType == 'Other') then return 2; end
                 if (itemName ~= nil and itemType == 'Armor') then return 6; end
                 if (itemName ~= nil and itemSubType == 'Artifact Relic') then return 6; end
