@@ -19,6 +19,15 @@ namespace WorldQuestSettings.GroupFinder
         private static WaitTimer _leaveTimer;
         private static bool Setting => Settings.Instance.WQGF;
 
+        private static bool QuestUtils_CanUseAutoGroupFinder(uint questId) =>
+            Lua.GetReturnVal<bool>($"return QuestUtils_CanUseAutoGroupFinder({questId}, true);", 0);
+
+        private static void LFGListUtil_FindQuestGroup(uint questId)
+            => Lua.DoString($"LFGListUtil_FindQuestGroup({questId});");
+
+        private static string GetQuestName(string questId)
+            => Lua.GetReturnVal<string>($"return C_TaskQuest.GetQuestInfoByQuestID({questId})", 0);
+
         public static void AttachEvent()
         {
             Lua.Events.AttachEvent("LFG_LIST_SEARCH_RESULT_UPDATED", SearchResultsUpdated);
@@ -51,13 +60,12 @@ namespace WorldQuestSettings.GroupFinder
             if (min > max)
             {
                 Log($"WARNING Max ({max}) leave time is less than min ({min}) leave time");
-                max = min+max;
+                max = min + max;
             }
 
             _leaveTimer = new WaitTimer(TimeSpan.FromSeconds(rnd.Next(min, max)));
             _leaveTimer.Reset();
-            Log($"Quest Completed {id} leaving group in {_leaveTimer.TimeLeft.TotalSeconds}");
-            Lua.DoString($"local title = C_TaskQuest.GetQuestInfoByQuestID({_currentQuestId}); SendChatMessage(string.format(\"[WQGF] \\\"%s\\\" done. World Quest Complete! :)\", title), \"PARTY\", \"\", \"\");");
+            Log($"Quest Completed {_currentQuestName} leaving group in {_leaveTimer.TimeLeft.TotalSeconds}");
             _currentQuestId = 0;
         }
 
@@ -85,7 +93,6 @@ namespace WorldQuestSettings.GroupFinder
                 canInvite--;
             }
         }
-
         private static void Profile_OnNewProfileLoaded(BotEvents.Profile.NewProfileLoadedEventArgs args)
         {
             var file = Path.GetFileNameWithoutExtension(args.NewProfile.Path);
@@ -108,10 +115,12 @@ namespace WorldQuestSettings.GroupFinder
 
             foreach (var r in results)
             {
-                if (r.Comment == null || !r.Comment.Contains($"#WQ:{_currentQuestId}")) continue;
-                if (r.IsDelisted || r.PlayerCount > 4) continue;
+                if (r.IsDelisted) continue;
                 Log($"Applying to {r}");
-                r.ApplyToGroup(WqgfComment);
+                if (r.Comment != null && r.Comment.Contains($"#WQ:{_currentQuestId}"))
+                    r.ApplyToGroup(WqgfComment);
+                else
+                    r.ApplyToGroup();         
             }
         }
 
@@ -131,8 +140,6 @@ namespace WorldQuestSettings.GroupFinder
             Logging.WriteDiagnostic(Colors.GreenYellow, "WQGF: " + format, args);
         }
 
-        private static string GetQuestName(string questId)
-            => Lua.GetReturnVal<string>($"return C_TaskQuest.GetQuestInfoByQuestID({questId})", 0);
 
         public static void Pulse()
         {
@@ -159,8 +166,9 @@ namespace WorldQuestSettings.GroupFinder
             if (StyxWoW.Me.GroupInfo.IsInParty || StyxWoW.Me.GroupInfo.IsInRaid) return;
             var diff = DateTime.Now.Subtract(_lastSearchTime).TotalSeconds;
             if (diff < 15) return;
+            if (!QuestUtils_CanUseAutoGroupFinder(_currentQuestId)) return;
             Log("Starting a new search last timed out");
-            LfgList.Search(LFGCategory.Questing, $"#WQ:{_currentQuestId}");
+            LFGListUtil_FindQuestGroup(_currentQuestId);
             _lastSearchTime = DateTime.Now;
         }
     }

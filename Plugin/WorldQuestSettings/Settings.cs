@@ -29,7 +29,7 @@ namespace WorldQuestSettings
         [DisplayName("Min Leave Time")]
         [Description("The minium time in seconds to leave the group after completing a quest")]
         [Styx.Helpers.DefaultValue(3)]
-        [Limit(1,100)]
+        [Limit(1, 100)]
         public int WQGFMin { get; set; }
 
         [Setting]
