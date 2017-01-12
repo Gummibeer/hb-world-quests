@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[WQ] World Quest Auto Loader ($Rev: 0 $)</Name>
+  <Name>[WQ] World Quest Auto Loader ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>110</MinLevel>
@@ -304,7 +304,7 @@
             Log($"We Dont Currently Have a Profile for {q.Name} ({q.QuestId})");
     }
 
-    public bool DoQuest(uint questId)
+     public bool DoQuest(uint questId)
     {
         if (!CodedProfiles.Contains(questId)) CodedProfiles.Add(questId);
         var quest = WorldQuests.FirstOrDefault(q => q.QuestId == questId);
@@ -317,7 +317,7 @@
             return false;
         }
 
-        if (quest.Tag == QuestTag.RareWorldQuest && !s.DoRare)
+        if (quest.Tag == QuestTag.RareWorldQuest && !s.DoElite)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} Disabled");
             return false;
@@ -325,7 +325,7 @@
 
         if (quest.Tag == QuestTag.PvPWorldQuest && !s.DoPvP)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} PVP Disabled");
             return false;
         }
 
@@ -337,33 +337,32 @@
 
         if (quest.RewardType == RewardType.ArtifactPower && !s.ArtifactPower)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Artifact Power Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards ArtifactPower Disabled");
             return false;
         }
         if (quest.RewardType == RewardType.Blood && !s.Blood)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Blood of Sargeras Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards Blood Disabled");
             return false;
         }
         if (quest.RewardType == RewardType.Equipment && !s.Equipment)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Equipment Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards Equipment Disabled");
             return false;
         }
         if (quest.RewardType == RewardType.Gold && !s.Gold)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Gold Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards Gold Disabled");
             return false;
         }
         if (quest.RewardType == RewardType.Items && !s.Items)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Items Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards Items Disabled");
             return false;
         }
-
         if (quest.RewardType == RewardType.OrderHall && !s.OrderHall)
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} Rewards Order Hall resources Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards OrderHall Disabled");
             return false;
         }
 
@@ -378,74 +377,108 @@
 
         if (quest.Tag == QuestTag.AlchemyWorldQuest &&
             (Me.GetSkill(SkillLine.Alchemy).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - AlchemyWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Alchemy).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.SkinningWorldQuest &&
             (Me.GetSkill(SkillLine.Skinning).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - SkinningWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Skinning).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.BlacksmithingWorldQuest &&
             (Me.GetSkill(SkillLine.Blacksmithing).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - BlacksmithingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Blacksmithing).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.EnchantingWorldQuest &&
             (Me.GetSkill(SkillLine.Enchanting).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - EnchantingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Blacksmithing).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.CookingWorldQuest &&
             (Me.GetSkill(SkillLine.Cooking).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - CookingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Cooking).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.FishingWorldQuest &&
             (Me.GetSkill(SkillLine.Fishing).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - FishingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Fishing).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.EngineeringWorldQuest &&
             (Me.GetSkill(SkillLine.Engineering).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - EngineeringWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Engineering).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.HerbalismWorldQuest &&
             (Me.GetSkill(SkillLine.Herbalism).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - HerbalismWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Herbalism).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.JewelcraftingWorldQuest &&
             (Me.GetSkill(SkillLine.Jewelcrafting).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - HerbalismWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Herbalism).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.MiningWorldQuest &&
             (Me.GetSkill(SkillLine.Mining).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - MiningWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Mining).CurrentValue}");
             return false;
+        }
 
         if (quest.Tag == QuestTag.TailoringWorldQuest &&
             (Me.GetSkill(SkillLine.Tailoring).CurrentValue < 100 || !s.DoProfessions))
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - TailoringWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Tailoring).CurrentValue}");
             return false;
+        }
 
         var emissaryFirst = Settings.Instance.EmissaryFirst;
-        var hasEmissary = EmissaryIds.Any(q => HasQuest(q));
+        var hasEmissary = EmissaryIds.Any(HasQuest);
+
         if (quest.Faction == Emissary.TheWardens)
         {
             if (!s.TheWardens)
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Faction TheWardens Disabled");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Faction TheWardens Disabled");
                 return false;
             }
             if (emissaryFirst && hasEmissary && !HasQuest(42422))
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Emissary Quest Not Active for {quest.Faction}");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Emmisary Quest Not Active {quest.Faction}");
                 return false;
-            }          
+            }
         }
 
         if (quest.Faction == Emissary.CourtOfFarondis)
         {
             if (!s.CourtOfFarondis)
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Faction {quest.Faction} Disabled");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Faction {quest.Faction} Disabled");
                 return false;
             }
             if (emissaryFirst && hasEmissary && !HasQuest(42420))
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Emissary Quest Not Active for {quest.Faction}");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Emmisary Quest Not Active {quest.Faction}");
                 return false;
             }
         }
@@ -454,12 +487,12 @@
         {
             if (!s.Dreamweavers)
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Faction {quest.Faction} Disabled");
+                Log($"Skipping {quest.Name} {quest.QuestId} Faction - {quest.Faction} Disabled");
                 return false;
             }
             if (emissaryFirst && hasEmissary && !HasQuest(42170))
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Emissary Quest Not Active for {quest.Faction}");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Emmisary Quest Not Active {quest.Faction}");
                 return false;
             }
         }
@@ -468,12 +501,12 @@
         {
             if (!s.KirinTor)
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Faction {quest.Faction} Disabled");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Faction {quest.Faction} Disabled");
                 return false;
             }
             if (emissaryFirst && hasEmissary && !HasQuest(43179))
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Emissary Quest Not Active for {quest.Faction}");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Emmisary Quest Not Active {quest.Faction}");
                 return false;
             }
         }
@@ -482,12 +515,12 @@
         {
             if (!s.TheNightfallen)
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Faction {quest.Faction} Disabled");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Faction {quest.Faction} Disabled");
                 return false;
             }
             if (emissaryFirst && hasEmissary && !HasQuest(42421))
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Emissary Quest Not Active for {quest.Faction}");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Emmisary Quest Not Active {quest.Faction}");
                 return false;
             }
         }
@@ -496,12 +529,12 @@
         {
             if (!s.HighmountainTribe)
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Faction {quest.Faction} Disabled");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Faction {quest.Faction} Disabled");
                 return false;
             }
             if (emissaryFirst && hasEmissary && !HasQuest(42233))
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Emissary Quest Not Active for {quest.Faction}");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Emmisary Quest Not Active {quest.Faction}");
                 return false;
             }
         }
@@ -510,18 +543,19 @@
         {
             if (!s.Valarjar)
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Faction {quest.Faction} Disabled");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Faction {quest.Faction} Disabled");
                 return false;
             }
             if (emissaryFirst && hasEmissary && !HasQuest(42234))
             {
-                Log($"Skipping {quest.Name} {quest.QuestId} Emissary Quest Not Active for {quest.Faction}");
+                Log($"Skipping {quest.Name} {quest.QuestId} - Emmisary Quest Not Active {quest.Faction}");
                 return false;
             }
         }
 
         return true;
     }
+
 
     public bool HasPlugin => PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper") != null;
 
@@ -2609,6 +2643,10 @@
       <If Condition="DoQuest(44811)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44811-[N]-[QUEST]-Wq-Help on the Way-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44811-[N]-[QUEST]-Wq-Help on the Way-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(44816)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44816-[N]-[QUEST]-Continued Exposure-RareWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44816-[N]-[QUEST]-Continued Exposure-RareWQ-Nuok" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(44857)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44857-[N]-[QUEST]-Wq-Not There, Not Then, Not Forever-Zinner&quot;);" />
