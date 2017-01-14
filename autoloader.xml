@@ -212,19 +212,21 @@
         PvPWorldQuest = 113,
         BattlePetWorldQuest = 115,
         BlacksmithingWorldQuest = 116,
+        LeatherworkingWorldQuest = 117,
         AlchemyWorldQuest = 118,
-        HerbalismWorldQuest = 119,     
+        HerbalismWorldQuest = 119,
         MiningWorldQuest = 120,
         TailoringWorldQuest = 121,
         EngineeringWorldQuest = 122,
         EnchantingWorldQuest = 123,
         SkinningWorldQuest = 124,
         JewelcraftingWorldQuest = 125,
+        InscriptionWorldQuest = 126,
         FishingWorldQuest = 130,
         CookingWorldQuest = 131,
         RareWorldQuest = 135,
         RareEliteWorldQuest = 136,
-        DungeonWorldQuest = 137,    
+        DungeonWorldQuest = 137,
     }
 
     public enum RewardType
