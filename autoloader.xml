@@ -756,7 +756,7 @@
     <While Condition="HasQuest(42234) &amp;&amp; QuestCompletedInLog(42234)">
       <CustomBehavior File="RunCode" Code="await ForcedTurnin(42234, &quot;The Valarjar&quot;, 106904, 3189.06f, 1536.94f, 182.54f);" />
     </While>
-    <If Condition="Settings.Instance.ArtifactPower">
+    <If Condition="Settings.Instance.UseArtifact">
       <CustomBehavior File="RunCode" Code="await UseArtifact()" />
     </If>
     <If Condition="ZoneEnabled(1014)">
