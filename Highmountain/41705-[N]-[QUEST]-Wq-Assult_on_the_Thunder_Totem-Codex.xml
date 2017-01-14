@@ -45,9 +45,6 @@ return false;", 0);
         </HuntingGrounds>
 
       </CustomBehavior>
-      <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
-      <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-
     </While>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest Assult on the Thunder Totem - Codex!&quot;);" />
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />

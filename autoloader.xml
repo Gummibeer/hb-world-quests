@@ -187,19 +187,18 @@
 
         private uint reward(uint questId)
         {
-            var questLua = $@"local numQuestCurrencies = GetNumQuestLogRewardCurrencies({questId})
-            local money = GetQuestLogRewardMoney({questId})
-            local artifactXP = GetQuestLogRewardArtifactXP({questId})
-            local numQuestRewards = GetNumQuestLogRewards({questId})
+            var questLua = $@"local numQuestCurrencies = GetNumQuestLogRewardCurrencies({ questId})
+            local money = GetQuestLogRewardMoney({ questId})
+            local artifactXP = GetQuestLogRewardArtifactXP({ questId})
+            local numQuestRewards = GetNumQuestLogRewards({ questId})
             if numQuestCurrencies > 0 then return 5; end
             if money > 0 then return 1; end
             if artifactXP > 0 then return 2; end
             if numQuestRewards > 0 then
-                local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, {questId})
+                local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, { questId})
                 if itemID == 124124 then return 4; end
-                local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount, itemEquipLoc, itemTexture = GetItemInfo(itemID)
-     		    if (itemLink and itemLink:match (""|cFFE6CC80"")) then return 2; end
-                if (itemName ~= nil and itemType == 'Consumable' and itemSubType == 'Other') then return 2; end
+                local itemName, itemLink, _, _, _, itemType, itemSubType = GetItemInfo(itemID)
+                if (itemLink and itemLink:match(""| cFFE6CC80"")) then return 2; end
                 if (itemName ~= nil and itemType == 'Armor') then return 6; end
                 if (itemName ~= nil and itemSubType == 'Artifact Relic') then return 6; end
                 return 3; end
@@ -1257,6 +1256,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44786-[N]-[QUEST]-Midterm Rune Aptitude-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44786-[N]-[QUEST]-Midterm Rune Aptitude-WQ-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(44788)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44788-[N]-[QUEST]-Work Study Bestiaries of Azsuna-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44788-[N]-[QUEST]-Work Study Bestiaries of Azsuna-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(44847)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44847-[N]-[QUEST]-Wq-Straight From the Source-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\44847-[N]-[QUEST]-Wq-Straight From the Source-Zinner" RememberProfile="false" />
@@ -1624,6 +1627,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45070-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\45070-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
       </If>
+    </If>
+    <If Condition="DoQuest(41705)">
+      <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41705-[N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex&quot;);" />
+      <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41705-[N]-[QUEST]-Wq-Assult_on_the_Thunder_Totem-Codex" RememberProfile="false" />
     </If>
     <If Condition="ZoneEnabled(1024)">
       <!--Highmountain-->
@@ -2649,6 +2656,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44118-[N]-[QUEST]-Wq-DANGER_Auditor_Esiel-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44118-[N]-[QUEST]-Wq-DANGER_Auditor_Esiel-Staal" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(44119) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44119-[N]-[QUEST]-Wq-DANGER Volshax, Breaker of Will-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44119-[N]-[QUEST]-Wq-DANGER Volshax, Breaker of Will-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(44121) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44121-[N]-[QUEST]-Wq-DANGER_Azjatar-Codex_super_dangerous" RememberProfile="false" />
@@ -2688,6 +2699,10 @@
       <If Condition="DoQuest(44811)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44811-[N]-[QUEST]-Wq-Help on the Way-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44811-[N]-[QUEST]-Wq-Help on the Way-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(44812)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44812-[N]-[QUEST]-Wq-Running on Empty-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44812-[N]-[QUEST]-Wq-Running on Empty-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(44816)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44816-[N]-[QUEST]-Continued Exposure-RareWQ-Nuok&quot;);" />

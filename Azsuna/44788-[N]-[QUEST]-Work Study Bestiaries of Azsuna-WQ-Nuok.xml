@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Work Study: Bestiaries of Azsuna - WQ ($Rev$)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 44788 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <!--<PickUp Nav="Fly" QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" GiverName="" GiverId="" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="CollectItem" ItemId="142238" CollectCount="1" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="KillMob" MobId="107354" KillCount="1" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="KillMob" MobId="115460" KillCount="1" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="CollectItem" ItemId="142239" CollectCount="1" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="KillMob" MobId="107355" KillCount="1" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="KillMob" MobId="115461" KillCount="1" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="CollectItem" ItemId="142240" CollectCount="1" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="KillMob" MobId="107356" KillCount="1" />
+<Objective QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" Type="KillMob" MobId="115462" KillCount="1" />
+<TurnIn Nav="Fly" QuestName="Work Study: Bestiaries of Azsuna" QuestId="44788" TurnInName="" TurnInId="" />
+-->
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(44788)">
+        <RunTo X="192.7811" Y="6463.959" Z="-52.71714" />
+      </If>
+      <If Condition="HasQuest(44788)">
+        <CustomBehavior File="Hooks\Avoid" AvoidName="PurpleSchtuff" ObjectType="AreaTrigger" ObjectId="12130" Radius="6" />
+        <!--<GameObject Name="Incredible Monsters and Where to Locate Them" Entry="266057" X="185.9219" Y="6484.874" Z="-49.20681" />-->
+        <While Condition="!IsObjectiveComplete(1, 44788)">
+          <CustomBehavior File="InteractWith" MobId="266057" NonCompeteDistance="0" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 44788)" X="185.9219" Y="6484.874" Z="-49.20681" />
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+        <While Condition="!IsObjectiveComplete(2, 44788)">
+          <!--<GameObject Name="Sythorne's Podium" Entry="250362" X="193.2257" Y="6463.796" Z="-53.77782" />-->
+          <CustomBehavior File="InteractWith" MobId="250362" NonCompeteDistance="0" TerminateWhen="!OnQuest || IsObjectiveComplete(2, 44788)" X="193.2257" Y="6463.796" Z="-53.77782" />
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+        <While Condition="!IsObjectiveComplete(3, 44788)">
+          <CustomBehavior File="KillUntilComplete" MobId="115460" NonCompeteDistance="0" TerminateWhen="!OnQuest || IsObjectiveComplete(3, 44788)" X="193.2257" Y="6463.796" Z="-53.77782" />
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+        <While Condition="!IsObjectiveComplete(4, 44788)">
+          <!--<GameObject Name="Handbook of Feathery Friends" Entry="266058" X="183.9375" Y="6485.213" Z="-44.57569" />-->
+          <RunTo X="188.9358" Y="6475.171" Z="-52.88799" />
+          <CustomBehavior File="RunCode" Code="
+						WoWObject book = Object(266058);
+            var click = true;
+            while (book != null &amp;&amp; !book.WithinInteractRange)
+            {
+                if (click)
+                {
+                    click = false;
+                    WoWMovement.ClickToMove(new Vector3(184.9269f, 6484.344f, 51.15869f));
+                    await Coroutine.Sleep(100);         
+                }
+                WoWMovement.Move(WoWMovement.MovementDirection.JumpAscend);
+                click = true;
+                await Coroutine.Yield();
+            }
+            while (book != null &amp;&amp; book.WithinInteractRange)
+            {
+              book.Interact();
+              await Coroutine.Sleep(1000);
+              await Coroutine.Yield();
+            }
+					"/>
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+        <While Condition="!IsObjectiveComplete(5, 44788)">
+          <!--<GameObject Name="Sythorne's Podium" Entry="250362" X="193.2257" Y="6463.796" Z="-53.77782" />-->
+          <CustomBehavior File="InteractWith" MobId="250362" NonCompeteDistance="0" TerminateWhen="!OnQuest || IsObjectiveComplete(5, 44788)" X="193.2257" Y="6463.796" Z="-53.77782" />
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+        <While Condition="!IsObjectiveComplete(6, 44788)">
+          <CustomBehavior File="KillUntilComplete" MobId="115461" NonCompeteDistance="0" TerminateWhen="!OnQuest || IsObjectiveComplete(6, 44788)" X="193.2257" Y="6463.796" Z="-53.77782" />
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+        
+        <While Condition="!IsObjectiveComplete(7, 44788)">
+          <!--<GameObject Name="Draconic Compendium, Volume IV" Entry="266059" X="189.3212" Y="6480.318" Z="-52.96288" />-->
+          <CustomBehavior File="InteractWith" MobId="266059" NonCompeteDistance="0" TerminateWhen="!OnQuest || IsObjectiveComplete(7, 44788)" X="189.3212" Y="6480.318" Z="-52.96288" />
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+        <While Condition="!IsObjectiveComplete(8, 44788)">
+          <!--<GameObject Name="Sythorne's Podium" Entry="250362" X="193.2257" Y="6463.796" Z="-53.77782" />-->
+          <CustomBehavior File="InteractWith" MobId="250362" NonCompeteDistance="0" TerminateWhen="!OnQuest || IsObjectiveComplete(8, 44788)" X="193.2257" Y="6463.796" Z="-53.77782" />
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+        <While Condition="!IsObjectiveComplete(9, 44788)">
+          <CustomBehavior File="KillUntilComplete" MobId="115462" NonCompeteDistance="0" TerminateWhen="!OnQuest || IsObjectiveComplete(9, 44788)" X="193.2257" Y="6463.796" Z="-53.77782" />
+          <CustomBehavior File="WaitTimer" WaitTime="1000" />
+        </While>
+
+        <CustomBehavior File="Hooks\Avoid" AvoidName="PurpleSchtuff" Command="Remove" />
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <RunTo X="28.14071" Y="6283.12" Z="9.194524" />
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
