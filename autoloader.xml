@@ -162,6 +162,9 @@
         [Setting]
         [Styx.Helpers.DefaultValue(false)]
         public bool DoPetBattles { get; set; }
+        [Setting]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool UseArtifact { get; set; }
     }
 
     public class WorldQuest
@@ -680,6 +683,23 @@
             await ForceTurnin(questId, name, npcId, x, y, z);
             await Coroutine.Yield();              
         }
+    }
+
+    public async Task UseArtifact()
+    {
+        var Af = Me.BagItems.Where(i => i.IsValid && i.ItemLink.Contains("8388608"));
+
+        foreach (var ap in Af)
+        {
+            Log($"Using {ap}");
+            while (ap.IsValid)
+            {     
+                ap.Use();
+                await Coroutine.Sleep(500);
+                await Coroutine.Yield();
+            }
+        }
+        await Coroutine.Yield();
     }]]></CustomBehavior>
     <CustomBehavior File="RunCode" Code="Log(&quot;Welcome To The Community World Quest Project&quot;);" />
     <CustomBehavior File="RunCode" Code="Log(&quot;~Created by~&quot;);" />
@@ -737,6 +757,9 @@
     <While Condition="HasQuest(42234) &amp;&amp; QuestCompletedInLog(42234)">
       <CustomBehavior File="RunCode" Code="await ForcedTurnin(42234, &quot;The Valarjar&quot;, 106904, 3189.06f, 1536.94f, 182.54f);" />
     </While>
+    <If Condition="Settings.Instance.ArtifactPower">
+      <CustomBehavior File="RunCode" Code="await UseArtifact()" />
+    </If>
     <If Condition="ZoneEnabled(1014)">
       <!--Dalaran-->
       <If Condition="DoQuest(40277)">
