@@ -17,6 +17,8 @@ namespace WorldQuestSettings
 
         public static Settings Instance => _instance ?? (_instance = new Settings());
 
+
+
         [Setting]
         [Category("WQGF")]
         [DisplayName("Auto Group")]
@@ -116,6 +118,13 @@ namespace WorldQuestSettings
         [Description("Runs the profile in a loop to try and prevent it from missing quests")]
         [Styx.Helpers.DefaultValue(false)]
         public bool LoopProfile { get; set; }
+
+        [Setting]
+        [Category("Utility")]
+        [DisplayName("Auto Use AF Power")]
+        [Description("Uses artifact power on your current wepon")]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool UseArtifact { get; set; }
 
         #region zones
 

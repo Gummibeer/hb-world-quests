@@ -25,6 +25,9 @@ namespace WorldQuestSettings.GroupFinder
         private static void LFGListUtil_FindQuestGroup(uint questId)
             => Lua.DoString($"LFGListUtil_FindQuestGroup({questId});");
 
+        private static void LFGListFrame_BeginFindQuestGroup(uint questID) =>
+            Lua.DoString($"LFGListFrame_BeginFindQuestGroup(LFGListFrame, {questID});");
+
         private static string GetQuestName(string questId)
             => Lua.GetReturnVal<string>($"return C_TaskQuest.GetQuestInfoByQuestID({questId})", 0);
 
@@ -167,8 +170,8 @@ namespace WorldQuestSettings.GroupFinder
             var diff = DateTime.Now.Subtract(_lastSearchTime).TotalSeconds;
             if (diff < 15) return;
             if (!QuestUtils_CanUseAutoGroupFinder(_currentQuestId)) return;
-            Log("Starting a new search last timed out");
-            LFGListUtil_FindQuestGroup(_currentQuestId);
+            Log($"Starting a search for {_currentQuestName} {_currentQuestId}");
+            LFGListFrame_BeginFindQuestGroup(_currentQuestId);
             _lastSearchTime = DateTime.Now;
         }
     }
