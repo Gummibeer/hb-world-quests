@@ -1,0 +1,86 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>44812-[N]-[QUEST]-Wq-Running on Empty-Zinner.xml</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 44812 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool NeedsMask()
+        {
+            if (Me.Combat || Me.HasAura(202477)) return false;
+            var extraAction = Styx.CommonBot.Bars.ActionBar.Extra;
+            return extraAction.IsActive && extraAction.Buttons[0].Id == 202477;
+        }
+
+        public async Task UseMask()
+        {
+          while (NeedsMask())
+						{
+            var extraAction = Styx.CommonBot.Bars.ActionBar.Extra;
+            await CommonCoroutines.StopMoving();
+            extraAction.Buttons[0].Use();
+            await Coroutine.Sleep(1500);
+            await Coroutine.Yield();
+            }
+        }]]>
+    </CustomBehavior>
+    <CustomBehavior File="Hooks\Avoid" AvoidName="DispelIllusions" Command="Add" AvoidWhen="UNIT.CastingSpellId == 203750" Radius="18" IgnoreLootInAvoid="true" IgnoreIfBlocking="true" />
+    <CustomBehavior File="Hooks\DoWhen" UseWhen="NeedsMask()" LogExecution="true" ActivityName="apply_mask" StopMovingToConductActivity="true" AllowUseWhileMounted="true">
+      <CustomBehavior File="RunCode" Code="UseMask()" />
+      <CustomBehavior File="WaitTimer" WaitTime="4000" />
+    </CustomBehavior>
+    <While Condition="OnQuest" >
+<RunTo X="1472.532" Y="3569.155" Z="132.8791" />
+      <CustomBehavior File="InteractWith" MobId="266301" TerminateWhen="IsObjectiveComplete(1, 44812) || !OnQuest" >
+        <HuntingGrounds>
+        <Hotspot X="1525.399" Y="3532.768" Z="134.6941" />
+	<Hotspot X="1415.799" Y="3541.64" Z="132.8787" />
+	<Hotspot X="1533.766" Y="3559.526" Z="134.6941" />
+	<Hotspot X="1374.382" Y="3506.425" Z="134.1183" />
+	<Hotspot X="1347.755" Y="3285.339" Z="132.8775" />
+
+        </HuntingGrounds>
+      </CustomBehavior>
+      <CustomBehavior File="InteractWith" MobId="266298" TerminateWhen="IsObjectiveComplete(2, 44812) || !OnQuest" >
+	<HuntingGrounds>
+	<Hotspot X="1510.444" Y="3530.886" Z="135.8126" />
+	<Hotspot X="1507.993" Y="3632.487" Z="123.9567" />
+	<Hotspot X="1445.106" Y="3664.144" Z="133.9992" />
+
+	</HuntingGrounds>
+ </CustomBehavior>
+    </While>
+
+    <RunTo X="1472.532" Y="3569.155" Z="132.8791" />
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 44812-[N]-[QUEST]-Wq-Running on Empty-Zinner.xml, loading auto-loader!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
