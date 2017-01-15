@@ -579,7 +579,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(2, 7, 1333);
+        var latestVersion = new Version(2, 9, 1341);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -2104,6 +2104,10 @@
       <If Condition="DoQuest(41519)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41519-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41519-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41521)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41521-[N]-[QUEST]-Wq-Felwort-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41521-[N]-[QUEST]-Wq-Felwort-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41534)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41534-[N]-[QUEST]-Wq-Brambly_Fjarnskaggl-WiN&quot;);" />
