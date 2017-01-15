@@ -7,6 +7,7 @@ using Styx.Common;
 using Styx.Common.Helpers;
 using Styx.CommonBot;
 using Styx.WoWInternals;
+using WorldQuestSettings.WorldQuestSettings.GroupFinder;
 
 namespace WorldQuestSettings.GroupFinder
 {
@@ -18,15 +19,6 @@ namespace WorldQuestSettings.GroupFinder
         private static DateTime _lastSearchTime = DateTime.MinValue;
         private static WaitTimer _leaveTimer;
         private static bool Setting => Settings.Instance.WQGF;
-
-        private static bool QuestUtils_CanUseAutoGroupFinder(uint questId) =>
-            Lua.GetReturnVal<bool>($"return QuestUtils_CanUseAutoGroupFinder({questId}, true);", 0);
-
-        private static void LFGListUtil_FindQuestGroup(uint questId)
-            => Lua.DoString($"LFGListUtil_FindQuestGroup({questId});");
-
-        private static void LFGListFrame_BeginFindQuestGroup(uint questID) =>
-            Lua.DoString($"LFGListFrame_BeginFindQuestGroup(LFGListFrame, {questID});");
 
         private static string GetQuestName(string questId)
             => Lua.GetReturnVal<string>($"return C_TaskQuest.GetQuestInfoByQuestID({questId})", 0);
@@ -74,6 +66,7 @@ namespace WorldQuestSettings.GroupFinder
 
         private static void AppliationUpdated(object sender, LuaEventArgs args)
         {
+            if (!Setting) return;
             Log("LFG_LIST_APPLICANT_UPDATED");
             if (!LfgList.IsGroupLeader)
             {
@@ -115,10 +108,12 @@ namespace WorldQuestSettings.GroupFinder
 
             var results = LfgList.GetSearchResults;
             Log($"Found {results.Count} Results");
+            var isRaidQuest = QuestLists.RaidQuests.Contains(_currentQuestId);
 
             foreach (var r in results)
             {
                 if (r.IsDelisted) continue;
+                if(r.PlayerCount > 4 && !isRaidQuest) continue;
                 Log($"Applying to {r}");
                 if (r.Comment != null && r.Comment.Contains($"#WQ:{_currentQuestId}"))
                     r.ApplyToGroup(WqgfComment);
@@ -147,7 +142,8 @@ namespace WorldQuestSettings.GroupFinder
         public static void Pulse()
         {
             if (!Setting) return;
-            if (StyxWoW.Me.GroupInfo.IsInParty && StyxWoW.Me.GroupInfo.NumPartyMembers == 1)
+            if (StyxWoW.Me.GroupInfo.IsInParty && StyxWoW.Me.GroupInfo.NumPartyMembers == 1 && 
+                !StyxWoW.Me.CurrentMap.IsScenario && StyxWoW.Me.CurrentMap.IsContinent)
             {
                 Log("Leaving group were the only one in it :(");
                 LfgList.LeaveGroup();
@@ -163,15 +159,16 @@ namespace WorldQuestSettings.GroupFinder
             }
 
             if (_currentQuestId == 0) return;
+            if(QuestLists.BlackListed.Contains(_currentQuestId)) return;
+            
             if (!StyxWoW.Me.QuestLog.ContainsQuest(_currentQuestId))
                 return;
 
             if (StyxWoW.Me.GroupInfo.IsInParty || StyxWoW.Me.GroupInfo.IsInRaid) return;
             var diff = DateTime.Now.Subtract(_lastSearchTime).TotalSeconds;
             if (diff < 15) return;
-            if (!QuestUtils_CanUseAutoGroupFinder(_currentQuestId)) return;
             Log($"Starting a search for {_currentQuestName} {_currentQuestId}");
-            LFGListFrame_BeginFindQuestGroup(_currentQuestId);
+            LfgList.Search(LFGCategory.Questing, _currentQuestName, 0, 4);
             _lastSearchTime = DateTime.Now;
         }
     }

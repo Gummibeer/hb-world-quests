@@ -264,24 +264,11 @@ return unpack(results)";
             };
         }
 
-        /// <summary>
-        ///     Initializes a search for groups within the category
-        /// </summary>
-        /// <param name="categoryId">Category Id</param>
-        public static void Search(int categoryId)
+        public static void Search(int categoryId, string param = "", int filters = 0, int preferredFilters = 0)
         {
-            Lua.DoString(
-                "C_LFGList.ClearSearchResults(); " +
+            Lua.DoString("C_LFGList.ClearSearchResults(); " +
                 "local languages = C_LFGList.GetLanguageSearchFilter(); " +
-                $"C_LFGList.Search({categoryId}, \"\", 0, 0, languages);");
-        }
-
-        public static void Search(int categoryId, string param)
-        {
-            Lua.DoString(
-                "C_LFGList.ClearSearchResults(); " +
-                "local languages = C_LFGList.GetLanguageSearchFilter(); " +
-                $"C_LFGList.Search({categoryId}, \"{param}\", 0, 0, languages);");
+                $"C_LFGList.Search({categoryId}, \"{param}\", {filters}, {preferredFilters}, languages);");
         }
 
         /// <summary>
@@ -312,6 +299,12 @@ return unpack(results)";
         {
             Log($"Starting a search of {category}, {param}");
             Search((int) category, param);
+        }
+
+        public static void Search(LFGCategory category, string param, int filters, int preferredFilters)
+        {
+            Log($"Starting a search of {category}, {param}");
+            Search((int)category, param, filters, preferredFilters);
         }
 
         private static ApplicationInfo GetApplicationInfo(int applicationId)
