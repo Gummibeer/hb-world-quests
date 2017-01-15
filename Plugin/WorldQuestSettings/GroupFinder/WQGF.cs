@@ -16,6 +16,8 @@ namespace WorldQuestSettings.GroupFinder
         private const string WqgfComment = "WorldQuestGroupFinder User";
         private static uint _currentQuestId;
         private static string _currentQuestName;
+        private static bool _currentIsRaidQuest;
+        private static bool _currentIsBlacklisted;
         private static DateTime _lastSearchTime = DateTime.MinValue;
         private static WaitTimer _leaveTimer;
         private static bool Setting => Settings.Instance.WQGF;
@@ -62,6 +64,9 @@ namespace WorldQuestSettings.GroupFinder
             _leaveTimer.Reset();
             Log($"Quest Completed {_currentQuestName} leaving group in {_leaveTimer.TimeLeft.TotalSeconds}");
             _currentQuestId = 0;
+            _currentIsBlacklisted = true;
+            _currentIsRaidQuest = false;
+            _currentQuestName = "Not Set";
         }
 
         private static void AppliationUpdated(object sender, LuaEventArgs args)
@@ -75,20 +80,28 @@ namespace WorldQuestSettings.GroupFinder
             }
             var currentMembers = StyxWoW.Me.GroupInfo.NumPartyMembers;
             var pendingInvited = LfgList.GetNumInvitedApplicantMembers;
-            Log(
-                $"Your the group leader, you currently have {currentMembers}/5 members with {pendingInvited} pending invites");
+            if (!_currentIsRaidQuest)
+                Log($"Your the group leader, you currently have {currentMembers}/5 members with {pendingInvited} pending invites");
+
+
             var canInvite = 5 - currentMembers - pendingInvited;
-            if (canInvite == 0) return;
+            if (canInvite <= 0 && !_currentIsRaidQuest) return;
             var applicants = LfgList.GetApplicants;
 
             foreach (var a in applicants)
             {
-                if (canInvite == 0) break;
+                if (canInvite <= 0 && !_currentIsRaidQuest)
+                {
+                    Log($"Group Full CanInvite = {canInvite}");
+                    return;
+                }
                 if (a.Comment != WqgfComment || a.Status != ApplicationState.Applied) continue;
                 LfgList.InviteApplicant(a.Id);
                 canInvite--;
+                Log($"Invited {a.ApplicantId}");
             }
         }
+
         private static void Profile_OnNewProfileLoaded(BotEvents.Profile.NewProfileLoadedEventArgs args)
         {
             var file = Path.GetFileNameWithoutExtension(args.NewProfile.Path);
@@ -97,28 +110,32 @@ namespace WorldQuestSettings.GroupFinder
                 var quest = file.Substring(0, 5);
                 if (!uint.TryParse(quest, out _currentQuestId)) return;
                 _currentQuestName = GetQuestName(quest);
-                Log($"Current Quest Set To {_currentQuestName} ({_currentQuestId})");
+                _currentIsBlacklisted = QuestLists.BlackListed.Contains(_currentQuestId);
+                _currentIsRaidQuest = QuestLists.RaidQuests.Contains(_currentQuestId);
+                Log(
+                    $"Current Quest Set To {_currentQuestName} ({_currentQuestId}) Blacklisted {_currentIsBlacklisted} RaidQuest {_currentIsRaidQuest}");
             }
         }
 
         private static void ResultsReceived(object sender, LuaEventArgs args)
         {
             if (!Setting) return;
+            if (_currentIsBlacklisted) return;
+
             Log("LFG_LIST_SEARCH_RESULTS_RECEIVED");
 
             var results = LfgList.GetSearchResults;
             Log($"Found {results.Count} Results");
-            var isRaidQuest = QuestLists.RaidQuests.Contains(_currentQuestId);
 
             foreach (var r in results)
             {
                 if (r.IsDelisted) continue;
-                if(r.PlayerCount > 4 && !isRaidQuest) continue;
+                if (r.PlayerCount > 4 && !_currentIsRaidQuest) continue;
                 Log($"Applying to {r}");
                 if (r.Comment != null && r.Comment.Contains($"#WQ:{_currentQuestId}"))
                     r.ApplyToGroup(WqgfComment);
                 else
-                    r.ApplyToGroup();         
+                    r.ApplyToGroup();
             }
         }
 
@@ -142,10 +159,24 @@ namespace WorldQuestSettings.GroupFinder
         public static void Pulse()
         {
             if (!Setting) return;
-            if (StyxWoW.Me.GroupInfo.IsInParty && StyxWoW.Me.GroupInfo.NumPartyMembers == 1 && 
-                !StyxWoW.Me.CurrentMap.IsScenario && StyxWoW.Me.CurrentMap.IsContinent)
+
+            if (!StyxWoW.Me.GroupInfo.IsInRaid &&
+                StyxWoW.Me.GroupInfo.IsInParty &&
+                StyxWoW.Me.GroupInfo.NumPartyMembers == 1 &&
+                !StyxWoW.Me.CurrentMap.IsScenario &&
+                StyxWoW.Me.CurrentMap.IsContinent)
             {
-                Log("Leaving group were the only one in it :(");
+                Log("Leaving party were the only one in it :(");
+                LfgList.LeaveGroup();
+                return;
+            }
+
+            if (StyxWoW.Me.GroupInfo.IsInRaid &&
+                StyxWoW.Me.GroupInfo.NumRaidMembers == 1 &&
+                !StyxWoW.Me.CurrentMap.IsScenario &&
+                StyxWoW.Me.CurrentMap.IsContinent)
+            {
+                Log("Leaving raid were the only one in it :(");
                 LfgList.LeaveGroup();
                 return;
             }
@@ -159,8 +190,15 @@ namespace WorldQuestSettings.GroupFinder
             }
 
             if (_currentQuestId == 0) return;
-            if(QuestLists.BlackListed.Contains(_currentQuestId)) return;
-            
+            if (_currentIsBlacklisted) return;
+
+            if (StyxWoW.Me.GroupInfo.IsInRaid && !_currentIsRaidQuest)
+            {
+                Log($"Leaving group cant complete {_currentQuestName} in a Raid");
+                LfgList.LeaveGroup();
+                return;
+            }
+
             if (!StyxWoW.Me.QuestLog.ContainsQuest(_currentQuestId))
                 return;
 
