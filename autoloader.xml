@@ -2097,6 +2097,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41445-[N]-[QUEST]-Wq-Stormy Leystone Deposits-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41445-[N]-[QUEST]-Wq-Stormy Leystone Deposits-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41451)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41451-[N]-[QUEST]-Assault on Hrydshal-WQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41451-[N]-[QUEST]-Assault on Hrydshal-WQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41489)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41489-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />

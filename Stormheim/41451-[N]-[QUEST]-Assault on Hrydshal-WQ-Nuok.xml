@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] Assault on Hrydshal - WQ ($Rev: 0 $)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1017)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41451 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41451)">
+        <RunTo X="2684.694" Y="2569.063" Z="218.7067" />
+      </If>
+      <While Condition="!IsObjectiveComplete(2, 41451)">
+        <!--Run Outside Wall-->
+        <RunTo X="2684.694" Y="2569.063" Z="218.7067" />
+        <!--Use Grapple-->
+        <!--<WoWUnit Name="Grapple Point" Entry="91983" X="2668.16" Y="2545.319" Z="238.6316" />-->
+        <CustomBehavior File="RunCode" Code="
+						WoWUnit grapplePoi = Unit(91983, u =&gt; (int)u.Y == 2545);
+						if (grapplePoi != null)
+						{
+							grapplePoi.Interact();
+							await Coroutine.Sleep(10000);
+						}
+					"/>
+
+        <!--Move to first harpoon-->
+        <RunTo X="2688.918" Y="2491.47" Z="236.0785" />
+        <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2693.078" Y="2490.828" Z="236.0995" />-->
+        <CustomBehavior File="RunCode" Code="
+						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2490);
+						if (Harpoon != null)
+						{
+							Harpoon.Interact();
+							await Coroutine.Sleep(2000);
+						}
+					"/>
+        <CustomBehavior File="MyCTM" X="2666.022" Y="2459.255" Z="217.1962" />
+        <RunTo X="2656.31" Y="2430.424" Z="218.5574" />
+        <!--Use Grapple-->
+        <!--<WoWUnit Name="Grapple Point" Entry="92017" X="2663.793" Y="2409.675" Z="237.2711" />-->
+        <CustomBehavior File="RunCode" Code="
+						WoWUnit grapplePoi = Unit(92017, u =&gt; (int)u.Y == 2409);
+						if (grapplePoi != null)
+						{
+							grapplePoi.Interact();
+							await Coroutine.Sleep(10000);
+						}
+					"/>
+        <!--Move to 2nd Harpoon-->
+        <RunTo X="2674.081" Y="2425.315" Z="237.2613" />
+        <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2678.022" Y="2423.771" Z="237.2735" />-->
+        <CustomBehavior File="RunCode" Code="
+						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2490);
+						if (Harpoon != null)
+						{
+							Harpoon.Interact();
+							await Coroutine.Sleep(2000);
+						}
+					"/>
+        <!--Jump Down and move to next grapple-->
+        <CustomBehavior File="MyCTM" X="2650.135" Y="2416.693" Z="221.5135" />
+        <RunTo X="2557.066" Y="2453.862" Z="241.3863" />
+        <!--<WoWUnit Name="Grapple Point" Entry="92072" X="2545.717" Y="2445.174" Z="260.7524" />-->
+        <CustomBehavior File="RunCode" Code="
+						WoWUnit grapplePoi = Unit(92072, u =&gt; (int)u.Y == 2445);
+						if (grapplePoi != null)
+						{
+							grapplePoi.Interact();
+							await Coroutine.Sleep(10000);
+						}
+					"/>
+        <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2543.905" Y="2423.978" Z="262.0621" />-->
+        <RunTo X="2540.693" Y="2425.438" Z="262.0634" />
+        <CustomBehavior File="RunCode" Code="
+						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2423);
+						if (Harpoon != null)
+						{
+							Harpoon.Interact();
+							await Coroutine.Sleep(2000);
+						}
+					"/>
+        <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2524.704" Y="2385.554" Z="263.4633" />-->
+        <RunTo X="2522.494" Y="2388.394" Z="263.4254" />
+        <CustomBehavior File="RunCode" Code="
+						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2385);
+						if (Harpoon != null)
+						{
+							Harpoon.Interact();
+							await Coroutine.Sleep(2000);
+						}
+					"/>
+        <CustomBehavior File="MyCTM" X="2509.345" Y="2392.088" Z="256.9182" />
+      </While>
+      <CustomBehavior File="KillUntilComplete" MobIds="10446, 91202, 91417, 91204" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 41451)" >
+        <HuntingGrounds>
+          <Hotspot X="2485.256" Y="2435.869" Z="256.4484" />
+          <Hotspot X="2533.196" Y="2522.727" Z="244.493" />
+          <Hotspot X="2628.405" Y="2503.757" Z="221.9615" />
+        </HuntingGrounds>
+      </CustomBehavior>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
