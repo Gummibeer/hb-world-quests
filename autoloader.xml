@@ -785,6 +785,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41674-[N]-[QUEST]-Wq-Work Order Word of Intellect&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41674-[N]-[QUEST]-Wq-Work Order Word of Intellect" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41881)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41881-[N]-[QUEST]-PETBATTLE-Wq-Fight Night Heliosus-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41881-[N]-[QUEST]-PETBATTLE-Wq-Fight Night Heliosus-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41886)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41886-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Rats-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\41886-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Rats-Zinner" RememberProfile="false" />
@@ -1318,6 +1322,10 @@
       <If Condition="DoQuest(41518)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41518-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\41518-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41530)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41530-[N]-[QUEST]-Wq-Lively Dreamleaf-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41530-[N]-[QUEST]-Wq-Lively Dreamleaf-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41546)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41546-[N]-[QUEST]-Wq-Dreamleaf Clusterr-Zinner&quot;);" />
@@ -2523,6 +2531,14 @@
       <If Condition="DoQuest(41697) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41697-[N]-[QUEST]-Wq-DANGER Colerian, Alteria, and Selenyi-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41697-[N]-[QUEST]-Wq-DANGER Colerian, Alteria, and Selenyi-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41990)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41990-[N]-[QUEST]-PETBATTLE-Wq-Chopped-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41990-[N]-[QUEST]-PETBATTLE-Wq-Chopped-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42015)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42015-[N]-[QUEST]-PETBATTLE-Wq-Threads of Fate-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42015-[N]-[QUEST]-PETBATTLE-Wq-Threads of Fate-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(42071)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42071-[N]-[QUEST]-Wq-Honoring the Past-Zinner&quot;);" />
