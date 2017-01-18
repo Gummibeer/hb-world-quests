@@ -2560,6 +2560,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42111-[N]-[QUEST]-Wq-Aggressive_Reconnaisance-Staal&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\42111-[N]-[QUEST]-Wq-Aggressive_Reconnaisance-Staal" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(42151)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42151-[N]-[QUEST]- Clear the Skies-Zakrn&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42151-[N]-[QUEST]- Clear the Skies-Zakrn" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(42169)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42169-[N]-[QUEST]-Wq-Left for Dead-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\42169-[N]-[QUEST]-Wq-Left for Dead-Zinner" RememberProfile="false" />
@@ -2591,6 +2595,10 @@
       <If Condition="DoQuest(42859)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42859-[N]-[QUEST]-Wq-A Draught of Hope-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\42859-[N]-[QUEST]-Wq-A Draught of Hope-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(42969)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42969-[N]-[QUEST]-A Spy in Our Midst - Zalrn&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\42969-[N]-[QUEST]-A Spy in Our Midst - Zalrn" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(43435)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43435-[N]-[QUEST]-Wq-The Battle Rages On-Zinner&quot;);" />
