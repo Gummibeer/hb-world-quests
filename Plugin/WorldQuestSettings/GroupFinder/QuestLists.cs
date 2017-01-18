@@ -10,7 +10,7 @@ namespace WorldQuestSettings.WorldQuestSettings.GroupFinder
             42725, // Sharing the Wealth
             42880, // Meeting their Quota
             42178, // Shock Absorber
-            42173, // Electrosnack
+            42173, // Electrosnack  
             44011, // Lost Wisp
             43774, // Ley Race
             43764, // Ley Race
@@ -43,7 +43,7 @@ namespace WorldQuestSettings.WorldQuestSettings.GroupFinder
             41316, // Supplies Needed: Leystone
             41317, // Supplies Needed: Leystone
             41303, // Supplies Needed: Starlight Roses
-            41288 // Supplies Needed: Aethril
+            41288, // Supplies Needed: Aethril
         };
 
         public static HashSet<uint> RaidQuests = new HashSet<uint>
@@ -203,7 +203,9 @@ namespace WorldQuestSettings.WorldQuestSettings.GroupFinder
             42269, // The Soultakers
             42819, // Pocket Wizard
             42270, // Scourge of the Skies
-            43985 //A Dark Tide
+            43512, // Ana-Mouz
+            44932, // The Nighthold: Ettin Your Foot In The Door
+            43985, // A Dark Tide
         };
     }
 }

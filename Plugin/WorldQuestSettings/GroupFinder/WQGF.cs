@@ -105,16 +105,13 @@ namespace WorldQuestSettings.GroupFinder
         private static void Profile_OnNewProfileLoaded(BotEvents.Profile.NewProfileLoadedEventArgs args)
         {
             var file = Path.GetFileNameWithoutExtension(args.NewProfile.Path);
-            if (file != null)
-            {
-                var quest = file.Substring(0, 5);
-                if (!uint.TryParse(quest, out _currentQuestId)) return;
-                _currentQuestName = GetQuestName(quest);
-                _currentIsBlacklisted = QuestLists.BlackListed.Contains(_currentQuestId);
-                _currentIsRaidQuest = QuestLists.RaidQuests.Contains(_currentQuestId);
-                Log(
-                    $"Current Quest Set To {_currentQuestName} ({_currentQuestId}) Blacklisted {_currentIsBlacklisted} RaidQuest {_currentIsRaidQuest}");
-            }
+            if (file == null) return;
+            var quest = file.Substring(0, 5);
+            if (!uint.TryParse(quest, out _currentQuestId)) return;
+            _currentQuestName = GetQuestName(quest);
+            _currentIsBlacklisted = QuestLists.BlackListed.Contains(_currentQuestId);
+            _currentIsRaidQuest = QuestLists.RaidQuests.Contains(_currentQuestId);
+            Log( $"Current Quest Set To {_currentQuestName} ({_currentQuestId}) Blacklisted {_currentIsBlacklisted} RaidQuest {_currentIsRaidQuest}");
         }
 
         private static void ResultsReceived(object sender, LuaEventArgs args)
