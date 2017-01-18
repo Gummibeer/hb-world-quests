@@ -579,7 +579,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(2, 9, 1341);
+        var latestVersion = new Version(3, 0, 1352);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -2081,6 +2081,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41300-[N]-[QUEST]-Wq-Singed Fjarnskaggl-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41300-[N]-[QUEST]-Wq-Singed Fjarnskaggl-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41313) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41313-[N]-[QUEST]-Wq-Work Order Leystone&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41313-[N]-[QUEST]-Wq-Work Order Leystone" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41342)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41342-[N]-[QUEST]-Thick Bear Hide-SkinningWQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41342-[N]-[QUEST]-Thick Bear Hide-SkinningWQ-Nuok" RememberProfile="false" />
@@ -2475,6 +2479,10 @@
       <If Condition="DoQuest(41283)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41283-[N]-[QUEST]-Wq-The Angler Mangler-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41283-[N]-[QUEST]-Wq-The Angler Mangler-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41302) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41302-[N]-[QUEST]-Wq-Work Order Starlight Roses&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41302-[N]-[QUEST]-Wq-Work Order Starlight Roses" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41314) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41314-[N]-[QUEST]-Wq-Work Order Felslate&quot;);" />
