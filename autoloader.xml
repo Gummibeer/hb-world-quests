@@ -2600,6 +2600,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43445-[N]-[QUEST]-Wq-Air Superiority-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\43445-[N]-[QUEST]-Wq-Air Superiority-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43512)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43512-[N]-[QUEST]-Ana-Mouz-EpicEliteWQ-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\43512-[N]-[QUEST]-Ana-Mouz-EpicEliteWQ-Nuok" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43513)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43513-[N]-[QUEST]-Wq-WORLD BOSS-Na'zak the Fiend&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\43513-[N]-[QUEST]-Wq-WORLD BOSS-Na'zak the Fiend" RememberProfile="false" />
