@@ -1,0 +1,61 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>[44867] Contain their Advance - Staal</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>false</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 44867 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+<!--
+<PickUp Nav="Fly" QuestName="Contain their Advance" QuestId="44867" GiverName="" GiverId="" />
+<Objective QuestName="Contain their Advance" QuestId="44867" Type="KillMob" MobId="115961" KillCount="13" />
+<Objective QuestName="Contain their Advance" QuestId="44867" Type="KillMob" MobId="115962" KillCount="9" />
+<Objective QuestName="Contain their Advance" QuestId="44867" Type="UseObject" ObjectId="266996" UseCount="17" />
+<TurnIn Nav="Fly" QuestName="Contain their Advance" QuestId="44867" TurnInName="" TurnInId="" />
+-->
+    </CustomBehavior>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44867] Contain their Advance - Staal!&quot;);" />
+    <While Condition="OnQuest" >
+      <If Condition="!HasQuest(44867)">
+        <RunTo X="1513.507" Y="3037.074" Z="94.58494" />
+      </If>
+      <If Condition="HasQuest(44867)">
+        <CustomBehavior File="KillUntilComplete" MobIds="115690, 115692, 115755, 115724, 115738, 115954" TerminateWhen="!OnQuest || !HasQuest(44867)" >
+          <HuntingGrounds>
+<Hotspot X="1444.446" Y="3059.32" Z="111.7569" />
+<Hotspot X="1442.559" Y="3011.294" Z="111.5865" />
+<Hotspot X="1401.704" Y="2973.389" Z="111.6356" />
+<Hotspot X="1390.187" Y="2898.845" Z="111.6023" />
+<Hotspot X="1317.368" Y="2933.893" Z="111.6467" />
+<Hotspot X="1383.366" Y="3002.581" Z="116.9328" />
+          </HuntingGrounds>
+        </CustomBehavior>
+      </If>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [44867] Contain their Advance - Staal!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
