@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>42023-[N]-[QUEST]-Wq-Black Rook Rumble-Zinner.xml</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+    <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1018);
+    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1018)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42023 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+	
+	<RunTo X="3139.943" Y="7201.418" Z="53.15734" />
+		
+       <CustomBehavior File="MyCTM" X="3162.761" Y="7226.774" Z="33.00523" />
+	<CustomBehavior File="KillUntilComplete" MobIds="106650, 2872, 168" TerminateWhen="!OnQuest" >
+	<HuntingGrounds>
+	<Hotspot X="3180.353" Y="7278.304" Z="33.0055" />
+	<Hotspot X="3193.95" Y="7275" Z="33.07182" />
+	<Hotspot X="3205.05" Y="7264.559" Z="32.99709" />
+	<Hotspot X="3198.658" Y="7255.055" Z="34.10796" />
+	<Hotspot X="3193.053" Y="7242.433" Z="34.10796" />
+	<Hotspot X="3176.434" Y="7238.916" Z="34.10796" />
+	<Hotspot X="3162.042" Y="7233.698" Z="33.0049" />
+	<Hotspot X="3151.23" Y="7232.739" Z="33.25562" />
+	<Hotspot X="3139.928" Y="7245.292" Z="32.10085" />
+	<Hotspot X="3153.829" Y="7260.102" Z="33.05986" />
+	<Hotspot X="3168.599" Y="7269.253" Z="32.72344" />
+	<Hotspot X="3199.881" Y="7277.869" Z="33.07164" />
+	<Hotspot X="3217.618" Y="7277.113" Z="33.25579" />
+	<Hotspot X="3233.736" Y="7272.86" Z="32.10213" />
+	<Hotspot X="3231.888" Y="7256.343" Z="33.13106" />
+	<Hotspot X="3223.347" Y="7238.571" Z="32.77769" />
+	<Hotspot X="3215.235" Y="7222.348" Z="33.00517" />
+	<Hotspot X="3203.835" Y="7207.537" Z="33.19801" />
+	<Hotspot X="3189.342" Y="7237.923" Z="34.10843" />
+	<Hotspot X="3195.305" Y="7254.368" Z="34.10843" />
+	<Hotspot X="3182.691" Y="7256.154" Z="34.10843" />
+	</HuntingGrounds>
+	</CustomBehavior>
+     	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <If Condition="HasItem(140192) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 140192).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
