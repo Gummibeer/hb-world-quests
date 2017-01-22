@@ -1,0 +1,26 @@
+<HBProfile>
+    <Name>41931 - Mana Tap - Staal</Name>
+    <MinLevel>1</MinLevel>
+    <MaxLevel>999</MaxLevel>
+    <QuestOrder>
+        <CustomBehavior File="Misc\ProfileCompatibilityInfo" AllowBrokenAddOns="true" AllowBrokenPlugIns="true" />
+<!-- Mechanical Pandaren Dragonling, Clockwork Gnome, Any -->
+            <If Condition="!IsQuestCompleted(41931)">
+            <CustomBehavior File="DisablePlugin" Names="DaezaBattlePets" />
+                <MoveTo Nav="Fly" X="2139.247" Y="5554.119" Z="102.5382" />
+                <CustomBehavior File="ForcedDismount" />
+                <If Condition="SpellManager.CanCast(125439)" >
+                    <CustomBehavior File="RunMacro" Macro="/cast Revive Battle Pets"/>
+                </If>
+                <CustomBehavior File="InteractWith" Gossipoption="1" MobId="105352" X="2140.356" Y="5550.717" Z="102.1461" />
+				                <CustomBehavior File="WaitTimer" WaitTime="1000" />
+                <CustomBehavior File="RunMacro" Macro="/script SelectGossipOption(1)" />
+                <CustomBehavior File="RunMacro" Macro="/click StaticPopup1Button1" />
+                <CustomBehavior File="WaitTimer" GoalText="Waiting" WaitTime="5000" />
+                <CustomBehavior File="EnablePlugin" Names="DaezaBattlePets" />
+            </If>
+            <If Condition="IsQuestCompleted(41931)">
+                <CustomBehavior File="DisablePlugin" Names="DaezaBattlePets" />
+            </If>
+    </QuestOrder>
+</HBProfile>
