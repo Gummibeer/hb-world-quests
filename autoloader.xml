@@ -321,7 +321,7 @@
             return false;
         }
 
-        if (quest.Tag == QuestTag.RareWorldQuest && !s.DoElite)
+        if (quest.Tag == QuestTag.RareWorldQuest && !s.DoRare)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} Disabled");
             return false;
@@ -2551,6 +2551,10 @@
       <If Condition="DoQuest(41697) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41697-[N]-[QUEST]-Wq-DANGER Colerian, Alteria, and Selenyi-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41697-[N]-[QUEST]-Wq-DANGER Colerian, Alteria, and Selenyi-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41931)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41931-N-QUEST-PETBATTLE-Wq-Mana_Tap-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41931-N-QUEST-PETBATTLE-Wq-Mana_Tap-Staal" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41990)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41990-[N]-[QUEST]-PETBATTLE-Wq-Chopped-Zinner&quot;);" />
