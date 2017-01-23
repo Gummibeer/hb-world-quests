@@ -1156,10 +1156,6 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED Doomlord Kazrok-Zinner" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(43428) &amp;&amp; Settings.Instance.DoWanted">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43428-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43428-[N]-[QUEST]-Wq-WANTED_Doomlord_Kazrok-Zinner" RememberProfile="false" />
-      </If>
       <If Condition="DoQuest(43429) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43429-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\43429-[N]-[QUEST]-Wq-WANTED_Syphonus-WiN" RememberProfile="false" />
