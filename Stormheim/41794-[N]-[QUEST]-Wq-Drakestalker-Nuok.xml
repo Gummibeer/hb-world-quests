@@ -17,7 +17,8 @@
   <SellPurple>false</SellPurple>
   <TargetElites>true</TargetElites>
   <QuestOrder>
-    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1024);
     local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1017)
 if (taskInfo) then
     for i, info  in ipairs(taskInfo) do
@@ -26,12 +27,26 @@ if (taskInfo) then
             end
     end
 end
-return false;", 0);]]></CustomBehavior>
+return false;", 0);]]>
+    </CustomBehavior>
     <While Condition="OnQuest &amp;&amp; !HasQuest(41794)">
       <RunTo X="3774.165" Y="2585.571" Z="336.3899" />
     </While>
-    <While Condition="OnQuest">
-      <Objective QuestName="Drakestalker" QuestId="41794" Type="CollectItem" Nav="Fly" ItemId="136369" CollectCount="30" />
+    <While Condition="OnQuest &amp;&amp; HasQuest(41794)">
+      <CustomBehavior File="KillUntilComplete" MobIds="99223" TerminateWhen="!OnQuest">
+        <HuntingGrounds>
+          <Hotspot X="3775.141" Y="2595.259" Z="332.515" />
+          <Hotspot X="3719.825" Y="2563.978" Z="349.4296" />
+          <Hotspot X="3747.503" Y="2389.124" Z="399.481" />
+          <Hotspot X="3768.116" Y="2271.112" Z="350.9769" />
+          <Hotspot X="3933.346" Y="2318.218" Z="373.1728" />
+          <Hotspot X="4051.385" Y="2315.555" Z="361.3192" />
+          <Hotspot X="3970.175" Y="2464.592" Z="325.3103" />
+          <Hotspot X="3908.02" Y="2425.863" Z="369.1457" />
+          <Hotspot X="3882.708" Y="2387.882" Z="399.631" />
+          <Hotspot X="3881.601" Y="2373.721" Z="410.2364" />
+        </HuntingGrounds>
+      </CustomBehavior>
     </While>
     <If
       Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">

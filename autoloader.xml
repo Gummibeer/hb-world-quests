@@ -876,6 +876,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41520-[N]-[QUEST]-Wq-Felwort-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41520-[N]-[QUEST]-Wq-Felwort-WiN" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41527)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41527-[N]-[QUEST]-Wq-Lively Aethril-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41527-[N]-[QUEST]-Wq-Lively Aethril-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41545)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41545-[N]-[QUEST]-Wq-Aethril Cluster-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41545-[N]-[QUEST]-Wq-Aethril Cluster-Nuok" RememberProfile="false" />
@@ -1934,10 +1938,6 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41789-[N]-[QUEST]-Wq-Return_to_the_Crag-WiN" RememberProfile="false" />
       </If>
-      <If Condition="DoQuest(41794)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41794-[N]-[QUEST]-Wq-Drakestalker-Nuok&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41794-[N]-[QUEST]-Wq-Drakestalker-Nuok" RememberProfile="false" />
-      </If>
       <If Condition="DoQuest(41816) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41816-[N]-[QUEST]-Wq-DANGER_Oubdob_da_Smasher-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41816-[N]-[QUEST]-Wq-DANGER_Oubdob_da_Smasher-WiN" RememberProfile="false" />
@@ -2194,8 +2194,8 @@
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41678-[N]-[QUEST]-Wq-Work Order Gunpack" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41794)">
-        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41794-[N]-[QUEST]-Wq-Drakestalker-Zinner&quot;);" />
-        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41794-[N]-[QUEST]-Wq-Drakestalker-Zinner" RememberProfile="false" />
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41794-[N]-[QUEST]-Wq-Drakestalker-Nuok&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41794-[N]-[QUEST]-Wq-Drakestalker-Nuok" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41925)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41925-[N]-[QUEST]-Wq-Razing_Hel&quot;);" />
