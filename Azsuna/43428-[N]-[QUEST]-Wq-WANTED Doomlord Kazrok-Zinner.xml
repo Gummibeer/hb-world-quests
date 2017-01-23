@@ -28,7 +28,9 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest" >
       <RunTo X="568.3079" Y="6983.24" Z="178.7833" />
-      <CustomBehavior File="KillUntilComplete" MobIds="91579" TerminateWhen="!OnQuest" X="568.3079" Y="6983.24" Z="178.7833" />
+      <!--<Vendor Name="Tehd Shoemaker" Entry="91580" Type="Repair" Nav="Fly" X="561.8281" Y="6983.585" Z="178.9135" />-->
+      <CustomBehavior File="InteractWith" InteractByGossipOptions="1,1" MobIds="91580" WaitForNpcs="False" TerminateWhen="!OnQuest" X="568.3079" Y="6983.24" Z="178.7833" />
+      <CustomBehavior File="KillUntilComplete" MobIds="91579" WaitForNpcs="False" TerminateWhen="!OnQuest" X="568.3079" Y="6983.24" Z="178.7833" />
     </While>
 
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
