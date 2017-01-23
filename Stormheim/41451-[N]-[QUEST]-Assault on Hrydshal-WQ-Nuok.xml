@@ -74,7 +74,7 @@ return false;", 0);]]>
         <RunTo X="2674.081" Y="2425.315" Z="237.2613" />
         <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2678.022" Y="2423.771" Z="237.2735" />-->
         <CustomBehavior File="RunCode" Code="
-						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2490);
+						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2423);
 						if (Harpoon != null)
 						{
 							Harpoon.Interact();
@@ -83,9 +83,10 @@ return false;", 0);]]>
 					"/>
         <!--Jump Down and move to next grapple-->
         <CustomBehavior File="MyCTM" X="2650.135" Y="2416.693" Z="221.5135" />
-        <RunTo X="2557.066" Y="2453.862" Z="241.3863" />
-        <!--<WoWUnit Name="Grapple Point" Entry="92072" X="2545.717" Y="2445.174" Z="260.7524" />-->
-        <CustomBehavior File="RunCode" Code="
+        <If Condition="!IsObjectiveComplete(2, 41451)">
+          <RunTo X="2557.066" Y="2453.862" Z="241.3863" />
+          <!--<WoWUnit Name="Grapple Point" Entry="92072" X="2545.717" Y="2445.174" Z="260.7524" />-->
+          <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(92072, u =&gt; (int)u.Y == 2445);
 						if (grapplePoi != null)
 						{
@@ -93,9 +94,9 @@ return false;", 0);]]>
 							await Coroutine.Sleep(10000);
 						}
 					"/>
-        <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2543.905" Y="2423.978" Z="262.0621" />-->
-        <RunTo X="2540.693" Y="2425.438" Z="262.0634" />
-        <CustomBehavior File="RunCode" Code="
+          <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2543.905" Y="2423.978" Z="262.0621" />-->
+          <RunTo X="2540.693" Y="2425.438" Z="262.0634" />
+          <CustomBehavior File="RunCode" Code="
 						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2423);
 						if (Harpoon != null)
 						{
@@ -103,9 +104,9 @@ return false;", 0);]]>
 							await Coroutine.Sleep(2000);
 						}
 					"/>
-        <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2524.704" Y="2385.554" Z="263.4633" />-->
-        <RunTo X="2522.494" Y="2388.394" Z="263.4254" />
-        <CustomBehavior File="RunCode" Code="
+          <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2524.704" Y="2385.554" Z="263.4633" />-->
+          <RunTo X="2522.494" Y="2388.394" Z="263.4254" />
+          <CustomBehavior File="RunCode" Code="
 						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2385);
 						if (Harpoon != null)
 						{
@@ -113,7 +114,41 @@ return false;", 0);]]>
 							await Coroutine.Sleep(2000);
 						}
 					"/>
-        <CustomBehavior File="MyCTM" X="2509.345" Y="2392.088" Z="256.9182" />
+          <CustomBehavior File="MyCTM" X="2509.345" Y="2392.088" Z="256.9182" />
+        </If>
+        <If Condition="!IsObjectiveComplete(2, 41451)">
+          <RunTo X="2536.368" Y="2479.173" Z="246.8343" />
+          <!--<WoWUnit Name="Grapple Point" Entry="91975" X="2544.906" Y="2487.497" Z="254.7319" />-->
+          <CustomBehavior File="RunCode" Code="
+						WoWUnit grapplePoi = Unit(91975, u =&gt; (int)u.Y == 2487);
+						if (grapplePoi != null)
+						{
+							grapplePoi.Interact();
+							await Coroutine.Sleep(10000);
+						}
+					"/>
+          <RunTo X="2546.574" Y="2466.969" Z="254.766" />
+          <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2549.886" Y="2466.156" Z="254.7651" />-->
+          <CustomBehavior File="RunCode" Code="
+						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2466);
+						if (Harpoon != null)
+						{
+							Harpoon.Interact();
+							await Coroutine.Sleep(2000);
+						}
+					"/>
+          <RunTo X="2541.048" Y="2505.343" Z="254.3566" />
+          <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2543.292" Y="2510.19" Z="254.8515" />-->
+          <CustomBehavior File="RunCode" Code="
+						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2510);
+						if (Harpoon != null)
+						{
+							Harpoon.Interact();
+							await Coroutine.Sleep(2000);
+						}
+					"/>
+          <CustomBehavior File="MyCTM" X="2530.272" Y="2498.577" Z="245.3689" />
+        </If>
       </While>
       <CustomBehavior File="KillUntilComplete" MobIds="10446, 91202, 91417, 91204" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 41451)" >
         <HuntingGrounds>
