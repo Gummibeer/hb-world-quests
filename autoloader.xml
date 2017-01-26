@@ -1762,6 +1762,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41202-[N]-[QUEST]-Crude Leystone Seams-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41202-[N]-[QUEST]-Crude Leystone Seams-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41203)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41203-[N]-[QUEST]-Wq-Bright Leystone Deposits-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41203-[N]-[QUEST]-Wq-Bright Leystone Deposits-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41204)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41204-[N]-[QUEST]-Wq-Hard Leystone Deposits-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41204-[N]-[QUEST]-Wq-Hard Leystone Deposits-Zinner" RememberProfile="false" />
@@ -1878,6 +1882,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41622-[N]-[QUEST]-Wq-Crawliacs_Legacy_-_Highmountain_-_Win" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41624)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41624-N-QUEST-PETBATTLE-Wq-Rocko_Needs_a_Shave-Staal&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41624-N-QUEST-PETBATTLE-Wq-Rocko_Needs_a_Shave-Staal" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41635) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41635-[N]-[QUEST]-Wq-Work Order Leystone Boots&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41635-[N]-[QUEST]-Wq-Work Order Leystone Boots" RememberProfile="false" />
@@ -1909,6 +1917,10 @@
       <If Condition="DoQuest(41692)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41692-[N]-[QUEST]-Wq-Shipwreck_Scavengers-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41692-[N]-[QUEST]-Wq-Shipwreck_Scavengers-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41695) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41695-[N]-[QUEST]-Wq-DANGER Defilia-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41695-[N]-[QUEST]-Wq-DANGER Defilia-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41696) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41696-[N]-[QUEST]-Wq-DANGER Mawat'aki-Zinner&quot;);" />
@@ -2277,6 +2289,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42183-[N]-[QUEST]-To Battle!-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42183-[N]-[QUEST]-To Battle!-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(42269)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42269-[N]-[QUEST]-Wq-WOLRDBOSS-The Soultakers-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42269-[N]-[QUEST]-Wq-WOLRDBOSS-The Soultakers-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(42270)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 42270-[N]-[QUEST]-Wq-WORLD BOSS-Scourge of the Skies&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\42270-[N]-[QUEST]-Wq-WORLD BOSS-Scourge of the Skies" RememberProfile="false" />
@@ -2492,6 +2508,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41314-[N]-[QUEST]-Wq-Work Order Felslate&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41314-[N]-[QUEST]-Wq-Work Order Felslate" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41318) &amp;&amp; Settings.Instance.DoWorkOrders">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41318-[N]-[QUEST]-Wq-Supplies Needed Felslate&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41318-[N]-[QUEST]-Wq-Supplies Needed Felslate" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41351) &amp;&amp; Settings.Instance.DoWorkOrders">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41351-[N]-[QUEST]-Wq-Supplies Needed Stonehide Leather&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41351-[N]-[QUEST]-Wq-Supplies Needed Stonehide Leather" RememberProfile="false" />
@@ -2515,6 +2535,10 @@
       <If Condition="DoQuest(41493)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41493-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41493-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41548)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41548-[N]-[QUEST]-Wq-Starlight Rose Cluster-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41548-[N]-[QUEST]-Wq-Starlight Rose Cluster-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41557)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41557-[N]-[QUEST]-Wq-Slab_of_Bacon-WiN&quot;);" />
@@ -2711,6 +2735,10 @@
       <If Condition="DoQuest(44030) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\44030-[N]-[QUEST]-Wq-WANTED_Guardian_Thorel-tomten2" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(44032) &amp;&amp; Settings.Instance.DoWanted">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44032-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\44032-[N]-[QUEST]-Wq-WANTED Apothecary Faldren-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(44114) &amp;&amp; Settings.Instance.DoWanted">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44114-[N]-[QUEST]-Wq-WANTED_Magistrix_Vilessa-Staal&quot;);" />
