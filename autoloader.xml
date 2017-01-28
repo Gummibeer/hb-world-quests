@@ -198,7 +198,12 @@
                 local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, { questId})
                 if itemID == 124124 then return 4; end
                 local itemName, itemLink, _, _, _, itemType, itemSubType = GetItemInfo(itemID)
-                if (itemLink and itemLink:match(""| cFFE6CC80"")) then return 2; end
+                local GameTooltipFrame = CreateFrame ('GameTooltip', 'WorldQuestTrackerScanTooltip', nil, 'GameTooltipTemplate')
+                local GameTooltipFrameTextLeft1 = _G ['WorldQuestTrackerScanTooltipTextLeft2']
+                GameTooltipFrame:SetOwner (WorldFrame, 'ANCHOR_NONE')
+                GameTooltipFrame: SetHyperlink(itemLink)
+                local text = GameTooltipFrameTextLeft1:GetText()
+                if (text ~= nil and text:match('cFFE6CC80')) then return 2; end
                 if (itemName ~= nil and itemType == 'Armor') then return 6; end
                 if (itemName ~= nil and itemSubType == 'Artifact Relic') then return 6; end
                 return 3; end
