@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <RunTo X="-573.9366" Y="5970.082" Z="30.97057" />
-      <CustomBehavior File="InteractWith" MobIds="249513" NumOfTimes="10" TerminateWhen="IsObjectiveComplete(1, 42101) || !OnQuest">
+      <CustomBehavior File="InteractWith" MobIds="249513" NumOfTimes="10" NonCompeteDisatnce="0" TerminateWhen="IsObjectiveComplete(1, 42101) || !OnQuest">
         <HuntingGrounds>
           <Hotspot X="-535.9352" Y="5965.712" Z="30.55196" />
           <Hotspot X="-514.5076" Y="5922.988" Z="29.25332" />
@@ -37,11 +37,7 @@ return false;", 0);]]>
         </HuntingGrounds>
       </CustomBehavior>
 
-      <CustomBehavior File="KillUntilComplete" MobIds="89850" TerminateWhen="IsObjectiveComplete(2, 42101) || !OnQuest">
-        <HuntingGrounds>
-          <Hotspot X="-617.3845" Y="5893.531" Z="59.50716" />
-        </HuntingGrounds>
-      </CustomBehavior>
+      <CustomBehavior File="KillUntilComplete" MobIds="89850" TerminateWhen="IsObjectiveComplete(2, 42101) || !OnQuest" X="-617.3845" Y="5893.531" Z="59.50716" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
