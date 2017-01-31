@@ -1,0 +1,32 @@
+<HBProfile>
+<Name>41242-[N]-[QUEST]-Wild Northern Barracuda-Zinner</Name>
+<MinDurability>0.6</MinDurability>
+<MinFreeBagSlots>1</MinFreeBagSlots>
+
+<MinLevel>1</MinLevel>
+<MaxLevel>110</MaxLevel>
+<!-- <PickUp Nav="Fly" QuestName="Wild Northern Barracuda" QuestId="41252" GiverName="" GiverId="" />
+
+<Objective QuestName="Wild Northern Barracuda" QuestId="41252" Type="CollectItem" ItemId="134547" CollectCount="10" />
+
+<TurnIn Nav="Fly" QuestName="Wild Northern Barracuda" QuestId="41252" TurnInName="" TurnInId="" />
+
+
+-->
+
+<Hotspots>
+<Hotspot X="6455.208" Y="4821.782" Z="0.2403969" />
+<Hotspot X="6431.874" Y="4851.145" Z="0.001202645" />
+<Hotspot X="6434.044" Y="4876.103" Z="0.001202645" />
+<Hotspot X="6442.651" Y="4895.921" Z="-2.362199" />
+<Hotspot X="6454.566" Y="4906.264" Z="-2.362199" />
+<Hotspot X="6465.837" Y="4916.107" Z="-2.362199" />
+<Hotspot X="6478.251" Y="4921.209" Z="-2.362199" />
+<Hotspot X="6489.018" Y="4924.236" Z="-2.362199" />
+<Hotspot X="6498.709" Y="4919.326" Z="-2.362199" />
+<Hotspot X="6512.173" Y="4911.632" Z="-2.362199" />
+<Hotspot X="6518.632" Y="4903.583" Z="-2.362199" />
+<Hotspot X="6535.3" Y="4875.41" Z="-2.362199" />
+<Hotspot X="6533.334" Y="4859.946" Z="-2.362199" />
+</Hotspots>
+</HBProfile>
