@@ -1,0 +1,36 @@
+<HBProfile>
+<Name>41264-[N]-[QUEST]-Lively Cursed Queenfish-Zinner</Name>
+<MinDurability>0.6</MinDurability>
+<MinFreeBagSlots>1</MinFreeBagSlots>
+
+<MinLevel>1</MinLevel>
+<MaxLevel>110</MaxLevel>
+<!-- <PickUp Nav="Fly" QuestName="Lively Cursed Queenfish" QuestId="41264" GiverName="" GiverId="" />
+
+<Objective QuestName="Lively Cursed Queenfish" QuestId="41264" Type="CollectItem" ItemId="134564" CollectCount="10" />
+
+<TurnIn Nav="Fly" QuestName="Lively Cursed Queenfish" QuestId="41264" TurnInName="" TurnInId="" />
+
+
+-->
+
+<Hotspots>
+<Hotspot X="594.8308" Y="5658.554" Z="82.37048" />
+<Hotspot X="605.5339" Y="5644.593" Z="82.48322" />
+<Hotspot X="630.5112" Y="5626.937" Z="82.49297" />
+<Hotspot X="639.2523" Y="5635.484" Z="83.64293" />
+<Hotspot X="640.6472" Y="5653.717" Z="82.91061" />
+<Hotspot X="647.2161" Y="5676.216" Z="83.30888" />
+<Hotspot X="653.3317" Y="5704.858" Z="85.16348" />
+<Hotspot X="628.8959" Y="5711.853" Z="82.56921" />
+<Hotspot X="621.1913" Y="5728.186" Z="83.81206" />
+<Hotspot X="789.1756" Y="5671.569" Z="79.0731" />
+<Hotspot X="824.9969" Y="5684.507" Z="80.2592" />
+<Hotspot X="865.7394" Y="5682.022" Z="80.74043" />
+<Hotspot X="853.5333" Y="5640.92" Z="78.99539" />
+<Hotspot X="837.9526" Y="5607.34" Z="78.73937" />
+<Hotspot X="816.208" Y="5569.259" Z="78.39439" />
+<Hotspot X="780.8953" Y="5560.737" Z="80.74388" />
+<Hotspot X="773.8048" Y="5586.44" Z="78.69793" />
+</Hotspots>
+</HBProfile>
