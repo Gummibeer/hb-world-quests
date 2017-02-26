@@ -1,0 +1,217 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>43803-[N]-[QUEST]-Wq-A Giant Murloc Problem-Zinner.xml</Name>
+
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+
+	<SellGrey>true</SellGrey>
+	<SellWhite>false</SellWhite>
+	<SellGreen>false</SellGreen>
+	<SellBlue>false</SellBlue>
+	<SellPurple>false</SellPurple>
+
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+
+	<TargetElites>true</TargetElites>
+
+	
+
+	<QuestOrder>
+	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			
+
+    public class WorldQuestData
+    {
+        public int ID;
+        public string Name;
+        public DateTime ExpireTime;
+    }
+
+
+    public static class WorldQuestInfo
+    {
+        static List<WorldQuestData> _cache = new List<WorldQuestData>();
+        static internal bool _dirty = true;
+        static internal bool _setup = false;
+
+        static WorldQuestInfo()
+        {
+            Setup();
+        }
+
+        public static void Setup()
+        {
+            if (_setup)
+                return;
+
+            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+
+            UpdateWorldQuests();
+            _setup = true;
+        }
+
+        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+        {
+            _dirty = true;
+        }
+
+        public static bool HasWorldQuest(int questid)
+        {
+            UpdateWorldQuests();
+
+            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+
+            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+                return false;
+            return true;
+        }
+
+        public static void UpdateWorldQuests()
+        {
+            if (!_dirty)
+                return;
+            _cache = new List<WorldQuestData>();
+            
+            var player = StyxWoW.Me;
+            int BrokenIslesMapArea = 1007;
+
+            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+            
+            var NumZones = int.Parse(ret[0]);
+
+            for (int i = 1; i <= NumZones; ++i)
+            {
+                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+
+                var ZoneID = int.Parse(ret[0]);
+                var ZoneName = ret[1];
+                var ZoneDepth = int.Parse(ret[2]);
+
+                if (ZoneDepth > 1) //Do not look at subzones
+                {
+                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+                    continue;
+                }
+
+                string ToRun = string.Format(@"     local questids = {{}};
+
+                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+
+                                                    if taskInfo then
+				                                                    for i, info in ipairs(taskInfo) do
+					                                                    if HaveQuestData(info.questId) then
+						                                                    if QuestUtils_IsQuestWorldQuest(info.questId) then
+                                                                                    table.insert(questids, info.questId);
+							                                                    end
+						                                                    end
+					                                                    end
+				                                                    end
+                                                   return unpack(questids);
+                                                ", ZoneID, BrokenIslesMapArea);
+
+                ret = Lua.GetReturnValues(ToRun);
+
+                foreach (var q in ret)
+                {
+                    int questid = int.Parse(q);
+
+                    //TimeLeft is in minutes
+                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+
+                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+
+                    var data = new WorldQuestData();
+                    data.ID = questid;
+                    data.Name = QuestInfo[0];
+                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+                    _cache.Add(data);
+                }
+            }
+
+            _dirty = false;
+        }
+
+        public static bool IsWorldQuest(int questid)
+        {
+            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+
+            var ret = Lua.GetReturnValues(lua);
+
+            if (ret[3] == null)
+                return false;
+            return true;
+        }
+    }
+
+
+				]]>
+			</CustomBehavior>
+	
+		
+		<While Condition="WorldQuestInfo.HasWorldQuest(43803)" >
+				<!-- Get in range of quest to activate -->
+				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<RunTo X="-3332.606" Y="3969.46" Z="1.812468" /> 
+				<PickUp Nav="Fly" QuestName="A Giant Murloc Problem" QuestId="43803" GiverName="" GiverId="" />
+
+				<Objective QuestName="A Giant Murloc Problem" QuestId="43803" Type="KillMob" MobId="111646" KillCount="2" />
+
+				<Objective QuestName="A Giant Murloc Problem" QuestId="43803" Type="KillMob" MobId="111645" KillCount="12" />
+
+				<TurnIn Nav="Fly" QuestName="A Giant Murloc Problem" QuestId="43803" TurnInName="" TurnInId="" />
+
+
+
+
+
+
+
+
+
+
+</While>
+		<While Condition="WorldQuestInfo.HasWorldQuest(43803)" >	
+				<RunTo X="-3332.606" Y="3969.46" Z="1.812468" /> 		
+			<CustomBehavior File="KillUntilComplete" MobIds="111645" TerminateWhen="IsObjectiveComplete(2, 43803)" >
+				<HuntingGrounds>
+					<Hotspot X="-3332.606" Y="3969.46" Z="1.812468" />
+					<Hotspot X="-3421.677" Y="3907.972" Z="9.984854" />
+					<Hotspot X="-3454.123" Y="3955.285" Z="-0.6693656" />
+					<Hotspot X="-3482.599" Y="4009.838" Z="5.273189" />
+					<Hotspot X="-3519.26" Y="3995.232" Z="10.76867" />
+					<Hotspot X="-3607.506" Y="3978.175" Z="25.66585" />
+					<Hotspot X="-3476.675" Y="4031.421" Z="7.741047" />
+					<Hotspot X="-3467.37" Y="4092.45" Z="23.14799" />
+					<Hotspot X="-3458.529" Y="4146.164" Z="29.18335" />
+					
+					<Hotspot X="-3444.42" Y="4186.567" Z="29.18335" />
+					<Hotspot X="-3422.769" Y="4169.399" Z="29.1839" />
+				</HuntingGrounds>
+			</CustomBehavior>
+			<CustomBehavior File="KillUntilComplete" MobIds="111646" TerminateWhen="IsObjectiveComplete(1, 43803)" >
+				<HuntingGrounds>
+					<Hotspot X="-3444.42" Y="4186.567" Z="29.18335" />
+					<Hotspot X="-3422.769" Y="4169.399" Z="29.1839" />
+				</HuntingGrounds>
+			</CustomBehavior>
+
+				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+		</While>
+
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+    <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 43803-[N]-[QUEST]-Wq-A Giant Murloc Problem-Zinner.xml, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
+</HBProfile>
