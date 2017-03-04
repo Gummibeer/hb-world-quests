@@ -885,6 +885,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41527-[N]-[QUEST]-Wq-Lively Aethril-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41527-[N]-[QUEST]-Wq-Lively Aethril-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(41529)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41529-[N]-[QUEST]-Wq-Bushy Aethril-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41529-[N]-[QUEST]-Wq-Bushy Aethril-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(41545)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41545-[N]-[QUEST]-Wq-Aethril Cluster-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41545-[N]-[QUEST]-Wq-Aethril Cluster-Nuok" RememberProfile="false" />
@@ -912,6 +916,10 @@
       <If Condition="DoQuest(41582)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41582-[N]-[QUEST]-Smooth Sunrunner Hide-SkinningWQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41582-[N]-[QUEST]-Smooth Sunrunner Hide-SkinningWQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41610)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41610-[N]-[QUEST]-Wq-Huge Cursed Queenfish-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41610-[N]-[QUEST]-Wq-Huge Cursed Queenfish-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41611)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41611-[N]-[QUEST]-Wq-Huge Cursed Queenfish-Zinner&quot;);" />
@@ -1544,6 +1552,10 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43336-[N]-[QUEST]-Wq-Purge of the Nightmare-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\43336-[N]-[QUEST]-Wq-Purge of the Nightmare-Zinner" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(43345) &amp;&amp; Settings.Instance.DoDangerQuests">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43345-[N]-[QUEST]-Wq-DANGER Harbinger of Screams-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\43345-[N]-[QUEST]-Wq-DANGER Harbinger of Screams-Zinner" RememberProfile="false" />
+      </If>
       <If Condition="DoQuest(43346) &amp;&amp; Settings.Instance.DoDangerQuests">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 43346-[N]-[QUEST]-DANGER Ealdis-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\43346-[N]-[QUEST]-DANGER Ealdis-Nuok" RememberProfile="false" />
@@ -1770,6 +1782,10 @@
       <If Condition="DoQuest(41145)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41145-[N]-[QUEST]-Wq-Water_of_Life-WiN&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41145-[N]-[QUEST]-Wq-Water_of_Life-WiN" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41196)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41196-[N]-[QUEST]-Wq-Leystone Basilisks-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\41196-[N]-[QUEST]-Wq-Leystone Basilisks-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41200)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41200-[N]-[QUEST]-Wq-Rough Leystone Outcropping-Zinner&quot;);" />
@@ -2572,6 +2588,14 @@
       <If Condition="DoQuest(41522)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41522-[N]-[QUEST]-Wq-Felwort-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Suramar\41522-[N]-[QUEST]-Wq-Felwort-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41524)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41524-[N]-[QUEST]-Wq-Felwort-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41524-[N]-[QUEST]-Wq-Felwort-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41538)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41538-[N]-[QUEST]-Wq-Iridescent Starlight Roses-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Suramar\41538-[N]-[QUEST]-Wq-Iridescent Starlight Roses-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41548)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41548-[N]-[QUEST]-Wq-Starlight Rose Cluster-Zinner&quot;);" />
