@@ -1,0 +1,95 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>[42019] Tip the Scales - Zinner</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1015);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1015)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 42019 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42019] Tip the Scales - Zinner!&quot;);" />
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(42019)">
+        <RunTo X="175.4247" Y="5708.918" Z="1.300927" />
+      </If>
+<CustomBehavior File="KillUntilComplete" MobIds="89025, 89803, 89802, 89808, 89811" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 42019)">
+        <HuntingGrounds>
+          <Hotspot X="175.4247" Y="5708.918" Z="1.300927" />
+<Hotspot X="173.3635" Y="5737.611" Z="0.6626369" />
+<Hotspot X="163.7462" Y="5775.572" Z="1.369681" />
+<Hotspot X="192.5377" Y="5769.977" Z="2.465408" />
+<Hotspot X="-37.51434" Y="5752.046" Z="7.765353" />
+<Hotspot X="-55.63121" Y="5812.35" Z="3.814109" />
+<Hotspot X="-119.5149" Y="5750.829" Z="0.4687273" />
+<Hotspot X="-101.5959" Y="5718.772" Z="0.7180257" />
+<Hotspot X="-100.4884" Y="5684.145" Z="2.243549" />
+<Hotspot X="-108.9801" Y="5630.406" Z="6.597999" />
+<Hotspot X="-88.26564" Y="5607.82" Z="1.690206" />
+<Hotspot X="-24.92932" Y="5632.157" Z="0.1647323" />
+<Hotspot X="13.37575" Y="5586.438" Z="-1.233814" />
+<Hotspot X="47.48014" Y="5607.161" Z="0.5868292" />
+        </HuntingGrounds>
+      </CustomBehavior>
+      <CustomBehavior File="InteractWith" MobId="136822" TerminateWhen="!OnQuest || IsObjectiveComplete(3, 42019)">
+        <HuntingGrounds>
+          <Hotspot X="175.4247" Y="5708.918" Z="1.300927" />
+<Hotspot X="173.3635" Y="5737.611" Z="0.6626369" />
+<Hotspot X="163.7462" Y="5775.572" Z="1.369681" />
+<Hotspot X="192.5377" Y="5769.977" Z="2.465408" />
+<Hotspot X="-37.51434" Y="5752.046" Z="7.765353" />
+<Hotspot X="-55.63121" Y="5812.35" Z="3.814109" />
+<Hotspot X="-119.5149" Y="5750.829" Z="0.4687273" />
+<Hotspot X="-101.5959" Y="5718.772" Z="0.7180257" />
+<Hotspot X="-100.4884" Y="5684.145" Z="2.243549" />
+<Hotspot X="-108.9801" Y="5630.406" Z="6.597999" />
+<Hotspot X="-88.26564" Y="5607.82" Z="1.690206" />
+<Hotspot X="-24.92932" Y="5632.157" Z="0.1647323" />
+<Hotspot X="13.37575" Y="5586.438" Z="-1.233814" />
+<Hotspot X="47.48014" Y="5607.161" Z="0.5868292" />
+        </HuntingGrounds>
+      </CustomBehavior>
+      <CustomBehavior File="InteractWith" MobId="239774" TerminateWhen="!OnQuest || IsObjectiveComplete(2, 42019)">
+        <HuntingGrounds>
+          <Hotspot X="175.4247" Y="5708.918" Z="1.300927" />
+<Hotspot X="173.3635" Y="5737.611" Z="0.6626369" />
+<Hotspot X="163.7462" Y="5775.572" Z="1.369681" />
+<Hotspot X="192.5377" Y="5769.977" Z="2.465408" />
+<Hotspot X="-37.51434" Y="5752.046" Z="7.765353" />
+<Hotspot X="-55.63121" Y="5812.35" Z="3.814109" />
+<Hotspot X="-119.5149" Y="5750.829" Z="0.4687273" />
+<Hotspot X="-101.5959" Y="5718.772" Z="0.7180257" />
+<Hotspot X="-100.4884" Y="5684.145" Z="2.243549" />
+<Hotspot X="-108.9801" Y="5630.406" Z="6.597999" />
+<Hotspot X="-88.26564" Y="5607.82" Z="1.690206" />
+<Hotspot X="-24.92932" Y="5632.157" Z="0.1647323" />
+<Hotspot X="13.37575" Y="5586.438" Z="-1.233814" />
+<Hotspot X="47.48014" Y="5607.161" Z="0.5868292" />
+        </HuntingGrounds>
+      </CustomBehavior>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
