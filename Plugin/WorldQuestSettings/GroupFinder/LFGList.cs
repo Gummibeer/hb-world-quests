@@ -221,7 +221,7 @@ return unpack(results)";
         /// <param name="application"></param>
         public static void ApplyToGroup(SearchResultInfo application)
         {
-            Log($"Applying to Group {application} on {application.Realm} (AutoInvite: {application.AutoInvite})");
+            Log($"Applying to Group {application.Name} on {application.Realm} (AutoInvite: {application.AutoInvite})");
             ApplyToGroup(application.Id);
         }
 
@@ -232,7 +232,7 @@ return unpack(results)";
         public static void ApplyToGroup(SearchResultInfo application, string comment)
         {
             Log(
-                $"Applying to Group {application} on {application.Realm} (AutoInvite: {application.AutoInvite}), (Comment {comment})");
+                $"Applying to Group {application.Name} on {application.Realm} (AutoInvite: {application.AutoInvite}), (Comment {comment})");
             ApplyToGroup(application.Id, comment);
         }
 
@@ -410,6 +410,8 @@ return unpack(results)";
                     return ApplicationState.Declined;
                 case "invitedeclined":
                     return ApplicationState.InviteDeclined;
+                case "declined_delisted":
+                    return ApplicationState.DeclinedDelisted;
                 default:
                 {
                     Log($"{application} not listed as a state");
@@ -496,7 +498,8 @@ return unpack(results)";
         InviteAccepted,
         Declined,
         InviteDeclined,
-        None
+        None,
+        DeclinedDelisted
     }
 
     public class CategoryInfo

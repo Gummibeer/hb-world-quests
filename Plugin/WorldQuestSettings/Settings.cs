@@ -170,6 +170,13 @@ namespace WorldQuestSettings
         [Styx.Helpers.DefaultValue(true)]
         public bool Dalaran { get; set; }
 
+        [Setting]
+        [Category("Zone")]
+        [DisplayName("Broken Shore")]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool BrokenShore { get; set; }
+
+
         #endregion
 
         #region factions
@@ -215,6 +222,12 @@ namespace WorldQuestSettings
         [DisplayName("Valarjar")]
         [Styx.Helpers.DefaultValue(true)]
         public bool Valarjar { get; set; }
+
+        [Setting]
+        [Category("Faction")]
+        [DisplayName("Armies of Legionfall")]
+        [Styx.Helpers.DefaultValue(true)]
+        public bool Legionfall { get; set; }
 
         [Setting]
         [Category("Faction")]

@@ -117,8 +117,9 @@ namespace WorldQuestSettings.GroupFinder
         private static void ResultsReceived(object sender, LuaEventArgs args)
         {
             if (!Setting) return;
+            if(_currentQuestId == 0) return;
             if (_currentIsBlacklisted) return;
-
+            
             Log("LFG_LIST_SEARCH_RESULTS_RECEIVED");
 
             var results = LfgList.GetSearchResults;
