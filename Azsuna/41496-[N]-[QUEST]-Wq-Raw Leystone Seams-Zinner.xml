@@ -1,5 +1,5 @@
 <HBProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>[WQ] Raw Leystone Seams WorldQuest Zinner ($Rev: 1030 $)</Name>
+  <Name>[WQ] Raw Leystone Seams WorldQuest Zinner ($Rev$)</Name>
   <MinDurability>0.3</MinDurability>
   <MinFreeBagSlots>3</MinFreeBagSlots>
   <SellGrey>true</SellGrey>

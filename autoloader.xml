@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[WQ] World Quest Auto Loader ($Rev: 0 $)</Name>
+  <Name>[WQ] World Quest Auto Loader ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>110</MinLevel>

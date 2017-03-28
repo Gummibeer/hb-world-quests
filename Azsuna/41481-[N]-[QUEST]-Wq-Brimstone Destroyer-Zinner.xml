@@ -1,5 +1,5 @@
 <HBProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>41481-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner.xml ($Rev: 1030 $)</Name>
+  <Name>41481-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner.xml ($Rev$)</Name>
   <MinDurability>0.3</MinDurability>
   <MinFreeBagSlots>3</MinFreeBagSlots>
   <SellGrey>true</SellGrey>
