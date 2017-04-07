@@ -76,6 +76,18 @@ namespace WorldQuestSettings
 
         [Setting]
         [Category("Hard Quests")]
+        [DisplayName("Do Invasion Quests")]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool EliteInvasion { get; set; }
+
+        [Setting]
+        [Category("Hard Quests")]
+        [DisplayName("Do Elite Invasion Elite Quests")]
+        [Styx.Helpers.DefaultValue(false)]
+        public bool Invasion { get; set; }
+
+        [Setting]
+        [Category("Hard Quests")]
         [DisplayName("Do Pet Battle Quests")]
         [Description("Requires a pet battle plugin like Pairidaeza")]
         [Styx.Helpers.DefaultValue(false)]
@@ -227,7 +239,7 @@ namespace WorldQuestSettings
         [Category("Faction")]
         [DisplayName("Armies of Legionfall")]
         [Styx.Helpers.DefaultValue(true)]
-        public bool Legionfall { get; set; }
+        public bool ArmiesOfLegionfall { get; set; }
 
         [Setting]
         [Category("Faction")]
