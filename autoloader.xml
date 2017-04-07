@@ -47,125 +47,140 @@
   </Vendors>
   <QuestOrder>
     <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public class Settings : Styx.Helpers.Settings
+{
+    public static readonly string _settingsPath = Path.Combine(CharacterSettingsDirectory, "Profiles", "NuokWorldQuestSettings.xml");
+    private static Settings _instance;
+    public static Settings Instance => _instance ?? (_instance = new Settings());
+    public Settings() : base(_settingsPath)
     {
-        public static readonly string _settingsPath = Path.Combine(CharacterSettingsDirectory, "Profiles", "NuokWorldQuestSettings.xml");
-        private static Settings _instance;
-        public static Settings Instance => _instance ?? (_instance = new Settings());
-        public Settings() : base(_settingsPath)
-        {
-        }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool DoWanted { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool DoPvP { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool DoDangerQuests { get; set; }
-        [Setting]   
-        [Styx.Helpers.DefaultValue(false)]
-        public bool DoRare { get; set; }
-        [Setting]   
-        [Styx.Helpers.DefaultValue(false)]
-        public bool DoElite { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool DoWorldBosses { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool DoProfessions { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool DoWorkOrders { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool ArtifactPower { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Equipment { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Blood { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool OrderHall { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Gold { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Items { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Azsuna { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Valsharah { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Stormheim { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Suramar { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Highmountain { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool EyeofAzshara { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Dalaran { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool TheWardens { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool CourtOfFarondis { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool KirinTor { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool HighmountainTribe { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool TheNightfallen { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Valarjar { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool EmissaryFirst { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool Dreamweavers { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool SkipHBRelog { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool SVNUpdate { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(true)]
-        public bool LoopProfile { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool WQGF { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(3)]
-        public int WQGFMin { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(10)]
-        public int WQGFMax { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool DoPetBattles { get; set; }
-        [Setting]
-        [Styx.Helpers.DefaultValue(false)]
-        public bool UseArtifact { get; set; }
     }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool DoWanted { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool DoPvP { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool DoDangerQuests { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool DoRare { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool DoElite { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool DoWorldBosses { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool DoProfessions { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool DoWorkOrders { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool ArtifactPower { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Equipment { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Blood { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool OrderHall { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Gold { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Items { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Azsuna { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Valsharah { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Stormheim { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Suramar { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Highmountain { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool EyeofAzshara { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Dalaran { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool BrokenShore { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool ArmiesOfLegionfall { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool TheWardens { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool CourtOfFarondis { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool KirinTor { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool HighmountainTribe { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool TheNightfallen { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Valarjar { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Legionfall { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool EmissaryFirst { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool Dreamweavers { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool SkipHBRelog { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool SVNUpdate { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(true)]
+    public bool LoopProfile { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool WQGF { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(3)]
+    public int WQGFMin { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(10)]
+    public int WQGFMax { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool DoPetBattles { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool UseArtifact { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool EliteInvasion { get; set; }
+    [Setting]
+    [Styx.Helpers.DefaultValue(false)]
+    public bool Invasion { get; set; }
+}
 
     public class WorldQuest
     {
@@ -176,41 +191,98 @@
             Name = s[1];
             Faction = (Emissary) Lua.ParseLuaValue<uint>(s[2]);
             Tag = (QuestTag) Lua.ParseLuaValue<int>(s[3]);
-            RewardType = (RewardType) reward(QuestId);
+            Reward = new RewardInfo(QuestId);
         }
 
         public uint QuestId { get; }
         public Emissary Faction { get; }
         public string Name { get; }
         public QuestTag Tag { get; }
-        public RewardType RewardType { get; }
+        public RewardInfo Reward { get; }
 
-        private uint reward(uint questId)
+        public class RewardInfo
         {
-            var questLua = $@"local numQuestCurrencies = GetNumQuestLogRewardCurrencies({ questId})
-            local money = GetQuestLogRewardMoney({ questId})
-            local artifactXP = GetQuestLogRewardArtifactXP({ questId})
-            local numQuestRewards = GetNumQuestLogRewards({ questId})
-            if numQuestCurrencies > 0 then return 5; end
-            if money > 0 then return 1; end
-            if artifactXP > 0 then return 2; end
-            if numQuestRewards > 0 then
-                local name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(1, { questId})
-                if itemID == 124124 then return 4; end
-                local itemName, itemLink, _, _, _, itemType, itemSubType = GetItemInfo(itemID)
-                local GameTooltipFrame = CreateFrame ('GameTooltip', 'WorldQuestTrackerScanTooltip', nil, 'GameTooltipTemplate')
-                local GameTooltipFrameTextLeft1 = _G ['WorldQuestTrackerScanTooltipTextLeft2']
-                GameTooltipFrame:SetOwner (WorldFrame, 'ANCHOR_NONE')
-                GameTooltipFrame: SetHyperlink(itemLink)
-                local text = GameTooltipFrameTextLeft1:GetText()
-                if (text ~= nil and text:match('cFFE6CC80')) then return 2; end
-                if (itemName ~= nil and itemType == 'Armor') then return 6; end
-                if (itemName ~= nil and itemSubType == 'Artifact Relic') then return 6; end
-                return 3; end
-            return 0; ";
-            return Lua.GetReturnVal<uint>(questLua, 0);
+            public RewardInfo(uint questId)
+            {
+                Gold = Lua.GetReturnVal<uint>($"return GetQuestLogRewardMoney({questId});", 0) / 10000;
+                ArtifactXP = Lua.GetReturnVal<uint>($"return GetQuestLogRewardArtifactXP({questId});", 0);
+                var numCurrencies = Lua.GetReturnVal<int>($"return GetNumQuestLogRewardCurrencies({questId});", 0);
+                Currencies = new List<Currency>();
+                if(numCurrencies != 0)
+                    for (var i = 1; i <= numCurrencies; i++)
+                        Currencies.Add(new Currency(questId, i));
+                var numItems = Lua.GetReturnVal<int>($"return GetNumQuestLogRewards({questId});", 0);
+                Items = new List<Item>();
+                if(numItems != 0)
+                    for (var i = 1; i <= numItems; i++)
+                        Items.Add(new Item(questId, i));
+            }
+            public uint Gold { get; }
+            public uint ArtifactXP { get; }
+            public List<Currency> Currencies { get; }
+            public List<Item> Items { get; }
+
+            public override string ToString()
+            {
+                string s = "Rewards ";
+                if (Gold > 0) s += $"Gold {Gold}, ";
+                if (ArtifactXP > 0) s += $"ArtifactXP {ArtifactXP}, ";
+                foreach (var c in Currencies)
+                    s += $"{c.Name} ({c.CurrencyId}) x{c.Count}, ";
+                foreach (var i in Items)
+                {
+                    if (i.IsArftifactPower)
+                        s += $"{i.Name} Articaft Power";
+                    else if (i.Count > 1)
+                        s += $"{i.Name} x{i.Count}, ";
+                    else
+                        s += $"{i.Name}, ";
+                }
+                return s;
+            }
+
+            public class Currency
+            {
+                public Currency(uint questId, int index)
+                {
+                    //dump GetQuestLogRewardCurrencyInfo(2, 46183)
+                    var info = Lua.GetReturnValues($"return GetQuestLogRewardCurrencyInfo({index}, {questId});");
+                    Name = info[0];
+                    Texture = info[1];
+                    Count = Lua.ParseLuaValue<uint>(info[2]);
+                    CurrencyId = Lua.ParseLuaValue<uint>(info[3]);
+                }
+                public string Name { get; }
+                public string Texture { get; }
+                public uint Count { get; }
+                public uint CurrencyId { get; }
+            }
+
+            public class Item
+            {
+                public Item(uint questId, int index)
+                {
+                    var info = Lua.GetReturnValues($"return GetQuestLogRewardInfo({index}, {questId});");
+                    Name = info[0];
+                    Texture = info[1];
+                    Count = Lua.ParseLuaValue<int>(info[2]);
+                    Quality = Lua.ParseLuaValue<int>(info[3]);
+                    IsUsable = Lua.ParseLuaValue<bool>(info[4]);
+                    ItemId = Lua.ParseLuaValue<uint>(info[5]);
+                    IsArftifactPower = Lua.GetReturnVal<bool>($"return IsArtifactPowerItem({ItemId});", 0);
+                }
+                public string Name { get; }
+                public string Texture { get; }
+                public int Count { get; }
+                public int Quality { get; }
+                public uint ItemId { get; }
+                public bool IsUsable { get; }
+                public bool IsArftifactPower { get; }
+            }
         }
     }
+
+
 
     public enum QuestTag
     {
@@ -234,17 +306,9 @@
         RareWorldQuest = 135,
         RareEliteWorldQuest = 136,
         DungeonWorldQuest = 137,
-    }
-
-    public enum RewardType
-    {
-        Error = 0,
-        Gold = 1,
-        ArtifactPower = 2,
-        Items = 3,
-        Blood = 4,
-        OrderHall = 5,
-        Equipment = 6
+        LegionInvasionWorldQuest = 139,
+        RaidWorldQuest = 141,
+        LegionInvasionEliteWorldQuest = 142,
     }
 
     public enum Emissary
@@ -256,7 +320,8 @@
         KirinTor = 1090,
         HighmountainTribe = 1828,
         TheNightfallen = 1859,
-        Valarjar = 1948
+        Valarjar = 1948,
+        ArmiesOfLegionfall = 2045,
     }
 
     public void UpdateWorldQuests()
@@ -266,6 +331,7 @@
             for zoneIndex = 1, C_MapCanvas.GetNumZones(1007) do
                 local zoneMapID, _, zoneDepth = C_MapCanvas.GetZoneInfo(1007, zoneIndex);
                 if zoneDepth <= 1 then
+                    SetMapByID(zoneMapID);
                     local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(zoneMapID, 1007);
                     if (taskInfo) then
                         for i, info  in ipairs(taskInfo) do
@@ -274,7 +340,7 @@
                                     local title, factionId = C_TaskQuest.GetQuestInfoByQuestID(info.questId)
                                     if (factionId == nil) then factionId = 0; end
                                     local tagID = GetQuestTagInfo(info.questId);
-                                    if(tagID == nil) then tagID = 109; end
+                                    if(tagID == nil) then tagID = 1; end
                                     local quest = info.questId..""$""..title..""$""..factionId..""$""..tagID
                                     tinsert(ids, quest)
                                     end
@@ -289,7 +355,7 @@
         WorldQuests = list.Select(q => new WorldQuest(q)).ToList();
         foreach (var q in WorldQuests)
         {
-            Logging.WriteDiagnostic($"Found {q.Name} ({q.QuestId}) - {q.Tag} - {q.Faction} - {q.RewardType}");
+            Logging.WriteDiagnostic($"Found {q.Name} ({q.QuestId}) - {q.Tag} - {q.Faction} - {q.Reward}");
         }
     }
 
@@ -313,12 +379,12 @@
             Log($"We Dont Currently Have a Profile for {q.Name} ({q.QuestId})");
     }
 
-     public bool DoQuest(uint questId)
+    public bool DoQuest(uint questId)
     {
         if (!CodedProfiles.Contains(questId)) CodedProfiles.Add(questId);
         var quest = WorldQuests.FirstOrDefault(q => q.QuestId == questId);
         if (quest == null) return false;
-        var s = Settings.Instance;
+        var s = Settings.Instance;    
 
         if (quest.Tag == QuestTag.RareEliteWorldQuest && !s.DoElite)
         {
@@ -344,34 +410,37 @@
             return false;
         }
 
-        if (quest.RewardType == RewardType.ArtifactPower && !s.ArtifactPower)
+        if (quest.Reward.ArtifactXP > 0 && !s.ArtifactPower)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} - Rewards ArtifactPower Disabled");
             return false;
         }
-        if (quest.RewardType == RewardType.Blood && !s.Blood)
+
+        if (quest.Reward.Items.Any(i => i.IsArftifactPower) && !s.ArtifactPower)
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards ArtifactPower Disabled");
+            return false;
+        }
+
+        if (quest.Reward.Items.Any(i => i.ItemId == 124124) && !s.Blood)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} - Rewards Blood Disabled");
             return false;
         }
-        if (quest.RewardType == RewardType.Equipment && !s.Equipment)
-        {
-            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards Equipment Disabled");
-            return false;
-        }
-        if (quest.RewardType == RewardType.Gold && !s.Gold)
+        if (quest.Reward.Gold > 0 && !s.Gold)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} - Rewards Gold Disabled");
             return false;
         }
-        if (quest.RewardType == RewardType.Items && !s.Items)
+        if (quest.Reward.Items.Count > 0 && !s.Items)
         {
             Log($"Skipping {quest.Name} {quest.QuestId} - Rewards Items Disabled");
             return false;
         }
-        if (quest.RewardType == RewardType.OrderHall && !s.OrderHall)
+
+        if(quest.Reward.Currencies.Any(c => c.CurrencyId == 1220))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - Rewards OrderHall Disabled");
+            Log($"Skipping {quest.Name} {quest.QuestId} - Order Hall Resources Disabled");
             return false;
         }
 
@@ -384,80 +453,101 @@
         if (quest.Tag == QuestTag.BattlePetWorldQuest && s.DoPetBattles)
             return true;
 
+        if (quest.Tag == QuestTag.LegionInvasionEliteWorldQuest && !s.EliteInvasion)
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} - Elite Invasions Disabled");
+        }
+
+        if (quest.Tag == QuestTag.LegionInvasionWorldQuest && !s.Invasion)
+        {
+            Log($"Skipping {quest.Name} {quest.QuestId} - {quest.Tag} - Elite Invasions Disabled");
+        }
+
         if (quest.Tag == QuestTag.AlchemyWorldQuest &&
             (Me.GetSkill(SkillLine.Alchemy).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - AlchemyWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Alchemy).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - AlchemyWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Alchemy).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.SkinningWorldQuest &&
             (Me.GetSkill(SkillLine.Skinning).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - SkinningWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Skinning).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - SkinningWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Skinning).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.BlacksmithingWorldQuest &&
             (Me.GetSkill(SkillLine.Blacksmithing).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - BlacksmithingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Blacksmithing).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - BlacksmithingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Blacksmithing).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.EnchantingWorldQuest &&
             (Me.GetSkill(SkillLine.Enchanting).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - EnchantingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Blacksmithing).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - EnchantingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Blacksmithing).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.CookingWorldQuest &&
             (Me.GetSkill(SkillLine.Cooking).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - CookingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Cooking).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - CookingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Cooking).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.FishingWorldQuest &&
             (Me.GetSkill(SkillLine.Fishing).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - FishingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Fishing).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - FishingWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Fishing).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.EngineeringWorldQuest &&
             (Me.GetSkill(SkillLine.Engineering).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - EngineeringWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Engineering).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - EngineeringWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Engineering).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.HerbalismWorldQuest &&
             (Me.GetSkill(SkillLine.Herbalism).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - HerbalismWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Herbalism).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - HerbalismWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Herbalism).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.JewelcraftingWorldQuest &&
             (Me.GetSkill(SkillLine.Jewelcrafting).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - HerbalismWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Herbalism).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - HerbalismWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Herbalism).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.MiningWorldQuest &&
             (Me.GetSkill(SkillLine.Mining).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - MiningWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Mining).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - MiningWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Mining).CurrentValue}");
             return false;
         }
 
         if (quest.Tag == QuestTag.TailoringWorldQuest &&
             (Me.GetSkill(SkillLine.Tailoring).CurrentValue < 100 || !s.DoProfessions))
         {
-            Log($"Skipping {quest.Name} {quest.QuestId} - TailoringWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Tailoring).CurrentValue}");
+            Log(
+                $"Skipping {quest.Name} {quest.QuestId} - TailoringWorldQuest - DoProfessions {s.DoProfessions} - CurrentSkillLevel {Me.GetSkill(SkillLine.Tailoring).CurrentValue}");
             return false;
         }
 
@@ -562,9 +652,11 @@
             }
         }
 
+        if (quest.Faction == Emissary.ArmiesOfLegionfall && !s.Legionfall)
+            return false;
+
         return true;
     }
-
 
     public bool HasPlugin => PluginManager.Plugins.FirstOrDefault(p => p.Name == "WorldQuestHelper") != null;
 
@@ -584,7 +676,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(3, 0, 1352);
+        var latestVersion = new Version(3, 0, 1538);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -611,9 +703,11 @@
         if(zoneId ==  1024)
             return Settings.Instance.Highmountain;
         if(zoneId ==  1096)
-                return Settings.Instance.EyeofAzshara;
+            return Settings.Instance.EyeofAzshara;
         if(zoneId ==  1014)
-                return Settings.Instance.Dalaran;
+            return Settings.Instance.Dalaran;
+        if(zoneId ==  1021)
+            return Settings.Instance.BrokenShore;
         return false;
     }
 
@@ -708,35 +802,11 @@
     <CustomBehavior File="RunCode" Code="Log(&quot;Welcome To The Community World Quest Project&quot;);" />
     <CustomBehavior File="RunCode" Code="Log(&quot;~Created by~&quot;);" />
     <CustomBehavior File="RunCode" Code="Log(&quot;Zinner, WiN, Staal, Pellepylly, Codex, tsatsa, Nuok&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log(&quot;~Credit to~&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log(&quot;Echo, Apoc, and everyone else that has helped&quot;);" />
     <If Condition="Settings.Instance.SVNUpdate">
       <CustomBehavior File="RunCode" Code="Log(&quot;Updating WQ profiles from the SVN..&quot;);" />
       <CustomBehavior File="RunCode"><![CDATA[if(File.Exists(@"Default Profiles\\world-quests\\Utilities\\updater.bat")) Process.Start(@"Default Profiles\\world-quests\\Utilities\\updater.bat");]]></CustomBehavior>
       <CustomBehavior File="WaitTimer" WaitTime="5000" />
     </If>
-    <CustomBehavior File="RunCode" Code="UpdateWorldQuests(); Settings.Instance.Load();" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Current Settings&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;WQGF {Settings.Instance.WQGF}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Hard Quests&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;DoWanted {Settings.Instance.DoWanted} - DoDangerQuests {Settings.Instance.DoDangerQuests} - DoElite {Settings.Instance.DoElite} - DoPvP {Settings.Instance.DoPvP}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Professions&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;DoProfessions {Settings.Instance.DoProfessions} - DoWorkOrders {Settings.Instance.DoWorkOrders}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Zone&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Azsuna {Settings.Instance.Azsuna} - Valsharah {Settings.Instance.Valsharah} - Stormheim {Settings.Instance.Stormheim} - Suramar {Settings.Instance.Suramar}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Highmountain {Settings.Instance.Highmountain} - EyeofAzshara {Settings.Instance.EyeofAzshara} - Dalaran {Settings.Instance.Dalaran}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Faction&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;EmissaryFirst {Settings.Instance.EmissaryFirst}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;TheWardens {Settings.Instance.TheWardens} - CourtOfFarondis {Settings.Instance.CourtOfFarondis} - KirinTor {Settings.Instance.KirinTor} - HighmountainTribe {Settings.Instance.HighmountainTribe}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Dreamweavers {Settings.Instance.Dreamweavers} - TheNightfallen {Settings.Instance.TheNightfallen} - Valarjar {Settings.Instance.Valarjar}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;Rewards&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;ArtifactPower {Settings.Instance.ArtifactPower} - Equipment {Settings.Instance.Equipment} - Items {Settings.Instance.Items} - Blood of Sargeras {Settings.Instance.Blood}&quot;);" />
-    <CustomBehavior File="RunCode" Code="Log($@&quot;OrderHall {Settings.Instance.OrderHall} - Gold {Settings.Instance.Gold}&quot;);" />
-    <If Condition="!HasPlugin">
-      <CustomBehavior File="UserDialog" StopOnContinue="true" AllowBotStop="true" Title="Missing Settings Plugin" Text="We couldn't find the plugin,\n Please make sure you have copied the folder 'WorldQuestSettings' from \Default Profiles\world-quests\Plugin to Honorbuddy 3\Plugins and restart the bot" />
-    </If>
-    <CustomBehavior File="RunCode" Code="Log($&quot;Plugin Upto Date {PluginUptoDate()}&quot;);" />
-    <CustomBehavior File="RunCode" Code="LogEmissaryQuests();" />
     <CustomBehavior File="RunCode" Code="EnablePlugin();" />
     <CustomBehavior File="RunCode" Code="UpdateWorldQuests(); Settings.Instance.Load();" />
     <CustomBehavior File="WaitTimer" WaitTime="1000" />
@@ -807,6 +877,65 @@
         <CustomBehavior File="LoadProfile" ProfileName="Dalaran\42442-[N]-[QUEST]-PETBATTLE-Wq-Fight_Night_Amalia-Zinner" RememberProfile="false" />
       </If>
     </If>
+    <If Condition="ZoneEnabled(1021)">
+      <!--BrokenShore-->
+      <If Condition="DoQuest(44751)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 44751-[N]-[QUEST]-Wq-No Soldier Left Behind-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\44751-[N]-[QUEST]-Wq-No Soldier Left Behind-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45520)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45520-[N]-[QUEST]-Wq-Behind Enemy Portals-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\45520-[N]-[QUEST]-Wq-Behind Enemy Portals-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45791)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45791-[N]-[QUEST]-Wq-War Materiel-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\45791-[N]-[QUEST]-Wq-War Materiel-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45970)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45970-[N]-[QUEST]-Wq-Duty's End-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\45970-[N]-[QUEST]-Wq-Duty's End-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45985)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45985-[N]-[QUEST]-Wq-Hellish Scavengers-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\45985-[N]-[QUEST]-Wq-Hellish Scavengers-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45988)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45988-[N]-[QUEST]-Wq-Ancient Bones-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\45988-[N]-[QUEST]-Wq-Ancient Bones-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46111)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46111-[N]-[QUEST]-PETBATTLE-Wq-Illidari Masters Sissix-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46111-[N]-[QUEST]-PETBATTLE-Wq-Illidari Masters Sissix-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46112)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46112-[N]-[QUEST]-PETBATTLE-Wq-Illidari Masters Madam Viciosa-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46112-[N]-[QUEST]-PETBATTLE-Wq-Illidari Masters Madam Viciosa-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46113)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46113-[N]-[QUEST]-PETBATTLE-Wq-Illidari Masters Nameless Mystic-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46113-[N]-[QUEST]-PETBATTLE-Wq-Illidari Masters Nameless Mystic-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46160)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46160-[N]-[QUEST]-Wq-The Shackled Void-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46160-[N]-[QUEST]-Wq-The Shackled Void-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46180)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46180-[N]-[QUEST]-Wq-Power of Our Enemy-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46180-[N]-[QUEST]-Wq-Power of Our Enemy-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46236)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46236-[N]-[QUEST]-Wq-Stonebound Soldiers-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46236-[N]-[QUEST]-Wq-Stonebound Soldiers-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46932)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46932-[N]-[QUEST]-Wq-a-tad-more-corruption-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46932-[N]-[QUEST]-Wq-a-tad-more-corruption-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46942)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46942-[N]-[QUEST]-Wq-The Cost of Power-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46942-[N]-[QUEST]-Wq-The Cost of Power-Zinner" RememberProfile="false" />
+      </If>
+    </If>
     <If Condition="ZoneEnabled(1015)">
       <!--Azsuna-->
       <If Condition="DoQuest(41259)">
@@ -852,6 +981,10 @@
       <If Condition="DoQuest(41455)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41455-[N]-[QUEST]-Gleaming Leystone Outcropping-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41455-[N]-[QUEST]-Gleaming Leystone Outcropping-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41481)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41481-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\41481-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41482)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41482-[N]-[QUEST]-Wq-Brimstone Destroyer-Zinner&quot;);" />
@@ -1305,12 +1438,40 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45069-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Azsuna\45069-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(45134)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45134-[N]-[QUEST]-Wq-INVASION-The Soul Harvesters-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\45134-[N]-[QUEST]-Wq-INVASION-The Soul Harvesters-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45203)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45203-[N]-[QUEST]-Wq-INVASION-Battle for the Ruins-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\45203-[N]-[QUEST]-Wq-INVASION-Battle for the Ruins-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46146)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46146-[N]-[QUEST]-Wq-INVASION-The Burning Shores-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\46146-[N]-[QUEST]-Wq-INVASION-The Burning Shores-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46165)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46165-[N]-[QUEST]-Wq-INVASION-Kazruul-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\46165-[N]-[QUEST]-Wq-INVASION-Kazruul-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46168)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46168-[N]-[QUEST]-Wq-INVASION-Commander Vorlax-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\46168-[N]-[QUEST]-Wq-INVASION-Commander Vorlax-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46263)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46263-[N]-[QUEST]-Wq-INVASION-Weaving Fel Webs-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Azsuna\46263-[N]-[QUEST]-Wq-INVASION-Weaving Fel Webs-Zinner" RememberProfile="false" />
+      </If>
     </If>
     <If Condition="ZoneEnabled(1018)">
       <!--Valshara-->
       <If Condition="DoQuest(40279)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 40279-[N]-[QUEST]-PETBATTLE-Wq-Training with Durian-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Valshara\40279-[N]-[QUEST]-PETBATTLE-Wq-Training with Durian-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41270)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41270-[N]-[QUEST]-Wq-Huge_Mossgill_Perch-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Valshara\41270-[N]-[QUEST]-Wq-Huge_Mossgill_Perch-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41273)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41273-[N]-[QUEST]-Wq-Buoy Fishing-Zinner&quot;);" />
@@ -2167,6 +2328,22 @@
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45071-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Highmountain\45071-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
       </If>
+      <If Condition="DoQuest(46183)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46183-[N]-[QUEST]-Wq-INVASION-Commander Zarthak-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\46183-[N]-[QUEST]-Wq-INVASION-Commander Zarthak-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46189)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46189-[N]-[QUEST]-Wq-INVASION-Shel'zuul-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\46189-[N]-[QUEST]-Wq-INVASION-Shel'zuul-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46194)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46194-[N]-[QUEST]-Wq-INVASION-Wolves of the Legion-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\46194-[N]-[QUEST]-Wq-INVASION-Wolves of the Legion-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46197)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46197-[N]-[QUEST]-Wq-INVASION-From the Skies They Fel-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Highmountain\46197-[N]-[QUEST]-Wq-INVASION-From the Skies They Fel-Zinner" RememberProfile="false" />
+      </If>
     </If>
     <If Condition="ZoneEnabled(1017)">
       <!--Stormheim-->
@@ -2185,6 +2362,10 @@
       <If Condition="DoQuest(41296)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41296-[N]-[QUEST]-Wq-Fjarnskaggl Cluster-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41296-[N]-[QUEST]-Wq-Fjarnskaggl Cluster-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(41299)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41299-[N]-[QUEST]-Wq-Flourishing Fjarnskaggl-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\41299-[N]-[QUEST]-Wq-Flourishing Fjarnskaggl-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(41300)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 41300-[N]-[QUEST]-Wq-Singed Fjarnskaggl-Zinner&quot;);" />
@@ -2597,6 +2778,26 @@
       <If Condition="DoQuest(45072)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45072-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="Stormheim\45072-[N]-[QUEST]-Barrels o' Fun-WQ-Nuok" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(45439)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 45439-[N]-[QUEST]-Wq-INVASION-An Invasion of... Murlocs-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\45439-[N]-[QUEST]-Wq-INVASION-An Invasion of... Murlocs-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46008)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46008-[N]-[QUEST]-Wq-INVASION-Balnazothl-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\46008-[N]-[QUEST]-Wq-INVASION-Balnazothl-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46015)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46015-[N]-[QUEST]-Wq-INVASION-Idra'zuul-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\46015-[N]-[QUEST]-Wq-INVASION-Idra'zuul-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46216)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46216-[N]-[QUEST]-Wq-INVASION-Congealed Corruption-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\46216-[N]-[QUEST]-Wq-INVASION-Congealed Corruption-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46264)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46264-[N]-[QUEST]-Wq-INVASION-Their Eyes Are Upon Us-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="Stormheim\46264-[N]-[QUEST]-Wq-INVASION-Their Eyes Are Upon Us-Zinner" RememberProfile="false" />
       </If>
     </If>
     <If Condition="ZoneEnabled(1033)">
