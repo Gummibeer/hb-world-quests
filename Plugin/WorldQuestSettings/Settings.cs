@@ -76,13 +76,13 @@ namespace WorldQuestSettings
 
         [Setting]
         [Category("Hard Quests")]
-        [DisplayName("Do Invasion Quests")]
+        [DisplayName("Do Elite Invasion Quests")]
         [Styx.Helpers.DefaultValue(false)]
         public bool EliteInvasion { get; set; }
 
         [Setting]
         [Category("Hard Quests")]
-        [DisplayName("Do Elite Invasion Elite Quests")]
+        [DisplayName("Do Invasion Quests")]
         [Styx.Helpers.DefaultValue(false)]
         public bool Invasion { get; set; }
 
