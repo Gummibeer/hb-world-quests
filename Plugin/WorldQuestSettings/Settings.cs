@@ -17,8 +17,6 @@ namespace WorldQuestSettings
 
         public static Settings Instance => _instance ?? (_instance = new Settings());
 
-
-
         [Setting]
         [Category("WQGF")]
         [DisplayName("Auto Group")]

@@ -13,7 +13,7 @@ namespace WorldQuestSettings.GroupFinder
 {
     internal class WQGF
     {
-        private const string WqgfComment = "WorldQuestGroupFinder User";
+        private static string WqgfComment => "WorldQuestGroupFinderUser-"+_currentQuestId;
         private static uint _currentQuestId;
         private static string _currentQuestName;
         private static bool _currentIsRaidQuest;
