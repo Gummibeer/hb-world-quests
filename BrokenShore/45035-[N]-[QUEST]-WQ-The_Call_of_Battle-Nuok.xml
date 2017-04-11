@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>[Nuok] The Call To Battle - WQ ($Rev: 1233 $)</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+  <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1021)
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1021)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 45035 then
+            return true;
+            end
+    end
+end
+return false;", 0);
+
+    public WoWUnit Defense => ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.IsValid && (u.Entry == 98819 || u.Entry == 120966 || u.Entry == 120963)).OrderBy(u => u.Distance).FirstOrDefault();
+
+    public async Task DoQuest()
+    {
+        while (OnQuest && !IsObjectiveComplete(2, 45035) && !Me.Combat)
+        {
+            if (Me.Combat) return;
+            var target = Defense;
+
+            if(target == null) continue;
+
+            while (target.Distance > 20 && target.IsValid && !Me.Combat)
+            {
+                var loc = new Vector3(target.Location.X, target.Location.Y, 0);
+                await CommonCoroutines.MoveTo(loc, target.ToString());
+                await CommonCoroutines.SleepForRandomUiInteractionTime();
+                await Coroutine.Yield();
+            }
+
+            if(StyxWoW.Me.CurrentTarget!= target && target.IsValid) 
+                target.Target();
+
+            var extraAction = Styx.CommonBot.Bars.ActionBar.Extra;
+            if (extraAction.IsActive && extraAction.Buttons[0].Id == 240828 && extraAction.Buttons[0].CanUse)
+            {
+                extraAction.Buttons[0].Use();
+                await Coroutine.Sleep(1000);
+                await CommonCoroutines.SleepForRandomUiInteractionTime();
+                await Coroutine.Yield();
+            }
+            await Coroutine.Yield();
+        }
+    }]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <RunTo X="-1215.791" Y="2263.189" Z="-0.3963221" />
+      <While Condition="!IsObjectiveComplete(2, 45035) &amp;&amp; OnQuest">
+        <CustomBehavior File="RunCode" Code="await DoQuest()" TerminateWhen="IsObjectiveComplete(2, 45035) || !OnQuest"/>
+      </While>
+      <CustomBehavior File="KillUntilComplete" MobId="116721" TerminateWhen="IsObjectiveComplete(3, 45035) || !OnQuest" X="-1230.016" Y="2371.666" Z="1.169556" />
+      <CustomBehavior File="KillUntilComplete" MobIds="121034, 121031, 120896" TerminateWhen="IsObjectiveComplete(1, 45035) || !OnQuest">
+        <HuntingGrounds>
+          <Hotspot X="-744.0672" Y="5900.255" Z="3.110456" />
+          <Hotspot X="-770.3879" Y="5734.849" Z="3.554172" />
+          <Hotspot X="-890.8293" Y="5754.699" Z="2.407771" />
+        </HuntingGrounds>
+      </CustomBehavior>
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
+      <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
