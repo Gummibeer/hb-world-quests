@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <HBProfile>
-  <Name>[WQ] World Quest Auto Loader ($Rev: 0 $)</Name>
+  <Name>[WQ] World Quest Auto Loader ($Rev$)</Name>
   <MinDurability>0.2</MinDurability>
   <MinFreeBagSlots>1</MinFreeBagSlots>
   <MinLevel>110</MinLevel>
@@ -43,6 +43,9 @@
     <Vendor Name="Javan Clawthorn" Type="Repair" Entry="92000" X="1951.083" Y="6912.71" Z="52.50054" />
     <Vendor Name="Anelas Moonstone" Type="Food" Entry="110531" X="2832.1" Y="6480.855" Z="206.4948" />
     <Vendor Name="Vassallorand Nightmist" Type="Repair" Entry="112629" X="2876.16" Y="6754.713" Z="219.5564" />
+    <Vendor Name="Falara Nightsong" Type="Repair" Entry="111324" X="-558.387" Y="2985.3" Z="41.6926" />
+    <Vendor Name="Fergus the Mighty" Type="Repair" Entry="120117" X="-1213.714" Y="2195.701" Z="0.7250597" />
+    <Vendor Name="Warmage Kath'leen" Type="Repair" Entry="120898" X="-1601.747" Y="3207.367" Z="129.4696" />
     <Vendor Name="Rhys Carrington" Type="Repair" Entry="93945" X="2817.958" Y="7264.667" Z="22.13581" />
   </Vendors>
   <QuestOrder>
@@ -312,6 +315,18 @@
         LegionfallWorldQuest = 144,
     }
 
+    public enum Zone
+    {
+        Azsuna = 1015,
+        Valshara = 1018,
+        Highmountain = 1024,
+        Stormheim = 1017,
+        Suramar = 1033,
+        Dalaran = 1014,
+        EyeOfAzshara = 1096,
+        BrokenShore = 1021
+    }
+
     public enum Emissary
     {
         None = 0,
@@ -325,39 +340,54 @@
         ArmiesOfLegionfall = 2045,
     }
 
-    public void UpdateWorldQuests()
+     public void UpdateWorldQuests()
     {
         WorldQuests.Clear();
-         var lua = @"local ids = {}
-            for zoneIndex = 1, C_MapCanvas.GetNumZones(1007) do
-                local zoneMapID, _, zoneDepth = C_MapCanvas.GetZoneInfo(1007, zoneIndex);
-                if zoneDepth <= 1 then
-                    SetMapByID(zoneMapID);
-                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(zoneMapID, 1007);
-                    if (taskInfo) then
-                        for i, info  in ipairs(taskInfo) do
-                            if HaveQuestData(info.questId) then
-                                if QuestUtils_IsQuestWorldQuest(info.questId) and WorldMap_DoesWorldQuestInfoPassFilters(info) then
-                                    local title, factionId = C_TaskQuest.GetQuestInfoByQuestID(info.questId)
-                                    if (factionId == nil) then factionId = 0; end
-                                    local tagID = GetQuestTagInfo(info.questId);
-                                    if(tagID == nil) then tagID = 1; end
-                                    local quest = info.questId..""$""..title..""$""..factionId..""$""..tagID
-                                    tinsert(ids, quest)
-                                    end
-                                end
+        var zones = new List<Zone>
+        {
+            Zone.Dalaran,
+            Zone.BrokenShore,
+            Zone.Azsuna,
+            Zone.Valshara,
+            Zone.Highmountain,
+            Zone.Stormheim,
+            Zone.Suramar,
+            Zone.EyeOfAzshara
+        };
+
+        foreach (var z in zones)
+            WorldQuests.AddRange(GetWorldQuestsByZone(z));
+    }
+
+    public List<WorldQuest> GetWorldQuestsByZone(Zone zone)
+    {
+        var l = new List<WorldQuest>();
+        var lua = $@"local ids = {{ }}
+            SetMapByID({(int)zone});
+            local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({(int)zone}, 1007);
+            if (taskInfo) then
+                for i, info  in ipairs(taskInfo) do
+                    if HaveQuestData(info.questId) then
+                        if QuestUtils_IsQuestWorldQuest(info.questId) and WorldMap_DoesWorldQuestInfoPassFilters(info) then
+                            local title, factionId = C_TaskQuest.GetQuestInfoByQuestID(info.questId)
+                            if (factionId == nil) then factionId = 0; end
+                            local tagID, _, worldQuestType = GetQuestTagInfo(info.questId);
+                            if (tagID == nil) then tagID = 109; end
+                            local quest = info.questId..""$""..title..""$""..factionId..""$""..tagID
+                            tinsert(ids, quest)
                             end
                         end
                     end
                 end
-                return unpack(ids)";
+        return unpack(ids)";
         var list = Lua.GetReturnValues(lua);
-        Log($"Found {list.Count} WorldQuests");
-        WorldQuests = list.Select(q => new WorldQuest(q)).ToList();
-        foreach (var q in WorldQuests)
+        Log($"Found {list.Count} WorldQuests in {zone}");
+        l = list.Select(q => new WorldQuest(q)).ToList();
+        foreach (var q in l)
         {
-            Logging.WriteDiagnostic($"Found {q.Name} ({q.QuestId}) - {q.Tag} - {q.Faction} - {q.Reward}");
+            Logging.WriteDiagnostic($"Found { q.Name} ({ q.QuestId}) - { q.Tag} - { q.Faction} - { q.Reward}");
         }
+        return l;
     }
 
     public static List<WorldQuest> WorldQuests = new List<WorldQuest>();
@@ -701,7 +731,7 @@
             Log("Couldn't find the WorldQuestHelper plugin!");
             return false;
         }
-        var latestVersion = new Version(3, 0, 1538);
+        var latestVersion = new Version(3, 1, 1588);
         if (plugin.Version == latestVersion) return true;
         Log($"---Plugin Update {latestVersion} available---");
         Log("There is an updated version of the WorldQuestHelper settings plugin");
@@ -832,6 +862,29 @@
       <CustomBehavior File="RunCode"><![CDATA[if(File.Exists(@"Default Profiles\\world-quests\\Utilities\\updater.bat")) Process.Start(@"Default Profiles\\world-quests\\Utilities\\updater.bat");]]></CustomBehavior>
       <CustomBehavior File="WaitTimer" WaitTime="5000" />
     </If>
+    <CustomBehavior File="RunCode" Code="UpdateWorldQuests(); Settings.Instance.Load();" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Current Settings&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;WQGF {Settings.Instance.WQGF}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Hard Quests&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;DoWanted {Settings.Instance.DoWanted} - DoDangerQuests {Settings.Instance.DoDangerQuests} - DoElite {Settings.Instance.DoElite} - DoPvP {Settings.Instance.DoPvP}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;EliteInvasion {Settings.Instance.EliteInvasion} - Invasion {Settings.Instance.Invasion}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Professions&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;DoProfessions {Settings.Instance.DoProfessions} - DoWorkOrders {Settings.Instance.DoWorkOrders}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Zone&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Azsuna {Settings.Instance.Azsuna} - Valsharah {Settings.Instance.Valsharah} - Stormheim {Settings.Instance.Stormheim} - Suramar {Settings.Instance.Suramar}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Highmountain {Settings.Instance.Highmountain} - EyeofAzshara {Settings.Instance.EyeofAzshara} - Dalaran {Settings.Instance.Dalaran} - BrokenShore {Settings.Instance.BrokenShore}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Faction&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;EmissaryFirst {Settings.Instance.EmissaryFirst}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;TheWardens {Settings.Instance.TheWardens} - CourtOfFarondis {Settings.Instance.CourtOfFarondis} - KirinTor {Settings.Instance.KirinTor} - HighmountainTribe {Settings.Instance.HighmountainTribe}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Dreamweavers {Settings.Instance.Dreamweavers} - TheNightfallen {Settings.Instance.TheNightfallen} - Valarjar {Settings.Instance.Valarjar} - ArmiesOfLegionfall {Settings.Instance.ArmiesOfLegionfall}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;Rewards&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;ArtifactPower {Settings.Instance.ArtifactPower} - Equipment {Settings.Instance.Equipment} - Items {Settings.Instance.Items} - Blood of Sargeras {Settings.Instance.Blood}&quot;);" />
+    <CustomBehavior File="RunCode" Code="Log($@&quot;OrderHall {Settings.Instance.OrderHall} - Gold {Settings.Instance.Gold}&quot;);" />
+    <If Condition="!HasPlugin">
+      <CustomBehavior File="UserDialog" StopOnContinue="true" AllowBotStop="true" Title="Missing Settings Plugin" Text="We couldn't find the plugin,\n Please make sure you have copied the folder 'WorldQuestSettings' from \Default Profiles\world-quests\Plugin to Honorbuddy 3\Plugins and restart the bot" />
+    </If>
+    <CustomBehavior File="RunCode" Code="Log($&quot;Plugin Upto Date {PluginUptoDate()}&quot;);" />
+    <CustomBehavior File="RunCode" Code="LogEmissaryQuests();" />
     <CustomBehavior File="RunCode" Code="EnablePlugin();" />
     <CustomBehavior File="RunCode" Code="UpdateWorldQuests(); Settings.Instance.Load();" />
     <CustomBehavior File="WaitTimer" WaitTime="1000" />
@@ -947,6 +1000,10 @@
       <If Condition="DoQuest(46073)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46073-[N]-[QUEST]-Wq-Break Their Garrison-Zinner&quot;);" />
         <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46073-[N]-[QUEST]-Wq-Break Their Garrison-Zinner" RememberProfile="false" />
+      </If>
+      <If Condition="DoQuest(46109)">
+        <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46109-[N]-[QUEST]-Wq-Stand!-Zinner&quot;);" />
+        <CustomBehavior File="LoadProfile" ProfileName="BrokenShore\46109-[N]-[QUEST]-Wq-Stand!-Zinner" RememberProfile="false" />
       </If>
       <If Condition="DoQuest(46111)">
         <CustomBehavior File="RunCode" Code="Log(&quot;Loading 46111-[N]-[QUEST]-PETBATTLE-Wq-Illidari Masters Sissix-Zinner&quot;);" />
