@@ -1,0 +1,252 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Original contribution by EchoTiger -->
+	<Name>45390-[N]-[QUEST]-Wq-INVASION-Souls of the Vrykul-Zinner.xml</Name>
+
+	<MinDurability>0.3</MinDurability>
+	<MinFreeBagSlots>3</MinFreeBagSlots>
+
+	<SellGrey>true</SellGrey>
+	<SellWhite>false</SellWhite>
+	<SellGreen>false</SellGreen>
+	<SellBlue>false</SellBlue>
+	<SellPurple>false</SellPurple>
+
+	<MailGrey>false</MailGrey>
+	<MailWhite>true</MailWhite>
+	<MailGreen>true</MailGreen>
+	<MailBlue>true</MailBlue>
+	<MailPurple>true</MailPurple>
+
+	<TargetElites>true</TargetElites>
+
+	
+
+	<QuestOrder>
+	<CustomBehavior File="RunCode" Type="Definition"><![CDATA[
+			
+
+    public class WorldQuestData
+    {
+        public int ID;
+        public string Name;
+        public DateTime ExpireTime;
+    }
+
+
+    public static class WorldQuestInfo
+    {
+        static List<WorldQuestData> _cache = new List<WorldQuestData>();
+        static internal bool _dirty = true;
+        static internal bool _setup = false;
+
+        static WorldQuestInfo()
+        {
+            Setup();
+        }
+
+        public static void Setup()
+        {
+            if (_setup)
+                return;
+
+            Lua.Events.AttachEvent("WORLD_MAP_UPDATE", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("SUPER_TRACKED_QUEST_CHANGED", WorldQuestMarkDirty);
+            Lua.Events.AttachEvent("WORLD_QUEST_COMPLETED_BY_SPELL", WorldQuestMarkDirty);
+
+            UpdateWorldQuests();
+            _setup = true;
+        }
+
+        public static void WorldQuestMarkDirty(object sender, LuaEventArgs args)
+        {
+            _dirty = true;
+        }
+
+        public static bool HasWorldQuest(int questid)
+        {
+            UpdateWorldQuests();
+
+            var quest = _cache.Where(q => q.ID == questid).FirstOrDefault();
+
+            if (quest == null || quest.ExpireTime <= DateTime.UtcNow)
+                return false;
+            return true;
+        }
+
+        public static void UpdateWorldQuests()
+        {
+            if (!_dirty)
+                return;
+            _cache = new List<WorldQuestData>();
+            
+            var player = StyxWoW.Me;
+            int BrokenIslesMapArea = 1007;
+
+            var ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetNumZones({0});", BrokenIslesMapArea));
+            
+            var NumZones = int.Parse(ret[0]);
+
+            for (int i = 1; i <= NumZones; ++i)
+            {
+                ret = Lua.GetReturnValues(string.Format("return C_MapCanvas.GetZoneInfo({0}, {1});", BrokenIslesMapArea, i));
+
+                var ZoneID = int.Parse(ret[0]);
+                var ZoneName = ret[1];
+                var ZoneDepth = int.Parse(ret[2]);
+
+                if (ZoneDepth > 1) //Do not look at subzones
+                {
+                    Logging.WriteDiagnostic(string.Format("Ignoring {0} ({1}) as ZoneDepth > 1 ({2})", ZoneID, ZoneName, ZoneDepth));
+                    continue;
+                }
+
+                string ToRun = string.Format(@"     local questids = {{}};
+
+                    			                    local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID({0}, {1});
+
+                                                    if taskInfo then
+				                                                    for i, info in ipairs(taskInfo) do
+					                                                    if HaveQuestData(info.questId) then
+						                                                    if QuestUtils_IsQuestWorldQuest(info.questId) then
+                                                                                    table.insert(questids, info.questId);
+							                                                    end
+						                                                    end
+					                                                    end
+				                                                    end
+                                                   return unpack(questids);
+                                                ", ZoneID, BrokenIslesMapArea);
+
+                ret = Lua.GetReturnValues(ToRun);
+
+                foreach (var q in ret)
+                {
+                    int questid = int.Parse(q);
+
+                    //TimeLeft is in minutes
+                    var TimeLeft = Lua.GetReturnVal<int>(string.Format("return C_TaskQuest.GetQuestTimeLeftMinutes({0});", questid), 0);
+                    var QuestInfo = Lua.GetReturnValues(string.Format("return C_TaskQuest.GetQuestInfoByQuestID({0});", questid));
+
+                    Logging.WriteDiagnostic("WorldQuest {0} ({2}) active ({1}m left)", QuestInfo[0], TimeLeft, questid);
+
+                    var data = new WorldQuestData();
+                    data.ID = questid;
+                    data.Name = QuestInfo[0];
+                    data.ExpireTime = DateTime.UtcNow.AddMinutes(TimeLeft);
+                    _cache.Add(data);
+                }
+            }
+
+            _dirty = false;
+        }
+
+        public static bool IsWorldQuest(int questid)
+        {
+            string lua = string.Format("tagID, tagName, worldQuestType, rarity, isElite, tradeskillLineIndex = GetQuestTagInfo({0});", questid);
+
+            var ret = Lua.GetReturnValues(lua);
+
+            if (ret[3] == null)
+                return false;
+            return true;
+        }
+    }
+
+
+				]]>
+			</CustomBehavior>
+	
+		
+		<While Condition="WorldQuestInfo.HasWorldQuest(45390)" >
+				<!-- Get in range of quest to activate -->
+				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<RunTo X="3998.769" Y="1642.871" Z="194.1211" /> 
+				<PickUp Nav="Fly" QuestName="Souls of the Vrykul" QuestId="45390" GiverName="" GiverId="" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116825" KillCount="20" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="117080" KillCount="13" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116823" KillCount="20" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116813" KillCount="13" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116812" KillCount="13" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116811" KillCount="13" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116810" KillCount="13" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116809" KillCount="13" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116842" KillCount="7" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116848" KillCount="7" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="115379" KillCount="50" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="117673" KillCount="1" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116681" KillCount="1" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116813" KillCount="2" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116812" KillCount="2" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116811" KillCount="2" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116810" KillCount="2" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116809" KillCount="2" />
+
+					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116800" KillCount="2" />
+
+					<TurnIn Nav="Fly" QuestName="Souls of the Vrykul" QuestId="45390" TurnInName="" TurnInId="" />
+
+
+
+
+
+
+
+</While>
+		<While Condition="WorldQuestInfo.HasWorldQuest(45390)" >	
+				<RunTo X="3998.769" Y="1642.871" Z="194.1211" /> 		
+			<CustomBehavior File="KillUntilComplete" MobIds="116825, 117080, 116823, 116813, 116812, 116811, 116810, 116809, 116842, 116848, 115379, 117673, 116681, 116813, 116812, 116811, 116810, 116809 116800" TerminateWhen="IsObjectiveComplete(1, 45390)" >
+				<HuntingGrounds>
+				<Hotspot X="4023.073" Y="1598.216" Z="190.2874" />
+				<Hotspot X="3973.095" Y="1601.403" Z="192.3462" />
+				<Hotspot X="4063.185" Y="1576.086" Z="184.4636" />
+				<Hotspot X="4058.833" Y="1536.058" Z="184.3064" />
+				<Hotspot X="4032.922" Y="1508.405" Z="193.6665" />
+				<Hotspot X="4058.322" Y="1495.876" Z="185.866" />
+				<Hotspot X="4128.374" Y="1484.479" Z="162.9559" />
+				<Hotspot X="4129.177" Y="1467.346" Z="160.5566" />
+				<Hotspot X="4115.495" Y="1561.358" Z="176.8787" />
+				<Hotspot X="4159.393" Y="1572.18" Z="174.4865" />
+				<Hotspot X="4141.198" Y="1542.77" Z="176.0722" />
+				<Hotspot X="4205.439" Y="1532.796" Z="175.0195" />
+				<Hotspot X="4184.417" Y="1495.989" Z="179.1514" />
+				<Hotspot X="4212.139" Y="1466.643" Z="184.2162" />
+				<Hotspot X="4226.346" Y="1361.315" Z="166.6831" />
+				</HuntingGrounds>
+			</CustomBehavior>
+			<CustomBehavior File="InteractWith" MobIds="116800" NumOfTimes="1" X="4217.534" Y="1376.373" Z="177.0946" />
+			<CustomBehavior File="InteractWith" MobIds="116800" NumOfTimes="1" X="4246.404" Y="1351.205" Z="175.2007" />
+			<CustomBehavior File="KillUntilComplete" MobIds="117673" TerminateWhen="IsObjectiveComplete(2, 45390)" >
+				<HuntingGrounds>
+				<Hotspot X="4213.314" Y="1346.365" Z="166.6574" />
+				</HuntingGrounds>
+			</CustomBehavior>
+					
+	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+		</While>
+
+<If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+    <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
+</If>
+	
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 45390-[N]-[QUEST]-Wq-INVASION-Souls of the Vrykul-Zinner.xml, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+</QuestOrder>
+</HBProfile>
