@@ -1,0 +1,43 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>44019-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-Zinner.xml</Name>
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 44019 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 44019-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-Zinner.xml!&quot;);" />
+      <MoveTo NAV="Fly" X="1375.621" Y="3980.022" Z="134.3111" />
+      <CustomBehavior File="KillUntilComplete" MobId="102303" TerminateWhen="!OnQuest" X="1363.295" Y="3973.409" Z="134.5051" />
+    </While>
+    <MoveTo NAV="Fly" X="1403.582" Y="3995.794" Z="118.8394" />
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 44019-[N]-[QUEST]-Wq-WANTED_Lieutenant_Strathmar-Zinner.xml!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
