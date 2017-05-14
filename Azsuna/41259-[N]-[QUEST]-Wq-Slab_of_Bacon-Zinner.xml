@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41259)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="690.5283" Y="7839.773" Z="61.03362" /> 
+				<MoveTo NAV="Fly" X="690.5283" Y="7839.773" Z="61.03362" /> 
 				<PickUp Nav="Fly" QuestName="Slab of Bacon" QuestId="41259" GiverName="" GiverId="0" />
 
 				<Objective QuestName="Slab of Bacon" QuestId="41259" Type="CollectItem" Nav="Fly" ItemId="135511" CollectCount="1" />
@@ -188,7 +188,7 @@ WiN
 <WoWUnit Name="Well-Fed Lion Seal" Entry="103784" X="671.7977" Y="7801.383" Z="-0.9699816" />
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41259)" >	
-				<RunTo X="726.0623" Y="7812.946" Z="0.8879584" />		
+				<MoveTo NAV="Fly" X="726.0623" Y="7812.946" Z="0.8879584" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="103784" QuestId="41259">
 				<HuntingGrounds>
 					<Hotspot X="690.5283" Y="7839.773" Z="61.03362" />
