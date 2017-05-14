@@ -31,7 +31,7 @@ return false;", 0);]]>
     <While Condition="OnQuest">
      <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42018] Those Beyond Redemption - WiN!&quot;);" />
     <If Condition="!HasQuest(42018)">
-      <RunTo X="990.3676" Y="6099.369" Z="99.38569" />
+      <MoveTo NAV="Fly" X="990.3676" Y="6099.369" Z="99.38569" />
     </If>
       <While Condition="HasQuest(42018)">
         <CustomBehavior File="KillUntilComplete" MobIds="90616, 109826, 89801, 90318, 90005" TerminateWhen="!OnQuest || !HasQuest(42018)">
