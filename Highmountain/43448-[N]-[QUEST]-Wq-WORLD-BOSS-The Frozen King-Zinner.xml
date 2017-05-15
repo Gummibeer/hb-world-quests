@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43448)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3568.878" Y="3578.062" Z="832.8685" /> 
+				<MoveTo NAV="Fly" X="3568.878" Y="3578.062" Z="832.8685" /> 
 				<PickUp Nav="Fly" QuestName="The Frozen King" QuestId="43448" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Frozen King" QuestId="43448" Type="KillMob" Nav="Fly" MobId="110378" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43448)" >	
-				<RunTo X="3568.878" Y="3578.062" Z="832.8685" />		
+				<MoveTo NAV="Fly" X="3568.878" Y="3578.062" Z="832.8685" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="110378" QuestId="43448">
 				<HuntingGrounds>
 					<Hotspot X="3568.878" Y="3578.062" Z="832.8685" />

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46197)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="3996.209" Y="3983.137" Z="882.0093" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="3996.209" Y="3983.137" Z="882.0093" /> 
 				<PickUp Nav="Fly" QuestName="From the Skies They Fel" QuestId="46197" GiverName="" GiverId="" />
 
 				<Objective QuestName="From the Skies They Fel" QuestId="46197" Type="KillMob" MobId="119489" KillCount="5" />
@@ -179,7 +179,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46197)" >	
-				<RunTo X="3996.209" Y="3983.137" Z="882.0093" /> 		
+				<MoveTo NAV="Fly" X="3996.209" Y="3983.137" Z="882.0093" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="119489" TerminateWhen="IsObjectiveComplete(1, 46197)" >
 				<HuntingGrounds>
 				<Hotspot X="4153.127" Y="4057.29" Z="882.3098" />
@@ -209,7 +209,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="3996.209" Y="3983.137" Z="882.0093" />
+<MoveTo NAV="Fly" X="3996.209" Y="3983.137" Z="882.0093" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

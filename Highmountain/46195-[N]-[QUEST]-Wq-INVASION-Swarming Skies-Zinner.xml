@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46195)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="4838.483" Y="4205.829" Z="829.4747" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="4838.483" Y="4205.829" Z="829.4747" /> 
 				<PickUp Nav="Fly" QuestName="Swarming Skies" QuestId="46195" GiverName="" GiverId="" />
 
 				<Objective QuestName="Swarming Skies" QuestId="46195" Type="KillMob" MobId="119191" KillCount="3" />
@@ -179,7 +179,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46195)" >	
-				<RunTo X="4838.483" Y="4205.829" Z="829.4747" /> 		
+				<MoveTo NAV="Fly" X="4838.483" Y="4205.829" Z="829.4747" /> 		
 			<CustomBehavior File="InteractWith" MobIds="119191" Range="5" NumOfTimes="3" TerminateWhen="IsObjectiveComplete(1, 46195)" >
 				<HuntingGrounds>
 				<Hotspot X="4834.159" Y="4200.512" Z="832.3067" />
@@ -205,7 +205,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="4838.483" Y="4205.829" Z="829.4747" />
+<MoveTo NAV="Fly" X="4838.483" Y="4205.829" Z="829.4747" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

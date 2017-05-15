@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41205)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3627.445" Y="4439.027" Z="767.783" /> 
+				<MoveTo NAV="Fly" X="3627.445" Y="4439.027" Z="767.783" /> 
 				<PickUp Nav="Fly" QuestName="Warm Leystone Deposits" QuestId="41205" GiverName="" GiverId="" />
 
 				<Objective QuestName="Warm Leystone Deposits" QuestId="41205" Type="CollectItem" ItemId="141237" CollectCount="10" />
@@ -171,8 +171,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41205)" >	
-				<RunTo X="3627.445" Y="4439.027" Z="767.783" /> 		
-				<CustomBehavior File="InteractWith" MobId="247905" NumOfTimes="10" QuestId="41205" >
+				<MoveTo NAV="Fly" X="3627.445" Y="4439.027" Z="767.783" /> 		
+				<CustomBehavior File="InteractWith" PreInteractMountStrategy="Dismount" MobId="247905" NumOfTimes="10" QuestId="41205" >
 				<HuntingGrounds>
 					<Hotspot X="3622.161" Y="4428.181" Z="759.499" />
 					<Hotspot X="3640.151" Y="4361.968" Z="661.9434" />

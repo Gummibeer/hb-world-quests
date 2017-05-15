@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41653)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="4112.381" Y="4441.527" Z="768.2538" /> 
+				<MoveTo NAV="Fly"  X="4112.381" Y="4441.527" Z="768.2538" /> 
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="755" TradeSkillItemId="130227" NumOfTimes="1"/>
 				<TurnIn Nav="Fly" QuestName="Work Order: Skystone Pendant" QuestId="41653" TurnInName="Ransa Greyfeather" TurnInId="106902" />
 

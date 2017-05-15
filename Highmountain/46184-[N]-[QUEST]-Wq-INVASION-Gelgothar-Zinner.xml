@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46184)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="4812.316" Y="3793.923" Z="759.8647" /> 
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="4812.316" Y="3793.923" Z="759.8647" /> 
 				<PickUp Nav="Fly" QuestName="Gelgothar" QuestId="46184" GiverName="" GiverId="" />
 
 				<Objective QuestName="Gelgothar" QuestId="46184" Type="KillMob" MobId="117040" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46184)" >	
-				<RunTo X="4812.316" Y="3793.923" Z="759.8647" /> 		
+				<MoveTo NAV="Fly" X="4812.316" Y="3793.923" Z="759.8647" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117040" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46184)" >
 				<HuntingGrounds>
 					<Hotspot X="4812.506" Y="3771.834" Z="756.2603" />

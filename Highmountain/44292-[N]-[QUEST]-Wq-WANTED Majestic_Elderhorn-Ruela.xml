@@ -27,7 +27,7 @@ end
 return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest" >
-      <RunTo X="5411.453" Y="4332.861" Z="682.6898"  />
+      <MoveTo NAV="Fly" X="5411.453" Y="4332.861" Z="682.6898"  />
       <CustomBehavior File="KillUntilComplete" MobIds="96410" TerminateWhen="!OnQuest" X="5409.487" Y="4343.604" Z="685.0143" />
     </While>
 

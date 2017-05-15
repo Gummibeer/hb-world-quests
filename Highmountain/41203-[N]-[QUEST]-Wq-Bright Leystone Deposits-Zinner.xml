@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41203)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4474.214" Y="4002.275" Z="743.925" /> 
+				<MoveTo NAV="Fly" X="4474.214" Y="4002.275" Z="743.925" /> 
 				
 				<PickUp Nav="Fly" QuestName="Bright Leystone Deposits" QuestId="41203" GiverName="" GiverId="" />
 
@@ -171,8 +171,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41203)" >	
-				<RunTo X="4474.214" Y="4002.275" Z="743.925" /> 		
-				<CustomBehavior File="InteractWith" MobId="247904" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41203)" >
+				<MoveTo NAV="Fly" X="4474.214" Y="4002.275" Z="743.925" /> 		
+				<CustomBehavior File="InteractWith" MobId="247904" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41203)" >
 				<HuntingGrounds>
 					<Hotspot X="4474.214" Y="4002.275" Z="743.925" />
 					<Hotspot X="4390" Y="4015.304" Z="740.8713" />
@@ -190,7 +190,7 @@
 			</CustomBehavior>
 		</While>
 	
-		<RunTo X="4432.516" Y="4155.161" Z="766.9547" /> 
+		<MoveTo NAV="Fly" X="4432.516" Y="4155.161" Z="766.9547" /> 
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

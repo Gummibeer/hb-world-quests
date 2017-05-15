@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest" >
       <If Condition="!HasQuest(41428)" >
-        <RunTo X="5576.128" Y="4343.338" Z="658.9025" />
+        <MoveTo NAV="Fly" X="5576.128" Y="4343.338" Z="658.9025" />
       </If>
       <CustomBehavior File="InteractWith" MobIds="104339" NumOfTimes="4" TerminateWhen="IsObjectiveComplete(1, 41428) || !OnQuest" PreInteractMountStrategy="Dismount">
         <HuntingGrounds WaypointVisitStrategy="InOrder">

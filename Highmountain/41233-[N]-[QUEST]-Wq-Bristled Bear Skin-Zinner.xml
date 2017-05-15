@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41233)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="5040.399" Y="5010.875" Z="783.5066" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="5040.399" Y="5010.875" Z="783.5066" /> 
 				<PickUp Nav="Fly" QuestName="Bristled Bear Skin" QuestId="41233" GiverName="" GiverId="" />
 
 				<Objective QuestName="Bristled Bear Skin" QuestId="41233" Type="CollectItem" ItemId="134131" CollectCount="12" />
@@ -178,7 +178,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41233)" >	
-				<RunTo X="5040.399" Y="5010.875" Z="783.5066" /> 		
+				<MoveTo NAV="Fly" X="5040.399" Y="5010.875" Z="783.5066" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="96146" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41233)" >
 				<HuntingGrounds>
 					<Hotspot X="5054.785" Y="5051.529" Z="792.1999" />

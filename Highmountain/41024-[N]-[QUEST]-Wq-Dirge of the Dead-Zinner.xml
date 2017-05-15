@@ -161,7 +161,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41024)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4981.052" Y="5768.348" Z="30.88205" /> 
+				<MoveTo NAV="Fly" X="4981.052" Y="5768.348" Z="30.88205" /> 
 				<PickUp Nav="Fly" QuestName="Dirge of the Dead" QuestId="41024" GiverName="" GiverId="" />
 
 				<Objective QuestName="Dirge of the Dead" QuestId="41024" Type="KillMob" Nav="Fly" MobId="102251" KillCount="13" />
@@ -185,7 +185,7 @@
 <Vendor Name="Wrathguard Servitor" Entry="101827" Type="Repair" Nav="Fly" X="4954.864" Y="5842.963" Z="37.80062" />
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41024)" >
-					<RunTo X="4981.052" Y="5768.348" Z="30.88205" /> 	
+					<MoveTo NAV="Fly" X="4981.052" Y="5768.348" Z="30.88205" /> 	
 			<CustomBehavior File="KillUntilComplete" MobIds="102251, 102736, 101700, 101832, 101827" QuestId="41024"  QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 41024)">
 				<HuntingGrounds>
 					<Hotspot X="4981.052" Y="5768.348" Z="30.88205" />

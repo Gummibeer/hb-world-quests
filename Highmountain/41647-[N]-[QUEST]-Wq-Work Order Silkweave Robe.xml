@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41647)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="4113.979" Y="4441.856" Z="768.2965" /> 
+				<MoveTo NAV="Fly"  X="4113.979" Y="4441.856" Z="768.2965" /> 
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="197" TradeSkillItemId="126987" NumOfTimes="1"/>
 				<TurnIn Nav="Fly" QuestName="Work Order: Silkweave Robe" QuestId="41647" TurnInName="Ransa Greyfeather" TurnInId="106902" />
 

@@ -28,7 +28,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest" >
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44291] WANTED: Crawshuk the Hungry!&quot;);" />
-      <RunTo X="5060.648" Y="4271.334" Z="907.0869" />
+      <MoveTo NAV="Fly" X="5060.648" Y="4271.334" Z="907.0869" />
       <CustomBehavior File="KillUntilComplete" MobIds="97345" TerminateWhen="!OnQuest"  X="5060.648" Y="4271.334" Z="907.0869"/>
     </While>
 

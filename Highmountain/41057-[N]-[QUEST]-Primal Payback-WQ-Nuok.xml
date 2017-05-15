@@ -97,7 +97,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41057)">
-        <RunTo X="4675.083" Y="4798.682" Z="687.8572" />
+        <MoveTo NAV="Fly" X="4675.083" Y="4798.682" Z="687.8572" />
       </If>
       <!--<Aura Name="Bristlefur Bear" SpellId="201285"  Flags="35" />-->
       <If Condition="!Me.HasAura(201285)">
@@ -109,10 +109,10 @@ return false;", 0);]]>
           <DisableBehavior Name="All"/>
           <CustomBehavior File="RunCode" Code="await VehicleKill(102982);" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102993);" />     
-          <RunTo X="4692.958" Y="4742.398" Z="691.9426" />
+          <MoveTo NAV="Fly" X="4692.958" Y="4742.398" Z="691.9426" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102982);" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102993);" />
-          <RunTo X="4574.196" Y="4634.613" Z="668.2407" />
+          <MoveTo NAV="Fly" X="4574.196" Y="4634.613" Z="668.2407" />
         </If>
       </If>
     </While>

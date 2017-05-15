@@ -123,7 +123,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(40980)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [40980] Boilback Plague - WiN!&quot;);" />
-	<RunTo X="5035.658" Y="5015.484" Z="785.5435" />
+	<MoveTo NAV="Fly" X="5035.658" Y="5015.484" Z="785.5435" />
 	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!WorldQuestInfo.HasWorldQuest(40980)" >
 		<HuntingGrounds>
 <Hotspot X="4971.496" Y="5029.552" Z="788.7858" />

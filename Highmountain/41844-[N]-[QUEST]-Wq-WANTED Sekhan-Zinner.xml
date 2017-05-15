@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41844)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4338.35" Y="4459.75" Z="684.0436" /> 
+				<MoveTo NAV="Fly" X="4338.35" Y="4459.75" Z="684.0436" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Sekhan" QuestId="41844" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Sekhan" QuestId="41844" Type="KillMob" Nav="Fly" MobId="101077" KillCount="1" />
@@ -169,7 +169,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41844)" >	
-				<RunTo X="4338.35" Y="4459.75" Z="684.0436" /> 		
+				<MoveTo NAV="Fly" X="4338.35" Y="4459.75" Z="684.0436" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="101077" QuestId="41844">
 				<HuntingGrounds>
 					<Hotspot X="4338.35" Y="4459.75" Z="684.0436" />

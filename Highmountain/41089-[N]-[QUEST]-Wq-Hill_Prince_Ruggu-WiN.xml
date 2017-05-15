@@ -160,7 +160,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41089)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41089] Lords of the Hills - WiN!&quot;);" />
-	<RunTo X="3535.568" Y="4563.974" Z="816.0519" />
+	<MoveTo NAV="Fly" X="3535.568" Y="4563.974" Z="816.0519" />
 	<CustomBehavior File="InteractWith" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2, 41089)" >
 		<HuntingGrounds>
 			<Hotspot X="3426.321" Y="4615.994" Z="826.7427" />

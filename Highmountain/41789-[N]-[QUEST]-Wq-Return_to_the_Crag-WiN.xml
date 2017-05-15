@@ -130,7 +130,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41789)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41789] Return to the Crag - WiN!&quot;);" />
-	<RunTo X="4761.371" Y="4461.989" Z="693.1791" />
+	<MoveTo NAV="Fly" X="4761.371" Y="4461.989" Z="693.1791" />
 	<CustomBehavior File="InteractWith" NumOfTimes="13" QuestId="41789" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41789)">
 		<HuntingGrounds>
 <Hotspot X="4737.24" Y="4478.461" Z="686.8708" />

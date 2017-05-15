@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46194)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="4349.909" Y="3650.06" Z="882.2477" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="4349.909" Y="3650.06" Z="882.2477" /> 
 				<PickUp Nav="Fly" QuestName="Wolves of the Legion" QuestId="46194" GiverName="" GiverId="" />
 
 				<Objective QuestName="Wolves of the Legion" QuestId="46194" Type="KillMob" MobId="119189" KillCount="3" />
@@ -177,7 +177,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46194)" >	
-				<RunTo X="4349.909" Y="3650.06" Z="882.2477" /> 		
+				<MoveTo NAV="Fly" X="4349.909" Y="3650.06" Z="882.2477" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="119189, 119185 " TerminateWhen="IsObjectiveComplete(1, 46194)" >
 				<HuntingGrounds>
 				<Hotspot X="4369.319" Y="3611.734" Z="892.4851" />
@@ -211,7 +211,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="4349.909" Y="3650.06" Z="882.2477" />
+<MoveTo NAV="Fly" X="4349.909" Y="3650.06" Z="882.2477" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

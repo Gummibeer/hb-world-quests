@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41240)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4113.521" Y="4441.817" Z="768.2829" /> 
+				<MoveTo NAV="Fly" X="4113.521" Y="4441.817" Z="768.2829" /> 
 				<TurnIn QuestName="Work Order: Highmountain Salmon" QuestId="41240" TurnInName="Ransa Greyfeather" TurnInId="106902" X="4112.049" Y="4445.559" Z="768.3416" />
 					<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />

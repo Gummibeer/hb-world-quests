@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42086] The Feltotem - WiN!&quot;);" />
-      <RunTo X="5505.024" Y="5577.628" Z="15.86775" />     
+      <MoveTo NAV="Fly" X="5505.024" Y="5577.628" Z="15.86775" />     
       <CustomBehavior File="KillUntilComplete" MobId="106077" TerminateWhen="IsObjectiveComplete(1, 42086) || !OnQuest" X="5562.912" Y="5623.608" Z="26.37149" />
       <CustomBehavior File="KillUntilComplete" MobId="106082" TerminateWhen="IsObjectiveComplete(3, 42086) || !OnQuest" X="5595.296" Y="5514.703" Z="37.14005" />
       <CustomBehavior File="KillUntilComplete" MobId="106074" TerminateWhen="IsObjectiveComplete(2, 42086) || !OnQuest" X="5683.975" Y="5537.532" Z="19.89634" />

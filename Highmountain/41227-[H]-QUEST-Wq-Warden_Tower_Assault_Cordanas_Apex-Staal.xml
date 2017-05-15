@@ -122,7 +122,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41227)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41227] Warden Tower Assault: Cordana's Apex - Staal!&quot;);" />
-	<RunTo X="4060.957" Y="3611.264" Z="894.5396" />
+	<MoveTo NAV="Fly" X="4060.957" Y="3611.264" Z="894.5396" />
 	<CustomBehavior File="KillUntilComplete" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,41227)" >
 		<HuntingGrounds>
 <!-- front of tower -->

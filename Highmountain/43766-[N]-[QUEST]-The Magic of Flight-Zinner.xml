@@ -64,12 +64,12 @@ return false;", 0);
     ]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43766)">
-        <RunTo X="4103.099" Y="4520.735" Z="641.2788" />
+        <MoveTo NAV="Fly" X="4103.099" Y="4520.735" Z="641.2788" />
       </If>
       <While Condition="HasQuest(43766)">
         <DisableBehavior Name="All"/>
         <If Condition="Me.Z &lt; 2">
-          <RunTo X="4103.099" Y="4520.735" Z="641.2788" />
+          <MoveTo NAV="Fly" X="4103.099" Y="4520.735" Z="641.2788" />
           <CustomBehavior File="ForcedDismount"/>
           
         </If>

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41196)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="2702.77" Y="3779.317" Z="1376.304" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="2702.77" Y="3779.317" Z="1376.304" /> 
 				<PickUp Nav="Fly" QuestName="Leystone Basilisks" QuestId="41196" GiverName="" GiverId="" />
 
 				<Objective QuestName="Leystone Basilisks" QuestId="41196" Type="CollectItem" ItemId="134104" CollectCount="60" />
@@ -177,7 +177,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41196)" >	
-				<RunTo X="2702.77" Y="3779.317" Z="1376.304" /> 		
+				<MoveTo NAV="Fly" X="2702.77" Y="3779.317" Z="1376.304" /> 		
 			<CustomBehavior File="InteractWith" MobId="103514" NumOfTimes="100" MobState="Dead" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41196)" >
 				<HuntingGrounds>
 				<Hotspot X="2721.227" Y="3733.008" Z="1353.666" />
@@ -199,7 +199,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-	<RunTo X="2702.579" Y="3791.313" Z="1377.345" />
+	<MoveTo NAV="Fly" X="2702.579" Y="3791.313" Z="1377.345" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

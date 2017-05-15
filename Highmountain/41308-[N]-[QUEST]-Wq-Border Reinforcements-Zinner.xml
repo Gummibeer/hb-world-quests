@@ -41,7 +41,7 @@ return false;", 0);
 
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41308)">
-        <RunTo X="3898.66" Y="3529.393" Z="804.6542" />
+        <MoveTo NAV="Fly" X="3898.66" Y="3529.393" Z="804.6542" />
       </If>
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41308] Border Reinforcements - Zinner!&quot;);" />
 

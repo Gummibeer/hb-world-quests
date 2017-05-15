@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41544)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="5471.583" Y="4400.649" Z="678.0166" />
+				<MoveTo NAV="Fly" X="5471.583" Y="4400.649" Z="678.0166" />
 				<PickUp Nav="Fly" QuestName="Foxflower Cluster" QuestId="41544" GiverName="" GiverId="" />
 
 				<Objective QuestName="Foxflower Cluster" QuestId="41544" Type="KillMob" MobId="103649" KillCount="1" />
@@ -185,10 +185,10 @@
 
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41544)" >	
-				<RunTo X="5471.583" Y="4400.649" Z="678.0166" />		
-			<CustomBehavior File="InteractWith" MobIds="104376" QuestId="41544">
+				<MoveTo NAV="Fly" X="5471.583" Y="4400.649" Z="678.0166" />		
+			<CustomBehavior File="InteractWith" PreInteractMountStrategy="Dismount" MobIds="104376" QuestId="41544">
 				<HuntingGrounds>
-			<RunTo X="5471.583" Y="4400.649" Z="678.0166" />
+			<MoveTo NAV="Fly" X="5471.583" Y="4400.649" Z="678.0166" />
 				</HuntingGrounds>
 			</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />

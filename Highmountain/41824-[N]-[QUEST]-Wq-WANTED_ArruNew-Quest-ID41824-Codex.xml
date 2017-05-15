@@ -32,11 +32,11 @@ end
 return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
-      <RunTo X="4606.198" Y="4241.29" Z="820.3326" />
+      <MoveTo NAV="Fly" X="4606.198" Y="4241.29" Z="820.3326" />
       <CustomBehavior File="KillUntilComplete" MobIds="97220" TerminateWhen="!OnQuest" X="4606.198" Y="4241.29" Z="820.3326" />
     </While>
 
-    <RunTo X="4605.862" Y="4246.441" Z="819.8669" />
+    <MoveTo NAV="Fly" X="4605.862" Y="4246.441" Z="819.8669" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

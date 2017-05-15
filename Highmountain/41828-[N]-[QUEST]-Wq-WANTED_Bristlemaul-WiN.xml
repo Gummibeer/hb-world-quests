@@ -156,7 +156,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41828)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41828] WANTED: Bristlemaul - WiN!&quot;);" />
-<RunTo X="4804.188" Y="5032.115" Z="775.6902" />
+<MoveTo NAV="Fly" X="4804.188" Y="5032.115" Z="775.6902" />
 <CustomBehavior File="KillUntilComplete"  QuestId="41828"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(41828)">
 	<HuntingGrounds>
 <Hotspot X="4816.092" Y="5005.645" Z="774.1152" />
@@ -168,7 +168,7 @@
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
-<RunTo X="4804.188" Y="5032.115" Z="775.6902" />
+<MoveTo NAV="Fly" X="4804.188" Y="5032.115" Z="775.6902" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

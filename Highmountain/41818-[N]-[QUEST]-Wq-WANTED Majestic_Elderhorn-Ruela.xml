@@ -167,7 +167,7 @@ Before end of run
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41818)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="5411.453" Y="4332.861" Z="682.6898"  /> 
+				<MoveTo NAV="Fly" X="5411.453" Y="4332.861" Z="682.6898"  /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Majestic Elderhorn" QuestId="41818" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Majestic Elderhorn" QuestId="41818" Type="KillMob" Nav="Fly" MobId="96410" KillCount="1" />
@@ -178,7 +178,7 @@ Before end of run
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41818)" >
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41818] WANTED: Majestic Elderhorn - Ruela!&quot;);" />
-				<RunTo X="5411.453" Y="4332.861" Z="682.6898"  />		
+				<MoveTo NAV="Fly" X="5411.453" Y="4332.861" Z="682.6898"  />		
 			<CustomBehavior File="KillUntilComplete" MobIds="96410" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41818)">
 				<HuntingGrounds>
 					<Hotspot X="5420.206" Y="4380.419" Z="687.8645" />

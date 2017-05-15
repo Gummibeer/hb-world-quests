@@ -159,7 +159,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42183)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42183] To Battle - WiN!&quot;);" />
-	<RunTo X="2776.615" Y="845.5648" Z="107.5704" />
+	<MoveTo NAV="Fly" X="2776.615" Y="845.5648" Z="107.5704" />
 	<CustomBehavior File="InteractWith" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42183)" >
 		<HuntingGrounds>
 <Hotspot X="2763.056" Y="796.7852" Z="100.9792" />

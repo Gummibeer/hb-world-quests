@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41696)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3589.437" Y="3568.258" Z="834.0057" /> 
+				<MoveTo NAV="Fly" X="3589.437" Y="3568.258" Z="834.0057" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Mawat'aki" QuestId="41696" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Mawat'aki" QuestId="41696" Type="KillMob" Nav="Fly" MobId="104517" KillCount="1" />
@@ -172,7 +172,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41696)" >	
-				<RunTo X="3589.437" Y="3568.258" Z="834.0057" />		
+				<MoveTo NAV="Fly" X="3589.437" Y="3568.258" Z="834.0057" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="104517" QuestId="41696">
 				<HuntingGrounds>
 					<Hotspot X="3589.437" Y="3568.258" Z="834.0057" />

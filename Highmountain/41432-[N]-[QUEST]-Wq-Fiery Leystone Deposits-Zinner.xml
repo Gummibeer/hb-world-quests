@@ -158,8 +158,8 @@
 		
 
 		<While Condition="WorldQuestInfo.HasWorldQuest(41432)" >	
-				<RunTo X="5567.366" Y="4271.719" Z="654.8539" /> 		
-			<CustomBehavior File="InteractWith" MobIds="247906" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41432)">
+				<MoveTo NAV="Fly" X="5567.366" Y="4271.719" Z="654.8539" /> 		
+			<CustomBehavior File="InteractWith" MobIds="247906" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41432)">
 				<HuntingGrounds>
 					<Hotspot X="5567.366" Y="4271.719" Z="654.8539" />
 					<Hotspot X="5582.364" Y="4286.803" Z="658.1359" />
@@ -180,5 +180,7 @@
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
+<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 41432-[N]-[QUEST]-Wq-Fiery Leystone Deposits-Zinner.xml, loading auto-loader!&quot;);" />
+<CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 	</QuestOrder>
 </HBProfile>

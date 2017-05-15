@@ -138,11 +138,11 @@ return false;", 0);
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41699)">
-        <RunTo X="6482.59" Y="4167.9" Z="2.695112" />
+        <MoveTo NAV="Fly" X="6482.59" Y="4167.9" Z="2.695112" />
       </If>
       <!--<Aura Name="Murky" SpellId="206919" StackCount="0" Flags="Passive, Cancelable" />-->
       <If Condition="!Me.HasAura(206919)">
-        <RunTo X="6479.882" Y="4143.53" Z="3.777412" TerminateWhen="!OnQuest" />
+        <MoveTo NAV="Fly" X="6479.882" Y="4143.53" Z="3.777412" TerminateWhen="!OnQuest" />
       </If>
       <If Condition="HasQuest(41699)">
         <!--<Vendor Name="Brinescuttle Crab" Entry="104585" Type="Repair" Nav="Fly" X="6463.043" Y="4059.078" Z="0.2495988" />-->

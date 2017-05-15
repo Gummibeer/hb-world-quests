@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46279)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="3680.277" Y="3735.237" Z="951.7609" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="3680.277" Y="3735.237" Z="951.7609" />
 				<PickUp Nav="Fly" QuestName="Zargrom" QuestId="46279" GiverName="" GiverId="0" />
 
 				<Objective QuestName="Zargrom" QuestId="46279" Type="KillMob" MobId="117047" KillCount="1" />
@@ -175,7 +175,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46279)" >	
-				<RunTo X="3680.277" Y="3735.237" Z="951.7609" /> 		
+				<MoveTo NAV="Fly" X="3680.277" Y="3735.237" Z="951.7609" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117047" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46279)" >
 				<HuntingGrounds>
 				<Hotspot X="3631.421" Y="3740.646" Z="954.0458" />

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46193)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="5528.087" Y="5560.685" Z="21.70954" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="5528.087" Y="5560.685" Z="21.70954" /> 
 				<PickUp Nav="Fly" QuestName="Borne of Fel" QuestId="46193" GiverName="" GiverId="" />
 
 				<Objective QuestName="Borne of Fel" QuestId="46193" Type="KillMob" MobId="121151" KillCount="1" />
@@ -182,7 +182,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46193)" >	
-				<RunTo X="5528.087" Y="5560.685" Z="21.70954" /> 
+				<MoveTo NAV="Fly" X="5528.087" Y="5560.685" Z="21.70954" /> 
 			<CustomBehavior File="InteractWith" MobIds="121151" PreInteractMountStrategy="Dismount" TerminateWhen="IsObjectiveComplete(1, 46193)" >
 				<HuntingGrounds>
 				<Hotspot X="5528.087" Y="5560.685" Z="21.70954" />

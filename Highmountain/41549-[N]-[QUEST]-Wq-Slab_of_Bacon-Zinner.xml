@@ -165,7 +165,7 @@
 		<While Condition="WorldQuestInfo.HasWorldQuest(41549)" >
 				<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41549] Slab_of_Bacon - Zinner!&quot;);" />
 
-				<RunTo X="4637.102" Y="4710.773" Z="674.8185" />		
+				<MoveTo NAV="Fly" X="4637.102" Y="4710.773" Z="674.8185" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="103681" QuestId="41549">
 				<HuntingGrounds>
 					<Hotspot X="4637.102" Y="4710.773" Z="674.8185" />

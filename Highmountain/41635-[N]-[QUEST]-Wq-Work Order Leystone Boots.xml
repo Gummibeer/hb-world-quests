@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41636)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="4114.189" Y="4440.954" Z="768.2856" /> 
+				<MoveTo NAV="Fly"  X="4114.189" Y="4440.954" Z="768.2856" /> 
 				<CustomBehavior File="UseItem" ItemId="87216" />
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="164" TradeSkillItemId="123892" NumOfTimes="1"/>
 				<TurnIn Nav="Fly" QuestName="Work Order: Leystone Boots" QuestId="41635" TurnInName="Ransa Greyfeather" TurnInId="106902" />

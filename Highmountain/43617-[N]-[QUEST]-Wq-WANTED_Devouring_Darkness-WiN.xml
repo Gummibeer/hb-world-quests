@@ -156,7 +156,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43617)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43617] WANTED: Devouring Darkness - WiN!&quot;);" />
-<RunTo X="4996.934" Y="3811.39" Z="741.1686" />
+<MoveTo NAV="Fly" X="4996.934" Y="3811.39" Z="741.1686" />
 <CustomBehavior File="KillUntilComplete"  QuestId="43617"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43617)">
 	<HuntingGrounds>
 <Hotspot X="4996.934" Y="3811.39" Z="741.1686" />
@@ -168,7 +168,7 @@
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
-<RunTo X="4867.998" Y="3776.922" Z="758.7479" />
+<MoveTo NAV="Fly" X="4867.998" Y="3776.922" Z="758.7479" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

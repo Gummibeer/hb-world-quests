@@ -38,7 +38,7 @@ return false;", 0);]]></CustomBehavior>
 <While Condition="OnQuest">
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41692-[N]-[QUEST]-Wq-Shipwreck Scavengers-Zinner!&quot;);" />
         <If Condition="!HasQuest(41692)">
-        <RunTo X="6569.683" Y="4538.801" Z="0.4469822" />
+        <MoveTo NAV="Fly" X="6569.683" Y="4538.801" Z="0.4469822" />
       </If>
       <CustomBehavior File="KillUntilComplete" MobId="98311" KillCount="1" TerminateWhen="IsObjectiveComplete(1, 41692)" X="6624.08" Y="4386.32" Z="8.301709" />
 <CustomBehavior File="InteractWith" MobIds="248401" NumOfTimes="5" TerminateWhen="IsObjectiveComplete(2, 41692)">

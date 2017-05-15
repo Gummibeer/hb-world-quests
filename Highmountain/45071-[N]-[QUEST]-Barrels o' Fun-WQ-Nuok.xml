@@ -61,7 +61,7 @@ return false;", 0);
             }
         }]]></CustomBehavior>
     <While Condition="OnQuest">
-      <RunTo X="2919.63" Y="3781.544" Z="1348.704" />
+      <MoveTo NAV="Fly" X="2919.63" Y="3781.544" Z="1348.704" />
       <CustomBehavior File="RunCode" Code="await DoQuest()" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">

@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
 
     <While Condition="OnQuest" >
-      <RunTo X="6015.591" Y="5155.897" Z="8.102506" />
+      <MoveTo NAV="Fly" X="6015.591" Y="5155.897" Z="8.102506" />
       <CustomBehavior File="KillUntilComplete" MobIds="287245, 115677, 115669, 115665" TerminateWhen="!OnQuest">
         <HuntingGrounds>
           <Hotspot X="6023.368" Y="5160.527" Z="5.161287" />
@@ -47,7 +47,7 @@ return false;", 0);]]>
       </CustomBehavior>
     </While>
 
-    <RunTo X="4422.085" Y="4162.19" Z="764.948" />
+    <MoveTo NAV="Fly" X="4422.085" Y="4162.19" Z="764.948" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

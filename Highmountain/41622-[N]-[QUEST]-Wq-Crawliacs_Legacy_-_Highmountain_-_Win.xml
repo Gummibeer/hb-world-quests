@@ -34,7 +34,7 @@ return false;", 0);]]>
 -->
     <While Condition="OnQuest" >
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41622] Crawliac's Legacy - WiN!&quot;);" />
-      <RunTo X="4935.367" Y="4059.457" Z="810.958" />
+      <MoveTo NAV="Fly" X="4935.367" Y="4059.457" Z="810.958" />
       <CustomBehavior File="InteractWith" NumOfTimes="100" TerminateWhen="!OnQuest" >
         <HuntingGrounds>
           <Hotspot X="4975.211" Y="4032.384" Z="793.4526" />

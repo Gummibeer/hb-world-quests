@@ -35,7 +35,7 @@ return false;", 0);
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41257] Warden Tower Assault: Cordana's Apex!&quot;);" />
       <If Condition="!HasQuest(41257)">
-        <RunTo X="4053.354" Y="3623.51" Z="890.8089" />
+        <MoveTo NAV="Fly" X="4053.354" Y="3623.51" Z="890.8089" />
       </If>
 
       <CustomBehavior File="KillUntilComplete" MobIds="104289, 104290, 103757" TerminateWhen="IsObjectiveComplete(2, 41257) || !HasQuest(41257)" X="4317.845" Y="3357.552" Z="1035.841" />

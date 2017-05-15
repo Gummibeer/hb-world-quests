@@ -175,7 +175,7 @@
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [39424] Everything!!&quot;);" />
 			
 <!-- <Vendor Name="Mellok, Son of Torok" Entry="96621" Type="Repair" Nav="Fly" X="5689.597" Y="4243.982" Z="694.9059" /> -->			
-			<RunTo X="5689.597" Y="4243.982" Z="694.9059" />
+			<MoveTo NAV="Fly" X="5689.597" Y="4243.982" Z="694.9059" />
 
 <CustomBehavior File="KillUntilComplete"  QuestId="39424"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(39424)">
 	<HuntingGrounds>

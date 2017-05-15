@@ -30,7 +30,7 @@ return false;", 0);]]></CustomBehavior>
 <While Condition="OnQuest">
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41122-[N]-[QUEST]-Wq-Mists Take You-Zinner!&quot;);" />
         <If Condition="!HasQuest(41122)">
-        <RunTo X="3162.114" Y="3960.5" Z="1180.59" />
+        <MoveTo NAV="Fly" X="3162.114" Y="3960.5" Z="1180.59" />
       </If>
 <CustomBehavior File="KillUntilComplete" MobIds="103150" KillCount="7" TerminateWhen="IsObjectiveComplete(1, 41122)">
         <HuntingGrounds>
@@ -71,7 +71,7 @@ return false;", 0);]]></CustomBehavior>
       <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
       </While>
-<RunTo X="3365.863" Y="3897.921" Z="1135.948" />
+<MoveTo NAV="Fly" X="3365.863" Y="3897.921" Z="1135.948" />
       <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

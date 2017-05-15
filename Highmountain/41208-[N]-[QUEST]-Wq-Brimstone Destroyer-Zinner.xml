@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41208)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="5426.905" Y="4295.65" Z="683.8563" /> 
+				<MoveTo NAV="Fly" X="5426.905" Y="4295.65" Z="683.8563" /> 
 				<PickUp Nav="Fly" QuestName="Brimstone Destroyer" QuestId="41208" GiverName="" GiverId="" />
 
 				<Objective QuestName="Brimstone Destroyer" QuestId="41208" Type="KillMob" Nav="Fly" MobId="103594" KillCount="1" />
@@ -170,7 +170,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41208)" >	
-				<RunTo X="5426.905" Y="4295.65" Z="683.8563" /> 		
+				<MoveTo NAV="Fly" X="5426.905" Y="4295.65" Z="683.8563" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="103594" QuestId="41208">
 				<HuntingGrounds>
 					<Hotspot X="3685.73" Y="3774.073" Z="962.8212" />

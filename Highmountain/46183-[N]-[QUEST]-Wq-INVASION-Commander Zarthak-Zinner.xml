@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46183)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="3960.066" Y="5171.296" Z="648.0792" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="3960.066" Y="5171.296" Z="648.0792" /> 
 				<PickUp Nav="Fly" QuestName="Commander Zarthak" QuestId="46183" GiverName="" GiverId="" />
 
 				<Objective QuestName="Commander Zarthak" QuestId="46183" Type="KillMob" MobId="117971" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46183)" >	
-				<RunTo X="3960.066" Y="5171.296" Z="648.0792" /> 		
+				<MoveTo NAV="Fly" X="3960.066" Y="5171.296" Z="648.0792" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117971" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46183)" >
 				<HuntingGrounds>
 					<Hotspot X="3970.782" Y="5181.926" Z="649.2239" />
@@ -183,7 +183,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="3960.066" Y="5171.296" Z="648.0792" />
+<MoveTo NAV="Fly" X="3960.066" Y="5171.296" Z="648.0792" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

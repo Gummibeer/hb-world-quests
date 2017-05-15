@@ -90,7 +90,7 @@ return false;", 0);
 					}]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41055)">
-        <RunTo X="4677.002" Y="4801.015" Z="687.8562" />
+        <MoveTo NAV="Fly" X="4677.002" Y="4801.015" Z="687.8562" />
       </If>
       <If Condition="HasQuest(41055)">
         <!--<Aura Name="Rockhorn Stag" SpellId="201284" StackCount="0" TimeLeft="00:00:00" Flags="Passive, Cancelable" />-->
@@ -100,10 +100,10 @@ return false;", 0);
         </If>
         <If Condition="Me.HasAura(201284)">
           <DisableBehavior Name="All"/>
-          <RunTo X="4692.958" Y="4742.398" Z="691.9426" />
+          <MoveTo NAV="Fly" X="4692.958" Y="4742.398" Z="691.9426" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102946);" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102929);" />
-          <RunTo X="4574.196" Y="4634.613" Z="668.2407" />
+          <MoveTo NAV="Fly" X="4574.196" Y="4634.613" Z="668.2407" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102946);" />
           <CustomBehavior File="RunCode" Code="await VehicleKill(102929);" />
         </If>

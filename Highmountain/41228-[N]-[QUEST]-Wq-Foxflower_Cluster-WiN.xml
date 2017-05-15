@@ -116,7 +116,7 @@
 							</CustomBehavior>
 <While Condition="WorldQuestInfo.HasWorldQuest(41228)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="3807.716" Y="4950.949" Z="653.246" />
+	<MoveTo NAV="Fly" X="3807.716" Y="4950.949" Z="653.246" />
 <PickUp Nav="Fly" QuestName="Foxflower Cluster" QuestId="41228" GiverName="" GiverId="" />
 <Objective QuestName="Foxflower Cluster" QuestId="41228" Type="KillMob" Nav="Fly" MobId="103649" KillCount="1" />
 <TurnIn Nav="Fly" QuestName="Foxflower Cluster" QuestId="41228" TurnInName="" TurnInId="" />
@@ -127,9 +127,9 @@
 <WoWUnit Name="Foxflower Cluster" Entry="103648" X="3845.044" Y="4922.636" Z="640.3101" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41228)" >
-	<RunTo X="3807.716" Y="4950.949" Z="653.246" />
+	<MoveTo NAV="Fly" X="3807.716" Y="4950.949" Z="653.246" />
 
-	<CustomBehavior File="InteractWith" MobIds="103648" NumOfTimes="1" QuestId="41228" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 41228)">
+	<CustomBehavior File="InteractWith" MobIds="103648" NumOfTimes="1" QuestId="41228" QuestObjectiveIndex="1" PreInteractMountStrategy="Dismount" TerminateWhen="IsObjectiveComplete(1, 41228)">
 		<HuntingGrounds>
 <Hotspot X="3807.716" Y="4950.949" Z="653.246" />
 

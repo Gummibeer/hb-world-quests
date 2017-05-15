@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41199)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="4027.134" Y="5302.616" Z="625.6039" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="4027.134" Y="5302.616" Z="625.6039" /> 
 				<PickUp Nav="Fly" QuestName="Leystone Rumblers" QuestId="41199" GiverName="" GiverId="" />
 
 				<Objective QuestName="Leystone Rumblers" QuestId="41199" Type="CollectItem" ItemId="134106" CollectCount="12" />
@@ -179,7 +179,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41199)" >	
-				<RunTo X="4027.134" Y="5302.616" Z="625.6039" /> 		
+				<MoveTo NAV="Fly" X="4027.134" Y="5302.616" Z="625.6039" /> 		
 			<CustomBehavior File="InteractWith" MobId="103604" NumOfTimes="100" MobState="Dead" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41199)" >
 				<HuntingGrounds>
 				<Hotspot X="4055.653" Y="5316.322" Z="629.6276" />

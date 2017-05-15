@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(44823)">
-        <RunTo X="4156.51" Y="4374.45" Z="768.16" />
+        <MoveTo NAV="Fly" X="4156.51" Y="4374.45" Z="768.16" />
       </If>
       <If Condition="HasQuest(44823)">
         <!--<GameObject Name="Small Ceremonial Drum" Entry="250905" X="4017.993" Y="4334.641" Z="768.6037" />-->

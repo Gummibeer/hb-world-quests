@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41561)">
-        <RunTo X="3541.803" Y="4313.164" Z="1090.052" />
+        <MoveTo NAV="Fly" X="3541.803" Y="4313.164" Z="1090.052" />
       </If>
       <If Condition="HasQuest(41561)">
         <!--<GameObject Name="Felhide Gargantuan" Entry="248042" X="3566.094" Y="4327.354" Z="1087.55" />-->

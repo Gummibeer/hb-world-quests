@@ -30,7 +30,7 @@ return false;", 0);]]>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41095] Critical Crops - WiN!&quot;);" />
     <While Condition="OnQuest" >
       <If Condition="!HasQuest(41095)">
-        <RunTo X="4218.46" Y="4614.171" Z="654.2935"/>
+        <MoveTo NAV="Fly" X="4218.46" Y="4614.171" Z="654.2935"/>
       </If>
       <If Condition="HasQuest(41095)">
         <CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!OnQuest || !HasQuest(41095)" >

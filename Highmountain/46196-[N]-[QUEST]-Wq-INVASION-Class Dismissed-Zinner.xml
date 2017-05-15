@@ -158,9 +158,9 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46196)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="5636.534" Y="5306.366" Z="40.59503" />
-				<RunTo X="5603.187" Y="5271.97" Z="41.75026" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="5636.534" Y="5306.366" Z="40.59503" />
+				<MoveTo NAV="Fly" X="5603.187" Y="5271.97" Z="41.75026" /> 
 				<PickUp Nav="Fly" QuestName="Class Dismissed" QuestId="46196" GiverName="" GiverId="" />
 
 				<Objective QuestName="Class Dismissed" QuestId="46196" Type="KillMob" MobId="118051" KillCount="12" />
@@ -182,8 +182,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46196)" >
-				<RunTo X="5636.534" Y="5306.366" Z="40.59503" />	
-				<RunTo X="5603.187" Y="5271.97" Z="41.75026" /> 		
+				<MoveTo NAV="Fly" X="5636.534" Y="5306.366" Z="40.59503" />	
+				<MoveTo NAV="Fly" X="5603.187" Y="5271.97" Z="41.75026" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="118051" TerminateWhen="IsObjectiveComplete(1, 46196)" >
 				<HuntingGrounds>
 				<Hotspot X="5564.763" Y="5266.094" Z="41.58824" />
@@ -261,7 +261,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="5636.534" Y="5306.366" Z="40.59503" />
+<MoveTo NAV="Fly" X="5636.534" Y="5306.366" Z="40.59503" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

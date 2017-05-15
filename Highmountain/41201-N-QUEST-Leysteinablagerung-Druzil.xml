@@ -31,10 +31,10 @@ return false;", 0);]]></CustomBehavior>
 
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41201)">
-        <RunTo X="3337.088" Y="4199.594" Z="1308.994" />
+        <MoveTo NAV="Fly" X="3337.088" Y="4199.594" Z="1308.994" />
       </If>
       <If Condition="HasQuest(41201)">
-        <CustomBehavior File="InteractWith" NumOfTimes="100" TerminateWhen="!OnQuest" MobId="247340" X="2605.77" Y="3658.296" Z="1350.566" />
+        <CustomBehavior File="InteractWith" NumOfTimes="100" PreInteractMountStrategy="Dismount" TerminateWhen="!OnQuest" MobId="247340" X="2605.77" Y="3658.296" Z="1350.566" />
       </If>
     </While>
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />

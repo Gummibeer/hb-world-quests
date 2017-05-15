@@ -123,7 +123,7 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41420)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41420] Warden Tower Assault: Nightwatcher's Perch - Staal!&quot;);" />
-	<RunTo X="4410.114" Y="5800.923" Z="400.8511" />
+	<MoveTo NAV="Fly" X="4410.114" Y="5800.923" Z="400.8511" />
 	
 
 	

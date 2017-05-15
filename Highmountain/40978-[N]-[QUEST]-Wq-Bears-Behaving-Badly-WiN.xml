@@ -126,7 +126,7 @@ return false;", 0);]]></CustomBehavior>
 <Vendor Name="Bristlefur Bear" Entry="96146" Type="Repair" Nav="Fly" X="5024.42" Y="5003.088" Z="783.2111" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(40978)" >
-      <RunTo X="4973.333" Y="5034.486" Z="788.0446" />
+      <MoveTo NAV="Fly" X="4973.333" Y="5034.486" Z="788.0446" />
       <PickUp Nav="Fly" QuestName="Bears Behaving Badly" QuestId="40978" GiverName="" GiverId="" />
 <Objective QuestName="Bears Behaving Badly" QuestId="40978" Type="KillMob" Nav="Fly" MobId="96146" KillCount="10" />
 <Objective QuestName="Bears Behaving Badly" QuestId="40978" Type="UseObject" Nav="Fly" ObjectId="246685" UseCount="13" />
@@ -135,7 +135,7 @@ return false;", 0);]]></CustomBehavior>
 </While>
 
 <While Condition="WorldQuestInfo.HasWorldQuest(40978)" >
-      <RunTo X="4973.333" Y="5034.486" Z="788.0446" />
+      <MoveTo NAV="Fly" X="4973.333" Y="5034.486" Z="788.0446" />
       <CustomBehavior File="KillUntilComplete" MobIds="96146" TerminateWhen="IsObjectiveComplete(1, 40978)">
         <HuntingGrounds>
  <Hotspot X="4950.419" Y="5040.781" Z="784.2315" />

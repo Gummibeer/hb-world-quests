@@ -152,7 +152,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41821)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Loading Profile [41821] WANTED: Shara Felbreath - WiN!&quot;);" />
-<RunTo X="5744.604" Y="4085.18" Z="607.8464" />
+<MoveTo NAV="Fly" X="5744.604" Y="4085.18" Z="607.8464" />
 <CustomBehavior File="KillUntilComplete"  QuestId="44304"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(41821)">
 	<HuntingGrounds>
 		<Hotspot X="5744.604" Y="4085.18" Z="607.8464" />

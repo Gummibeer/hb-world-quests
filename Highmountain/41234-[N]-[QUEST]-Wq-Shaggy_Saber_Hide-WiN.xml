@@ -123,7 +123,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41234)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41234] Shaggy Saber Hide - WiN!&quot;);" />
-	<RunTo X="4547.171" Y="4826.016" Z="671.2711" />
+	<MoveTo NAV="Fly" X="4547.171" Y="4826.016" Z="671.2711" />
 	
 
 	

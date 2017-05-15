@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41204)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2704.111" Y="3716.03" Z="1353.102" /> 
+				<MoveTo NAV="Fly" X="2704.111" Y="3716.03" Z="1353.102" /> 
 				<PickUp Nav="Fly" QuestName="Hard Leystone Deposits" QuestId="41204" GiverName="" GiverId="" />
 
 				<Objective QuestName="Hard Leystone Deposits" QuestId="41204" Type="CollectItem" Nav="Fly" ItemId="141222" CollectCount="10" />
@@ -170,8 +170,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41204)" >	
-				<RunTo X="2704.111" Y="3716.03" Z="1353.102" /> 		
-				<CustomBehavior File="InteractWith" MobId="141222" NumOfTimes="10" QuestId="41204" >
+				<MoveTo NAV="Fly" X="2704.111" Y="3716.03" Z="1353.102" /> 		
+				<CustomBehavior File="InteractWith" MobId="141222" PreInteractMountStrategy="Dismount" NumOfTimes="10" QuestId="41204" >
 				<HuntingGrounds>
 					<Hotspot X="2678.281" Y="3613.706" Z="1348.819" />
 					<Hotspot X="2632.787" Y="3692.252" Z="1353.499" />

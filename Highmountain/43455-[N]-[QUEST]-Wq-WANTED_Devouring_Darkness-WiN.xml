@@ -30,14 +30,14 @@ return false;", 0);]]>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43455] WANTED: Devouring Darkness - WiN!&quot;);" />
     <While Condition="OnQuest" >
       <If Condition="!HasQuest(43455)" >
-        <RunTo X="4996.934" Y="3811.39" Z="741.1686" />
+        <MoveTo NAV="Fly" X="4996.934" Y="3811.39" Z="741.1686" />
       </If>
       <!--<WoWUnit Name="Kobold Candle" Entry="97543" X="5018.205" Y="3839.852" Z="737.5846" />
           <Aura Name="Purple Candle Flame" SpellId="197784" StackCount="0" Creator="Kobold Candle" TimeLeft="00:00:00" Flags="Passive, Cancelable" />-->
       <CustomBehavior File="KillUntilComplete"  MobId="100495" WaitForNpcs="false" TerminateWhen="!OnQuest" X="5010.856" Y="3837.92" Z="740.1073" />
       <CustomBehavior File="InteractWith" MobId="97543" AuraIdOnMob="197784" TerminateWhen="!OnQuest" X="5010.856" Y="3837.92" Z="740.1073" />
     </While>
-    <RunTo X="4867.998" Y="3776.922" Z="758.7479" />
+    <MoveTo NAV="Fly" X="4867.998" Y="3776.922" Z="758.7479" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

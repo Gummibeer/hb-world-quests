@@ -54,7 +54,7 @@ return false;", 0);
      }]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41077)">
-        <RunTo X="4296.785" Y="3622.991" Z="898.5236" />
+        <MoveTo NAV="Fly" X="4296.785" Y="3622.991" Z="898.5236" />
       </If>
       <If Condition="HasQuest(41077)">
         <!--[1] 1/1 Speak to Gertie-->
@@ -70,9 +70,9 @@ return false;", 0);
         <While Condition="HasQuest(41077) &amp;&amp; !IsObjectiveComplete(3, 41077)">
           <!--Scorching Shot 203948-->
           <CustomBehavior File="RunCode" Code="await DoQuest();"/>
-          <RunTo X="4340.9" Y="3683.22" Z="880.6274" />
+          <MoveTo NAV="Fly" X="4340.9" Y="3683.22" Z="880.6274" />
           <CustomBehavior File="RunCode" Code="await DoQuest();"/>
-          <RunTo X="4389.271" Y="3741.985" Z="870.1161" />
+          <MoveTo NAV="Fly" X="4389.271" Y="3741.985" Z="870.1161" />
           <CustomBehavior File="RunCode" Code="await DoQuest();"/>
         </While>
       </If>

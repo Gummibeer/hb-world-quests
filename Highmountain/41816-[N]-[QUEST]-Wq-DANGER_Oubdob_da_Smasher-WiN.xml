@@ -158,7 +158,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41816)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41816] DANGER: Oubdob da Smasher - WiN!&quot;);" />
-<RunTo X="3520.267" Y="4323.498" Z="1096.846" />
+<MoveTo NAV="Fly" X="3520.267" Y="4323.498" Z="1096.846" />
 
 
 <CustomBehavior File="KillUntilComplete"  QuestId="41816"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(41816)">

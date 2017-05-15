@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46185)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="6406.355" Y="4799.581" Z="5.698274" /> 
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="6406.355" Y="4799.581" Z="5.698274" /> 
 				<PickUp Nav="Fly" QuestName="Iroxus" QuestId="46185" GiverName="" GiverId="" />
 
 				<Objective QuestName="Iroxus" QuestId="46185" Type="KillMob" MobId="117035" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46185)" >	
-				<RunTo X="6406.355" Y="4799.581" Z="5.698274" /> 		
+				<MoveTo NAV="Fly" X="6406.355" Y="4799.581" Z="5.698274" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117035" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46185)" >
 				<HuntingGrounds>
 					<Hotspot X="6373.781" Y="4806.028" Z="6.547296" />

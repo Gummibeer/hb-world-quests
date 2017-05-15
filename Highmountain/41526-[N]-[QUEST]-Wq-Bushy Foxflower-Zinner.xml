@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41526)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4935.131" Y="5041.531" Z="784.4656" />
+				<MoveTo NAV="Fly" X="4935.131" Y="5041.531" Z="784.4656" />
 				<PickUp Nav="Fly" QuestName="Bushy Foxflower" QuestId="41526" GiverName="" GiverId="" />
 
 				<Objective QuestName="Bushy Foxflower" QuestId="41526" Type="CollectItem" ItemId="140988" CollectCount="10" />
@@ -187,8 +187,8 @@
 
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41526)" >	
-				<RunTo X="4935.131" Y="5041.531" Z="784.4656" />		
-			<CustomBehavior File="InteractWith" MobIds="248018" QuestId="41526">
+				<MoveTo NAV="Fly" X="4935.131" Y="5041.531" Z="784.4656" />		
+			<CustomBehavior File="InteractWith" MobIds="248018" PreInteractMountStrategy="Dismount" QuestId="41526">
 				<HuntingGrounds>
 			<Hotspot X="4842.219" Y="5029.681" Z="783.8503" />
 			<Hotspot X="4799.375" Y="5023.155" Z="779.0257" />

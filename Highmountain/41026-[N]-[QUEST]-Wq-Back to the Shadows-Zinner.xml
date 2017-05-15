@@ -116,7 +116,7 @@
 							</CustomBehavior>
 <While Condition="WorldQuestInfo.HasWorldQuest(41026)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="4941.16" Y="5814.221" Z="30.54214" />
+	<MoveTo NAV="Fly" X="4941.16" Y="5814.221" Z="30.54214" />
 <PickUp Nav="Fly" QuestName="Back to the Shadows" QuestId="41026" GiverName="" GiverId="" />
 
 <Objective QuestName="Back to the Shadows" QuestId="41026" Type="KillMob" Nav="Fly" MobId="102251" KillCount="13" />
@@ -139,7 +139,7 @@
 <Vendor Name="Feltotem Bloodsinger" Entry="101700" Type="Repair" Nav="Fly" X="4850.789" Y="5754.151" Z="46.00066" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41026)" >
-	<RunTo X="4941.16" Y="5814.221" Z="30.54214" />
+	<MoveTo NAV="Fly" X="4941.16" Y="5814.221" Z="30.54214" />
 	<CustomBehavior File="KillUntilComplete" MobIds="102729, 102728" NumOfTimes="4" QuestId="41026"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41026)">
 		<HuntingGrounds>
 <Hotspot X="4941.16" Y="5814.221" Z="30.54214" />

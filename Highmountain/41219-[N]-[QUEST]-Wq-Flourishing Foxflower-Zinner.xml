@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41219)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4796.993" Y="3802.284" Z="758.2294" /> 
+				<MoveTo NAV="Fly" X="4796.993" Y="3802.284" Z="758.2294" /> 
 				<PickUp Nav="Fly" QuestName="Flourishing Foxflower" QuestId="41219" GiverName="" GiverId="" />
 
 				<Objective QuestName="Flourishing Foxflower" QuestId="41219" Type="CollectItem" ItemId="140986" CollectCount="10" />
@@ -170,8 +170,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41219)" >	
-				<RunTo X="4796.993" Y="3802.284" Z="758.2294" /> 		
-				<CustomBehavior File="InteractWith" MobId="247388" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41219)" >
+				<MoveTo NAV="Fly" X="4796.993" Y="3802.284" Z="758.2294" /> 		
+				<CustomBehavior File="InteractWith" MobId="247388" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41219)" >
 				<HuntingGrounds>
 					<Hotspot X="4796.993" Y="3802.284" Z="758.2294" />
 					<Hotspot X="4793.724" Y="3809.298" Z="760.3157" />

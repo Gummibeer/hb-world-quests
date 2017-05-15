@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46262)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="6498.055" Y="4648.301" Z="1.248299" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="6498.055" Y="4648.301" Z="1.248299" /> 
 				<PickUp Nav="Fly" QuestName="Save the Tadpoles!" QuestId="46262" GiverName="" GiverId="" />
 
 				<Objective QuestName="Save the Tadpoles!" QuestId="46262" Type="UseObject" ObjectId="268380" UseCount="3" />
@@ -179,7 +179,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46262)" >	
-				<RunTo X="6498.055" Y="4648.301" Z="1.248299" /> 		
+				<MoveTo NAV="Fly" X="6498.055" Y="4648.301" Z="1.248299" /> 		
 			<CustomBehavior File="InteractWith" MobIds="268380" Range="5" NumOfTimes="4" TerminateWhen="IsObjectiveComplete(1, 46262)" >
 				<HuntingGrounds>
 				<Hotspot X="6597.045" Y="4570.018" Z="1.38106" />
@@ -210,7 +210,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="6498.055" Y="4648.301" Z="1.248299" />
+<MoveTo NAV="Fly" X="6498.055" Y="4648.301" Z="1.248299" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

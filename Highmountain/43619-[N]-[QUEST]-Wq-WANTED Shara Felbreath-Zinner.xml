@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43619)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="5744.604" Y="4085.18" Z="607.8464" />
+				<MoveTo NAV="Fly" X="5744.604" Y="4085.18" Z="607.8464" />
 				<PickUp Nav="Fly" QuestName="WANTED: Shara Felbreath" QuestId="43619" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Shara Felbreath" QuestId="43619" Type="KillMob" Nav="Fly" MobId="97093" KillCount="1" />
@@ -170,7 +170,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43619)" >	
-				<RunTo X="5744.604" Y="4085.18" Z="607.8464" />		
+				<MoveTo NAV="Fly" X="5744.604" Y="4085.18" Z="607.8464" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="97093" QuestId="43619">
 				<HuntingGrounds>
 					<Hotspot X="5744.604" Y="4085.18" Z="607.8464" />

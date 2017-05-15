@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44746)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="6250.264" Y="4976.189" Z="-0.7779353" /> 
+				<MoveTo NAV="Fly" X="6250.264" Y="4976.189" Z="-0.7779353" /> 
 				<PickUp Nav="Fly" QuestName="Helarjar Landing: Rockaway Coast" QuestId="44746" GiverName="" GiverId="" />
 
 				<Objective QuestName="Helarjar Landing: Rockaway Coast" QuestId="44746" Type="KillMob" MobId="115168" KillCount="1" />
@@ -172,7 +172,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44746)" >	
-				<RunTo X="6250.264" Y="4976.189" Z="-0.7779353" /> 		
+				<MoveTo NAV="Fly" X="6250.264" Y="4976.189" Z="-0.7779353" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="115132, 115168" QuestId="44746">
 				<HuntingGrounds>
 					<Hotspot X="6250.264" Y="4976.189" Z="-0.7779353" />

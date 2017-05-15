@@ -158,7 +158,7 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41550)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="4094.848" Y="3629.176" Z="890.7749" />
+	<MoveTo NAV="Fly" X="4094.848" Y="3629.176" Z="890.7749" />
 <PickUp Nav="Fly" QuestName="Slab of Bacon" QuestId="41550" GiverName="" GiverId="" />
 <Objective QuestName="Slab of Bacon" QuestId="41550" Type="CollectItem" Nav="Fly" ItemId="135511" CollectCount="1" />
 <TurnIn Nav="Fly" QuestName="Slab of Bacon" QuestId="41550" TurnInName="" TurnInId="" />
@@ -168,7 +168,7 @@
 <Vendor Name="Well-Fed Ironhorn Bull" Entry="103681" Type="Repair" Nav="Fly" X="4108.523" Y="3623.891" Z="894.9875" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41550)" >
-	<RunTo X="4094.848" Y="3629.176" Z="890.7749" />
+	<MoveTo NAV="Fly" X="4094.848" Y="3629.176" Z="890.7749" />
 	<CustomBehavior File="KillUntilComplete" MobIds="103681" QuestId="41550" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 41550)">
 		<HuntingGrounds>
 			<Hotspot X="4094.848" Y="3629.176" Z="890.7749" />
