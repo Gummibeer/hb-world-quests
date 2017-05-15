@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41327)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-8.992926" Y="6737.957" Z="55.58797" /> 
+				<MoveTo NAV="Fly" X="-8.992926" Y="6737.957" Z="55.58797" /> 
 				<TurnIn Nav="Fly" QuestName="Supplies Needed: Stormscales" QuestId="41327" TurnInName="Veridis Fallon" TurnInId="107376" />
 
 

@@ -122,7 +122,7 @@
 		
 <While Condition="WorldQuestInfo.HasWorldQuest(43091)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="1317.563" Y="6092.366" Z="87.61339" />
+	<MoveTo NAV="Fly" X="1317.563" Y="6092.366" Z="87.61339" />
 	<PickUp Nav="Fly" QuestName="DANGER: Arcanor Prime" QuestId="43091" GiverName="" GiverId="" />
 
 	<Objective QuestName="DANGER: Arcanor Prime" QuestId="43091" Type="KillMob" Nav="Fly" MobId="109641" KillCount="1" />
@@ -136,7 +136,7 @@
 <Vendor Name="Fathnyr" Entry="91803" Type="Repair" Nav="Fly" X="1922.743" Y="2315.998" Z="507.618" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43091)" >
-	<RunTo X="1317.563" Y="6092.366" Z="87.61339" />
+	<MoveTo NAV="Fly" X="1317.563" Y="6092.366" Z="87.61339" />
 	<CustomBehavior File="KillUntilComplete" MobIds="109641" QuestId="43091">
 		<HuntingGrounds>
 			<Hotspot X="1317.563" Y="6092.366" Z="87.61339" />

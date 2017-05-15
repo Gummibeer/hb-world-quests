@@ -30,7 +30,7 @@ return false;", 0);]]>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42711] The Eternal Mages - Staal!&quot;);" />
       <If Condition="!HasQuest(42711)">
-        <RunTo X="-988.2083" Y="6082.068" Z="25.18278" />
+        <MoveTo NAV="Fly"  X="-988.2083" Y="6082.068" Z="25.18278" />
       </If>
       <CustomBehavior File="KillUntilComplete"  MobIds="108334, 108337, 108339, 109136, 109135, 108340, 108338, 108335" TerminateWhen="!OnQuest" >
         <HuntingGrounds>

@@ -165,13 +165,13 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43609)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="568.3079" Y="6983.24" Z="178.7833" />
+	<MoveTo NAV="Fly" X="568.3079" Y="6983.24" Z="178.7833" />
 	<PickUp Nav="Fly" QuestName="WANTED: Doomlord Kazrok" QuestId="43609" GiverName="" GiverId="" />
 	<Objective QuestName="WANTED: Doomlord Kazrok" QuestId="43609" Type="KillMob" Nav="Fly" MobId="91579" KillCount="1" />
 	<TurnIn Nav="Fly" QuestName="WANTED: Doomlord Kazrok" QuestId="43609" TurnInName="" TurnInId="" />
 </While>
 <While Condition="WorldQuestInfo.HasWorldQuest(43609)" >
-	<RunTo X="568.3079" Y="6983.24" Z="178.7833" />
+	<MoveTo NAV="Fly" X="568.3079" Y="6983.24" Z="178.7833" />
 	<CustomBehavior File="KillUntilComplete" MobIds="91579" QuestId="43609">
 		<HuntingGrounds>
 			<Hotspot X="568.3079" Y="6983.24" Z="178.7833" />

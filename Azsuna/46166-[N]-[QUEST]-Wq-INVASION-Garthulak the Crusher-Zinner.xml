@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46166)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="214.3353" Y="5907.628" Z="9.45329" /> 
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="214.3353" Y="5907.628" Z="9.45329" /> 
 				<PickUp Nav="Fly" QuestName="Garthulak the Crusher" QuestId="46166" GiverName="" GiverId="" />
 
 				<Objective QuestName="Garthulak the Crusher" QuestId="46166" Type="KillMob" MobId="116955" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46166)" >	
-				<RunTo X="214.3353" Y="5907.628" Z="9.45329" /> 		
+				<MoveTo NAV="Fly" X="214.3353" Y="5907.628" Z="9.45329" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="116955" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46166)" >
 				<HuntingGrounds>
 					<Hotspot X="214.3353" Y="5907.628" Z="9.45329" />

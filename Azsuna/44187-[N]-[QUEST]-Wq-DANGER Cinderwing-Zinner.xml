@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44187)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-1616.059" Y="6744.821" Z="124.8738" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-1616.059" Y="6744.821" Z="124.8738" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Cinderwing" QuestId="44187" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Cinderwing" QuestId="44187" Type="KillMob" MobId="111674" KillCount="1" />
@@ -176,7 +176,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44187)" >	
-				<RunTo X="-1616.059" Y="6744.821" Z="124.8738" /> 		
+				<MoveTo NAV="Fly" X="-1616.059" Y="6744.821" Z="124.8738" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="111674" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44187)" >
 				<HuntingGrounds>
 					<Hotspot X="-1616.059" Y="6744.821" Z="124.8738" />

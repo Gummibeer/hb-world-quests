@@ -29,11 +29,11 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(42275)">
-        <RunTo X="-462.5772" Y="7731.043" Z="110.9532" />
+        <MoveTo NAV="Fly" X="-462.5772" Y="7731.043" Z="110.9532" />
       </If>
       <If Condition="!IsObjectiveComplete(2, 42275) &amp;&amp; HasQuest(42275)">
         <!--<GameObject Name="Dimensional Anchor" Entry="250375" X="-517.9566" Y="7675.077" Z="140.6994" />-->
-        <CustomBehavior File="InteractWith" NumOfTimes="4" MobId="250375" TerminateWhen="IsObjectiveComplete(2, 42275) || !HasQuest(42275)">
+        <CustomBehavior File="InteractWith" NumOfTimes="4" MobId="250375" PreInteractMountStrategy="Dismount" TerminateWhen="IsObjectiveComplete(2, 42275) || !HasQuest(42275)">
           <HuntingGrounds>
             <Hotspot X="-517.9566" Y="7675.077" Z="140.6994" />
             <Hotspot X="-531.5364" Y="7653.28" Z="140.6569" />

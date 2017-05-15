@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44737)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="337.755" Y="7751.29" Z="2.207859" /> 
+				<MoveTo NAV="Fly" X="337.755" Y="7751.29" Z="2.207859" /> 
 				<PickUp Nav="Fly" QuestName="Helarjar Landing: Grey Shoals" QuestId="44737" GiverName="" GiverId="" />
 
 				<Objective QuestName="Helarjar Landing: Grey Shoals" QuestId="44737" Type="KillMob" MobId="115025" KillCount="17" />
@@ -184,7 +184,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44737)" >	
-				<RunTo X="337.755" Y="7751.29" Z="2.207859" />
+				<MoveTo NAV="Fly" X="337.755" Y="7751.29" Z="2.207859" />
 	<CustomBehavior File="KillUntilComplete" MobIds="115025, 115031, 115026, 115739, 115751" QuestId="44737" > 
 		<HuntingGrounds>
 			<Hotspot X="347.6397" Y="7756.692" Z="2.007106" />

@@ -126,7 +126,7 @@ then boss
  
 <While Condition="WorldQuestInfo.HasWorldQuest(42620)" >
     <!-- Get in range of quest to activate -->
-    <RunTo X="1239.17" Y="5930.808" Z="21.11264" />
+    <MoveTo NAV="Fly" X="1239.17" Y="5930.808" Z="21.11264" />
     <PickUp Nav="Fly" QuestName="WANTED: Arcavellus" QuestId="42620" GiverName="" GiverId="" />
     <Objective QuestName="WANTED: Arcavellus" QuestId="42620" Type="KillMob" Nav="Fly" MobId="90244" KillCount="1" />
     <TurnIn Nav="Fly" QuestName="WANTED: Arcavellus" QuestId="42620" TurnInName="" TurnInId="" />
@@ -134,7 +134,7 @@ then boss
  
 <While Condition="WorldQuestInfo.HasWorldQuest(42620)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42620] WANTED: Arcavellus - WiN!&quot;);" />
-    <RunTo X="1268.48" Y="5892.569" Z="13.17953" />
+    <MoveTo NAV="Fly" X="1268.48" Y="5892.569" Z="13.17953" />
     <CustomBehavior File="KillUntilComplete" MobIds="90244,90243,90242" QuestId="42620" TerminateWhen="IsObjectiveComplete(1, 42620)">
         <HuntingGrounds>
             <Hotspot X="1268.48" Y="5892.569" Z="13.17953" />

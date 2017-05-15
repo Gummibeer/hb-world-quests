@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45134)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="293.3481" Y="7179.813" Z="102.9165" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="293.3481" Y="7179.813" Z="102.9165" /> 
 				<PickUp Nav="Fly" QuestName="The Soul Harvesters" QuestId="45134" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Soul Harvesters" QuestId="45134" Type="KillMob" MobId="116205" KillCount="34" />
@@ -192,7 +192,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45134)" >	
-				<RunTo X="293.3481" Y="7179.813" Z="102.9165" /> 		
+				<MoveTo NAV="Fly" X="293.3481" Y="7179.813" Z="102.9165" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="116205, 116219, 116204, 116282, 116281, 116217, 116277, 116290, 116304, 116297" TerminateWhen="IsObjectiveComplete(1, 45134)" >
 				<HuntingGrounds>
 					<Hotspot X="303.9168" Y="7200.56" Z="109.3214" />
@@ -217,7 +217,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="293.3481" Y="7179.813" Z="102.9165" />
+<MoveTo NAV="Fly" X="293.3481" Y="7179.813" Z="102.9165" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

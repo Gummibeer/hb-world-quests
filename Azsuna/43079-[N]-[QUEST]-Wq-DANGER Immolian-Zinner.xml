@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43079)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-354.7459" Y="7952.904" Z="73.38509" /> 
+				<MoveTo NAV="Fly" X="-354.7459" Y="7952.904" Z="73.38509" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Immolian" QuestId="43079" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Immolian" QuestId="43079" Type="KillMob" Nav="Fly" MobId="109630" KillCount="1" />
@@ -175,7 +175,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43079)" >	
-				<RunTo X="-354.7459" Y="7952.904" Z="73.38509" />		
+				<MoveTo NAV="Fly" X="-354.7459" Y="7952.904" Z="73.38509" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="110378" QuestId="43079">
 				<HuntingGrounds>
 					<Hotspot X="-354.7459" Y="7952.904" Z="73.38509" />

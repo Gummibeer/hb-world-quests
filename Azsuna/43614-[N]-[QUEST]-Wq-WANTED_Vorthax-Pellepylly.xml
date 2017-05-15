@@ -23,7 +23,7 @@ public class WorldQuestData { public int ID; public string Name; public Date
 
 <While Condition="WorldQuestInfo.HasWorldQuest(43614)">
 <!--  Get in range of quest to activate  -->
-<RunTo X="-110.1724" Y="7396.065" Z="102.4026"/>
+<MoveTo NAV="Fly" X="-110.1724" Y="7396.065" Z="102.4026"/>
 <PickUp Nav="Fly" QuestName="WANTED: Vorthax" QuestId="43614" GiverName="" GiverId="" />
 
 <Objective QuestName="WANTED: Vorthax" QuestId="43614" Type="KillMob" Nav="Fly" MobId="107113" KillCount="1" />
@@ -32,7 +32,7 @@ public class WorldQuestData { public int ID; public string Name; public Date
 </While>
 <While Condition="WorldQuestInfo.HasWorldQuest(43614)">
 <!--  Get in range of quest to activate  -->
-<RunTo X="-110.1724" Y="7396.065" Z="102.4026"/>
+<MoveTo NAV="Fly" X="-110.1724" Y="7396.065" Z="102.4026"/>
 <CustomBehavior File="KillUntilComplete" MobIds="107113" QuestId="43614">
 <HuntingGrounds>
 <Hotspot X="-110.1724" Y="7396.065" Z="102.4026"/>
@@ -40,7 +40,7 @@ public class WorldQuestData { public int ID; public string Name; public Date
 </CustomBehavior>
 </While>
 
-<RunTo X="-120.0156" Y="7410.77" Z="101.1084" />
+<MoveTo NAV="Fly" X="-120.0156" Y="7410.77" Z="101.1084" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

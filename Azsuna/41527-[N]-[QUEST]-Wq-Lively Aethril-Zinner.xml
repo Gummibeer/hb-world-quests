@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41527)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="656.8232" Y="5670.693" Z="85.02199" /> 
+				<MoveTo NAV="Fly" X="656.8232" Y="5670.693" Z="85.02199" /> 
 				<PickUp Nav="Fly" QuestName="Lively Aethril" QuestId="41527" GiverName="" GiverId="" />
 
 				<Objective QuestName="Lively Aethril" QuestId="41527" Type="CollectItem" ItemId="140948" CollectCount="10" />
@@ -172,8 +172,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41527)" >	
-				<RunTo X="656.8232" Y="5670.693" Z="85.02199" /> 		
-				<CustomBehavior File="InteractWith" MobId="248019" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41527)" >
+				<MoveTo NAV="Fly" X="656.8232" Y="5670.693" Z="85.02199" /> 		
+				<CustomBehavior File="InteractWith" MobId="248019" PreInteractMountStrategy="Dismount" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41527)" >
 				<HuntingGrounds>
 					<Hotspot X="656.8232" Y="5670.693" Z="85.02199" />
 					<Hotspot X="703.4223" Y="5735.563" Z="94.35685" />

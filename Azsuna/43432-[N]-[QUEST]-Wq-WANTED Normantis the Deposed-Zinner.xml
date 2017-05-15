@@ -123,7 +123,7 @@
 
 
 <While Condition="WorldQuestInfo.HasWorldQuest(43432)" >
-	<RunTo X="1438.004" Y="6563.908" Z="2.917938" />
+	<MoveTo NAV="Fly" X="1438.004" Y="6563.908" Z="2.917938" />
 	
 	
 	<CustomBehavior File="KillUntilComplete" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43432)">
@@ -140,7 +140,7 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 
-<RunTo X="1470.862" Y="6541.582" Z="5.104619" />
+<MoveTo NAV="Fly" X="1470.862" Y="6541.582" Z="5.104619" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

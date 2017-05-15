@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41529)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-294.0128" Y="5692.585" Z="61.89003" /> 
+				<MoveTo NAV="Fly" X="-294.0128" Y="5692.585" Z="61.89003" /> 
 				<PickUp Nav="Fly" QuestName="Bushy Aethril" QuestId="41529" GiverName="" GiverId="" />
 
 				<Objective QuestName="Bushy Aethril" QuestId="41529" Type="CollectItem" ItemId="140951" CollectCount="10" />
@@ -172,8 +172,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41529)" >	
-				<RunTo X="-294.0128" Y="5692.585" Z="61.89003" /> 		
-				<CustomBehavior File="InteractWith" MobId="248022" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41529)" >
+				<MoveTo NAV="Fly" X="-294.0128" Y="5692.585" Z="61.89003" /> 		
+				<CustomBehavior File="InteractWith" MobId="248022" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41529)" >
 				<HuntingGrounds>
 					<Hotspot X="-284.8629" Y="5614.302" Z="55.27606" />
 					<Hotspot X="-288.1927" Y="5837.024" Z="85.8858" />

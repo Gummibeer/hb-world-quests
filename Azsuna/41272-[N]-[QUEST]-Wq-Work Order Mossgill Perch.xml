@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41272)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="2299.88" Y="6577.66" Z="141.787" /> 
+				<MoveTo NAV="Fly"  X="2299.88" Y="6577.66" Z="141.787" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Mossgill Perch" QuestId="41272" TurnInName="" TurnInId="0" />
 
 

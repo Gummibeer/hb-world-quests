@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41289)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="92.90408" Y="6763.824" Z="51.89031" /> 
+				<MoveTo NAV="Fly" X="92.90408" Y="6763.824" Z="51.89031" /> 
 				<PickUp Nav="Fly" QuestName="Flourishing Aethril" QuestId="41289" GiverName="" GiverId="" />
 
 				<Objective QuestName="Flourishing Aethril" QuestId="41289" Type="CollectItem" ItemId="140947" CollectCount="10" />
@@ -171,8 +171,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41289)" >	
-				<RunTo X="92.90408" Y="6763.824" Z="51.89031" /> 		
-				<CustomBehavior File="InteractWith" MobId="247605" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41289)" >
+				<MoveTo NAV="Fly" X="92.90408" Y="6763.824" Z="51.89031" /> 		
+				<CustomBehavior File="InteractWith" MobId="247605" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41289)" >
 				<HuntingGrounds>
 					<Hotspot X="302.3539" Y="6602.724" Z="55.92394" />
 					<Hotspot X="299.7667" Y="6616.874" Z="52.82145" />

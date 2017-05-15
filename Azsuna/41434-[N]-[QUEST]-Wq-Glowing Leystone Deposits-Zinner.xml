@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41434)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-746.7634" Y="6607.073" Z="-0.9769697" /> 
+				<MoveTo NAV="Fly" X="-746.7634" Y="6607.073" Z="-0.9769697" /> 
 				<PickUp Nav="Fly" QuestName="Glowing Leystone Deposits" QuestId="41434" GiverName="" GiverId="" />
 
 				<Objective QuestName="Glowing Leystone Deposits" QuestId="41434" Type="CollectItem" Nav="Fly" ItemId="141223" CollectCount="10" />
@@ -171,8 +171,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41434)" >	
-				<RunTo X="-746.7634" Y="6607.073" Z="-0.9769697" /> 		
-				<CustomBehavior File="InteractWith" MobId="141223" NumOfTimes="10" QuestId="41434" >
+				<MoveTo NAV="Fly" X="-746.7634" Y="6607.073" Z="-0.9769697" /> 		
+				<CustomBehavior File="InteractWith" PreInteractMountStrategy="Dismount" MobId="141223" NumOfTimes="10" QuestId="41434" >
 				<HuntingGrounds>
 					<Hotspot X="-746.7634" Y="6607.073" Z="-0.9769697" />
 					<Hotspot X="-694.1379" Y="6560.247" Z="-2.081439" />

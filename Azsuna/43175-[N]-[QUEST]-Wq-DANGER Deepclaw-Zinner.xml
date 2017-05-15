@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43175)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-955.2104" Y="6139.307" Z="7.897686" /> 
+				<MoveTo NAV="Fly" X="-955.2104" Y="6139.307" Z="7.897686" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Deepclaw" QuestId="43175" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Deepclaw" QuestId="43175" Type="KillMob" MobId="109702" KillCount="1" />
@@ -171,7 +171,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43175)" >	
-				<RunTo X="-955.2104" Y="6139.307" Z="7.897686" /> 		
+				<MoveTo NAV="Fly" X="-955.2104" Y="6139.307" Z="7.897686" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="109702" QuestId="43175">
 				<HuntingGrounds>
 					<Hotspot X="-983.2548" Y="6153.099" Z="6.371455" />

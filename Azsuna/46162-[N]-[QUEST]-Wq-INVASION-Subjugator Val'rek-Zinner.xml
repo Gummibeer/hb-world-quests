@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46162)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="1302.459" Y="7056.349" Z="73.36522" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="1302.459" Y="7056.349" Z="73.36522" />
 				<PickUp Nav="Fly" QuestName="Subjugator Val'rek" QuestId="46162" GiverName="" GiverId="" />
 
 				<Objective QuestName="Subjugator Val'rek" QuestId="46162" Type="KillMob" MobId="118000" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46162)" >	
-				<RunTo X="1302.459" Y="7056.349" Z="73.36522" /> 		
+				<MoveTo NAV="Fly" X="1302.459" Y="7056.349" Z="73.36522" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="118000" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46162)" >
 				<HuntingGrounds>
 				<Hotspot X="1302.459" Y="7056.349" Z="73.36522" />

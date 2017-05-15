@@ -41,7 +41,7 @@ return false;", 0);]]></CustomBehavior>
 -->
     <While Condition="OnQuest">
       <If Condition="!HasQuest(44788)">
-        <RunTo X="192.7811" Y="6463.959" Z="-52.71714" />
+        <MoveTo NAV="Fly" X="192.7811" Y="6463.959" Z="-52.71714" />
       </If>
       <If Condition="HasQuest(44788)">
         <CustomBehavior File="Hooks\Avoid" AvoidName="PurpleSchtuff" ObjectType="AreaTrigger" ObjectId="12130" Radius="6" />
@@ -61,7 +61,7 @@ return false;", 0);]]></CustomBehavior>
         </While>
         <While Condition="!IsObjectiveComplete(4, 44788)">
           <!--<GameObject Name="Handbook of Feathery Friends" Entry="266058" X="183.9375" Y="6485.213" Z="-44.57569" />-->
-          <RunTo X="188.9358" Y="6475.171" Z="-52.88799" />
+          <MoveTo NAV="Fly" X="188.9358" Y="6475.171" Z="-52.88799" />
           <CustomBehavior File="RunCode" Code="
 						WoWObject book = Object(266058);
             var click = true;
@@ -115,7 +115,7 @@ return false;", 0);]]></CustomBehavior>
       </If>
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
-      <RunTo X="28.14071" Y="6283.12" Z="9.194524" />
+      <MoveTo NAV="Fly" X="28.14071" Y="6283.12" Z="9.194524" />
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />

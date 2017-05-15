@@ -156,7 +156,7 @@
 		</CustomBehavior>
 <While Condition="WorldQuestInfo.HasWorldQuest(41265)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41265-[N]-[QUEST]-Wq-Huge Cursed Queenfish-Zinner.xml!&quot;);" />
-			<RunTo X="-63.25824" Y="6478.884" Z="4.91038" />		
+			<MoveTo NAV="Fly" X="-63.25824" Y="6478.884" Z="4.91038" />		
 			<CustomBehavior File="MrFishIt" X="-48.34664" Y="6473.699" Z="0" CollectItemId="134565" CollectItemCount="10" QuestId="41265" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
 
 

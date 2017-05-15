@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41669)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-12.4245" Y="6740.207" Z="55.60171" /> 
+				<MoveTo NAV="Fly" X="-12.4245" Y="6740.207" Z="55.60171" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Word of Critical Strike" QuestId="41669" TurnInName="Veridis Fallon" TurnInId="107376" />
 
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />

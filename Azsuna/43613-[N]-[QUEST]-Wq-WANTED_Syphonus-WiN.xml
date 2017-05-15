@@ -156,7 +156,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43613)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43613] WANTED: Syphonus - WiN!&quot;);" />
-<RunTo X="-440.8125" Y="5383.252" Z="71.79532" />
+<MoveTo NAV="Fly" X="-440.8125" Y="5383.252" Z="71.79532" />
 <CustomBehavior File="KillUntilComplete" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43613)">
 	<HuntingGrounds>
 <Hotspot X="-447.6097" Y="5398.892" Z="70.86236" />
@@ -168,7 +168,7 @@
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
-<RunTo X="-440.8125" Y="5383.252" Z="71.79532" />
+<MoveTo NAV="Fly" X="-440.8125" Y="5383.252" Z="71.79532" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

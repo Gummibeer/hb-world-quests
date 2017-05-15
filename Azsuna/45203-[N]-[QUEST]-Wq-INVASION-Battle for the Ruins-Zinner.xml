@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45203)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-356.7672" Y="5481.802" Z="41.96083" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-356.7672" Y="5481.802" Z="41.96083" /> 
 				<PickUp Nav="Fly" QuestName="Battle for the Ruins" QuestId="45203" GiverName="" GiverId="" />
 
 				<Objective QuestName="Battle for the Ruins" QuestId="45203" Type="KillMob" MobId="116425" KillCount="00" />
@@ -192,7 +192,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45203)" >	
-				<RunTo X="-356.7672" Y="5481.802" Z="41.96083" /> 		
+				<MoveTo NAV="Fly" X="-356.7672" Y="5481.802" Z="41.96083" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="116324, 116425, 116167, 116429, 116424, 116428, 116433, 116454, 116436" TerminateWhen="IsObjectiveComplete(1, 45203)" >
 				<HuntingGrounds>
 					<Hotspot X="-356.7672" Y="5481.802" Z="41.96083" />
@@ -209,7 +209,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="-356.7672" Y="5481.802" Z="41.96083" />
+<MoveTo NAV="Fly" X="-356.7672" Y="5481.802" Z="41.96083" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

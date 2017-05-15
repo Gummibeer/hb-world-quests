@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42160] Unwelcome Visitors - WiN!&quot;);" />
-      <RunTo X="612.7296" Y="5521.41" Z="54.96373" />
+      <MoveTo NAV="Fly" X="612.7296" Y="5521.41" Z="54.96373" />
       <!-- <WoWUnit Name="Felblaze Portal" Entry="106509" X="613.9011" Y="5530.807" Z="54.96227" /> -->
       <CustomBehavior File="RunCode">
         <![CDATA[
@@ -40,7 +40,7 @@ return false;", 0);]]>
 						]]>
       </CustomBehavior>
       <!-- <WoWUnit Name="Felblaze Portal" Entry="106509" X="495.0972" Y="5305.768" Z="61.24533" /> -->
-      <RunTo X="497.7776" Y="5314.194" Z="59.98594" />
+      <MoveTo NAV="Fly" X="497.7776" Y="5314.194" Z="59.98594" />
 
       <CustomBehavior File="RunCode">
         <![CDATA[
@@ -52,7 +52,7 @@ return false;", 0);]]>
       </CustomBehavior>
 
       <!-- <WoWUnit Name="Felblaze Portal" Entry="106509" X="589.1614" Y="5301.938" Z="45.34641" /> -->
-      <RunTo X="586.7567" Y="5306.751" Z="45.09935" />
+      <MoveTo NAV="Fly" X="586.7567" Y="5306.751" Z="45.09935" />
 
       <CustomBehavior File="RunCode">
         <![CDATA[
@@ -64,7 +64,7 @@ return false;", 0);]]>
       </CustomBehavior>
 
       <!-- <WoWUnit Name="Felblaze Portal" Entry="106509" X="724.7518" Y="5318.563" Z="57.52559" /> -->
-      <RunTo X="722.0895" Y="5321.634" Z="57.27006" />
+      <MoveTo NAV="Fly" X="722.0895" Y="5321.634" Z="57.27006" />
       <CustomBehavior File="RunCode">
         <![CDATA[
 							Lua.DoString("ExtraActionButton1:Click();");

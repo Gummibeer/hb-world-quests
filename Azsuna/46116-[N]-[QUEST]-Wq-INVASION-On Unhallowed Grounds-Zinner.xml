@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46116)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="1006.385" Y="5624.667" Z="88.41323" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="1006.385" Y="5624.667" Z="88.41323" /> 
 				<PickUp Nav="Fly" QuestName="On Unhallowed Grounds" QuestId="46116" GiverName="" GiverId="" />
 
 				<Objective QuestName="On Unhallowed Grounds" QuestId="46116" Type="KillMob" MobId="116566" KillCount="20" />
@@ -187,7 +187,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46116)" >	
-				<RunTo X="1006.385" Y="5624.667" Z="88.41323" /> 		
+				<MoveTo NAV="Fly" X="1006.385" Y="5624.667" Z="88.41323" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="116566, 118782, 118783, 116521, 116664, 118753" TerminateWhen="IsObjectiveComplete(1, 46116)" >
 				<HuntingGrounds>
 				<Hotspot X="1006.385" Y="5624.667" Z="88.41323" />

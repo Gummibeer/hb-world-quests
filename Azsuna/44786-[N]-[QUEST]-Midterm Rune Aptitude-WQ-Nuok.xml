@@ -31,7 +31,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(44786)">
-        <RunTo X="194.2192" Y="6437.875" Z="-53.77689" />
+        <MoveTo NAV="Fly" X="194.2192" Y="6437.875" Z="-53.77689" />
       </If>
       <While Condition="HasQuest(44786) &amp;&amp; !IsObjectiveComplete(1, 44786)">
         <CustomBehavior File="MyCTM" X="195.3633" Y="6445.876" Z="-53.77689" />
@@ -187,7 +187,7 @@ return false;", 0);]]>
       </While>
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
-      <RunTo X="33.91953" Y="6288.097" Z="12.66002" />
+      <MoveTo NAV="Fly" X="33.91953" Y="6288.097" Z="12.66002" />
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />

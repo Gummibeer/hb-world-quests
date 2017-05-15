@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41287)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-12.92756" Y="6738.351" Z="55.58786"  /> 
+				<MoveTo NAV="Fly" X="-12.92756" Y="6738.351" Z="55.58786"  /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Aethril" QuestId="41287" TurnInName="Veridis Fallon" TurnInId="107376" />
 
 

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44189)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-2073.699" Y="7068.131" Z="93.80566" /> 
+				<MoveTo NAV="Fly"  X="-2073.699" Y="7068.131" Z="93.80566" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Bestrix" QuestId="44189" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Bestrix" QuestId="44189" Type="KillMob" MobId="111454" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44189)" >	
-				<RunTo X="-2073.699" Y="7068.131" Z="93.80566" />		
+				<MoveTo NAV="Fly"  X="-2073.699" Y="7068.131" Z="93.80566" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="111454" QuestId="44189">
 				<HuntingGrounds>
 					<Hotspot X="-2073.699" Y="7068.131" Z="93.80566" />
@@ -182,7 +182,7 @@
 			<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-	<Runto X="4798.747" Y="156.3224" Z="-8.962628" />
+	<MoveTo NAV="Fly" X="4798.747" Y="156.3224" Z="-8.962628" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

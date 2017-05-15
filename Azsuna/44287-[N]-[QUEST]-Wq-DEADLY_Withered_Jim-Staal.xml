@@ -165,13 +165,13 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(44287)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="-1730.553" Y="6371.875" Z="57.39759" />
+	<MoveTo NAV="Fly" X="-1730.553" Y="6371.875" Z="57.39759" />
 	<PickUp Nav="Fly" QuestName="DEADLY: Withered J'im" QuestId="44287" GiverName="" GiverId="" />
 	<Objective QuestName="DEADLY: Withered J'im" QuestId="44287" Type="KillMob" Nav="Fly" MobId="91579" KillCount="1" />
 	<TurnIn Nav="Fly" QuestName="DEADLY: Withered J'im" QuestId="44287" TurnInName="" TurnInId="" />
 </While>
 <While Condition="WorldQuestInfo.HasWorldQuest(44287)" >
-	<RunTo X="-1752.563" Y="6373.804" Z="57.22538" />
+	<MoveTo NAV="Fly" X="-1752.563" Y="6373.804" Z="57.22538" />
 	<CustomBehavior File="KillUntilComplete" MobIds="102075" QuestId="44287">
 		<HuntingGrounds>
 			<Hotspot X="-1741.357" Y="6366.88" Z="57.33968" />

@@ -160,13 +160,13 @@
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(44193)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-1906.911" Y="6953.75" Z="55.84035" />
+				<MoveTo NAV="Fly" X="-1906.911" Y="6953.75" Z="55.84035" />
 <PickUp Nav="Fly" QuestName="DANGER: Sea King Tidross" QuestId="44193" GiverName="" GiverId="" />
 <Objective QuestName="DANGER: Sea King Tidross" QuestId="44193" Type="KillMob" Nav="Fly" MobId="111434" KillCount="1" />
 <TurnIn Nav="Fly" QuestName="DANGER: Sea King Tidross" QuestId="44193" TurnInName="" TurnInId="" />
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44193)" >	
-				<RunTo X="-1949.635" Y="6914.804" Z="10.42331" />		
+				<MoveTo NAV="Fly" X="-1949.635" Y="6914.804" Z="10.42331" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="111434" QuestId="44193">
 				<HuntingGrounds>
 					<Hotspot X="-1949.635" Y="6914.804" Z="10.42331" />

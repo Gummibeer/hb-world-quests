@@ -31,12 +31,12 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(42108)" >
-        <RunTo X="61.46439" Y="6757.367" Z="50.21087" />
+        <MoveTo NAV="Fly"  X="61.46439" Y="6757.367" Z="50.21087" />
       </If>
       <While Condition="!IsObjectiveComplete(3, 42108) || !OnQuest">
         <!--<Aura Name="Rally the Nightwatchers" SpellId="210543" StackCount="0" TimeLeft="00:04:51.5590000" Flags="Cancelable, Active" />-->
         <!--<Vendor Name="Nar'thalas Nightwatcher" Entry="88782" Type="Repair" Nav="Fly" X="71.54166" Y="6761.367" Z="50.17377" />-->
-        <CustomBehavior File="InteractWith" NumOfTimes="1" MobId="88782" AuraIdMissingFromMob="210543" TerminateWhen="IsObjectiveComplete(3, 42108) || !OnQuest">
+        <CustomBehavior File="InteractWith" NumOfTimes="1" MobId="88782" AuraIdMissingFromMob="210543" PreInteractMountStrategy="Dismount" TerminateWhen="IsObjectiveComplete(3, 42108) || !OnQuest">
           <HuntingGrounds>
             <Hotspot X="61.46439" Y="6757.367" Z="50.21087" />
             <Hotspot X="24.49528" Y="6699.356" Z="48.70073" />

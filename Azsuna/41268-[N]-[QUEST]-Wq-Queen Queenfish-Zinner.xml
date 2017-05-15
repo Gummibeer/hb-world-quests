@@ -158,14 +158,14 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41268)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="415.0467" Y="6343.622" Z="37.74284"  /> 
+				<MoveTo NAV="Fly" X="415.0467" Y="6343.622" Z="37.74284"  /> 
 				<PickUp Nav="Fly" QuestName="Queen Queenfish" QuestId="41268" GiverName="" GiverId="0" />
 				<Objective QuestName="Queen Queenfish" QuestId="41268" Type="KillMob" Nav="Fly" MobId="104258" KillCount="1" />
 				<TurnIn Nav="Fly" QuestName="Queen Queenfish" QuestId="41268" TurnInName="" TurnInId="0" />
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41268)" >	
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [441268] Queen Queenfish - Zinner!&quot;);" />
-				<RunTo X="415.0467" Y="6343.622" Z="37.74284"  /> 		
+				<MoveTo NAV="Fly" X="415.0467" Y="6343.622" Z="37.74284"  /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="104258" QuestId="41268">
 				<HuntingGrounds>
 					<Hotspot X="415.0467" Y="6343.622" Z="37.74284" />

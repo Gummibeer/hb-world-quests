@@ -30,7 +30,7 @@ return false;", 0);]]></CustomBehavior>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42019] Tip the Scales - Zinner!&quot;);" />
     <While Condition="OnQuest">
       <If Condition="!HasQuest(42019)">
-        <RunTo X="175.4247" Y="5708.918" Z="1.300927" />
+        <MoveTo NAV="Fly" X="175.4247" Y="5708.918" Z="1.300927" />
       </If>
 <CustomBehavior File="KillUntilComplete" MobIds="89025, 89803, 89802, 89808, 89811" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 42019)">
         <HuntingGrounds>

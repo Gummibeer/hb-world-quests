@@ -55,7 +55,7 @@ return false;", 0);
     <While Condition="OnQuest">
     	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43325] Ley Race - Nuok!&quot;);" />
       <If Condition="!HasQuest(43325)">
-        <RunTo X="492.5172" Y="5668.997" Z="72.19009" />
+        <MoveTo NAV="Fly" X="492.5172" Y="5668.997" Z="72.19009" />
       </If>
       <If Condition="HasQuest(43325)">
         <DisableBehavior Name="All" />

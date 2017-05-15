@@ -158,13 +158,13 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43427)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-409.5361" Y="7498.979" Z="52.17327" />
+				<MoveTo NAV="Fly" X="-409.5361" Y="7498.979" Z="52.17327" />
 				<PickUp Nav="Fly" QuestName="WANTED: Infernal Lord" QuestId="43427" GiverName="" GiverId="" />
 				<Objective QuestName="WANTED: Infernal Lord" QuestId="43427" Type="KillMob" Nav="Fly" MobId="90803" KillCount="1" />
 				<TurnIn Nav="Fly" QuestName="WANTED: Infernal Lord" QuestId="43427" TurnInName="" TurnInId="" />
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43427)" >	
-				<RunTo X="-409.5361" Y="7498.979" Z="52.17327" />
+				<MoveTo NAV="Fly" X="-409.5361" Y="7498.979" Z="52.17327" />
 				<CustomBehavior File="InteractWith" MobIds="240222"  X="-409.5361" Y="7498.979" Z="52.17327" />
 				<CustomBehavior File="KillUntilComplete" MobIds="90803" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43427)">
 				<HuntingGrounds>

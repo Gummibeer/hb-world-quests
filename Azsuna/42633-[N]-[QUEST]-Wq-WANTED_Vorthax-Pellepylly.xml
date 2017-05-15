@@ -29,10 +29,10 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <!--  Get in range of quest to activate  -->
-      <RunTo X="-110.1724" Y="7396.065" Z="102.4026"/>
+      <MoveTo NAV="Fly" X="-110.1724" Y="7396.065" Z="102.4026"/>
       <CustomBehavior File="KillUntilComplete" MobIds="107113" TerminateWhen="!OnQuest" X="-110.1724" Y="7396.065" Z="102.4026"/>
     </While>
-    <RunTo X="-120.0156" Y="7410.77" Z="101.1084" />
+    <MoveTo NAV="Fly" X="-120.0156" Y="7410.77" Z="101.1084" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

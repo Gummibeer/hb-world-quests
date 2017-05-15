@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(42631)">
-        <RunTo X="-349.3472" Y="8063.893" Z="91.42393" />
+        <MoveTo NAV="Fly" X="-349.3472" Y="8063.893" Z="91.42393" />
         <!--<GameObject Name="Legion Portal" Entry="250269" X="-349.3472" Y="8063.893" Z="91.42393" />-->
       </If>
       <While Condition="Me.Z &lt; 200">

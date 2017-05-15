@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46263)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="1357.375" Y="7030.711" Z="78.43973" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="1357.375" Y="7030.711" Z="78.43973" /> 
 				<PickUp Nav="Fly" QuestName="Weaving Fel Webs" QuestId="46263" GiverName="" GiverId="" />
 				<Objective QuestName="Weaving Fel Webs" QuestId="46263" Type="KillMob" MobId="120017" KillCount="20" />
 
@@ -175,7 +175,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46263)" >	
-				<RunTo X="1357.375" Y="7030.711" Z="78.43973" /> 		
+				<MoveTo NAV="Fly" X="1357.375" Y="7030.711" Z="78.43973" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="120017" TerminateWhen="IsObjectiveComplete(1, 46263)" >
 				<HuntingGrounds>
 				<Hotspot X="1385.109" Y="7037.047" Z="82.62717" />
@@ -223,7 +223,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="1357.375" Y="7030.711" Z="78.43973" />
+<MoveTo NAV="Fly" X="1357.375" Y="7030.711" Z="78.43973" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

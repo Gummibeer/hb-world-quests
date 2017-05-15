@@ -131,9 +131,9 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41286)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41286-[N]-[QUEST]-Wq-Aethril Cluster-Zinner.xml!&quot;);" />
 
-	<RunTo X="-29.80211" Y="5755.595" Z="8.018439" />
+	<MoveTo NAV="Fly" X="-29.80211" Y="5755.595" Z="8.018439" />
 
-	<CustomBehavior File="InteractWith" MobId="103842" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41286)" >
+	<CustomBehavior File="InteractWith" MobId="103842" NumOfTimes="1" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41286)" >
 		<HuntingGrounds>
 <Hotspot X="-31.00694" Y="5776.289" Z="6.607756" />
 		</HuntingGrounds>

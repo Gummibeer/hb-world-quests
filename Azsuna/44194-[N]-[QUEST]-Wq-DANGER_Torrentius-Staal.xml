@@ -163,13 +163,13 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(44194)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="-1860.292" Y="7344.094" Z="0.8672552" />
+	<MoveTo NAV="Fly" X="-1860.292" Y="7344.094" Z="0.8672552" />
 	<PickUp Nav="Fly" QuestName="DANGER: Torrentius" QuestId="44194" GiverName="" GiverId="" />
 	<Objective QuestName="DANGER: Torrentius" QuestId="44194" Type="KillMob" Nav="Fly" MobId="102064" KillCount="1" />
 	<TurnIn Nav="Fly" QuestName="DANGER: Torrentius" QuestId="44194" TurnInName="" TurnInId="" />
 </While>
 <While Condition="WorldQuestInfo.HasWorldQuest(44194)" >
-	<RunTo X="-1860.292" Y="7344.094" Z="0.8672552" />
+	<MoveTo NAV="Fly" X="-1860.292" Y="7344.094" Z="0.8672552" />
 	<CustomBehavior File="KillUntilComplete" MobIds="102064" QuestId="44194">
 		<HuntingGrounds>
 			<Hotspot X="-1860.292" Y="7344.094" Z="0.8672552" />

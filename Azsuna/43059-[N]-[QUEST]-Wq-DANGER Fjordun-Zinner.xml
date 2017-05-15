@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43059)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="42.88676" Y="5499.667" Z="0.9757642" /> 
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="42.88676" Y="5499.667" Z="0.9757642" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Fjordun" QuestId="43059" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Fjordun" QuestId="43059" Type="KillMob" MobId="109584" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43059)" >	
-				<RunTo X="42.88676" Y="5499.667" Z="0.9757642" /> 		
+				<MoveTo NAV="Fly" X="42.88676" Y="5499.667" Z="0.9757642" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="109584" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43059)" >
 				<HuntingGrounds>
 				<Hotspot X="42.84324" Y="5479.641" Z="0.06658189" />
@@ -182,7 +182,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="4548.213" Y="4636.258" Z="663.6569" />
+<MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

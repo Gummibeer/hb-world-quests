@@ -129,7 +129,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42276)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42276] Disgusting but Useful - WiN!&quot;);" />
-	<RunTo X="-225.6776" Y="7784.625" Z="109.2465" />
+	<MoveTo NAV="Fly" X="-225.6776" Y="7784.625" Z="109.2465" />
 	
 
 	

@@ -30,7 +30,7 @@ return false;", 0);]]>
     <While Condition="OnQuest" >
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Loading Profile [42636] WANTED: Arcanist Shal'iman - WiN!&quot;);" />
       <If Condition="!HasQuest(42636)" >
-        <RunTo X="310.0847" Y="7470.524" Z="150.0026" />
+        <MoveTo NAV="Fly" X="310.0847" Y="7470.524" Z="150.0026" />
       </If>
       <CustomBehavior File="KillUntilComplete" TerminateWhen="!OnQuest" MobId="107657" X="288.7984" Y="7493.23" Z="149.8735" />
     </While>

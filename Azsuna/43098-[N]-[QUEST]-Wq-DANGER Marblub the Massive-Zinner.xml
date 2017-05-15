@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43098)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="564.8357" Y="7591.088" Z="3.64131" /> 
+				<MoveTo NAV="Fly" X="564.8357" Y="7591.088" Z="3.64131" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Marblub the Massive" QuestId="43098" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Marblub the Massive" QuestId="43098" Type="KillMob" MobId="109653" KillCount="1" />
@@ -176,7 +176,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43098)" >	
-				<RunTo X="564.8357" Y="7591.088" Z="3.64131" />		
+				<MoveTo NAV="Fly" X="564.8357" Y="7591.088" Z="3.64131" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="109653" QuestId="43098" >
 				<HuntingGrounds>
 					<Hotspot X="564.8357" Y="7591.088" Z="3.64131" />

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46146)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-346.6731" Y="6849.032" Z="17.44001" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-346.6731" Y="6849.032" Z="17.44001" /> 
 				<PickUp Nav="Fly" QuestName="The Burning Shores" QuestId="46146" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Burning Shores" QuestId="46146" Type="KillMob" MobId="118831" KillCount="6" />
@@ -176,7 +176,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46146)" >	
-				<RunTo X="-346.6731" Y="6849.032" Z="17.44001" /> 		
+				<MoveTo NAV="Fly" X="-346.6731" Y="6849.032" Z="17.44001" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="118831, 118836, 118816" TerminateWhen="IsObjectiveComplete(1, 46146)" >
 				<HuntingGrounds>
 					<Hotspot X="-355.0401" Y="6893.944" Z="1.837962" />
@@ -200,7 +200,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="-346.6731" Y="6849.032" Z="17.44001" />
+<MoveTo NAV="Fly" X="-346.6731" Y="6849.032" Z="17.44001" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

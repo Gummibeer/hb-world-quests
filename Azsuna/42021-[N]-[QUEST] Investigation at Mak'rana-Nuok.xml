@@ -38,7 +38,7 @@ return false;", 0);
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(42021)">
-        <RunTo X="-771.8478" Y="5755.171" Z="1.665452" />
+        <MoveTo NAV="Fly"  X="-771.8478" Y="5755.171" Z="1.665452" />
       </If>
 
       <While Condition="Me.IsHorde &amp;&amp; !IsObjectiveComplete(3, 42021) &amp;&amp; OnQuest">

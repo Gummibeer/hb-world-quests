@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43072)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1461.641" Y="6978.095" Z="90.26776" /> 
+				<MoveTo NAV="Fly" X="1461.641" Y="6978.095" Z="90.26776" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: The Whisperer" QuestId="43072" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: The Whisperer" QuestId="43072" Type="KillMob" Nav="Fly" MobId="109620" KillCount="1" />
@@ -170,7 +170,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43072)" >	
-				<RunTo X="1461.641" Y="6978.095" Z="90.26776" /> 		
+				<MoveTo NAV="Fly" X="1461.641" Y="6978.095" Z="90.26776" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="109620" QuestId="43072">
 				<HuntingGrounds>
 					<Hotspot X="1461.641" Y="6978.095" Z="90.26776" />

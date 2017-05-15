@@ -165,13 +165,13 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(43027)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="-162.864" Y="7169.641" Z="7.445186" />
+	<MoveTo NAV="Fly" X="-162.864" Y="7169.641" Z="7.445186" />
 	<PickUp Nav="Fly" QuestName="DANGER: Mortiferous" QuestId="43027" GiverName="" GiverId="" />
 	<Objective QuestName="DANGER: Mortiferous" QuestId="43027" Type="KillMob" Nav="Fly" MobId="93622" KillCount="1" />
 	<TurnIn Nav="Fly" QuestName="DANGER: Mortiferous" QuestId="43027" TurnInName="" TurnInId="" />
 </While>
 <While Condition="WorldQuestInfo.HasWorldQuest(43027)" >
-	<RunTo X="-162.864" Y="7169.641" Z="7.445186" />
+	<MoveTo NAV="Fly" X="-162.864" Y="7169.641" Z="7.445186" />
 	<CustomBehavior File="KillUntilComplete" MobIds="93622" QuestId="43027">
 		<HuntingGrounds>
 			<Hotspot X="-162.864" Y="7169.641" Z="7.445186" />

@@ -36,7 +36,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42623] Piracy Doesn't Pay - WiN!&quot;);" />
-      <RunTo X="-1058.637" Y="5961.677" Z="9.401337" />
+      <MoveTo NAV="Fly" X="-1058.637" Y="5961.677" Z="9.401337" />
 
       <CustomBehavior File="Hooks\DoWhen" ActivityName="MakeARoll" AllowUseDuringCombat="true" AllowUseInVehicle="true" AllowUseWhileMounted="true" StopMovingToConductActivity="true" LogExecution="false" UseWhen="Styx.CommonBot.Bars.ActionBar.Extra.IsActive">
         <CustomBehavior File="RunCode">

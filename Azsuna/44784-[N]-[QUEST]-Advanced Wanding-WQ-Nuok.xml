@@ -29,10 +29,10 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(44784)">
-        <RunTo X="200.573" Y="6453.273" Z="-53.77725" />
+        <MoveTo NAV="Fly" X="200.573" Y="6453.273" Z="-53.77725" />
       </If>
       <If Condition="HasQuest(44784)">
-        <RunTo X="200.573" Y="6453.273" Z="-53.77725" />
+        <MoveTo NAV="Fly" X="200.573" Y="6453.273" Z="-53.77725" />
 				<CustomBehavior File="RunCode"><![CDATA[
 						WoWGuid blacklistTarget = new WoWGuid();
             var wand = Styx.CommonBot.Bars.ActionBar.Extra.Buttons.FirstOrDefault(b => b.Id == 212782);
@@ -50,7 +50,7 @@ return false;", 0);]]></CustomBehavior>
 				</CustomBehavior>
       </If>
     </While>
-    <RunTo X="34.08396" Y="6287.536" Z="12.62869" />
+    <MoveTo NAV="Fly" X="34.08396" Y="6287.536" Z="12.62869" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

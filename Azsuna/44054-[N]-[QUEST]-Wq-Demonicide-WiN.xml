@@ -138,7 +138,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(44054)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44054] Demonicide - WiN!&quot;);" />
-	<RunTo X="-1433.905" Y="6814.768" Z="26.65341" />
+	<MoveTo NAV="Fly" X="-1433.905" Y="6814.768" Z="26.65341" />
 	
 
 	

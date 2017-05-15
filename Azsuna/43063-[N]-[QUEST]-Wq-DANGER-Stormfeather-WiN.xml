@@ -29,7 +29,7 @@ return false;", 0);]]>
     <While Condition="OnQuest" >
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43063] DANGER: Stormfeather - WiN!&quot;);" />
       <If Condition="!HasQuest(43063)" >
-        <RunTo X="-707.2419" Y="6442.324" Z="109.5914" />
+        <MoveTo NAV="Fly" X="-707.2419" Y="6442.324" Z="109.5914" />
       </If>
       <CustomBehavior File="KillUntilComplete" MobId="109594" TerminateWhen="!OnQuest" X="-707.2419" Y="6442.324" Z="109.5914" />
     </While>

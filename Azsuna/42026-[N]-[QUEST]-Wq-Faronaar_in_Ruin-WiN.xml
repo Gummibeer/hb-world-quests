@@ -48,7 +48,7 @@ return false;", 0);]]>
     <While Condition="OnQuest" >
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42026] Faronaar in Ruin - WiN!&quot;);" />
       <If Condition="!HasQuest(42026)">
-        <RunTo X="-614.1506" Y="7275.886" Z="27.65965" />
+        <MoveTo NAV="Fly" X="-614.1506" Y="7275.886" Z="27.65965" />
       </If>
 
       <CustomBehavior File="InteractWith" MobId="249416" NonCompeteDistance="0" NumOfTimes="20" MobState="Dead" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 42026)">

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45058)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="644.1243" Y="5765.907" Z="93.32473" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="644.1243" Y="5765.907" Z="93.32473" /> 
 				<PickUp Nav="Fly" QuestName="Release the Wardens!" QuestId="45058" GiverName="" GiverId="" />
 
 				<Objective QuestName="Release the Wardens!" QuestId="45058" Type="KillMob" MobId="115969" KillCount="10" />
@@ -187,7 +187,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45058)" >	
-				<RunTo X="644.1243" Y="5765.907" Z="93.32473" /> 		
+				<MoveTo NAV="Fly" X="644.1243" Y="5765.907" Z="93.32473" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="116025, 116026, 116027, 115558, 117792, 117757 " TerminateWhen="IsObjectiveComplete(1, 45058)" >
 				<HuntingGrounds>
 				<Hotspot X="668.6623" Y="5764.713" Z="93.98819" />

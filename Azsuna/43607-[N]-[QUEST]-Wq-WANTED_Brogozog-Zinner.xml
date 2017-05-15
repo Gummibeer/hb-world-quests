@@ -160,7 +160,7 @@ You have to talk to a dude named Tehd Shoemaker (Entry ID: 91097 Faction ID:1770
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43607)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-231.2169" Y="5929.425" Z="165.9509" /> 
+				<MoveTo NAV="Fly" X="-231.2169" Y="5929.425" Z="165.9509" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Brogozog" QuestId="43607" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Brogozog" QuestId="43607" Type="KillMob" Nav="Fly" MobId="91100" KillCount="1" />
@@ -172,7 +172,7 @@ You have to talk to a dude named Tehd Shoemaker (Entry ID: 91097 Faction ID:1770
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43607)" >	
-				<RunTo X="-231.2169" Y="5929.425" Z="165.9509" />		
+				<MoveTo NAV="Fly" X="-231.2169" Y="5929.425" Z="165.9509" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="91100" QuestId="43607">
 				<HuntingGrounds>
 					<Hotspot X="-231.2169" Y="5929.425" Z="165.9509" />

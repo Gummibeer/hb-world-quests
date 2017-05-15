@@ -27,8 +27,8 @@ end
 return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest" >
-      <RunTo X="1461.641" Y="6978.095" Z="90.26776" />
-      <CustomBehavior File="InteractWith" TerminateWhen="!OnQuest" MobId="247910">
+      <MoveTo NAV="Fly" X="1461.641" Y="6978.095" Z="90.26776" />
+      <CustomBehavior File="InteractWith" PreInteractMountStrategy="Dismount" TerminateWhen="!OnQuest" MobId="247910">
         <HuntingGrounds>
           <Hotspot X="1767.039" Y="6844.966" Z="4.586321" />
           <Hotspot X="1720.496" Y="6857.938" Z="-0.253767" />

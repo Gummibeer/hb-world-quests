@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41455)">
-        <RunTo X="-842.4291" Y="5732.546" Z="-0.8430018" />
+        <MoveTo NAV="Fly" X="-842.4291" Y="5732.546" Z="-0.8430018" />
       </If>
       <If Condition="HasQuest(41455)">
         <CustomBehavior File="MyCTM" X="-842.9373" Y="5735.158" Z="-19.41502" />

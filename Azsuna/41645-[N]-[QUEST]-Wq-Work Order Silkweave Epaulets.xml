@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41645)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="-9.973105" Y="6737.764" Z="55.58764" /> 
+				<MoveTo NAV="Fly"  X="-9.973105" Y="6737.764" Z="55.58764" /> 
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="197" TradeSkillItemId="126992" NumOfTimes="1" />
 				<TurnIn Nav="Fly" QuestName="Work Order: Silkweave Epaulets" QuestId="41645" TurnInName="Veridis Fallon" TurnInId="107376" />
 

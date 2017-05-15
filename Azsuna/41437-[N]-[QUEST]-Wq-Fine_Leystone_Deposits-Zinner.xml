@@ -29,9 +29,9 @@ return false;", 0);]]>
     <While Condition="OnQuest" >
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41437] Fine Leystone Deposits - Zinner!&quot;);" />
       <If Condition="!HasQuest(41437)" >
-        <RunTo X="386.507" Y="6934.863" Z="98.2378" />
+        <MoveTo NAV="Fly" X="386.507" Y="6934.863" Z="98.2378" />
       </If>
-      <CustomBehavior File="InteractWith" TerminateWhen="!OnQuest" MobId="247910">
+      <CustomBehavior File="InteractWith" PreInteractMountStrategy="Dismount" TerminateWhen="!OnQuest" MobId="247910">
         <HuntingGrounds>
           <Hotspot X="373.5992" Y="7012.774" Z="95.82506" />
           <Hotspot X="457.8581" Y="7052.24" Z="130.3232" />

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41435)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="323.5697" Y="6368.82" Z="3.704414" /> 
+				<MoveTo NAV="Fly" X="323.5697" Y="6368.82" Z="3.704414" /> 
 				<PickUp Nav="Fly" QuestName="Smooth Leystone Deposits" QuestId="41435" GiverName="" GiverId="" />
 
 				<Objective QuestName="Smooth Leystone Deposits" QuestId="41435" Type="CollectItem" Nav="Fly" ItemId="141224" CollectCount="10" />
@@ -170,8 +170,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41435)" >	
-				<RunTo X="323.5697" Y="6368.82" Z="3.704414" /> 		
-				<CustomBehavior File="InteractWith" MobId="141224" NumOfTimes="10" QuestId="41435" >
+				<MoveTo NAV="Fly" X="323.5697" Y="6368.82" Z="3.704414" /> 		
+				<CustomBehavior File="InteractWith" MobId="141224" PreInteractMountStrategy="Dismount" NumOfTimes="10" QuestId="41435" >
 				<HuntingGrounds>
 					<Hotspot X="323.5697" Y="6368.82" Z="3.704414" />
 					<Hotspot X="335.5737" Y="6383.692" Z="1.1279" />

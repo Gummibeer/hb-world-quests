@@ -30,7 +30,7 @@ return false;", 0);]]>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42022] The Broken Academy - WiN!&quot;);" />
     <While Condition="OnQuest" >
       <If Condition="!HasQuest(42022)">
-        <RunTo X="-156.103" Y="6370.364" Z="16.64959" />
+        <MoveTo NAV="Fly" X="-156.103" Y="6370.364" Z="16.64959" />
       </If>
       <If Condition="HasQuest(42022)">
         <CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!OnQuest || !HasQuest(42022)" >

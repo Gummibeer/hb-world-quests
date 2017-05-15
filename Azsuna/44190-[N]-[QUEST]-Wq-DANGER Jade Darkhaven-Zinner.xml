@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44190)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-1576.797" Y="7159.298" Z="194.1324" /> 
+				<MoveTo NAV="Fly" X="-1576.797" Y="7159.298" Z="194.1324" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Jade Darkhaven" QuestId="44190" GiverName="" GiverId="" />
 				<Objective QuestName="DANGER: Jade Darkhaven" QuestId="44190" Type="KillMob" Nav="Fly" MobId="103975" KillCount="1" />
 
@@ -168,7 +168,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44190)" >	
-				<RunTo X="-1576.797" Y="7159.298" Z="194.1324" /> 		
+				<MoveTo NAV="Fly" X="-1576.797" Y="7159.298" Z="194.1324" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="103975" QuestId="44190">
 				<HuntingGrounds>
 					<Hotspot X="-1576.797" Y="7159.298" Z="194.1324" />

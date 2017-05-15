@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46168)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="559.7836" Y="7548.989" Z="1.700941" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="559.7836" Y="7548.989" Z="1.700941" /> 
 				<PickUp Nav="Fly" QuestName="Commander Vorlax" QuestId="46168" GiverName="" GiverId="" />
 
 				<Objective QuestName="Commander Vorlax" QuestId="46168" Type="KillMob" MobId="117970" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46168)" >	
-				<RunTo X="559.7836" Y="7548.989" Z="1.700941" /> 		
+				<MoveTo NAV="Fly" X="559.7836" Y="7548.989" Z="1.700941" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117970" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46168)" >
 				<HuntingGrounds>
 					<Hotspot X="575.1077" Y="7571.92" Z="2.384218" />
@@ -183,7 +183,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="559.7836" Y="7548.989" Z="1.700941" />
+<MoveTo NAV="Fly" X="559.7836" Y="7548.989" Z="1.700941" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

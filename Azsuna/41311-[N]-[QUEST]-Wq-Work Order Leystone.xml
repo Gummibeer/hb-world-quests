@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41311)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="-11.60563" Y="6737.515" Z="55.5881" /> 
+				<MoveTo NAV="Fly" X="-11.60563" Y="6737.515" Z="55.5881" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Leystone" QuestId="41311" TurnInName="Veridis Fallon" TurnInId="107376" />
 
 
