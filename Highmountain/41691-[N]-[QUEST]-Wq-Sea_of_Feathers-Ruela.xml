@@ -165,7 +165,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41691)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="5509.761" Y="4668.169" Z="652.2643"   /> 
+				<MoveTo NAV="Fly" X="5509.761" Y="4668.169" Z="652.2643"   /> 
 
 
 	<CustomBehavior File="InteractWith" NumOfTimes="17" MobState="Dead"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(41691)">
@@ -199,9 +199,9 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41691)" >	
 			
-			<RunTo X="5509.761" Y="4668.169" Z="652.2643"   />		
+			<MoveTo NAV="Fly" X="5509.761" Y="4668.169" Z="652.2643"   />		
 						
-			<CustomBehavior File="InteractWith" MobId="243401" QuestId="41691"   NumOfTimes="4"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41691)" >
+			<CustomBehavior File="InteractWith" MobId="243401" QuestId="41691" PreInteractMountStrategy="Dismount" NumOfTimes="4"  QuestObjectiveIndex="2" TerminateWhen="IsObjectiveComplete(2, 41691)" >
 				<HuntingGrounds>
 <Hotspot X="5357.96" Y="4784.073" Z="659.6285" />
 <Hotspot X="5552.139" Y="4753.381" Z="665.9286" />
