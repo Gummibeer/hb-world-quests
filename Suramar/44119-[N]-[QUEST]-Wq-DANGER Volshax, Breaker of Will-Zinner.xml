@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44119)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1251.05" Y="3908.175" Z="18.61784" /> 
+				<MoveTo NAV="Fly" X="1251.05" Y="3908.175" Z="18.61784" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Volshax, Breaker of Will" QuestId="44119" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Volshax, Breaker of Will" QuestId="44119" Type="KillMob" MobId="112760" KillCount="1" />
@@ -172,7 +172,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44119)" >	
-				<RunTo X="1251.05" Y="3908.175" Z="18.61784" /> 		
+				<MoveTo NAV="Fly" X="1251.05" Y="3908.175" Z="18.61784" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="112760" QuestId="44119">
 				<HuntingGrounds>
 					<Hotspot X="1281.11" Y="3927.201" Z="31.47326" />

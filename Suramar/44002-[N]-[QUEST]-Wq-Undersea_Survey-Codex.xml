@@ -127,7 +127,7 @@ dont forget to disable afterwards
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(44002)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="1508.285" Y="2557.279" Z="0.0005713291" />
+	<MoveTo NAV="Fly" X="1508.285" Y="2557.279" Z="0.0005713291" />
 <PickUp Nav="Fly" QuestName="Undersea Survey" QuestId="44002" GiverName="" GiverId="" />
 <Objective QuestName="Undersea Survey" QuestId="44002" Type="UseObject" Nav="Fly" ObjectId="253085" UseCount="1" />
 <Objective QuestName="Undersea Survey" QuestId="44002" Type="UseObject" Nav="Fly" ObjectId="253087" UseCount="1" />
@@ -153,7 +153,7 @@ dont forget to disable afterwards
 	</CustomBehavior>
 <!--North:-->
 		<CustomBehavior File="InteractWith" MobId="253085" QuestId="44002" NumOfTimes="1" Nav="CTM" PreInteractMountStrategy="Dismount" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 44002)">
-		<RunTo X="1361.124" Y="2307.328" Z="0.0" />
+		<MoveTo NAV="Fly" X="1361.124" Y="2307.328" Z="0.0" />
 		<HuntingGrounds>
 			<Hotspot X="1373.427" Y="2293.677" Z="-90.15388" />
 			<!--Go up to the surface again after its looted:-->
@@ -162,7 +162,7 @@ dont forget to disable afterwards
 	</CustomBehavior>
 <!--Eastern:-->
 		<CustomBehavior File="InteractWith" MobId="253086" QuestId="44002" NumOfTimes="1" Nav="CTM" PreInteractMountStrategy="Dismount" QuestObjectiveIndex="3" TerminateWhen="IsObjectiveComplete(3, 44002)">
-		<RunTo X="1098.354" Y="2255.347" Z="0.0" />
+		<MoveTo NAV="Fly" X="1098.354" Y="2255.347" Z="0.0" />
 		<HuntingGrounds>
 			<Hotspot X="1108.936" Y="2241.962" Z="-139.4977" />
 			<!--Go up to the surface again after its looted:-->
@@ -171,7 +171,7 @@ dont forget to disable afterwards
 	</CustomBehavior>
 <!--Southern:-->
 		<CustomBehavior File="InteractWith" MobId="253088" QuestId="44002" NumOfTimes="1" Nav="CTM" PreInteractMountStrategy="Dismount" QuestObjectiveIndex="4" TerminateWhen="IsObjectiveComplete(4, 44002)">
-		<RunTo X="828.4925" Y="2196.729" Z="0.0" />
+		<MoveTo NAV="Fly" X="828.4925" Y="2196.729" Z="0.0" />
 		<HuntingGrounds>
 			<Hotspot X="834.7726" Y="2196.745" Z="-103.917" />
 			<!--Go up to the surface again after its looted:-->

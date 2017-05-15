@@ -30,7 +30,7 @@ return false;", 0);]]>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42089] The Fallen Ones - WiN!&quot;);" />
     <While Condition="OnQuest" >
       <If Condition="!HasQuest(42089)">
-        <RunTo X="2086.971" Y="5428.113" Z="-35.78005" />
+        <MoveTo NAV="Fly" X="2086.971" Y="5428.113" Z="-35.78005" />
       </If>
       <If Condition="HasQuest(42089)">
         <CustomBehavior File="KillUntilComplete" TerminateWhen="!OnQuest || !HasQuest(42089)" >
@@ -49,7 +49,7 @@ return false;", 0);]]>
         </CustomBehavior>
       </If>
     </While>
-    <RunTo X="2122.578" Y="5388.645" Z="52.37748" />
+    <MoveTo NAV="Fly" X="2122.578" Y="5388.645" Z="52.37748" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

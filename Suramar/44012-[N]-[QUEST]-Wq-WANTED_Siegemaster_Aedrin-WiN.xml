@@ -158,7 +158,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(44012)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44012] WANTED: Siegemaster Aedrin - WiN!&quot;);" />
-<RunTo X="2644.101" Y="4586.033" Z="258.7096" />
+<MoveTo NAV="Fly" X="2644.101" Y="4586.033" Z="258.7096" />
 
 
 <CustomBehavior File="KillUntilComplete"  QuestId="44012"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(44012)">

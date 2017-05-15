@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41446)">
-        <RunTo X="2340.157" Y="4953.467" Z="124.1205" />
+        <MoveTo NAV="Fly" X="2340.157" Y="4953.467" Z="124.1205" />
       </If>
       <If Condition="HasQuest(41446)">
         <!--<GameObject Name="Darkened Felslate Deposit" Entry="247923" X="2325.554" Y="4974.817" Z="128.541" />-->

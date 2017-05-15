@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41303)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1714.087" Y="4632.732" Z="124.0051" /> 
+				<MoveTo NAV="Fly" X="1714.087" Y="4632.732" Z="124.0051" /> 
 				<TurnIn Nav="Fly" QuestName="Supplies Needed: Starlight Roses" QuestId="41303" TurnInName="First Arcanist Thalyssra" TurnInId="97140" />
 
 

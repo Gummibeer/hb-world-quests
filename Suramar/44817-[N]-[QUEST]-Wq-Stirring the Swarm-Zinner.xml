@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44817)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1547.4" Y="3264.933" Z="146.063" /> 
+				<MoveTo NAV="Fly" X="1547.4" Y="3264.933" Z="146.063" /> 
 				<PickUp Nav="Fly" QuestName="Stirring the Swarm" QuestId="44817" GiverName="" GiverId="" />
 
 				<Objective QuestName="Stirring the Swarm" QuestId="44817" Type="KillMob" MobId="116529" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44817)" >	
-				<RunTo X="1547.4" Y="3264.933" Z="146.063" />		
+				<MoveTo NAV="Fly" X="1547.4" Y="3264.933" Z="146.063" />		
 			<CustomBehavior File="InterActWith" MobIds="116529" X="1489.333" Y="3177.602" Z="138.0059" TerminateWhen="IsObjectiveComplete(1, 44817)" >
 				</CustomBehavior>	
 			<CustomBehavior File="InterActWith" MobIds="116531" X="1550.22" Y="3261.878" Z="146.8578" TerminateWhen="IsObjectiveComplete(2, 44817)" >
@@ -191,7 +191,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-	<RunTo X="1547.4" Y="3264.933" Z="146.063" />
+	<MoveTo NAV="Fly" X="1547.4" Y="3264.933" Z="146.063" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

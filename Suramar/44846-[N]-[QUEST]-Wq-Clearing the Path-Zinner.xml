@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44846)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-1336.468" Y="1673.299" Z="7.425202" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-1336.468" Y="1673.299" Z="7.425202" /> 
 				<PickUp Nav="Fly" QuestName="Clearing the Path" QuestId="44846" GiverName="" GiverId="" />
 
 				<Objective QuestName="Clearing the Path" QuestId="44846" Type="KillMob" MobId="117611" KillCount="8" />
@@ -178,7 +178,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44846)" >	
-				<RunTo X="-1336.468" Y="1673.299" Z="7.425202" /> 
+				<MoveTo NAV="Fly" X="-1336.468" Y="1673.299" Z="7.425202" /> 
 			<CustomBehavior File="KillUntilComplete" MobIds="117611" TerminateWhen="IsObjectiveComplete(1, 44846)" >
 				<HuntingGrounds>
 				<Hotspot X="-1015.473" Y="1897.383" Z="46.23309" />

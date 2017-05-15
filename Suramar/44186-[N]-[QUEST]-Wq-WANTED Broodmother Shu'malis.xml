@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44186)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1817.702" Y="5269.495" Z="-57.26231" /> 
+				<MoveTo NAV="Fly" X="1817.702" Y="5269.495" Z="-57.26231" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Broodmother Shu'malis" QuestId="44186" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Broodmother Shu'malis" QuestId="44186" Type="KillMob" MobId="105632" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44186)" >	
-				<RunTo X="1817.702" Y="5269.495" Z="-57.26231" />		
+				<MoveTo NAV="Fly" X="1817.702" Y="5269.495" Z="-57.26231" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="105632" QuestId="44186">
 				<HuntingGrounds>
 					<Hotspot X="1817.702" Y="5269.495" Z="-57.26231" />

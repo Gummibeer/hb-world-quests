@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41283)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2815.722" Y="5237.132" Z="144.1887" /> 
+				<MoveTo NAV="Fly" X="2815.722" Y="5237.132" Z="144.1887" /> 
 				<PickUp Nav="Fly" QuestName="The Angler Mangler" QuestId="41283" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Angler Mangler" QuestId="41283" Type="KillMob" MobId="104331" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41283)" >	
-				<RunTo X="2815.722" Y="5237.132" Z="144.1887" />
+				<MoveTo NAV="Fly" X="2815.722" Y="5237.132" Z="144.1887" />
 				<CustomBehavior File="KillUntilComplete" MobIds="104331" QuestId="41283">
 				<HuntingGrounds>
 					<Hotspot X="2815.722" Y="5237.132" Z="144.1887" AllowedVariance="7.0" />

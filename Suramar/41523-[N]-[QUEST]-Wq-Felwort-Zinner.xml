@@ -133,7 +133,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41523)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41523-[N]-[QUEST]-Wq-Felwort-Zinner.xml!&quot;);" />
 
-	<RunTo X="426.768" Y="4843.405" Z="-100.3796" />
+	<MoveTo NAV="Fly" X="426.768" Y="4843.405" Z="-100.3796" />
 	<CustomBehavior File="InteractWith" MobId="248011" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41523)" >
 		<HuntingGrounds>
 <Hotspot X="435.4167" Y="4844.91" Z="-101.0677" />

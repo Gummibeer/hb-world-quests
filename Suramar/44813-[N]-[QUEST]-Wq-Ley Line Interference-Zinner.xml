@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44813)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1812.22" Y="3659.955" Z="158.7805" /> 
+				<MoveTo NAV="Fly" X="1812.22" Y="3659.955" Z="158.7805" /> 
 				<PickUp Nav="Fly" QuestName="Ley Line Interference" QuestId="44813" GiverName="" GiverId="" />
 
 				<Objective QuestName="Ley Line Interference" QuestId="44813" Type="KillMob" MobId="116007" KillCount="1" />
@@ -181,7 +181,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44813)" >	
-				<RunTo X="1812.22" Y="3659.955" Z="158.7805" /> 		
+				<MoveTo NAV="Fly" X="1812.22" Y="3659.955" Z="158.7805" /> 		
 			<CustomBehavior File="InterActWith" MobIds="116007, 116061, 116058, 116060, 116062" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44813)" >
 				<HuntingGrounds>
 					<Hotspot X="1812.22" Y="3659.955" Z="158.7805" />

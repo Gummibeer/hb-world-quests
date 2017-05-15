@@ -145,7 +145,7 @@
 		
 <While Condition="WorldQuestInfo.HasWorldQuest(43932)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="411.32" Y="4023.56" Z="1.38846" />
+	<MoveTo NAV="Fly" X="411.32" Y="4023.56" Z="1.38846" />
 	<PickUp Nav="Fly" QuestName="Forces of Oppression" QuestId="43932" GiverName="" GiverId="" />
 
 	<Objective QuestName="Forces of Oppression" QuestId="43932" Type="KillMob" Nav="Fly" MobId="111910" KillCount="17" />
@@ -165,7 +165,7 @@
         <CustomBehavior File="WaitTimer" WaitTime="4000" /> 
         </CustomBehavior> 
 
-	<RunTo X="411.32" Y="4023.56" Z="1.38846" />
+	<MoveTo NAV="Fly" X="411.32" Y="4023.56" Z="1.38846" />
 	<CustomBehavior File="KillUntilComplete" MobIds="111910, 111911, 114472, 114474, 110418, 113738, 106032, 111446, 111612, 106654" QuestId="43932">
 		<HuntingGrounds>
 		<Hotspot X="438.3044" Y="3989.619" Z="1.38871" />
@@ -188,7 +188,7 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 
-<RunTo X="423.7536" Y="4007.23" Z="1.474784" />
+<MoveTo NAV="Fly" X="423.7536" Y="4007.23" Z="1.474784" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

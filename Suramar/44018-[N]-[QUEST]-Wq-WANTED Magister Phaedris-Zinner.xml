@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44018)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="485.1965" Y="4326.811" Z="140.2734" /> 
+				<MoveTo NAV="Fly" X="485.1965" Y="4326.811" Z="140.2734" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Magister Phaedris" QuestId="44018" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Magister Phaedris" QuestId="44018" Type="KillMob" Nav="Fly" MobId="109954" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44018)" >	
-				<RunTo X="485.1965" Y="4326.811" Z="140.2734" />		
+				<MoveTo NAV="Fly" X="485.1965" Y="4326.811" Z="140.2734" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="109954" QuestId="44018">
 				<HuntingGrounds>
 					<Hotspot X="485.1965" Y="4326.811" Z="140.2734" />

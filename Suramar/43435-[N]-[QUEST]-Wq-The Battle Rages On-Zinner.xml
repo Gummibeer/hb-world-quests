@@ -32,7 +32,7 @@ return false;", 0);]]>
 -->
 
     <While Condition="OnQuest" >
-      <RunTo X="2738.498" Y="5115.393" Z="172.0688" />
+      <MoveTo NAV="Fly" X="2738.498" Y="5115.393" Z="172.0688" />
       <CustomBehavior File="KillUntilComplete" MobIds="101783, 101784, 110535" TerminateWhen="!OnQuest">
         <HuntingGrounds>
           <Hotspot X="2771.883" Y="5096.075" Z="174.6628" />

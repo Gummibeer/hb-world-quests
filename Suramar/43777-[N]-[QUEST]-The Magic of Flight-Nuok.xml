@@ -81,12 +81,12 @@ return false;", 0);
 ]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43777)">
-        <RunTo X="2571.907" Y="4515.744" Z="234.3352" />
+        <MoveTo NAV="Fly" X="2571.907" Y="4515.744" Z="234.3352" />
       </If>
       <While Condition="HasQuest(43777)">
         <DisableBehavior Name="All"/>
         <If Condition="StartBubble == null &amp;&amp; FlightBubble == null">
-          <RunTo X="2544.909" Y="4529.673" Z="231.8074" />
+          <MoveTo NAV="Fly" X="2544.909" Y="4529.673" Z="231.8074" />
           <CustomBehavior File="ForcedDismount"/>
         </If>
         <If Condition="StartBubble != null &amp;&amp; FlightBubble == null">

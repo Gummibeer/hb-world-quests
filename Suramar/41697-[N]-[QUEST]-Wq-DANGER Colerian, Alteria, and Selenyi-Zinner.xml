@@ -159,7 +159,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41697)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41697-[N]-[QUEST]-Wq-DANGER Colerian, Alteria, and Selenyi-Zinner.xml!&quot;);" />
-<RunTo X="1314.756" Y="5366.778" Z="98.27861" />
+<MoveTo NAV="Fly" X="1314.756" Y="5366.778" Z="98.27861" />
 
 
 <CustomBehavior File="KillUntilComplete" MobId="114268" QuestId="41697"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(41697)">

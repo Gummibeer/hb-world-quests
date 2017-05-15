@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44010)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1692.487" Y="5295.306" Z="69.25726" /> 
+				<MoveTo NAV="Fly" X="1692.487" Y="5295.306" Z="69.25726" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Oreth the Vile" QuestId="44010" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Oreth the Vile" QuestId="44010" Type="KillMob" Nav="Fly" MobId="110577" KillCount="1" />
@@ -170,7 +170,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44010)" >	
-				<RunTo X="1692.487" Y="5295.306" Z="69.25726" /> 		
+				<MoveTo NAV="Fly" X="1692.487" Y="5295.306" Z="69.25726" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="110577" QuestId="44010">
 				<HuntingGrounds>
 					<Hotspot X="1692.487" Y="5295.306" Z="69.25726" />

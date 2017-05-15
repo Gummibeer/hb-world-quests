@@ -54,25 +54,25 @@ Latency to Buddy service: 25 ms
 <Hotspot 
 <Hotspot -->
     <While Condition="OnQuest">
-      <RunTo X="444.3279" Y="4981.405" Z="-110.1184" TerminateWhen="!OnQuest"/>
+      <MoveTo NAV="Fly" X="444.3279" Y="4981.405" Z="-110.1184" TerminateWhen="!OnQuest"/>
       <CustomBehavior File="RunCode" Code="await DoQuest();" TerminateWhen="!OnQuest"/>
       
-      <RunTo TerminateWhen="!OnQuest" X="467.0048" Y="4925.818" Z="-143.8298" />
+      <MoveTo NAV="Fly" TerminateWhen="!OnQuest" X="467.0048" Y="4925.818" Z="-143.8298" />
       <CustomBehavior File="RunCode" Code="await DoQuest();" TerminateWhen="!OnQuest"/>
       
-      <RunTo TerminateWhen="!OnQuest" X="521.1971" Y="4883.195" Z="-167.8837" />
+      <MoveTo NAV="Fly" TerminateWhen="!OnQuest" X="521.1971" Y="4883.195" Z="-167.8837" />
       <CustomBehavior File="RunCode" Code="await DoQuest();" TerminateWhen="!OnQuest"/>
 
-      <RunTo TerminateWhen="!OnQuest" X="567.458" Y="4853.077" Z="-178.0175" />
+      <MoveTo NAV="Fly" TerminateWhen="!OnQuest" X="567.458" Y="4853.077" Z="-178.0175" />
       <CustomBehavior File="RunCode" Code="await DoQuest();" TerminateWhen="!OnQuest"/>
 
-      <RunTo TerminateWhen="!OnQuest" X="596.7591" Y="4832.888" Z="-179.5" />
+      <MoveTo NAV="Fly" TerminateWhen="!OnQuest" X="596.7591" Y="4832.888" Z="-179.5" />
       <CustomBehavior File="RunCode" Code="await DoQuest();" TerminateWhen="!OnQuest"/>
 
-      <RunTo TerminateWhen="!OnQuest" X="669.6979" Y="4843.064" Z="-185.7864" />
+      <MoveTo NAV="Fly" TerminateWhen="!OnQuest" X="669.6979" Y="4843.064" Z="-185.7864" />
       <CustomBehavior File="RunCode" Code="await DoQuest();" TerminateWhen="!OnQuest"/>
 
-      <RunTo TerminateWhen="!OnQuest" X="699.5777" Y="4822.617" Z="-186.2048" />
+      <MoveTo NAV="Fly" TerminateWhen="!OnQuest" X="699.5777" Y="4822.617" Z="-186.2048" />
       <CustomBehavior File="RunCode" Code="await DoQuest();" TerminateWhen="!OnQuest"/>
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">

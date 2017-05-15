@@ -33,10 +33,10 @@ public bool InRange => Me.Location.Distance(new Vector3(2787.88f, 4378.993f, 418
 ]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(44802) || !InRange">
-        <RunTo X="2664.787" Y="5107.52" Z="148.6794" />
+        <MoveTo NAV="Fly" X="2664.787" Y="5107.52" Z="148.6794" />
         <!--<WoWUnit Name="Lunar Crucible Portal" Entry="116373" X="2660.772" Y="5097.935" Z="148.1909" />-->
         <CustomBehavior File="InteractWith" MobId="116373" NonCompeteDistance="0" TerminateWhen="!OnQuest" X="2660.772" Y="5097.935" Z="148.1909" />
-        <RunTo X="2787.88" Y="4378.993" Z="418.8143" />
+        <MoveTo NAV="Fly" X="2787.88" Y="4378.993" Z="418.8143" />
       </If>
       <If Condition="HasQuest(44802)">
         <!--<Vendor Name="Kir'altius" Entry="103055" Type="Repair" Nav="Fly" X="2716.62" Y="4322.81" Z="438.241" />-->

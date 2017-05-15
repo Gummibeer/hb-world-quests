@@ -31,7 +31,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41493)">
-        <RunTo X="3012.664" Y="5362.235" Z="432.2234" />
+        <MoveTo NAV="Fly" X="3012.664" Y="5362.235" Z="432.2234" />
       </If>
       <While Condition="HasQuest(41493)">
         <CustomBehavior File="KillUntilComplete" MobIds="93237" WaitForNpcs="false" TerminateWhen="!OnQuest" X="3012.664" Y="5362.235" Z="432.2234" />

@@ -157,8 +157,8 @@
 	
 		<While Condition="WorldQuestInfo.HasWorldQuest(44815)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="1129.314" Y="3533.661" Z="19.83855" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="1129.314" Y="3533.661" Z="19.83855" /> 
 				<PickUp Nav="Fly" QuestName="Sick of the Sycophants" QuestId="44815" GiverName="" GiverId="" />
 
 				<Objective QuestName="Sick of the Sycophants" QuestId="44815" Type="KillMob" MobId="115977" KillCount="20" />
@@ -176,7 +176,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44815)" >	
-				<RunTo X="1129.314" Y="3533.661" Z="19.83855" /> 
+				<MoveTo NAV="Fly" X="1129.314" Y="3533.661" Z="19.83855" /> 
 				<CustomBehavior File="KillUntilComplete" MobIds="115977" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44815)">
 				<HuntingGrounds>
 				<Hotspot X="1111.621" Y="3553.488" Z="19.83826" />

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44122)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="154.8385" Y="5028.672" Z="-145.1534" /> 
+				<MoveTo NAV="Fly" X="154.8385" Y="5028.672" Z="-145.1534" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Sorallus" QuestId="44122" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Sorallus" QuestId="44122" Type="KillMob" MobId="112756" KillCount="1" />
@@ -172,7 +172,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44122)" >	
-				<RunTo X="154.8385" Y="5028.672" Z="-145.1534" /> 		
+				<MoveTo NAV="Fly" X="154.8385" Y="5028.672" Z="-145.1534" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="112756" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44122)" >
 				<HuntingGrounds>
 					<Hotspot X="154.8385" Y="5028.672" Z="-145.1534" />

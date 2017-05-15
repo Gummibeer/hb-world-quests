@@ -145,7 +145,7 @@
 		
 <While Condition="WorldQuestInfo.HasWorldQuest(44118)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="950.51" Y="3497.99" Z="-1.571893" />
+	<MoveTo NAV="Fly" X="950.51" Y="3497.99" Z="-1.571893" />
 	<PickUp Nav="Fly" QuestName="DANGER: Auditor Esiel" QuestId="44118" GiverName="" GiverId="" />
 	<Objective QuestName="DANGER: Auditor Esiel" QuestId="44118" Type="KillMob" Nav="Fly" MobId="112758" KillCount="1" />
 	<TurnIn Nav="Fly" QuestName="DANGER: Auditor Esiel" QuestId="44118" TurnInName="" TurnInId="" />
@@ -161,7 +161,7 @@
         <CustomBehavior File="WaitTimer" WaitTime="4000" /> 
         </CustomBehavior> 
 
-	<RunTo X="950.51" Y="3497.99" Z="-1.571893" />
+	<MoveTo NAV="Fly" X="950.51" Y="3497.99" Z="-1.571893" />
 	<CustomBehavior File="KillUntilComplete" MobId="112758" QuestId="44118">
 		<HuntingGrounds>
 <Hotspot X="956.305" Y="3471.615" Z="0.7749577" />	
@@ -171,7 +171,7 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 
-<RunTo X="940.6069" Y="3493.114" Z="-1.605157" />
+<MoveTo NAV="Fly" X="940.6069" Y="3493.114" Z="-1.605157" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

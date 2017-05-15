@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41282)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="1721.129" Y="4612.498" Z="123.8028" /> 
+				<MoveTo NAV="Fly"  X="1721.129" Y="4612.498" Z="123.8028" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Runescale Koi" QuestId="41282" TurnInName="First Arcanist Thalyssra" TurnInId="97140" />
 
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />

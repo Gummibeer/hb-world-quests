@@ -35,8 +35,8 @@ end
 return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
-      <RunTo X="2256.413" Y="4291.938" Z="267.8693" />
-      <CustomBehavior File="InteractWith" MobIds="141246" X="2256.413" Y="4291.938" Z="267.8693" TerminateWhen="!OnQuest"/>
+      <MoveTo NAV="Fly" X="2256.413" Y="4291.938" Z="267.8693" />
+      <CustomBehavior File="InteractWith" MobIds="141246" X="2256.413" Y="4291.938" Z="267.8693" PreInteractMountStrategy="Dismount" TerminateWhen="!OnQuest"/>
     </While>
 
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44017)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1364.275" Y="4308.143" Z="112.5122" /> 
+				<MoveTo NAV="Fly" X="1364.275" Y="4308.143" Z="112.5122" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Apothecary Faldren" QuestId="44017" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Apothecary Faldren" QuestId="44017" Type="KillMob" Nav="Fly" MobId="110870" KillCount="1" />
@@ -169,7 +169,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44017)" >	
-				<RunTo X="1364.275" Y="4308.143" Z="112.5122" />		
+				<MoveTo NAV="Fly" X="1364.275" Y="4308.143" Z="112.5122" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="110870" QuestId="44017">
 				<HuntingGrounds>
 				<Hotspot X="1364.275" Y="4308.143" Z="112.5122" />

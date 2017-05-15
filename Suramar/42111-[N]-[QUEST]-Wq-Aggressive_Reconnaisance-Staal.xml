@@ -30,7 +30,7 @@ return false;", 0);]]>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42111] Aggressive Reconnaisance - Staal!&quot;);" />
     <While Condition="OnQuest" >
       <If Condition="!HasQuest(42111)">
-        <RunTo X="1341.437" Y="5021.282" Z="93.36089" />
+        <MoveTo NAV="Fly" X="1341.437" Y="5021.282" Z="93.36089" />
       </If>
       <If Condition="HasQuest(42111)">
         <CustomBehavior File="KillUntilComplete" MobIds="99581, 99767, 101291, 105269, 106348, 113675, 101868" TerminateWhen="!OnQuest || !HasQuest(42111)" >

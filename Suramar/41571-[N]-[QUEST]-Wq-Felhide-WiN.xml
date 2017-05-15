@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41571] Felhide - WiN!&quot;);" />
-      <RunTo X="395.2245" Y="4711.235" Z="-123.2166" />
+      <MoveTo NAV="Fly" X="395.2245" Y="4711.235" Z="-123.2166" />
 
       <CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="100" TerminateWhen="!OnQuest" >
         <HuntingGrounds>

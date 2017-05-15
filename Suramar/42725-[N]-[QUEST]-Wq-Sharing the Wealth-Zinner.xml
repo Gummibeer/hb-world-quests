@@ -148,7 +148,7 @@
         <CustomBehavior File="RunCode" Code="CastMask()" /> 
         <CustomBehavior File="WaitTimer" WaitTime="4000" /> 
         </CustomBehavior> 
-	<RunTo X="612.541" Y="3864.349" Z="5.685545" />
+	<MoveTo NAV="Fly" X="612.541" Y="3864.349" Z="5.685545" />
 	<PickUp Nav="Fly" QuestName="Sharing the Wealth" QuestId="42725" GiverName="" GiverId="" />
 
 	<Objective QuestName="Sharing the Wealth" QuestId="42725" Type="CollectItem" Nav="Fly" ItemId="137295" CollectCount="20" />
@@ -166,9 +166,9 @@
         <CustomBehavior File="WaitTimer" WaitTime="4000" /> 
         </CustomBehavior> 
 
-	<RunTo X="612.541" Y="3864.349" Z="5.685545" />
+	<MoveTo NAV="Fly" X="612.541" Y="3864.349" Z="5.685545" />
 	
-	<CustomBehavior File="InteractWith" MobIds="250240, 250239" NumOfTimes="20" TerminateWhen="IsQuestCompleted(42725)" >
+	<CustomBehavior File="InteractWith" MobIds="250240, 250239" NumOfTimes="20" PreInteractMountStrategy="Dismount" TerminateWhen="IsQuestCompleted(42725)" >
 	<HuntingGrounds>
 		<Hotspot X="576.3559" Y="3893.72" Z="7.779054" />
 		<Hotspot X="575.9879" Y="3893.317" Z="7.778745" />
@@ -207,7 +207,7 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 
-<RunTo X="437.0507" Y="3999.755" Z="1.388258" />
+<MoveTo NAV="Fly" X="437.0507" Y="3999.755" Z="1.388258" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

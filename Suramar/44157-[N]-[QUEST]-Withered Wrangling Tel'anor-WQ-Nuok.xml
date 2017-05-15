@@ -66,13 +66,13 @@ return false;", 0);
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(44157)">
-        <RunTo X="1948.845" Y="4060.376" Z="263.9446" />
+        <MoveTo NAV="Fly" X="1948.845" Y="4060.376" Z="263.9446" />
       </If>
       <If Condition="HasQuest(44157)">
         <DisableBehavior Name="All" />
-        <RunTo X="1948.845" Y="4060.376" Z="263.9446" />
+        <MoveTo NAV="Fly" X="1948.845" Y="4060.376" Z="263.9446" />
         <CustomBehavior File="RunCode" Code="await DoQuest();"/>
-        <RunTo X="2008.571" Y="3849.337" Z="265.7263" />
+        <MoveTo NAV="Fly" X="2008.571" Y="3849.337" Z="265.7263" />
         <CustomBehavior File="RunCode" Code="await DoQuest();"/>
       </If>
     </While>

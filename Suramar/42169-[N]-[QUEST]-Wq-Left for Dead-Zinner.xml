@@ -30,7 +30,7 @@ return false;", 0);]]>
 <WoWUnit Name="Prison Shackle" Entry="102450" X="420.8785" Y="5013.635" Z="-89.01844" />
 -->
     <While Condition="OnQuest" >
-      <RunTo X="432.7189" Y="5086.581" Z="-88.51279" />
+      <MoveTo NAV="Fly" X="432.7189" Y="5086.581" Z="-88.51279" />
       <CustomBehavior File="InteractWith" MobId="102450" NumOfTimes="50" TerminateWhen="!OnQuest" >
         <HuntingGrounds>
           <Hotspot X="449.847" Y="5049.885" Z="-89.30132" />

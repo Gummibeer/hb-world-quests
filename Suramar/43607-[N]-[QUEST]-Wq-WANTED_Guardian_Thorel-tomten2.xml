@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44013)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1583.572" Y="3508.699" Z="145.1226" />
+				<MoveTo NAV="Fly" X="1583.572" Y="3508.699" Z="145.1226" />
 			<PickUp Nav="Fly" QuestName="WANTED: Guardian Thor'el" QuestId="44013" GiverName="" GiverId="" />
 <Objective QuestName="WANTED: Guardian Thor'el" QuestId="44013" Type="KillMob" Nav="Fly" MobId="110944" KillCount="1" />
 <TurnIn Nav="Fly" QuestName="WANTED: Guardian Thor'el" QuestId="44013" TurnInName="" TurnInId="" />
@@ -170,7 +170,7 @@
 <Vendor Name="Guardian Thor'el" Entry="110944" Type="Repair" Nav="Fly" X="1570.931" Y="3504.314" Z="145.1931" />
 -->	
 		<While Condition="WorldQuestInfo.HasWorldQuest(44013)" >	
-				<RunTo X="1583.572" Y="3508.699" Z="145.1226" />
+				<MoveTo NAV="Fly" X="1583.572" Y="3508.699" Z="145.1226" />
 			<CustomBehavior File="KillUntilComplete" MobIds="110944" QuestId="44013" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44013)">
 				<HuntingGrounds>
 					<Hotspot X="1583.572" Y="3508.699" Z="145.1226" />

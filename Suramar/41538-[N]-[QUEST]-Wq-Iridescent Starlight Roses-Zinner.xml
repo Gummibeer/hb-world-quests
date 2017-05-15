@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41538)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1683.242" Y="5275.521" Z="68.55061" /> 
+				<MoveTo NAV="Fly" X="1683.242" Y="5275.521" Z="68.55061" /> 
 				<PickUp Nav="Fly" QuestName="Iridescent Starlight Roses" QuestId="41538" GiverName="" GiverId="" />
 
 				<Objective QuestName="Iridescent Starlight Roses" QuestId="41538" Type="CollectItem" ItemId="140991" CollectCount="10" />
@@ -171,8 +171,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41538)" >	
-				<RunTo X="1683.242" Y="5275.521" Z="68.55061" /> 		
-				<CustomBehavior File="InteractWith" MobId="248031" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41538)" >
+				<MoveTo NAV="Fly" X="1683.242" Y="5275.521" Z="68.55061" /> 		
+				<CustomBehavior File="InteractWith" MobId="248031" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41538)" >
 				<HuntingGrounds>
 					<Hotspot X="1710.783" Y="5271.511" Z="70.7649" />
 					<Hotspot X="1748.512" Y="5261.268" Z="70.35486" />

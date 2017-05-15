@@ -159,7 +159,7 @@
 -->
 
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44799] Safe Keeping - Staal!&quot;);" />
-	<RunTo X="467.7494" Y="3922.507" Z="1.493891" />
+	<MoveTo NAV="Fly" X="467.7494" Y="3922.507" Z="1.493891" />
 	<CustomBehavior File="InteractWith" MobIds="115630, 115702, 115696" NumOfTimes="5" ObjectType="Npc" WaitForNpcs="false" QuestId="44799" >
 		<HuntingGrounds>
 <Hotspot X="714.8148" Y="4097.852" Z="1.509782" />
@@ -175,7 +175,7 @@
 <Hotspot X="205.0521" Y="3841.332" Z="1.372223" />
 		</HuntingGrounds>
 		</CustomBehavior>
-<RunTo X="559.7966" Y="3834.615" Z="7.731372" />
+<MoveTo NAV="Fly" X="559.7966" Y="3834.615" Z="7.731372" />
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>

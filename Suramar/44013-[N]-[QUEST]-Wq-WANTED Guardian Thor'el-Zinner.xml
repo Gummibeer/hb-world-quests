@@ -159,7 +159,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(44013)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 44013-[N]-[QUEST]-Wq-WANTED Guardian Thor'el-Zinner.xml!&quot;);" />
-<RunTo X="1577.243" Y="3525.296" Z="145.264"  />
+<MoveTo NAV="Fly" X="1577.243" Y="3525.296" Z="145.264"  />
 
 
 <CustomBehavior File="KillUntilComplete"  QuestId="44013"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(44013)">

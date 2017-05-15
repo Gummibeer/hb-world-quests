@@ -29,10 +29,10 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44028] WANTED: Lieutenant Strathmar - WiN!&quot;);" />
-      <RunTo X="1375.621" Y="3980.022" Z="134.3111" />
+      <MoveTo NAV="Fly" X="1375.621" Y="3980.022" Z="134.3111" />
       <CustomBehavior File="KillUntilComplete" MobId="102303" TerminateWhen="!OnQuest" X="1363.295" Y="3973.409" Z="134.5051" />
     </While>
-    <RunTo X="1403.582" Y="3995.794" Z="118.8394" />
+    <MoveTo NAV="Fly" X="1403.582" Y="3995.794" Z="118.8394" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

@@ -131,8 +131,8 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41539)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41539-[N]-[QUEST]-Wq-Sparkling Starlight Roses-Zinner.xml!&quot;);" />
 
-	<RunTo X="2320.658" Y="5538.685" Z="114.52" />
-	<CustomBehavior File="InteractWith" MobId="248032" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41539)" >
+	<MoveTo NAV="Fly" X="2320.658" Y="5538.685" Z="114.52" />
+	<CustomBehavior File="InteractWith" MobId="248032" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41539)" >
 		<HuntingGrounds>
 		<Hotspot X="2320.658" Y="5538.685" Z="114.52" />
 		<Hotspot X="2332.341" Y="5540.017" Z="119.4904" />

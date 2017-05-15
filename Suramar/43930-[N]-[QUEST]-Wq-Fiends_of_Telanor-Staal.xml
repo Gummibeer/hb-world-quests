@@ -128,7 +128,7 @@
 Might need to add a run to a safe place to cast the whistle - whistle cast is interrupted and then the bot runs back instead of teleports.
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43930)" >
-	<RunTo X="1939.641" Y="4069.06" Z="264.5108" />
+	<MoveTo NAV="Fly" X="1939.641" Y="4069.06" Z="264.5108" />
 
 	<CustomBehavior File="KillUntilComplete" MobIds="98306, 99593, 113573" QuestId="43930" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 43930)">
 		<HuntingGrounds>

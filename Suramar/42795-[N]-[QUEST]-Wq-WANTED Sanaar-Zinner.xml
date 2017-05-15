@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42795)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1907.602" Y="5534.979" Z="-67.98068" /> 
+				<MoveTo NAV="Fly" X="1907.602" Y="5534.979" Z="-67.98068" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Sanaar" QuestId="42795" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Sanaar" QuestId="42795" Type="KillMob" Nav="Fly" MobId="105739" KillCount="1" />
@@ -169,7 +169,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42795)" >	
-				<RunTo X="1919.443" Y="5580.376" Z="-65.2243" />		
+				<MoveTo NAV="Fly" X="1919.443" Y="5580.376" Z="-65.2243" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="105739" QuestId="42795">
 				<HuntingGrounds>
 					<Hotspot X="1907.602" Y="5534.979" Z="-67.98068" />

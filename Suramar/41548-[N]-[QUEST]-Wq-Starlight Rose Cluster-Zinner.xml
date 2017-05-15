@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41548)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1568.121" Y="5233.689" Z="87.93371" /> 
+				<MoveTo NAV="Fly" X="1568.121" Y="5233.689" Z="87.93371" /> 
 				<PickUp Nav="Fly" QuestName="Starlight Rose Cluster" QuestId="41548" GiverName="" GiverId="" />
 
 				<Objective QuestName="Starlight Rose Cluster" QuestId="41548" Type="KillMob" MobId="103849" KillCount="1" />
@@ -170,8 +170,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41548)" >	
-				<RunTo X="1568.121" Y="5233.689" Z="87.93371" /> 		
-				<CustomBehavior File="InteractWith" MobId="104380" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41548)" >
+				<MoveTo NAV="Fly" X="1568.121" Y="5233.689" Z="87.93371" /> 		
+				<CustomBehavior File="InteractWith" MobId="104380" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41548)" >
 				<HuntingGrounds>
 					<Hotspot X="1568.121" Y="5233.689" Z="87.93371" />
 				</HuntingGrounds>

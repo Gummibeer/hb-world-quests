@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41318)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1724.367" Y="4597.074" Z="96.28284" /> 
+				<MoveTo NAV="Fly" X="1724.367" Y="4597.074" Z="96.28284" /> 
 				<TurnIn Nav="Fly" QuestName="Supplies Needed: Felslate" QuestId="41318" TurnInName="First Arcanist Thalyssra" TurnInId="97140" />
 
 

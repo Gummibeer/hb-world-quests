@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43445)">
-        <RunTo X="2635.615" Y="5129.074" Z="143.672" />
+        <MoveTo NAV="Fly" X="2635.615" Y="5129.074" Z="143.672" />
       </If>
       <While Condition="HasQuest(43445)">
           <!-- NOTE: <ConditionalCheck> : Make sure InVehicle returns true for this mob. -->

@@ -145,7 +145,7 @@
 		
 <While Condition="WorldQuestInfo.HasWorldQuest(44811)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="804.4182" Y="4084.266" Z="7.856808" />
+	<MoveTo NAV="Fly" X="804.4182" Y="4084.266" Z="7.856808" />
 	<PickUp Nav="Fly" QuestName="Help on the Way" QuestId="44811" GiverName="" GiverId="" />
 
 	<Objective QuestName="Help on the Way" QuestId="44811" Type="UseObject" ObjectId="266285" UseCount="8" />
@@ -164,7 +164,7 @@
         <CustomBehavior File="WaitTimer" WaitTime="4000" /> 
         </CustomBehavior> 
 
-	<RunTo X="804.4182" Y="4084.266" Z="7.856808" />
+	<MoveTo NAV="Fly" X="804.4182" Y="4084.266" Z="7.856808" />
 	<CustomBehavior File="InteractWith" MobId="266285" NumOfTimes="8" QuestId="44811" >
 	<HuntingGrounds>
 	<Hotspot X="608.3212" Y="3979.121" Z="1.493411" />
@@ -182,7 +182,7 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
 
-<RunTo X="804.4182" Y="4084.266" Z="7.856808" />
+<MoveTo NAV="Fly" X="804.4182" Y="4084.266" Z="7.856808" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44024)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1925.459" Y="5207.707" Z="91.34722" /> 
+				<MoveTo NAV="Fly" X="1925.459" Y="5207.707" Z="91.34722" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Shal'an" QuestId="44024" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Shal'an" QuestId="44024" Type="KillMob" MobId="109054" KillCount="1" />
@@ -172,7 +172,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44024)" >	
-				<RunTo X="1921.655" Y="5202.76" Z="91.34884"  /> 		
+				<MoveTo NAV="Fly" X="1921.655" Y="5202.76" Z="91.34884"  /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="109054" QuestId="44024">
 				<HuntingGrounds>
 					<Hotspot X="1921.655" Y="5202.76" Z="91.34884"  />

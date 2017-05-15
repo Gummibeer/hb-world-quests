@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42797)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1789.071" Y="5369.893" Z="-37.58974" /> 
+				<MoveTo NAV="Fly" X="1789.071" Y="5369.893" Z="-37.58974" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Scythemaster Cil'raman" QuestId="42797" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Scythemaster Cil'raman" QuestId="42797" Type="KillMob" MobId="105728" KillCount="1" />
@@ -171,7 +171,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42797)" >	
-				<RunTo X="1789.071" Y="5369.893" Z="-37.58974" />		
+				<MoveTo NAV="Fly" X="1789.071" Y="5369.893" Z="-37.58974" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="105728" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42797)">
 				<HuntingGrounds>
 					<Hotspot X="1758.524" Y="5342.748" Z="-38.52626" />

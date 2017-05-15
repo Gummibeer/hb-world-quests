@@ -59,7 +59,7 @@ return false;", 0);]]>
       <CustomBehavior File="WaitTimer" WaitTime="4000" />
     </CustomBehavior>
     <While Condition="OnQuest" >
-      <RunTo X="543.9437" Y="3954.224" Z="39.10023" />
+      <MoveTo NAV="Fly" X="543.9437" Y="3954.224" Z="39.10023" />
       <CustomBehavior File="KillUntilComplete" MobIds="112757" QuestId="44114">
         <HuntingGrounds>
 <Hotspot X="506.7986" Y="3908.779" Z="38.83073" />

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43513)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1684.276" Y="5617.742" Z="-57.89392" /> 
+				<MoveTo NAV="Fly" X="1684.276" Y="5617.742" Z="-57.89392" /> 
 				<PickUp Nav="Fly" QuestName="Na'zak the Fiend" QuestId="43513" GiverName="" GiverId="" />
 
 				<Objective QuestName="Na'zak the Fiend" QuestId="43513" Type="KillMob" MobId="110321" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43513)" >	
-				<RunTo X="1684.276" Y="5617.742" Z="-57.89392" />		
+				<MoveTo NAV="Fly" X="1684.276" Y="5617.742" Z="-57.89392" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="110321" QuestId="43513">
 				<HuntingGrounds>
 					<Hotspot X="1684.276" Y="5617.742" Z="-57.89392" />

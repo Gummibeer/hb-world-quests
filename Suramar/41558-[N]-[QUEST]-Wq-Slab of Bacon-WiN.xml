@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41558] Slab of Bacon - WiN!&quot;);" />
-      <RunTo X="1614.813" Y="5280.888" Z="71.52263" />
+      <MoveTo NAV="Fly" X="1614.813" Y="5280.888" Z="71.52263" />
       <CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="!OnQuest" >
         <HuntingGrounds>
           <Hotspot X="1613.535" Y="5302.914" Z="72.81098" />

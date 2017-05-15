@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44857)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2599.003" Y="5607.023" Z="178.3525" /> 
+				<MoveTo NAV="Fly" X="2599.003" Y="5607.023" Z="178.3525" /> 
 				<PickUp Nav="Fly" QuestName="Not There, Not Then, Not Forever" QuestId="44857" GiverName="" GiverId="" />
 
 				<Objective QuestName="Not There, Not Then, Not Forever" QuestId="44857" Type="KillMob" MobId="106765" KillCount="7" />
@@ -179,7 +179,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44857)" >	
-				<RunTo X="2599.003" Y="5607.023" Z="178.3525" />		
+				<MoveTo NAV="Fly" X="2599.003" Y="5607.023" Z="178.3525" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="106765, 106764" QuestId="44857" >
 				<HuntingGrounds>
 					<Hotspot X="2577.946" Y="5578.055" Z="177.9498" />
