@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44300)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2092.84" Y="7304.255" Z="56.10832" /> 
+				<MoveTo NAV="Fly" X="2092.84" Y="7304.255" Z="56.10832" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Seersei" QuestId="44300" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Seersei" QuestId="44300" Type="KillMob" Nav="Fly" MobId="92180" KillCount="1" />
@@ -168,7 +168,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44300)" >	
-				<RunTo X="2092.84" Y="7304.255" Z="56.10832" />		
+				<MoveTo NAV="Fly" X="2092.84" Y="7304.255" Z="56.10832" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="92180" QuestId="44300">
 				<HuntingGrounds>
 					<Hotspot X="2092.84" Y="7304.255" Z="56.10832" />

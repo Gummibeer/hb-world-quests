@@ -156,7 +156,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(44304)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44304] WANTED: Darkshade - WiN!&quot;);" />
-<RunTo X="3064.908" Y="7192.926" Z="51.73924" />
+<MoveTo NAV="Fly" X="3064.908" Y="7192.926" Z="51.73924" />
 
 <CustomBehavior File="KillUntilComplete"  QuestId="44304"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(44304)">
 	<HuntingGrounds>

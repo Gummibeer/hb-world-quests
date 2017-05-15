@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41273)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3145.143" Y="8026.673" Z="-1.560057" /> 
+				<MoveTo NAV="Fly" X="3145.143" Y="8026.673" Z="-1.560057" /> 
 				<PickUp Nav="Fly" QuestName="Buoy Fishing" QuestId="41273" GiverName="" GiverId="" />
 
 				<Objective QuestName="Buoy Fishing" QuestId="41273" Type="KillMob" MobId="109754" KillCount="15" />

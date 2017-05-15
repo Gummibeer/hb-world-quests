@@ -156,7 +156,7 @@
 			</CustomBehavior>
 		<!-- <WoWUnit Name="Thondrax" Entry="93205" X="3219.961" Y="6150.457" Z="238.3706" /> -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(43459)" >	
-				<RunTo X="3219.961" Y="6150.457" Z="238.3706"/>	
+				<MoveTo NAV="Fly" X="3219.961" Y="6150.457" Z="238.3706"/>	
 				<CustomBehavior File="KillUntilComplete" QuestId="43459" NonCompeteDistance="0" ImmediatelySwitchToHighestPriorityTarget="true">
 					<HuntingGrounds>
 						<Hotspot X="3219.961" Y="6150.457" Z="238.3706" />

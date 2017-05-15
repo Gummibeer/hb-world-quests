@@ -33,7 +33,7 @@ return false;", 0);
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43759] Wheres the Reef - WiN!&quot;);" />
       <If Condition="!HasQuest(43759)">
-        <RunTo X="2596.927" Y="8327.881" Z="8.470514" />
+        <MoveTo NAV="Fly" X="2596.927" Y="8327.881" Z="8.470514" />
       </If>
 
       <CustomBehavior File="KillUntilComplete" MobIds="111474, 111473" NumOfTimes="50" TerminateWhen="!HasQuest(43759)">

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46261)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="2764.021" Y="7385.448" Z="10.64719" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="2764.021" Y="7385.448" Z="10.64719" />
 				<PickUp Nav="Fly" QuestName="The Taste of Corruption" QuestId="46261" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Taste of Corruption" QuestId="46261" Type="KillMob" MobId="120144" KillCount="10" />
@@ -177,7 +177,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46261)" >	
-				<RunTo X="2764.021" Y="7385.448" Z="10.64719" /> 		
+				<MoveTo NAV="Fly" X="2764.021" Y="7385.448" Z="10.64719" /> 		
 			<CustomBehavior File="InteractWith" MobIds="120144"  NumOfTimes="10" Range="5" TerminateWhen="IsObjectiveComplete(1, 46261)" >
 				<HuntingGrounds>
 				<Hotspot X="2705.979" Y="7459.366" Z="5.409726" />

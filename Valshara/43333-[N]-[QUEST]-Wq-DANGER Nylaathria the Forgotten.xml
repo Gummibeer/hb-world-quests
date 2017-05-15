@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43333)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3175.942" Y="7834.851" Z="0.3975018" /> 
+				<MoveTo NAV="Fly" X="3175.942" Y="7834.851" Z="0.3975018" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Nylaathria the Forgotten" QuestId="43333" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Nylaathria the Forgotten" QuestId="43333" Type="KillMob" MobId="109990" KillCount="1" />
@@ -171,7 +171,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43333)" >	
-				<RunTo X="3175.942" Y="7834.851" Z="0.3975018" />		
+				<MoveTo NAV="Fly" X="3175.942" Y="7834.851" Z="0.3975018" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="109990" QuestId="43333">
 				<HuntingGrounds>
 					<Hotspot X="3194.562" Y="7823.163" Z="0.3976998" />

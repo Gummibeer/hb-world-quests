@@ -170,7 +170,7 @@
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41956 - Petrified Acolytes-Zinner!&quot;);" />
     <While Condition="WorldQuestInfo.HasWorldQuest(41956)" >
       <If Condition="!HasQuest(41956)">
-        <RunTo X="2331.692" Y="7128.259" Z="73.08529" />
+        <MoveTo NAV="Fly" X="2331.692" Y="7128.259" Z="73.08529" />
       </If>
       <CustomBehavior File="InteractWith" MobIds="91149, 92874, 91150" Range="5" NumOfTimes="7" TerminateWhen="IsObjectiveComplete(1, 41956)" >
         <HuntingGrounds>

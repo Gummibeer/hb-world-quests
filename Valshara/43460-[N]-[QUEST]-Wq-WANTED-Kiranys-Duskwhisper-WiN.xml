@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43460] WANTED Kiranys Duskwhisper - WiN!&quot;);" />
-      <RunTo X="2803.834" Y="7703.8" Z="53.08917" />
+      <MoveTo NAV="Fly" X="2803.834" Y="7703.8" Z="53.08917" />
       <CustomBehavior File="KillUntilComplete" MobIds="94414" TerminateWhen="!OnQuest" X="2803.834" Y="7703.8" Z="53.08917" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >

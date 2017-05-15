@@ -124,7 +124,7 @@
 <GameObject Name="Felwort" Entry="248004" X="2350.372" Y="7953.205" Z="10.5512" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41516)" >
-	<RunTo X="2350.372" Y="7953.205" Z="10.5512" />
+	<MoveTo NAV="Fly" X="2350.372" Y="7953.205" Z="10.5512" />
 
 <CustomBehavior File="InteractWith" MobId="248004" NumOfTimes="1" QuestId="41516" QuestObjectiveIndex="1" TerminateWhen="IsObjectiveComplete(1, 41516)">
 		<HuntingGrounds>

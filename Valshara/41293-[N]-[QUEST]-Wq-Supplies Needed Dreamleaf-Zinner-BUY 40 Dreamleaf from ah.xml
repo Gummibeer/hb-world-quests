@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41293)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2276.036" Y="6590.808" Z="139.0482" /> 
+				<MoveTo NAV="Fly" X="2276.036" Y="6590.808" Z="139.0482" /> 
 				<TurnIn QuestName="Supplies Needed: Dreamleaf" QuestId="41293" TurnInName="Sylvia Hartshorn" TurnInId="106901" X="2276.036" Y="6590.808" Z="139.0482" />
 					<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />

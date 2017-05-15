@@ -155,7 +155,7 @@
 <Vendor Name="Malisandra" Entry="109281" Type="Repair" Nav="Fly" X="2157.398" Y="7269.26" Z="54.29741" />-->
 <While Condition="WorldQuestInfo.HasWorldQuest(42927)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42927] DANGER: Malisandra - WiN!&quot;);" />
-<RunTo X="2152.047" Y="7271.69" Z="53.85699" />
+<MoveTo NAV="Fly" X="2152.047" Y="7271.69" Z="53.85699" />
 <CustomBehavior File="KillUntilComplete"  QuestId="42927"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(42927)">
 	<HuntingGrounds>
 <Hotspot X="2152.047" Y="7271.69" Z="53.85699" />

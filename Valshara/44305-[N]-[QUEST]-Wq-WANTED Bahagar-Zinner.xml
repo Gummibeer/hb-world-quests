@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44305)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1719.415" Y="7105.069" Z="73.16143" /> 
+				<MoveTo NAV="Fly" X="1719.415" Y="7105.069" Z="73.16143" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Bahagar" QuestId="44305" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Bahagar" QuestId="44305" Type="KillMob" Nav="Fly" MobId="110562" KillCount="1" />
@@ -170,7 +170,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44305)" >	
-				<RunTo X="1719.415" Y="7105.069" Z="73.16143" />		
+				<MoveTo NAV="Fly" X="1719.415" Y="7105.069" Z="73.16143" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="110562" QuestId="44305">
 				<HuntingGrounds>
 					<Hotspot X="1719.415" Y="7105.069" Z="73.16143" />

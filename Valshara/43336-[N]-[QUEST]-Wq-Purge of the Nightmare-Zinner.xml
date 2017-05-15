@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43336)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3217.477" Y="6153.526" Z="238.428" /> 
+				<MoveTo NAV="Fly" X="3217.477" Y="6153.526" Z="238.428" /> 
 				<PickUp Nav="Fly" QuestName="Purge of the Nightmare" QuestId="43336" GiverName="" GiverId="" />
 
 				<Objective QuestName="Purge of the Nightmare" QuestId="43336" Type="KillMob" Nav="Fly" MobId="92383" KillCount="17" />
@@ -177,7 +177,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43336)" >	
-				<RunTo X="3217.477" Y="6153.526" Z="238.428" />		
+				<MoveTo NAV="Fly" X="3217.477" Y="6153.526" Z="238.428" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="92383, 95951, 106842, 110423" QuestId="43336">
 				<HuntingGrounds>
 					<Hotspot X="3178.667" Y="6038.315" Z="246.2219" />

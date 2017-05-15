@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44759)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="2506.767" Y="5985.056" Z="185.7652" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="2506.767" Y="5985.056" Z="185.7652" />
 				<PickUp Nav="Fly" QuestName="The Vale of Dread" QuestId="44759" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Vale of Dread" QuestId="44759" Type="KillMob" MobId="115333" KillCount="10" />
@@ -177,7 +177,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44759)" >	
-				<RunTo X="2506.767" Y="5985.056" Z="185.7652" /> 		
+				<MoveTo NAV="Fly" X="2506.767" Y="5985.056" Z="185.7652" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="115333, 115008" TerminateWhen="IsObjectiveComplete(1, 44759)" >
 				<HuntingGrounds>
 				<Hotspot X="2506.855" Y="5971.129" Z="182.4155" />

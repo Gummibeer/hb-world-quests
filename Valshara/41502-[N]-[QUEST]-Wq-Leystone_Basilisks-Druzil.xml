@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41502)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2426.678" Y="7058.896" Z="71.17518" /> 
+				<MoveTo NAV="Fly" X="2426.678" Y="7058.896" Z="71.17518" /> 
 				<PickUp Nav="Fly" QuestName="Leystone Basilisks" QuestId="41502" GiverName="" GiverId="" />
 				<Objective QuestName="Leystone Basilisks" QuestId="41502" Type="CollectItem" ItemId="134104" CollectCount="60" />
 				<TurnIn Nav="Fly" QuestName="Leystone Basilisks" QuestId="41502" TurnInName="" TurnInId="" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41502)" >	
-				<RunTo X="2426.678" Y="7058.896" Z="71.17518" /> 		
+				<MoveTo NAV="Fly" X="2426.678" Y="7058.896" Z="71.17518" /> 		
 			<CustomBehavior File="InteractWith" MobId="103514" NumOfTimes="100" MobState="Dead" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41502)" >
 				<HuntingGrounds>
 				<Hotspot X="2426.678" Y="7058.896" Z="71.17518" />

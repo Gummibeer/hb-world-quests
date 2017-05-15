@@ -133,7 +133,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41995)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41995] Dark Corruption - WiN!&quot;);" />
-	<RunTo X="2267.925" Y="6243.886" Z="122.9655" />
+	<MoveTo NAV="Fly" X="2267.925" Y="6243.886" Z="122.9655" />
 
 	
 			<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41995)" >

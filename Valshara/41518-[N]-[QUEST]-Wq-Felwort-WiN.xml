@@ -28,7 +28,7 @@ end
 return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
-      <RunTo X="2681.269" Y="7486.801" Z="5.773455" />
+      <MoveTo NAV="Fly" X="2681.269" Y="7486.801" Z="5.773455" />
       <CustomBehavior File="InteractWith" MobId="248006" TerminateWhen="!OnQuest" X="2681.269" Y="7486.801" Z="5.773455" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >

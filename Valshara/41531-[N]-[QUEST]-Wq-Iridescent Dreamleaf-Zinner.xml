@@ -157,7 +157,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41531)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1754.169" Y="6939.536" Z="30.37937" /> 
+				<MoveTo NAV="Fly" X="1754.169" Y="6939.536" Z="30.37937" /> 
 				<PickUp Nav="Fly" QuestName="Iridescent Dreamleaf" QuestId="41531" GiverName="" GiverId="" />
 
 				<Objective QuestName="Iridescent Dreamleaf" QuestId="41531" Type="CollectItem" ItemId="140955" CollectCount="10" />
@@ -173,8 +173,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41531)" >	
-				<RunTo X="1754.169" Y="6939.536" Z="30.37937" /> 		
-				<CustomBehavior File="InteractWith" MobId="248024" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41530)" >
+				<MoveTo NAV="Fly" X="1754.169" Y="6939.536" Z="30.37937" /> 		
+				<CustomBehavior File="InteractWith" MobId="248024" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41530)" >
 				<HuntingGrounds>
 				<Hotspot X="1797.926" Y="6954.164" Z="41.44817" />
 				<Hotspot X="1730.272" Y="6915.53" Z="29.09008" />

@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43324] Rage of the Owlbeasts - WiN!&quot;);" />
-      <RunTo X="1998.176" Y="6368.86" Z="60.19921" />
+      <MoveTo NAV="Fly" X="1998.176" Y="6368.86" Z="60.19921" />
 
       <CustomBehavior File="InteractWith" MobIds="108600" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1, 43324) || !OnQuest">
         <HuntingGrounds>
@@ -52,7 +52,7 @@ return false;", 0);]]>
       </CustomBehavior>
     </While>
     <!-- leave the cave if we are there -->
-    <RunTo 	X="1965.707" Y="6341.997" Z="58.0575" />
+    <MoveTo NAV="Fly" 	X="1965.707" Y="6341.997" Z="58.0575" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

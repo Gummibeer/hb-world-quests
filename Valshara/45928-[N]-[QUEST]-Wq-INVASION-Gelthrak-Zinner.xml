@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45928)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="2995.421" Y="7625.809" Z="7.830649" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="2995.421" Y="7625.809" Z="7.830649" />
 				<PickUp Nav="Fly" QuestName="Gelthrak" QuestId="45928" GiverName="" GiverId="" />
 
 				<Objective QuestName="Gelthrak" QuestId="45928" Type="KillMob" MobId="117991" KillCount="1" />
@@ -176,7 +176,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45928)" >	
-				<RunTo X="2995.421" Y="7625.809" Z="7.830649" /> 		
+				<MoveTo NAV="Fly" X="2995.421" Y="7625.809" Z="7.830649" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117991" TerminateWhen="!WorldQuestInfo.HasWorldQuest(45928)" >
 				<HuntingGrounds>
 				<Hotspot X="3003.229" Y="7641.477" Z="8.09425" />

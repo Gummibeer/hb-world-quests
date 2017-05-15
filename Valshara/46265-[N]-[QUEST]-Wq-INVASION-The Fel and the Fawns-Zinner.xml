@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46265)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="3670.014" Y="5794.514" Z="343.8123" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="3670.014" Y="5794.514" Z="343.8123" />
 				<PickUp Nav="Fly" QuestName="The Fel and the Fawns" QuestId="46265" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Fel and the Fawns" QuestId="46265" Type="KillMob" MobId="120277" KillCount="6" />
@@ -175,7 +175,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46265)" >	
-				<RunTo X="3670.014" Y="5794.514" Z="343.8123" /> 		
+				<MoveTo NAV="Fly" X="3670.014" Y="5794.514" Z="343.8123" /> 		
 			<CustomBehavior File="Interactwith" MobIds="120277" PreInteractMountStrategy="Dismount" TerminateWhen="IsObjectiveComplete(1, 46265)" >
 				<HuntingGrounds>
 				<Hotspot X="3730.526" Y="5878.527" Z="346.8993" />

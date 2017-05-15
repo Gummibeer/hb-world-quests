@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41700)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3508.744" Y="6738.485" Z="157.0859" /> 
+				<MoveTo NAV="Fly" X="3508.744" Y="6738.485" Z="157.0859" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Shalas'aman" QuestId="41700" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Shalas'aman" QuestId="41700" Type="KillMob" MobId="104523" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41700)" >	
-				<RunTo X="3508.744" Y="6738.485" Z="157.0859" /> 		
+				<MoveTo NAV="Fly" X="3508.744" Y="6738.485" Z="157.0859" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="104523" QuestId="41700">
 				<HuntingGrounds>
 					<Hotspot X="3508.744" Y="6738.485" Z="157.0859" />

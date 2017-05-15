@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41961)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="3092.222" Y="7196.701" Z="52.79463" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="3092.222" Y="7196.701" Z="52.79463" /> 
 				<PickUp Nav="Fly" QuestName="Black Rook Holdings" QuestId="41961" GiverName="" GiverId="" />
 
 				<Objective QuestName="Black Rook Holdings" QuestId="41961" Type="KillMob" MobId="93067" KillCount="13" />
@@ -200,7 +200,7 @@
 
 		</While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41961)" >	
-			<RunTo X="3092.222" Y="7196.701" Z="52.79463" /> 
+			<MoveTo NAV="Fly" X="3092.222" Y="7196.701" Z="52.79463" /> 
 			<CustomBehavior File="KillUntilComplete" MobIds="93067, 92954, 93061, 92963, 92965, 92966, 91839, 95247, 93031, 94974, 92971, 95430, 91860, 108941" TerminateWhen="IsObjectiveComplete(1, 41961)" >
 				<HuntingGrounds>
 				<Hotspot X="3092.222" Y="7196.701" Z="52.79463" />

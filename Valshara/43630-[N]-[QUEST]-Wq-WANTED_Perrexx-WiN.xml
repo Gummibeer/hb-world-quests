@@ -157,7 +157,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43630)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43630] WANTED: Perrexx - WiN!&quot;);" />
-<RunTo X="2383.747" Y="6247.927" Z="129.0659" />
+<MoveTo NAV="Fly" X="2383.747" Y="6247.927" Z="129.0659" />
 <CustomBehavior File="KillUntilComplete"  QuestId="43630"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43630)">
 	<HuntingGrounds>
 <Hotspot X="2398.039" Y="6241.776" Z="131.3375" />

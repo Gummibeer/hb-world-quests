@@ -157,7 +157,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41530)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3563.378" Y="6183.034" Z="178.0484" /> 
+				<MoveTo NAV="Fly" X="3563.378" Y="6183.034" Z="178.0484" /> 
 				<PickUp Nav="Fly" QuestName="Lively Dreamleaf" QuestId="41530" GiverName="" GiverId="" />
 
 				<Objective QuestName="Lively Dreamleaf" QuestId="41530" Type="CollectItem" ItemId="140954" CollectCount="10" />
@@ -173,8 +173,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41530)" >	
-				<RunTo X="3563.378" Y="6183.034" Z="178.0484" /> 		
-				<CustomBehavior File="InteractWith" MobId="248023" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41530)" >
+				<MoveTo NAV="Fly" X="3563.378" Y="6183.034" Z="178.0484" /> 		
+				<CustomBehavior File="InteractWith" MobId="248023" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41530)" >
 				<HuntingGrounds>
 					<Hotspot X="3631.256" Y="6239.968" Z="181.4494" />
 					<Hotspot X="3625.547" Y="6254.499" Z="178.3862" />

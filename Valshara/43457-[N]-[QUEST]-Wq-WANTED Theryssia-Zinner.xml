@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43457)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3025.63" Y="7500.686" Z="47.45007" /> 
+				<MoveTo NAV="Fly" X="3025.63" Y="7500.686" Z="47.45007" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Theryssia" QuestId="43457" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Theryssia" QuestId="43457" Type="KillMob" MobId="92423" KillCount="1" />
@@ -170,7 +170,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43457)" >	
-				<RunTo X="3025.63" Y="7500.686" Z="47.45007" />		
+				<MoveTo NAV="Fly" X="3025.63" Y="7500.686" Z="47.45007" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="92423" QuestId="43457">
 				<HuntingGrounds>
 					<Hotspot X="3024.862" Y="7509.56" Z="47.45125" />

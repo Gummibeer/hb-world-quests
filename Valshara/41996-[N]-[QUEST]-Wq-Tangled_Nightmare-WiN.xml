@@ -30,7 +30,7 @@ return false;", 0);]]>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41996] Tangled Nightmare - WiN!&quot;);" />
       <If Condition="!HasQuest(41996)">
-        <RunTo X="3569.587" Y="6162.599" Z="178.2153" />
+        <MoveTo NAV="Fly" X="3569.587" Y="6162.599" Z="178.2153" />
       </If>
 
       <CustomBehavior File="InteractWith" NumOfTimes="50" Range="5" TerminateWhen="!OnQuest || (IsObjectiveComplete(1, 41996) &amp;&amp; IsObjectiveComplete(2, 41996))">

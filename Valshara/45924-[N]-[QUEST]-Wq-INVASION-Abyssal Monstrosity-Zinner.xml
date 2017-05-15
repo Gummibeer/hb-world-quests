@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45924)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="2651.029" Y="7613.386" Z="15.09157" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="2651.029" Y="7613.386" Z="15.09157" />
 				<PickUp Nav="Fly" QuestName="Abyssal Monstrosity" QuestId="45924" GiverName="" GiverId="" />
 
 				<Objective QuestName="Abyssal Monstrosity" QuestId="45924" Type="KillMob" MobId="117054" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45924)" >	
-				<RunTo X="2651.029" Y="7613.386" Z="15.09157" /> 		
+				<MoveTo NAV="Fly" X="2651.029" Y="7613.386" Z="15.09157" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117054" TerminateWhen="!WorldQuestInfo.HasWorldQuest(45924)" >
 				<HuntingGrounds>
 				<Hotspot X="2643.053" Y="7630.958" Z="17.90573" />

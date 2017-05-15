@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43758)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2523.561" Y="8179.699" Z="12.62626" /> 
+				<MoveTo NAV="Fly" X="2523.561" Y="8179.699" Z="12.62626" /> 
 				<PickUp Nav="Fly" QuestName="Wherever I May Gloam" QuestId="43758" GiverName="" GiverId="" />
 
 				<Objective QuestName="Wherever I May Gloam" QuestId="43758" Type="KillMob" Nav="Fly" MobId="111459" KillCount="15" />
@@ -170,7 +170,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43758)" >	
-				<RunTo X="2528.257" Y="8279.194" Z="-0.1401593" />		
+				<MoveTo NAV="Fly" X="2528.257" Y="8279.194" Z="-0.1401593" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="111459,111460" QuestId="43758">
 				<HuntingGrounds>
 					<Hotspot X="2521.182" Y="8266.822" Z="2.871578" />

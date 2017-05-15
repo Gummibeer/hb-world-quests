@@ -137,7 +137,7 @@ Return Sheep here
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42080)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42080] Bastion of Bradensbrook - WiN!&quot;);" />
-	<RunTo X="2756.934" Y="7339.524" Z="17.81155" />
+	<MoveTo NAV="Fly" X="2756.934" Y="7339.524" Z="17.81155" />
 	
 		<CustomBehavior File="Hooks\DoWhen" ActivityName="ReturningZombies" AllowUseDuringCombat="true" AllowUseInVehicle="true" AllowUseWhileMounted="true" StopMovingToConductActivity="true" LogExecution="false" UseAtInterval="5000">
 				<CustomBehavior File="RunCode"><![CDATA[
@@ -167,7 +167,7 @@ Return Sheep here
 TerminateWhen="Unit(90403, u =&gt; u.Distance &lt;= 5) != null"
 
 	-->
-	<CustomBehavior File="InteractWith" NumOfTimes="4"  TerminateWhen="IsObjectiveComplete(3,42080)" NonCompeteDistance="0"  >
+	<CustomBehavior File="InteractWith" NumOfTimes="4" PreInteractMountStrategy="Dismount" TerminateWhen="IsObjectiveComplete(3,42080)" NonCompeteDistance="0"  >
 		<HuntingGrounds>
 <Hotspot X="2756.934" Y="7339.524" Z="17.81155" />
 <Hotspot X="2769.821" Y="7441.142" Z="5.402129" />
@@ -183,7 +183,7 @@ TerminateWhen="Unit(90403, u =&gt; u.Distance &lt;= 5) != null"
 			<PursueUnit Id="106009" PursueWhen="!IsObjectiveComplete(3,42080) &amp;&amp; (UNIT.IsAlive || UNIT.Lootable)"/>
 
 		</PursuitList>
-		<RunTo X="2786.168" Y="7321.965" Z="21.65909" />
+		<MoveTo NAV="Fly" X="2786.168" Y="7321.965" Z="21.65909" />
 	</CustomBehavior>
 	
 	

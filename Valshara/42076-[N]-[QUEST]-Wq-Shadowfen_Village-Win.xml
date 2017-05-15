@@ -28,7 +28,7 @@ end
 return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
-      <RunTo  X="3073.595" Y="5891.881" Z="278.4704" />
+      <MoveTo NAV="Fly"  X="3073.595" Y="5891.881" Z="278.4704" />
       <CustomBehavior File="KillUntilComplete" MobIds="95123" TerminateWhen="IsObjectiveComplete(1, 42076) || !OnQuest">
         <HuntingGrounds>
           <Hotspot X="3002.579" Y="5981.24" Z="279.2235" />
@@ -50,7 +50,7 @@ return false;", 0);]]>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
-    <RunTo X="3042.078" Y="5919.003" Z="274.9439" />
+    <MoveTo NAV="Fly" X="3042.078" Y="5919.003" Z="274.9439" />
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest [N]-[QUEST]-Wq-Shadowfen_Village-Win, loading auto-loader!&quot;);" />
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
   </QuestOrder>

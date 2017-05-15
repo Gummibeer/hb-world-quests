@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41440)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2718.719" Y="7243.74" Z="26.03268" /> 
+				<MoveTo NAV="Fly" X="2718.719" Y="7243.74" Z="26.03268" /> 
 				<PickUp Nav="Fly" QuestName="Magnificent Leystone Deposits" QuestId="41440" GiverName="" GiverId="" />
 
 				<Objective QuestName="Magnificent Leystone Deposits" QuestId="41440" Type="CollectItem" Nav="Fly" ItemId="141234" CollectCount="10" />
@@ -171,8 +171,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41440)" >	
-				<RunTo X="2718.719" Y="7243.74" Z="26.03268" /> 		
-				<CustomBehavior File="InteractWith" MobId="141234" NumOfTimes="10" QuestId="41440" >
+				<MoveTo NAV="Fly" X="2718.719" Y="7243.74" Z="26.03268" /> 		
+				<CustomBehavior File="InteractWith" MobId="141234" PreInteractMountStrategy="Dismount" NumOfTimes="10" QuestId="41440" >
 				<HuntingGrounds>
 					<Hotspot X="2670.735" Y="7185.656" Z="73.19968" />
 					<Hotspot X="2612.583" Y="7237.9" Z="89.03859" />

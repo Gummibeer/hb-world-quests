@@ -28,7 +28,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(44033)">
-        <RunTo X="2283.612" Y="6592.378" Z="138.411" />
+        <MoveTo NAV="Fly" X="2283.612" Y="6592.378" Z="138.411" />
       </If>
       <CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!OnQuest" >
         <HuntingGrounds>

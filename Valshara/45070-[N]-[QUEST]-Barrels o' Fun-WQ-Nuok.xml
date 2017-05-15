@@ -65,7 +65,7 @@ return false;", 0);
     </CustomBehavior>
     <While Condition="OnQuest">
       <DisableBehavior Name="All"/>
-      <RunTo X="2883.582" Y="6730.371" Z="219.5366" />
+      <MoveTo NAV="Fly" X="2883.582" Y="6730.371" Z="219.5366" />
       <CustomBehavior File="RunCode" Code="await DoQuest()" />
     </While>
     <EnableBehavior Name="All"/>

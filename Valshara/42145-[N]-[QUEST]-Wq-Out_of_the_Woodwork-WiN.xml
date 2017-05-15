@@ -119,7 +119,7 @@
 <Vendor Name="Bloodspike Needler" Entry="106419" Type="Repair" Nav="Fly" X="3719.281" Y="5793.701" Z="351.2372" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(42145)" >
-	<RunTo X="3720.355" Y="5771.008" Z="354.2142" />
+	<MoveTo NAV="Fly" X="3720.355" Y="5771.008" Z="354.2142" />
 	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42145)" >
 		<HuntingGrounds>
 <Hotspot X="3720.21" Y="5807.678" Z="348.6483" />

@@ -38,10 +38,10 @@ return false;", 0);
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(44011)">
-        <RunTo X="2561.243" Y="6970.671" Z="152.6622" />
+        <MoveTo NAV="Fly" X="2561.243" Y="6970.671" Z="152.6622" />
       </If>
       <If Condition="HasQuest(44011)">
-        <RunTo X="2561.243" Y="6970.671" Z="152.6622" />
+        <MoveTo NAV="Fly" X="2561.243" Y="6970.671" Z="152.6622" />
 
         <CustomBehavior File="MyCTM" TerminateWhen="!Me.InVehicle" X="2562.318" Y="6927.311" Z="145.2733" />
         <CustomBehavior File="WaitTimer" WaitTime="750" TerminateWhen="!Me.InVehicle" />

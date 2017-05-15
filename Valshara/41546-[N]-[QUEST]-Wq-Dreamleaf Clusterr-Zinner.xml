@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41546)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1755.871" Y="6637.507" Z="92.77623" />
+				<MoveTo NAV="Fly" X="1755.871" Y="6637.507" Z="92.77623" />
 				<PickUp Nav="Fly" QuestName="Dreamleaf Cluster" QuestId="41546" GiverName="" GiverId="" />
 
 				<Objective QuestName="Dreamleaf Cluster" QuestId="41546" Type="KillMob" MobId="103845" KillCount="1" />
@@ -186,8 +186,8 @@
 
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41546)" >	
-				<RunTo X="1755.871" Y="6637.507" Z="92.77623" />		
-			<CustomBehavior File="InteractWith" MobIds="104378" QuestId="41546">
+				<MoveTo NAV="Fly" X="1755.871" Y="6637.507" Z="92.77623" />		
+			<CustomBehavior File="InteractWith" MobIds="104378" PreInteractMountStrategy="Dismount" QuestId="41546">
 				<HuntingGrounds>
 			<Hotspot X="1758.398" Y="6644.331" Z="95.13007" />
 				</HuntingGrounds>

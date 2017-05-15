@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43784)">
-        <RunTo X="3439.132" Y="6107.395" Z="207.6516" />
+        <MoveTo NAV="Fly" X="3439.132" Y="6107.395" Z="207.6516" />
       </If>
       <While Condition="HasQuest(43784)">
         <If Condition="!Me.InVehicle" >

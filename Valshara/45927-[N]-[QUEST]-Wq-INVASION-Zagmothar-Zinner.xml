@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45927)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="2506.767" Y="5985.056" Z="185.7652" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="2506.767" Y="5985.056" Z="185.7652" />
 				<PickUp Nav="Fly" QuestName="Zagmothar" QuestId="45927" GiverName="" GiverId="" />
 
 				<Objective QuestName="Zagmothar" QuestId="45927" Type="KillMob" MobId="117964" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45927)" >	
-				<RunTo X="2506.767" Y="5985.056" Z="185.7652" /> 		
+				<MoveTo NAV="Fly" X="2506.767" Y="5985.056" Z="185.7652" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117964" TerminateWhen="!WorldQuestInfo.HasWorldQuest(45927)" >
 				<HuntingGrounds>
 				<Hotspot X="2510.257" Y="5971.057" Z="182.2899" />

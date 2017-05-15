@@ -33,7 +33,7 @@ return false;", 0);
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43332] Grell in a Handbasket - WiN!&quot;);" />
       <If Condition="!HasQuest(43332)">
-        <RunTo X="2145.833" Y="5963.139" Z="148.5135" />
+        <MoveTo NAV="Fly" X="2145.833" Y="5963.139" Z="148.5135" />
       </If>
       <!--<Vendor Name="Enderkind" Entry="109073" Type="Repair" Nav="Fly" X="2323.664" Y="5850.877" Z="162.1495" />-->
       <CustomBehavior File="KillUntilComplete" MobId="109073" TerminateWhen="IsObjectiveComplete(3, 43332) || !OnQuest" X="2323.664" Y="5850.877" Z="162.1495" />

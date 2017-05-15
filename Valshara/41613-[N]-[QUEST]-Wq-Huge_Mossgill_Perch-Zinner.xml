@@ -36,7 +36,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41613] Huge Mossgill Perch - WiN!&quot;);" />
-      <RunTo X="3561.036" Y="7260.248" Z="2.836402" />
+      <MoveTo NAV="Fly" X="3561.036" Y="7260.248" Z="2.836402" />
       <CustomBehavior File="MrFishIt" X="3584.846" Y="7246.71" Z="0001.02" CollectItemId="134568" CollectItemCount="10" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
       </CustomBehavior>
     </While>

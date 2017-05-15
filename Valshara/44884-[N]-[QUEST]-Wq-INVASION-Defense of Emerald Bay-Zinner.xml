@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44884)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="3451.535" Y="6911.199" Z="65.9901" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="3451.535" Y="6911.199" Z="65.9901" />
 				<PickUp Nav="Fly" QuestName="Defense of Emerald Bay" QuestId="44884" GiverName="" GiverId="" />
 
 				<Objective QuestName="Defense of Emerald Bay" QuestId="44884" Type="KillMob" MobId="115790" KillCount="13" />
@@ -180,7 +180,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44884)" >	
-				<RunTo X="3451.535" Y="6911.199" Z="65.9901" /> 		
+				<MoveTo NAV="Fly" X="3451.535" Y="6911.199" Z="65.9901" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="115790, 115854, 115008, 115891, 115841" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44884)" >
 				<HuntingGrounds>
 				<Hotspot X="3451.535" Y="6911.199" Z="65.9901" />

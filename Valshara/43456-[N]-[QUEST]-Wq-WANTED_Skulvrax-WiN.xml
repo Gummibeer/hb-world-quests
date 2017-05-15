@@ -156,7 +156,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43456)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43456] WANTED: Skul'vrax - WiN!&quot;);" />
-<RunTo X="1747.31" Y="6251.669" Z="4.653418" />
+<MoveTo NAV="Fly" X="1747.31" Y="6251.669" Z="4.653418" />
 
 <CustomBehavior File="KillUntilComplete"  QuestId="43456"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43456)">
 	<HuntingGrounds>

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44730)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="2158.538" Y="6621.044" Z="116.5461" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="2158.538" Y="6621.044" Z="116.5461" />
 				<PickUp Nav="Fly" QuestName="Ravaged Dreams" QuestId="44730" GiverName="" GiverId="" />
 
 				<Objective QuestName="Ravaged Dreams" QuestId="44730" Type="KillMob" MobId="114994" KillCount="5" />
@@ -184,7 +184,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44730)" >	
-				<RunTo X="2158.538" Y="6621.044" Z="116.5461" /> 		
+				<MoveTo NAV="Fly" X="2158.538" Y="6621.044" Z="116.5461" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="114994, 115008, 115119, 115015" TerminateWhen="!WorldQuestInfo.HasWorldQuest(44730)" >
 				<HuntingGrounds>
 				<Hotspot X="2158.538" Y="6621.044" Z="116.5461" />

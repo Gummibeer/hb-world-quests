@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42819)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2395.256" Y="8257.058" Z="41.03888" /> 
+				<MoveTo NAV="Fly" X="2395.256" Y="8257.058" Z="41.03888" /> 
 				<PickUp Nav="Fly" QuestName="Pocket Wizard" QuestId="42819" GiverName="" GiverId="" />
 
 				<Objective QuestName="Pocket Wizard" QuestId="42819" Type="KillMob" MobId="108879" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42819)" >	
-				<RunTo X="2395.256" Y="8257.058" Z="41.03888" />		
+				<MoveTo NAV="Fly" X="2395.256" Y="8257.058" Z="41.03888" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="108879" QuestId="42819">
 				<HuntingGrounds>
 					<Hotspot X="2395.256" Y="8257.058" Z="41.03888" />

@@ -156,7 +156,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43152)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43152] DANGER: Lytheron - WiN!&quot;);" />
-<RunTo X="2701.371" Y="7756.222" Z="2.846791" />
+<MoveTo NAV="Fly" X="2701.371" Y="7756.222" Z="2.846791" />
 
 <CustomBehavior File="KillUntilComplete"  QuestId="43152"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43152)">
 	<HuntingGrounds>

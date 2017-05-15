@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41670)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="2277.51" Y="6590.357" Z="138.872" /> 
+				<MoveTo NAV="Fly"  X="2277.51" Y="6590.357" Z="138.872" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Word of Agility" QuestId="41670" TurnInName="Sylvia Hartshorn" TurnInId="106901" />
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />

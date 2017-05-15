@@ -122,7 +122,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43247)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43247] Warden Tower Assault: Darkfollow's Spire - Staal!&quot;);" />
-	<RunTo X="2197.728" Y="7325.274" Z="53.15213" />
+	<MoveTo NAV="Fly" X="2197.728" Y="7325.274" Z="53.15213" />
 	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,43247)" >
 		<HuntingGrounds>
 <!-- front of tower -->

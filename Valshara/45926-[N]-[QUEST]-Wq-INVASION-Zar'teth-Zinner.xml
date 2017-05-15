@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45926)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="1975.439" Y="7164.208" Z="133.857" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="1975.439" Y="7164.208" Z="133.857" />
 				<PickUp Nav="Fly" QuestName="Zar'teth" QuestId="45926" GiverName="" GiverId="" />
 
 				<Objective QuestName="Zar'teth" QuestId="45926" Type="KillMob" MobId="118017" KillCount="1" />
@@ -175,7 +175,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45926)" >	
-				<RunTo X="1975.439" Y="7164.208" Z="133.857" /> 		
+				<MoveTo NAV="Fly" X="1975.439" Y="7164.208" Z="133.857" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="118017" TerminateWhen="!WorldQuestInfo.HasWorldQuest(45926)" >
 				<HuntingGrounds>
 				<Hotspot X="1981.511" Y="7174.142" Z="134.5609" />

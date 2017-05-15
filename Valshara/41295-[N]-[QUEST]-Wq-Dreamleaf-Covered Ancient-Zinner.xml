@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41295)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1926.769" Y="6191.588" Z="68.00134" /> 
+				<MoveTo NAV="Fly" X="1926.769" Y="6191.588" Z="68.00134" /> 
 				<PickUp Nav="Fly" QuestName="Dreamleaf-Covered Ancient" QuestId="41295" GiverName="" GiverId="" />
 
 				<Objective QuestName="Dreamleaf-Covered Ancient" QuestId="41295" Type="KillMob" MobId="104259" KillCount="8" />
@@ -172,7 +172,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41295)" >	
-				<RunTo X="1926.769" Y="6191.588" Z="68.00134" /> 		
+				<MoveTo NAV="Fly" X="1926.769" Y="6191.588" Z="68.00134" /> 		
 				<CustomBehavior File="InteractWith" MobId="104259" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41295)" >
 				<HuntingGrounds>
 					<Hotspot X="1935.564" Y="6185.596" Z="72.44216" />

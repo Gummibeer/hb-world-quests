@@ -126,9 +126,9 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41291)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41291] Dreamleaf Cluster - WiN!&quot;);" />
 
-	<RunTo X="2135.439" Y="6982.044" Z="108.9087" />
+	<MoveTo NAV="Fly" X="2135.439" Y="6982.044" Z="108.9087" />
 
-	<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41291)" >
+	<CustomBehavior File="InteractWith" NumOfTimes="1" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41291)" >
 		<HuntingGrounds>
 <Hotspot X="2135.439" Y="6982.044" Z="108.9087" />
 		</HuntingGrounds>

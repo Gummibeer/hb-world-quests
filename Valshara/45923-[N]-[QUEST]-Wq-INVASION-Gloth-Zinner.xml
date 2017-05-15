@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45923)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="1737.864" Y="6412.829" Z="57.61953" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="1737.864" Y="6412.829" Z="57.61953" />
 				<PickUp Nav="Fly" QuestName="Gloth" QuestId="45923" GiverName="" GiverId="" />
 
 				<Objective QuestName="Gloth" QuestId="45923" Type="KillMob" MobId="117049" KillCount="1" />
@@ -175,7 +175,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45923)" >	
-				<RunTo X="1737.864" Y="6412.829" Z="57.61953" /> 		
+				<MoveTo NAV="Fly" X="1737.864" Y="6412.829" Z="57.61953" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117049" TerminateWhen="!WorldQuestInfo.HasWorldQuest(45923)" >
 				<HuntingGrounds>
 				<Hotspot X="1733.583" Y="6443.402" Z="65.83041" />

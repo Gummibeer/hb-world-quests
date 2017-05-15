@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [44298] WANTED: Dreadbog - WiN!&quot;);" />
-      <RunTo X="3374.467" Y="6234.312" Z="192.8195" />
+      <MoveTo NAV="Fly" X="3374.467" Y="6234.312" Z="192.8195" />
       <CustomBehavior File="KillUntilComplete" MobId="97517" TerminateWhen="!OnQuest" X="3340.448" Y="6289.661" Z="195.8193" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >

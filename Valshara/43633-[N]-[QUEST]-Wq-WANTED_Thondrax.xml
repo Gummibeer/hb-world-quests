@@ -29,7 +29,7 @@ return false;", 0);]]>
     <!--<WoWUnit Name="Thondrax" Entry="93205" X="3186.972" Y="6157.028" Z="243.1887" />-->
     <!-- <WoWUnit Name="Thondrax" Entry="93205" X="3219.961" Y="6150.457" Z="238.3706" /> -->
     <While Condition="OnQuest" >
-      <RunTo X="3219.961" Y="6150.457" Z="238.3706"/>
+      <MoveTo NAV="Fly" X="3219.961" Y="6150.457" Z="238.3706"/>
       <CustomBehavior File="KillUntilComplete" TerminateWhen="!OnQuest" NonCompeteDistance="0" ImmediatelySwitchToHighestPriorityTarget="true">
         <HuntingGrounds>
           <Hotspot X="3219.961" Y="6150.457" Z="238.3706" />

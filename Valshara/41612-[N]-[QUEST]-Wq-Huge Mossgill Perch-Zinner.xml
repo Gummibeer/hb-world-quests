@@ -156,7 +156,7 @@
 		</CustomBehavior>
 <While Condition="WorldQuestInfo.HasWorldQuest(41612)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41612-[N]-[QUEST]-Wq-Huge Mossgill Perch-Zinner.xml!&quot;);" />
-			<RunTo X="2379.122" Y="7032.559" Z="68.45094" />		
+			<MoveTo NAV="Fly" X="2379.122" Y="7032.559" Z="68.45094" />		
 			<CustomBehavior File="MrFishIt" X="2393.056" Y="7033.293" Z="67.35271" CollectItemId="134568" CollectItemCount="10" QuestId="41612" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
 
 

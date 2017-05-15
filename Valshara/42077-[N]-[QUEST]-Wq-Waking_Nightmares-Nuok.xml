@@ -26,7 +26,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(42077)">
-        <RunTo X="1745.092" Y="6848.538" Z="0.493383" />
+        <MoveTo NAV="Fly" X="1745.092" Y="6848.538" Z="0.493383" />
       </If>
       <CustomBehavior File="KillUntilComplete" MobId="105973" TerminateWhen="IsObjectiveComplete(3, 42077) || !OnQuest" X="1735.603" Y="6990.615" Z="3.766546" />
       <CustomBehavior File="InteractWith" NumOfTimes="80" MobId="105960" TerminateWhen="IsObjectiveComplete(2, 42077) || !OnQuest" AuraIdOnMob="210034" >
@@ -44,7 +44,7 @@ return false;", 0);]]></CustomBehavior>
         </HuntingGrounds>
       </CustomBehavior>
     </While>
-    <RunTo X="1833.429" Y="6848.733" Z="17.19543" />
+    <MoveTo NAV="Fly" X="1833.429" Y="6848.733" Z="17.19543" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

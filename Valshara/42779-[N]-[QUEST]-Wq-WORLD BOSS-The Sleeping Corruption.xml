@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42779)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3325.473" Y="6473.46" Z="206.8116" /> 
+				<MoveTo NAV="Fly" X="3325.473" Y="6473.46" Z="206.8116" /> 
 				<PickUp Nav="Fly" QuestName="The Sleeping Corruption" QuestId="42779" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Sleeping Corruption" QuestId="42779" Type="KillMob" MobId="108678" KillCount="1" />
@@ -172,7 +172,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42779)" >	
-				<RunTo X="3325.473" Y="6473.46" Z="206.8116" />		
+				<MoveTo NAV="Fly" X="3325.473" Y="6473.46" Z="206.8116" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="108678" QuestId="42779">
 				<HuntingGrounds>
 					<Hotspot X="3325.473" Y="6473.46" Z="206.8116" />

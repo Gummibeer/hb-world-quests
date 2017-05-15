@@ -142,7 +142,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41980)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41980] Temple Defense - WiN!&quot;);" />
-<RunTo X="2896.689" Y="6441.658" Z="212.1233" />
+<MoveTo NAV="Fly" X="2896.689" Y="6441.658" Z="212.1233" />
 <CustomBehavior File="Hooks\Avoid" AvoidName="Gravax the Desecrator" IgnoreLootInAvoid="true" ObjectId="92802" Radius="30" AvoidWhen="UNIT.IsAlive" />
 	<CustomBehavior File="InteractWith" NumOfTimes="20" MobState="Dead"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(41980)">
 		<HuntingGrounds>

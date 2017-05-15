@@ -129,7 +129,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41333)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41333-[N]-[QUEST]-Wq-Rugged Wolf Hide-Zinner.xml!&quot;);" />
 
-	<RunTo X="3017.429" Y="6871.451" Z="89.90496" />
+	<MoveTo NAV="Fly" X="3017.429" Y="6871.451" Z="89.90496" />
 	<CustomBehavior File="KillUntilComplete" MobId="100409" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41333)" >
 		<HuntingGrounds>
 		<Hotspot X="3017.429" Y="6871.451" Z="89.90496" />

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43344)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3107.611" Y="6312.924" Z="223.1633" /> 
+				<MoveTo NAV="Fly" X="3107.611" Y="6312.924" Z="223.1633" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Aodh Witherpetal" QuestId="43344" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Aodh Witherpetal" QuestId="43344" Type="KillMob" MobId="110346" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43344)" >	
-				<RunTo X="3107.611" Y="6312.924" Z="223.1633" /> 		
+				<MoveTo NAV="Fly" X="3107.611" Y="6312.924" Z="223.1633" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="110346" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43344)" >
 				<HuntingGrounds>
 					<Hotspot X="3107.611" Y="6312.924" Z="223.1633" />

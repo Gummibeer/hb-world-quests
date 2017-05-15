@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43345)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="3062.521" Y="5756.814" Z="319.5079" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="3062.521" Y="5756.814" Z="319.5079" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Harbinger of Screams" QuestId="43345" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Harbinger of Screams" QuestId="43345" Type="KillMob" MobId="110361" KillCount="1" />
@@ -176,7 +176,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43345)" >	
-				<RunTo X="3062.521" Y="5756.814" Z="319.5079" /> 		
+				<MoveTo NAV="Fly" X="3062.521" Y="5756.814" Z="319.5079" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="110361" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43345)" >
 				<HuntingGrounds>
 					<Hotspot X="3052.307" Y="5729.578" Z="320.5485" />

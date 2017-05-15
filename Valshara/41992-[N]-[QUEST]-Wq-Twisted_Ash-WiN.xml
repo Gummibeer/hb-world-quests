@@ -129,7 +129,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41992)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41992] Twisted Ash - WiN!&quot;);" />
-	<RunTo  X="3472.239" Y="5973.261" Z="252.7655" />
+	<MoveTo NAV="Fly"  X="3472.239" Y="5973.261" Z="252.7655" />
 	
 
 	
