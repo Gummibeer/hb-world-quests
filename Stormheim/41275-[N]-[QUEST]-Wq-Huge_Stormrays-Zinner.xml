@@ -156,7 +156,7 @@
 		</CustomBehavior>
 <While Condition="WorldQuestInfo.HasWorldQuest(41275)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41275] Huge Stormrays - Zinner!&quot;);" />
-			<RunTo X="2800.239" Y="2326.954" Z="141.8846" />		
+			<MoveTo NAV="Fly" X="2800.239" Y="2326.954" Z="141.8846" />		
 			<CustomBehavior File="MrFishIt" X="2784.717" Y="2322.08" Z="142.458" CollectItemId="41275" CollectItemCount="10" QuestId="41275" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
 
 

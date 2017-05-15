@@ -150,13 +150,13 @@
 		<While Condition="WorldQuestInfo.HasWorldQuest(41950)" >
 			<!-- Get in range of quest to activate -->
 			<If Condition="Me.IsHorde">
-<RunTo 	X="2874.881" Y="2441.083" Z="241.8241"/>
+<MoveTo NAV="Fly" 	X="2874.881" Y="2441.083" Z="241.8241"/>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 <CustomBehavior File="InteractWith" MobId="108685" InteractByGossipOptions="4" X="2874.881" Y="2441.083" Z="241.8241" PreInteractMountStrategy="DismountOrCancelShapeshift"/>
 </If>
 <If Condition="Me.IsAlliance">
-	<RunTo X="2704.695" Y="2862.823" Z="309.4366" />
+	<MoveTo NAV="Fly" X="2704.695" Y="2862.823" Z="309.4366" />
 		<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 <CustomBehavior File="InteractWith" MobId="108685" InteractByGossipOptions="4" X="2692.471" Y="2859.063" Z="310.1436" PreInteractMountStrategy="DismountOrCancelShapeshift" />

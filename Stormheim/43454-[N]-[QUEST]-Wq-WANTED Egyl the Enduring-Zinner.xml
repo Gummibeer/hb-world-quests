@@ -125,7 +125,7 @@
 <Vendor Name="Fathnyr" Entry="91803" Type="Repair" Nav="Fly" X="1922.743" Y="2315.998" Z="507.618" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43454)" >
-	<RunTo X="3869.491" Y="2610.459" Z="204.4468" />
+	<MoveTo NAV="Fly" X="3869.491" Y="2610.459" Z="204.4468" />
 	<CustomBehavior File="KillUntilComplete" MobIds="98188" QuestId="43454">
 		<HuntingGrounds>
 			<Hotspot X="3953.431" Y="2626.694" Z="206.4422" />

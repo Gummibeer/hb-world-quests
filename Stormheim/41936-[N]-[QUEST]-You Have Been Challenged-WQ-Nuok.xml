@@ -31,7 +31,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41936)">
-        <RunTo X="2542.041" Y="1504.683" Z="23.14341" />
+        <MoveTo NAV="Fly" X="2542.041" Y="1504.683" Z="23.14341" />
       </If>
       <While Condition="HasQuest(41936)">
         <!--<Vendor Name="Froijla Axebearer" Entry="105424" Type="Repair" Nav="Fly" X="2543.643" Y="1490.826" Z="23.14324" />-->

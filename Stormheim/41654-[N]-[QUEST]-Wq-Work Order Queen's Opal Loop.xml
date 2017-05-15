@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41654)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="3189.058" Y="1536.941" Z="182.5404" /> 
+				<MoveTo NAV="Fly"  X="3189.058" Y="1536.941" Z="182.5404" /> 
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="755" TradeSkillItemId="136711" NumOfTimes="1"/>
 				<TurnIn Nav="Fly" QuestName="Work Order: Queen's Opal Loop" QuestId="41654" TurnInName="Valdemar Stormseeker" TurnInId="106904" />
 

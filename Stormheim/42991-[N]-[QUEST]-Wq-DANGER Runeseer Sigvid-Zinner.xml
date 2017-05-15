@@ -28,7 +28,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile DANGER Runeseer Sigvid - Zinner!&quot;);" />
     <While Condition="OnQuest">
-      <RunTo X="4827.256" Y="508.9844" Z="80.73168" />
+      <MoveTo NAV="Fly" X="4827.256" Y="508.9844" Z="80.73168" />
       <CustomBehavior File="KillUntilComplete" MobIds="109318" TerminateWhen="!OnQuest" X="4827.256" Y="508.9844" Z="80.73168" />
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >

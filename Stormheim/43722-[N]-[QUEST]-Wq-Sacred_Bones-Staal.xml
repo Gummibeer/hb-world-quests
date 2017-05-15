@@ -124,7 +124,7 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(43722)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43722] Sacred Bones - Staal!&quot;);" />
-	<RunTo X="4973.677" Y="328.9032" Z="49.43451" />
+	<MoveTo NAV="Fly" X="4973.677" Y="328.9032" Z="49.43451" />
 	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="!WorldQuestInfo.HasWorldQuest(43722)" >
 		<HuntingGrounds>
 <Hotspot X="4962.773" Y="258.7964" Z="66.36671" />

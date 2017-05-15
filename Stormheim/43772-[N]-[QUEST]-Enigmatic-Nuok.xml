@@ -52,7 +52,7 @@ return false;", 0);
         }]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43772)">
-        <RunTo X="3949.654" Y="1830.07" Z="180.2683" />
+        <MoveTo NAV="Fly" X="3949.654" Y="1830.07" Z="180.2683" />
       </If>
       <If Condition="HasQuest(43772)">
         <DisableBehavior Name="All"/>

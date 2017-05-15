@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43434)">
-        <RunTo X="2202.712" Y="2245.283" Z="365.0517" />
+        <MoveTo NAV="Fly" X="2202.712" Y="2245.283" Z="365.0517" />
         <!--<WoWUnit Name="Grapple Point" Entry="91983" X="2213.38" Y="2290.103" Z="373.8088" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(91983, u =&gt; (int)u.Y == 2290);
@@ -39,7 +39,7 @@ return false;", 0);]]></CustomBehavior>
 							await Coroutine.Sleep(10000);
 						}
 					"/>
-        <RunTo X="2201.88" Y="2342.249" Z="375.127" />
+        <MoveTo NAV="Fly" X="2201.88" Y="2342.249" Z="375.127" />
         <!--<WoWUnit Name="Grapple Point" Entry="92072" X="2223.434" Y="2371.033" Z="408.0256" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(92072, u =&gt; (int)u.Y == 2371);
@@ -85,7 +85,7 @@ return false;", 0);]]></CustomBehavior>
 							await Coroutine.Sleep(10000);
 						}
 					"/>
-        <RunTo X="2163.824" Y="2429.344" Z="482.0527" />
+        <MoveTo NAV="Fly" X="2163.824" Y="2429.344" Z="482.0527" />
         <!--<WoWUnit Name="Grapple Point" Entry="91983" X="2127.415" Y="2410.403" Z="478.9173" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(91983, u =&gt; (int)u.Y == 2410);
@@ -95,7 +95,7 @@ return false;", 0);]]></CustomBehavior>
 							await Coroutine.Sleep(10000);
 						}
 					"/>
-        <RunTo X="2009.618" Y="2364.497" Z="484.8418" />
+        <MoveTo NAV="Fly" X="2009.618" Y="2364.497" Z="484.8418" />
         <!--<WoWUnit Name="Grapple Point" Entry="91975" X="1983.813" Y="2368.278" Z="506.8058" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(91975, u =&gt; (int)u.Y == 2368);
@@ -111,7 +111,7 @@ return false;", 0);]]></CustomBehavior>
       </If>
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
-      <RunTo X="1978.623" Y="2359.092" Z="508.7713" />
+      <MoveTo NAV="Fly" X="1978.623" Y="2359.092" Z="508.7713" />
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>
     <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />

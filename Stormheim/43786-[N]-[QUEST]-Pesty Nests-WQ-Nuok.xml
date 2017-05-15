@@ -31,10 +31,10 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43786)">
-        <RunTo X="3423.544" Y="999.397" Z="97.07702" />
+        <MoveTo NAV="Fly" X="3423.544" Y="999.397" Z="97.07702" />
       </If>
       <If Condition="HasQuest(43786)">
-        <RunTo X="3423.544" Y="999.397" Z="97.07702" />
+        <MoveTo NAV="Fly" X="3423.544" Y="999.397" Z="97.07702" />
         <!--<WoWUnit Name="Grapple Point" Entry="92017" X="3437.602" Y="1010.144" Z="114.5884" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(92017);
@@ -65,7 +65,7 @@ return false;", 0);]]>
 						}
 					"/>
         <CustomBehavior File="MyCTM" X="3455.523" Y="993.7565" Z="95.84014" />
-        <RunTo X="3514.404" Y="959.0719" Z="96.11648" />
+        <MoveTo NAV="Fly" X="3514.404" Y="959.0719" Z="96.11648" />
         <!--<WoWUnit Name="Grapple Point" Entry="92072" X="3539.25" Y="965.5764" Z="132.6232" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(92072);
@@ -88,7 +88,7 @@ return false;", 0);]]>
 						}
 					"/>
         <CustomBehavior File="MyCTM" X="3501.873" Y="966.4557" Z="95.63416" />
-        <RunTo X="3447.88" Y="975.2042" Z="96.11515" />
+        <MoveTo NAV="Fly" X="3447.88" Y="975.2042" Z="96.11515" />
         <!--<WoWUnit Name="Grapple Point" Entry="91983" X="3432.396" Y="943.7691" Z="124.4451" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(91983);

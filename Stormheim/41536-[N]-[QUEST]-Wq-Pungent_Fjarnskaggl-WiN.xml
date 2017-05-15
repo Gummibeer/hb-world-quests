@@ -166,8 +166,8 @@
 
 		<While Condition="WorldQuestInfo.HasWorldQuest(41536)" >
 			<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41536] Pungent Fjarnskaggl - WiN!&quot;);" />
-				<RunTo X="3926.2" Y="2300.493" Z="372.0952" />
-<CustomBehavior File="InteractWith" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41536)" >
+				<MoveTo NAV="Fly" X="3926.2" Y="2300.493" Z="372.0952" />
+<CustomBehavior File="InteractWith" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41536)" >
 		<HuntingGrounds>
 <Hotspot X="3822.302" Y="2319.48" Z="394.9967" />
 <Hotspot X="3703.06" Y="2275.632" Z="336.1676" />

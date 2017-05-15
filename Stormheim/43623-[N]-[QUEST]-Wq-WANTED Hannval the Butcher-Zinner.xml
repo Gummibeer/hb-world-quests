@@ -158,11 +158,11 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43623)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2285.326" Y="2032.558" Z="167.0055" /> 
+				<MoveTo NAV="Fly" X="2285.326" Y="2032.558" Z="167.0055" /> 
 				<Objective QuestName="WANTED: Hannval the Butcher" QuestId="43623" Type="KillMob" Nav="Fly" MobId="107926" KillCount="1" />
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43623)" >	
-				<RunTo X="2285.326" Y="2032.558" Z="167.0055" />		
+				<MoveTo NAV="Fly" X="2285.326" Y="2032.558" Z="167.0055" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="107926" QuestId="43623">
 				<HuntingGrounds>
 					<Hotspot X="2285.326" Y="2032.558" Z="167.0055" />

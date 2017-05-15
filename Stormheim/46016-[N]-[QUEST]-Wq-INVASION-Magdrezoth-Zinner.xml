@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46016)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="3549.018" Y="2851.377" Z="462.912" /> 
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="3549.018" Y="2851.377" Z="462.912" /> 
 				<PickUp Nav="Fly" QuestName="Magdrezoth" QuestId="46016" GiverName="" GiverId="0" />
 
 				<Objective QuestName="Magdrezoth" QuestId="46016" Type="KillMob" MobId="117038" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46016)" >	
-				<RunTo X="3549.018" Y="2851.377" Z="462.912" /> 		
+				<MoveTo NAV="Fly" X="3549.018" Y="2851.377" Z="462.912" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117038" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46016)" >
 				<HuntingGrounds>
 					<Hotspot X="3527.189" Y="2830.847" Z="466.3351" />

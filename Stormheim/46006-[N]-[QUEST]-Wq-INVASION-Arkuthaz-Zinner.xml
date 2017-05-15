@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46006)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="3124.69" Y="2749.876" Z="392.1232" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="3124.69" Y="2749.876" Z="392.1232" />
 				<PickUp Nav="Fly" QuestName="Arkuthaz" QuestId="46006" GiverName="" GiverId="" />
 
 				<Objective QuestName="Arkuthaz" QuestId="46006" Type="KillMob" MobId="117065" KillCount="1" />
@@ -175,7 +175,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46006)" >	
-				<RunTo X="3124.69" Y="2749.876" Z="392.1232" /> 		
+				<MoveTo NAV="Fly" X="3124.69" Y="2749.876" Z="392.1232" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117065" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46006)" >
 				<HuntingGrounds>
 				<Hotspot X="3119.838" Y="2751.427" Z="393.7388" />

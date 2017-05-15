@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41636)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="3191.216" Y="1534.457" Z="181.8825" /> 
+				<MoveTo NAV="Fly"  X="3191.216" Y="1534.457" Z="181.8825" /> 
 				<CustomBehavior File="UseItem" ItemId="87216" />
 				<CustomBehavior File="PerformTradeskillOn" TradeSkillId="164" TradeSkillItemId="123891" NumOfTimes="1"/>
 				<TurnIn Nav="Fly" QuestName="Work Order: Leystone Breastplate" QuestId="41636" TurnInName="Valdemar Stormseeker" TurnInId="106904" />

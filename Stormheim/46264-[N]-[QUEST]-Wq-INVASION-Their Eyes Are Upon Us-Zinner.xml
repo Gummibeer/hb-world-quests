@@ -158,15 +158,15 @@
 		
 
 		<While Condition="WorldQuestInfo.HasWorldQuest(46264)" >	
-				<RunTo X="2908.395" Y="2439.724" Z="242.7785" />		
-			<CustomBehavior File="InterActWith" MobIds="119192" TerminateWhen="IsObjectiveComplete(1, 46264)">
+				<MoveTo NAV="Fly" X="2908.395" Y="2439.724" Z="242.7785" />		
+			<CustomBehavior File="InteractWith" MobIds="119192" TerminateWhen="IsObjectiveComplete(1, 46264)">
 				<HuntingGrounds>
 				<Hotspot X="2924.211" Y="2338.267" Z="230.2904" />
 				<Hotspot X="2980.449" Y="2377.358" Z="236.7395" />
 				<Hotspot X="2858.526" Y="2384.148" Z="235.358" />
 				</HuntingGrounds>
 			</CustomBehavior>
-			<CustomBehavior File="InterActWith" MobIds="119913" TerminateWhen="IsObjectiveComplete(2, 46264)">
+			<CustomBehavior File="InteractWith" MobIds="119913" TerminateWhen="IsObjectiveComplete(2, 46264)">
 				<HuntingGrounds>
 				<Hotspot X="2875.105" Y="2377.446" Z="236.4699" />
 				<Hotspot X="2921.363" Y="2400.62" Z="244.7803" />

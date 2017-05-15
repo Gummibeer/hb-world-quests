@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41521)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3318.32" Y="1344.066" Z="112.165" /> 
+				<MoveTo NAV="Fly" X="3318.32" Y="1344.066" Z="112.165" /> 
 				<PickUp Nav="Fly" QuestName="Felwort" QuestId="41521" GiverName="" GiverId="" />
 
 				<Objective QuestName="Felwort" QuestId="41521" Type="KillMob" MobId="103647" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41521)" >	
-				<RunTo X="3318.32" Y="1344.066" Z="112.165" /> 		
+				<MoveTo NAV="Fly" X="3318.32" Y="1344.066" Z="112.165" /> 		
 				<CustomBehavior File="InteractWith" MobId="103643" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41521)" >
 				<HuntingGrounds>
 					<Hotspot X="3333.168" Y="1367.964" Z="110.0018" />

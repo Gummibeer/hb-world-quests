@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42270)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3953.079" Y="2324.758" Z="368.6743" /> 
+				<MoveTo NAV="Fly" X="3953.079" Y="2324.758" Z="368.6743" /> 
 				<PickUp Nav="Fly" QuestName="Scourge of the Skies" QuestId="42270" GiverName="" GiverId="" />
 
 				<Objective QuestName="Scourge of the Skies" QuestId="42270" Type="KillMob" MobId="107023" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42270)" >	
-				<RunTo X="3953.079" Y="2324.758" Z="368.6743" />		
+				<MoveTo NAV="Fly" X="3953.079" Y="2324.758" Z="368.6743" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="107023" QuestId="42270">
 				<HuntingGrounds>
 					<Hotspot X="4022.861" Y="2338.283" Z="359.3341" />

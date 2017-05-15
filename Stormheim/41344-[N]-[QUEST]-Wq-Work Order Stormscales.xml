@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41313)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3193.186" Y="1537.306" Z="182.2012" /> 
+				<MoveTo NAV="Fly" X="3193.186" Y="1537.306" Z="182.2012" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Stormscales" QuestId="41344" TurnInName="Valdemar Stormseeker" TurnInId="106904" />
 
 

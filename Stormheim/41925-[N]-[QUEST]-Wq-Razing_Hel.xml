@@ -30,7 +30,7 @@ return false;", 0);]]>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41925] Razing Hel - KsMaze!&quot;);" />
       <If Condition="Me.ZoneId != 7588">
-        <RunTo X="3644.663" Y="769.9812" Z="-4.944822"  />
+        <MoveTo NAV="Fly" X="3644.663" Y="769.9812" Z="-4.944822"  />
         <CustomBehavior File="GoThruPortal" X="3657.719" Y="757.5208" Z="-14.93305" />
       </If>
       <!-- Credit for EchoTiger -->
@@ -59,7 +59,7 @@ return false;", 0);]]>
       </CustomBehavior>
     </While>
     <If Condition="Me.ZoneId == 7588">
-      <RunTo X="338.0819" Y="349.2834" Z="30.69886" />
+      <MoveTo NAV="Fly" X="338.0819" Y="349.2834" Z="30.69886" />
       <!-- <GameObject Name="Portal to Stormheim" Entry="241755" X="332.6701" Y="340.4306" Z="24.73227" /> -->
       <CustomBehavior File="GoThruPortal" X="332.6701" Y="340.4306" Z="24.73227" />
     </If>

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42953)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="4906.128" Y="312.0857" Z="-37.19169" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="4906.128" Y="312.0857" Z="-37.19169" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Soulbinder Halldora" QuestId="42953" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Soulbinder Halldora" QuestId="42953" Type="KillMob" MobId="109195" KillCount="1" />
@@ -175,7 +175,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42953)" >	
-				<RunTo X="4906.128" Y="312.0857" Z="-37.19169" /> 		
+				<MoveTo NAV="Fly" X="4906.128" Y="312.0857" Z="-37.19169" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="109195" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42953)" >
 				<HuntingGrounds>
 					<Hotspot X="4961.378" Y="287.0934" Z="-37.79735" />
@@ -184,7 +184,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="4808.635" Y="163.96" Z="-11.20261" />
+<MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46015)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="3333.643" Y="1763.251" Z="-0.2862869" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="3333.643" Y="1763.251" Z="-0.2862869" /> 
 				<PickUp Nav="Fly" QuestName="Idra'zuul" QuestId="46015" GiverName="" GiverId="" />
 
 				<Objective QuestName="Idra'zuul" QuestId="46015" Type="KillMob" MobId="117060" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46015)" >	
-				<RunTo X="3333.643" Y="1763.251" Z="-0.2862869" /> 		
+				<MoveTo NAV="Fly" X="3333.643" Y="1763.251" Z="-0.2862869" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117060" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46015)" >
 				<HuntingGrounds>
 					<Hotspot X="3325.03" Y="1786.957" Z="-0.1008288" />
@@ -183,7 +183,7 @@
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="3333.643" Y="1763.251" Z="-0.2862869" />
+<MoveTo NAV="Fly" X="3333.643" Y="1763.251" Z="-0.2862869" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

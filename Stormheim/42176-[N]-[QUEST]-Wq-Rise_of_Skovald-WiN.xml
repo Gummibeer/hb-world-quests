@@ -32,7 +32,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [42176] Rise of Skovald - WiN!&quot;);" />
-      <RunTo X="2540.871" Y="2931.169" Z="325.2596" />
+      <MoveTo NAV="Fly" X="2540.871" Y="2931.169" Z="325.2596" />
 
       <CustomBehavior File="KillUntilComplete" TerminateWhen="!OnQuest">
         <HuntingGrounds>

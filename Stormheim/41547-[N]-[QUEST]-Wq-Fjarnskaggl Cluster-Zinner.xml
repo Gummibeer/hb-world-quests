@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41547)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3003.06" Y="216.0556" Z="3.661719" />
+				<MoveTo NAV="Fly" X="3003.06" Y="216.0556" Z="3.661719" />
 				<PickUp Nav="Fly" QuestName="Fjarnskaggl Cluster" QuestId="41547" GiverName="" GiverId="" />
 
 <Objective QuestName="Fjarnskaggl Cluster" QuestId="41547" Type="KillMob" MobId="103847" KillCount="1" />
@@ -183,10 +183,10 @@
 
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41547)" >	
-				<RunTo X="3003.06" Y="216.0556" Z="3.661719" />		
-			<CustomBehavior File="InteractWith" MobIds="104379" QuestId="41547">
+				<MoveTo NAV="Fly" X="3003.06" Y="216.0556" Z="3.661719" />		
+			<CustomBehavior File="InteractWith" MobIds="104379" PreInteractMountStrategy="Dismount" QuestId="41547">
 				<HuntingGrounds>
-			<RunTo X="3003.06" Y="216.0556" Z="3.661719" />
+			<MoveTo NAV="Fly" X="3003.06" Y="216.0556" Z="3.661719" />
 				</HuntingGrounds>
 			</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />

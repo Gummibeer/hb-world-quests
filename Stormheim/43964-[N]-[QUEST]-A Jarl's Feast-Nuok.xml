@@ -29,7 +29,7 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43964)">
-        <RunTo X="3044.547" Y="2779.753" Z="380.0489" />
+        <MoveTo NAV="Fly" X="3044.547" Y="2779.753" Z="380.0489" />
       </If>
       <!--<WoWUnit Name="Fallen Jarl" Entry="112225" X="3053.249" Y="2766.467" Z="382.1107" />-->
       <CustomBehavior File="InteractWith" NumOfTimes="100" MobIds="112225" NonCompeteDistance="0" TerminateWhen="IsObjectiveComplete(2, 43964) || !OnQuest" X="3044.547" Y="2779.753" Z="380.0489" />

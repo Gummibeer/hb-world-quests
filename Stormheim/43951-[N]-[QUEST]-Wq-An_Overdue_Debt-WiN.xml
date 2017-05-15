@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43951] An Overdue Debt - WiN!&quot;);" />
-      <RunTo X="2635.865" Y="2694.04" Z="255.758" />
+      <MoveTo NAV="Fly" X="2635.865" Y="2694.04" Z="255.758" />
       <CustomBehavior File="WaitTimer" WaitTime="5000" />
       <CustomBehavior File="InteractWith" MobId="92072" X="2636.41" Y="2629.834" Z="255.0765"/>
       <CustomBehavior File="WaitTimer" WaitTime="5000" />
@@ -46,7 +46,7 @@ return false;", 0);]]>
         </HuntingGrounds>
       </CustomBehavior>
     </While>
-    <RunTo X="1057.107" Y="6895.346" Z="176.9762" />
+    <MoveTo NAV="Fly" X="1057.107" Y="6895.346" Z="176.9762" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

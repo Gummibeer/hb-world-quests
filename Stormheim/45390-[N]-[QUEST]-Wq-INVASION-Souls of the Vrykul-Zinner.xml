@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45390)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="3998.769" Y="1642.871" Z="194.1211" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="3998.769" Y="1642.871" Z="194.1211" /> 
 				<PickUp Nav="Fly" QuestName="Souls of the Vrykul" QuestId="45390" GiverName="" GiverId="" />
 
 					<Objective QuestName="Souls of the Vrykul" QuestId="45390" Type="KillMob" MobId="116825" KillCount="20" />
@@ -210,7 +210,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45390)" >	
-				<RunTo X="3998.769" Y="1642.871" Z="194.1211" /> 		
+				<MoveTo NAV="Fly" X="3998.769" Y="1642.871" Z="194.1211" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="116825, 117080, 116823, 116813, 116812, 116811, 116810, 116809, 116842, 116848, 115379, 117673, 116681, 116813, 116812, 116811, 116810, 116809 116800" TerminateWhen="IsObjectiveComplete(1, 45390)" >
 				<HuntingGrounds>
 				<Hotspot X="4023.073" Y="1598.216" Z="190.2874" />

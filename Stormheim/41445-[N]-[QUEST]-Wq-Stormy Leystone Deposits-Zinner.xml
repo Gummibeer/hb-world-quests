@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41445)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2706.916" Y="1331.77" Z="47.86475" /> 
+				<MoveTo NAV="Fly" X="2706.916" Y="1331.77" Z="47.86475" /> 
 				<PickUp Nav="Fly" QuestName="Stormy Leystone Deposits" QuestId="41445" GiverName="" GiverId="" />
 
 				<Objective QuestName="Stormy Leystone Deposits" QuestId="41445" Type="CollectItem" ItemId="141240" CollectCount="10" />
@@ -172,8 +172,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41445)" >	
-				<RunTo X="2706.916" Y="1331.77" Z="47.86475" /> 		
-				<CustomBehavior File="InteractWith" MobId="247918" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41445)" >
+				<MoveTo NAV="Fly" X="2706.916" Y="1331.77" Z="47.86475" /> 		
+				<CustomBehavior File="InteractWith" MobId="247918" PreInteractMountStrategy="Dismount" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41445)" >
 				<HuntingGrounds>
 					<Hotspot X="2656.123" Y="1367.076" Z="36.155" />
 					<Hotspot X="2593.413" Y="1399.176" Z="18.85861" />

@@ -31,7 +31,7 @@ return false;", 0);]]>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43601] Warden Tower Assault: Whisperwind's Citadel - WiN!&quot;);" />
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43601)">
-        <RunTo X="4275.445" Y="2198.69" Z="156.9601" />
+        <MoveTo NAV="Fly" X="4275.445" Y="2198.69" Z="156.9601" />
       </If>
       <If Condition="HasQuest(43601)">
         <CustomBehavior File="KillUntilComplete" MobIds="104289, 104290, 103757" TerminateWhen="IsObjectiveComplete(2, 43601) || !OnQuest" X="4390.598" Y="2189.672" Z="240.5119" />

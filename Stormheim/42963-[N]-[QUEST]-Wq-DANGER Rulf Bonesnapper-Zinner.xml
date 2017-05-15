@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42963)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4744.741" Y="343.6046" Z="-37.19197" /> 
+				<MoveTo NAV="Fly" X="4744.741" Y="343.6046" Z="-37.19197" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Rulf Bonesnapper" QuestId="42963" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Rulf Bonesnapper" QuestId="42963" Type="KillMob" MobId="109317" KillCount="1" />
@@ -174,7 +174,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42963)" >	
-				<RunTo X="4744.741" Y="343.6046" Z="-37.19197" />		
+				<MoveTo NAV="Fly" X="4744.741" Y="343.6046" Z="-37.19197" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="109317" QuestId="42963">
 				<HuntingGrounds>
 					<Hotspot X="4744.741" Y="343.6046" Z="-37.19197" />
@@ -183,7 +183,7 @@
 			<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-	<Runto X="4798.747" Y="156.3224" Z="-8.962628" />
+	<MoveTo NAV="Fly" X="4798.747" Y="156.3224" Z="-8.962628" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

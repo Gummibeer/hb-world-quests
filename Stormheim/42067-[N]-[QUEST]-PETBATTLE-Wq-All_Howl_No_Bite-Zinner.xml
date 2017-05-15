@@ -172,7 +172,7 @@
 		<While Condition="WorldQuestInfo.HasWorldQuest(42067)">
                 <CustomBehavior File="DisablePlugin" Names="DaezaBattlePets" />
             <CustomBehavior File="RunCode" Code="WQAllHowlNoBite()"/>
-                <MoveTo Nav="Fly" X="4115.668" Y="2808.578" Z="64.79343" />
+                <MoveTo NAV="Fly" X="4115.668" Y="2808.578" Z="64.79343" />
                 <CustomBehavior File="ForcedDismount" />
                 <If Condition="SpellManager.CanCast(125439)" >
                     <CustomBehavior File="RunMacro" Macro="/cast Revive Battle Pets"/>

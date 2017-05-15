@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41300)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3467.1" Y="978.5214" Z="96.03068" /> 
+				<MoveTo NAV="Fly" X="3467.1" Y="978.5214" Z="96.03068" /> 
 				<PickUp Nav="Fly" QuestName="Singed Fjarnskaggl" QuestId="41300" GiverName="" GiverId="" />
 
 				<Objective QuestName="Singed Fjarnskaggl" QuestId="41300" Type="CollectItem" ItemId="135500" CollectCount="10" />
@@ -171,8 +171,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41300)" >	
-				<RunTo X="3467.1" Y="978.5214" Z="96.03068" /> 		
-				<CustomBehavior File="InteractWith" MobId="247897" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41300)" >
+				<MoveTo NAV="Fly" X="3467.1" Y="978.5214" Z="96.03068" /> 		
+				<CustomBehavior File="InteractWith" MobId="247897" PreInteractMountStrategy="Dismount" NumOfTimes="10" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41300)" >
 				<HuntingGrounds>
 					<Hotspot X="3481.072" Y="964.8874" Z="96.13824" />
 					<Hotspot X="3504.782" Y="932.5513" Z="96.04213" />

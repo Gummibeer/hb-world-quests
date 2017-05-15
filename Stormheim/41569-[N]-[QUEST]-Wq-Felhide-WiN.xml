@@ -127,7 +127,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41569)" >
 		<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41569] Felhide - WiN!&quot;);" />
 
-	<RunTo X="2275.117" Y="1430.616" Z="1.48162" />
+	<MoveTo NAV="Fly" X="2275.117" Y="1430.616" Z="1.48162" />
 	<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41569)" >
 		<HuntingGrounds>
 <Hotspot X="2292.17" Y="1345.545" Z="-1.50319" />
@@ -163,7 +163,7 @@
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
-<RunTo X="2270.137" Y="1427.19" Z="0.7076306" />
+<MoveTo NAV="Fly" X="2270.137" Y="1427.19" Z="0.7076306" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

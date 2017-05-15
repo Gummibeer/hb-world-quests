@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43745)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4780.675" Y="-130.5615" Z="89.72134" /> 
+				<MoveTo NAV="Fly" X="4780.675" Y="-130.5615" Z="89.72134" /> 
 				<PickUp Nav="Fly" QuestName="Culling the Storm" QuestId="43745" GiverName="" GiverId="" />
 
 				<Objective QuestName="Culling the Storm" QuestId="43745" Type="KillMob" MobId="111397" KillCount="2" />
@@ -178,7 +178,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43745)" >	
-				<RunTo X="4823.758" Y="-89.78598" Z="62.82338" />	
+				<MoveTo NAV="Fly" X="4823.758" Y="-89.78598" Z="62.82338" />	
 			<CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(92017);
 						if (grapplePoi != null)

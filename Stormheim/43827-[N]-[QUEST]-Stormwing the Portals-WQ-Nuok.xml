@@ -31,7 +31,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(43827)">
-        <RunTo X="2646.908" Y="1104.362" Z="206.9052" />
+        <MoveTo NAV="Fly" X="2646.908" Y="1104.362" Z="206.9052" />
       </If>
       <If Condition="HasQuest(43827)">
         <!--[1] 1/1 North Portal Destroyed
@@ -40,20 +40,20 @@ return false;", 0);]]>
             -->
         <!--<GameObject Name="Felbound Portal" Entry="244681" X="2469.833" Y="1058.2" Z="216.179" />-->
         <If Condition="!IsObjectiveComplete(1, 43827)">
-          <RunTo X="2710.033" Y="969.6146" Z="205.7971" />
+          <MoveTo NAV="Fly" X="2710.033" Y="969.6146" Z="205.7971" />
           <CustomBehavior File="InteractWith" MobId="244681" NonCompeteDistance="0" InteractByUsingItemId="129161" TerminateWhen="IsObjectiveComplete(1, 43827) || !HasQuest(43827)" X="2710.033" Y="969.6146" Z="205.7971" />
         </If>
         <If Condition="!IsObjectiveComplete(2, 43827)">
-          <RunTo X="2603.778" Y="984.5497" Z="216.6866" />
+          <MoveTo NAV="Fly" X="2603.778" Y="984.5497" Z="216.6866" />
           <CustomBehavior File="InteractWith" MobId="244681" NonCompeteDistance="0"  InteractByUsingItemId="129161" TerminateWhen="IsObjectiveComplete(2, 43827) || !HasQuest(43827)" X="2603.778" Y="984.5497" Z="216.6866" />
         </If>
         <If Condition="!IsObjectiveComplete(3, 43827)">
-          <RunTo X="2471.868" Y="1059.496" Z="216.9057" />
+          <MoveTo NAV="Fly" X="2471.868" Y="1059.496" Z="216.9057" />
           <CustomBehavior File="InteractWith" MobId="244681" NonCompeteDistance="0"  InteractByUsingItemId="129161" TerminateWhen="IsObjectiveComplete(3, 43827) || !HasQuest(43827)" X="2471.868" Y="1059.496" Z="216.9057" />
         </If>
       </If>
     </While>
-    <RunTo X="2646.908" Y="1104.362" Z="206.9052" />
+    <MoveTo NAV="Fly" X="2646.908" Y="1104.362" Z="206.9052" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
       <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

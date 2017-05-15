@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41556)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3411.14" Y="3052.11" Z="526.1994" />
+				<MoveTo NAV="Fly" X="3411.14" Y="3052.11" Z="526.1994" />
 <PickUp Nav="Fly" QuestName="Slab of Bacon" QuestId="41556" GiverName="" GiverId="" />
 <Objective QuestName="Slab of Bacon" QuestId="41556" Type="CollectItem" Nav="Fly" ItemId="135511" CollectCount="1" />
 <TurnIn Nav="Fly" QuestName="Slab of Bacon" QuestId="41556" TurnInName="" TurnInId="" />
@@ -174,10 +174,10 @@
 
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41556)" >	
-				<RunTo X="3411.14" Y="3052.11" Z="526.1994" />		
+				<MoveTo NAV="Fly" X="3411.14" Y="3052.11" Z="526.1994" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="103786" QuestId="41556">
 				<HuntingGrounds>
-<RunTo X="3411.14" Y="3052.11" Z="526.1994" />
+<MoveTo NAV="Fly" X="3411.14" Y="3052.11" Z="526.1994" />
 				</HuntingGrounds>
 			</CustomBehavior>
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />

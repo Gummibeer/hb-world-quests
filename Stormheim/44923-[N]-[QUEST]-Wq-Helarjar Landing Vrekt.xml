@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44923)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="1734.414" Y="663.8686" Z="12.48824" /> 
+				<MoveTo NAV="Fly" X="1734.414" Y="663.8686" Z="12.48824" /> 
 				<PickUp Nav="Fly" QuestName="Helarjar Landing: Vrekt" QuestId="44923" GiverName="" GiverId="" />
 
 				<Objective QuestName="Helarjar Landing: Vrekt" QuestId="44923" Type="KillMob" MobId="115845" KillCount="14" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44923)" >	
-				<RunTo X="1734.414" Y="663.8686" Z="12.48824" />		
+				<MoveTo NAV="Fly" X="1734.414" Y="663.8686" Z="12.48824" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="115845, 107919, 116601, 116600" TerminateWhen="IsObjectiveComplete(1, 44923) ">
 				<HuntingGrounds>
 					<Hotspot X="1651.352" Y="677.7869" Z="2.837063" />

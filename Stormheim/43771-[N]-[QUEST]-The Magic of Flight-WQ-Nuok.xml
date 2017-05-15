@@ -65,7 +65,7 @@ return false;", 0);
 ]]>
     </CustomBehavior>
     <While Condition="OnQuest">
-      <RunTo X="3877.614" Y="2360.776" Z="420.8137" />
+      <MoveTo NAV="Fly" X="3877.614" Y="2360.776" Z="420.8137" />
       <CustomBehavior File="ForcedDismount"/>
       <!-- <WoWUnit Name="Grapple Point" Entry="92072" X="3858.324" Y="2335.8" Z="464.5368" /> -->
       <CustomBehavior File="RunCode" Code="

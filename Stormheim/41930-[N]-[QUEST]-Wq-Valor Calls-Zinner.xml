@@ -30,7 +30,7 @@ return false;", 0);]]>
     <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41930-[N]-[QUEST]-Wq-Valor Calls-Zinner!&quot;);" />
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41930)">
-        <RunTo X="2708.979" Y="1169.242" Z="198.13" />
+        <MoveTo NAV="Fly" X="2708.979" Y="1169.242" Z="198.13" />
       </If>
       <CustomBehavior File="KillUntilComplete" MobIds="97825, 97821, 97816, 97851, 97945, 97946, 97947, 97948, 97949" TerminateWhen="!OnQuest">
         <HuntingGrounds>

@@ -125,7 +125,7 @@
 
 <While Condition="WorldQuestInfo.HasWorldQuest(43598)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43598] Warden Tower Assault: Blackhawk's Bulwark - Staal!&quot;);" />
-	<RunTo X="1728.607" Y="1398.115" Z="53.50922" />
+	<MoveTo NAV="Fly" X="1728.607" Y="1398.115" Z="53.50922" />
 	<CustomBehavior File="InteractWith" NumOfTimes="50" TerminateWhen="IsObjectiveComplete(1,43598)" >
 		<HuntingGrounds>
 <!-- front of tower -->

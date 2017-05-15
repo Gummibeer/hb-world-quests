@@ -143,7 +143,7 @@
 			</CustomBehavior>
 	<While Condition="WorldQuestInfo.HasWorldQuest(42013)" >
 	<!-- Get in range of quest to activate -->
-	<RunTo X="3765.031" Y="1819.841" Z="2.118922" />
+	<MoveTo NAV="Fly" X="3765.031" Y="1819.841" Z="2.118922" />
 	<PickUp Nav="Fly" QuestName="The Helmouth" QuestId="42013" GiverName="" GiverId="" />
 
 		<Objective QuestName="The Helmouth" QuestId="42013" Type="KillMob" Nav="Fly" MobId="105746" KillCount="13" />
@@ -164,7 +164,7 @@
 		
 
 <While Condition="WorldQuestInfo.HasWorldQuest(42013)" >
-		<RunTo X="3765.031" Y="1819.841" Z="2.118922" />
+		<MoveTo NAV="Fly" X="3765.031" Y="1819.841" Z="2.118922" />
 		<CustomBehavior File="KillUntilComplete" MobIds="105746, 105748, 105532, 105751, 105749" QuestId="42013">
 	<HuntingGrounds>
 		<Hotspot X="3765.031" Y="1819.841" Z="2.118922" />

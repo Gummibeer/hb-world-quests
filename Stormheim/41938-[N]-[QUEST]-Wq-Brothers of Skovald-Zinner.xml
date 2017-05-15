@@ -29,7 +29,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest" >
       <If Condition="!HasQuest(41938)">
-        <RunTo X="3387.973" Y="1248.403" Z="121.2863" />
+        <MoveTo NAV="Fly" X="3387.973" Y="1248.403" Z="121.2863" />
       </If>
       <!--<Vendor Name="Uldgar" Entry="105443" Type="Repair" Nav="Fly" X="3381.458" Y="1297.198" Z="128.2336" />-->
       <CustomBehavior File="KillUntilComplete" MobIds="105443" TerminateWhen="!OnQuest || IsObjectiveComplete(1, 41938)" X="3381.458" Y="1297.198" Z="128.2336" />

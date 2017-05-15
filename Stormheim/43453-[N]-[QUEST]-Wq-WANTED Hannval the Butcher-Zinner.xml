@@ -157,7 +157,7 @@
 	
 
 		<While Condition="WorldQuestInfo.HasWorldQuest(43453)" >	
-				<RunTo X="2285.326" Y="2032.558" Z="167.0055" />		
+				<MoveTo NAV="Fly" X="2285.326" Y="2032.558" Z="167.0055" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="107926" QuestId="43453">
 				<HuntingGrounds>
 					<Hotspot X="2285.326" Y="2032.558" Z="167.0055" />

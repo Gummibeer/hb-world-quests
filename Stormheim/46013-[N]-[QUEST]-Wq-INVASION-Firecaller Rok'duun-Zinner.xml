@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46013)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="3061.781" Y="2072.537" Z="189.851" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="3061.781" Y="2072.537" Z="189.851" />
 				<PickUp Nav="Fly" QuestName="Firecaller Rok'duun" QuestId="46013" GiverName="" GiverId="" />
 
 				<Objective QuestName="Firecaller Rok'duun" QuestId="46013" Type="KillMob" MobId="117973" KillCount="1" />
@@ -176,7 +176,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46013)" >	
-				<RunTo X="3061.781" Y="2072.537" Z="189.851" /> 		
+				<MoveTo NAV="Fly" X="3061.781" Y="2072.537" Z="189.851" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117973" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46013)" >
 				<HuntingGrounds>
 				<Hotspot X="2992.839" Y="2064.852" Z="199.8337" />

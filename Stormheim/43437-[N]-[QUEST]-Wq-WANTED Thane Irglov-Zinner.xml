@@ -126,7 +126,7 @@
 <WoWUnit Name="Thane Irglov the Merciless" Entry="91892" X="2376.155" Y="2674.678" Z="301.1359" />
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43437)" >
-	<RunTo X="2388.517" Y="2659.797" Z="298.5403" />
+	<MoveTo NAV="Fly" X="2388.517" Y="2659.797" Z="298.5403" />
 	<CustomBehavior File="KillUntilComplete"  QuestId="43437"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43437)">
 	<HuntingGrounds>
 		<Hotspot X="2376.155" Y="2674.678" Z="301.1359" />
@@ -140,7 +140,7 @@
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
-<RunTo X="2434.674" Y="2583.591" Z="295.4605" />
+<MoveTo NAV="Fly" X="2434.674" Y="2583.591" Z="295.4605" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

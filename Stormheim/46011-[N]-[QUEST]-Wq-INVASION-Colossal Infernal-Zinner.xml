@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46011)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="2634.457" Y="2831.651" Z="292.1874" /> 
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="2634.457" Y="2831.651" Z="292.1874" /> 
 				<PickUp Nav="Fly" QuestName="Colossal Infernal" QuestId="46011" GiverName="" GiverId="" />
 
 				<Objective QuestName="Colossal Infernal" QuestId="46011" Type="KillMob" MobId="117055" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46011)" >	
-				<RunTo X="2634.457" Y="2831.651" Z="292.1874" /> 		
+				<MoveTo NAV="Fly" X="2634.457" Y="2831.651" Z="292.1874" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117055" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46011)" >
 				<HuntingGrounds>
 					<Hotspot X="2594.87" Y="2826.606" Z="300.328" />

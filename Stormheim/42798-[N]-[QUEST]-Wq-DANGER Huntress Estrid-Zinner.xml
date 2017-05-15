@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42798)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2634.695" Y="2744.197" Z="274.4765" /> 
+				<MoveTo NAV="Fly" X="2634.695" Y="2744.197" Z="274.4765" /> 
 				<PickUp Nav="Fly" QuestName="DANGER: Huntress Estrid" QuestId="42798" GiverName="" GiverId="0" />
 
 				<Objective QuestName="DANGER: Huntress Estrid" QuestId="42798" Type="KillMob" Nav="Fly" MobId="108822" KillCount="1" />
@@ -170,7 +170,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42798)" >	
-				<RunTo X="2634.695" Y="2744.197" Z="274.4765" />		
+				<MoveTo NAV="Fly" X="2634.695" Y="2744.197" Z="274.4765" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="108822" QuestId="42798">
 				<HuntingGrounds>
 					<Hotspot X="2634.695" Y="2744.197" Z="274.4765" />

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41299)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2535.442" Y="2473.742" Z="246.7441" /> 
+				<MoveTo NAV="Fly" X="2535.442" Y="2473.742" Z="246.7441" /> 
 				<PickUp Nav="Fly" QuestName="Flourishing Fjarnskaggl" QuestId="41299" GiverName="" GiverId="" />
 
 				<Objective QuestName="Flourishing Fjarnskaggl" QuestId="41299" Type="CollectItem" ItemId="140958" CollectCount="10" />
@@ -172,8 +172,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41299)" >	
-				<RunTo X="2535.442" Y="2473.742" Z="246.7441" /> 		
-				<CustomBehavior File="InteractWith" MobId="247607" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41299)" >
+				<MoveTo NAV="Fly" X="2535.442" Y="2473.742" Z="246.7441" /> 		
+				<CustomBehavior File="InteractWith" MobId="247607" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41299)" >
 				<HuntingGrounds>
 					<Hotspot X="2535.442" Y="2473.742" Z="246.7441" />
 					<Hotspot X="2531.219" Y="2557.822" Z="243.5179" />

@@ -131,7 +131,7 @@ avoid
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(41427)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41427] Get Vrekt - WiN!&quot;);" />
-	<RunTo X="1747.316" Y="630.53" Z="7.076106" />
+	<MoveTo NAV="Fly" X="1747.316" Y="630.53" Z="7.076106" />
 	<CustomBehavior File="Hooks\Avoid" AvoidName="Rimescale Hulk" IgnoreLootInAvoid="true" ObjectId="102060" Radius="30" AvoidWhen="UNIT.IsAlive" />
 	<CustomBehavior File="InteractWith" NumOfTimes="30" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41427)" >
 		<HuntingGrounds>

@@ -157,13 +157,13 @@
 
 		<While Condition="WorldQuestInfo.HasWorldQuest(43622)" >	
 			<If Condition="Me.Location.Distance(new WoWPoint(2582.067, 2584.721, 226.236)) &gt; 200">
-				<RunTo X="2687.168" Y="2394.633" Z="215.9939" />
+				<MoveTo NAV="Fly" X="2687.168" Y="2394.633" Z="215.9939" />
 				<CustomBehavior File="InteractWith" MobId="92017" X="2663.793" Y="2409.675" Z="237.2711" IgnoreLoSToTarget="true" Range="49" WaitTime="6000" />
 				<CustomBehavior File="MyCTM" X="2631.26" Y="2418.465" Z="225.9594"/>
 				<CustomBehavior File="WaitTimer" WaitTime="3500" />
 			</If>
 			
-			<RunTo X="2582.067" Y="2584.721" Z="228.89" />
+			<MoveTo NAV="Fly" X="2582.067" Y="2584.721" Z="228.89" />
 
 				<CustomBehavior File="KillUntilComplete" MobIds="91529" QuestId="43622" NonCompeteDistance="0">
 					<HuntingGrounds>

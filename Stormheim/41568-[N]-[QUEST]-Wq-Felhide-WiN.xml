@@ -125,7 +125,7 @@
 -->
 
 <While Condition="WorldQuestInfo.HasWorldQuest(41568)" >
-	<RunTo X="4375.103" Y="1616.695" Z="3.21746" />
+	<MoveTo NAV="Fly" X="4375.103" Y="1616.695" Z="3.21746" />
 	
 		<CustomBehavior File="InteractWith" InteractByLooting="true" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41568)" >
 		<HuntingGrounds>

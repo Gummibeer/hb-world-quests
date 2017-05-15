@@ -130,8 +130,8 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41296)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41296-[N]-[QUEST]-Wq-Fjarnskaggl Cluster-Zinner.xml!&quot;);" />
 
-	<RunTo X="3981.63" Y="1827.271" Z="174.2381" />
-	<CustomBehavior File="InteractWith" MobId="103846" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41296)" >
+	<MoveTo NAV="Fly" X="3981.63" Y="1827.271" Z="174.2381" />
+	<CustomBehavior File="InteractWith" MobId="103846" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41296)" >
 		<HuntingGrounds>
 		<Hotspot X="3972.537" Y="1823.806" Z="175.7486" />
 		</HuntingGrounds>

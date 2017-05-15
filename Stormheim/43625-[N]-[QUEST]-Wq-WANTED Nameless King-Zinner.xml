@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(43625)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="3627.34" Y="1137.453" Z="135.4696" /> 
+				<MoveTo NAV="Fly" X="3627.34" Y="1137.453" Z="135.4696" /> 
 				<PickUp Nav="Fly" QuestName="WANTED: Nameless King" QuestId="43625" GiverName="" GiverId="" />
 
 				<Objective QuestName="WANTED: Nameless King" QuestId="43625" Type="KillMob" Nav="Fly" MobId="92763" KillCount="1" />
@@ -169,7 +169,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(43625)" >	
-				<RunTo X="3627.34" Y="1137.453" Z="135.4696" />		
+				<MoveTo NAV="Fly" X="3627.34" Y="1137.453" Z="135.4696" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="92763" QuestId="43625">
 				<HuntingGrounds>
 					<Hotspot X="3627.34" Y="1137.453" Z="135.4696" />

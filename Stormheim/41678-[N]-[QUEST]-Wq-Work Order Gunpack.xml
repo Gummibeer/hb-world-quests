@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41678)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo  X="3191.839" Y="1536.327" Z="182.1946" /> 
+				<MoveTo NAV="Fly"  X="3191.839" Y="1536.327" Z="182.1946" /> 
 				<TurnIn Nav="Fly" QuestName="Work Order: Gunpack" QuestId="41678" TurnInName="Valdemar Stormseeker" TurnInId="106904" />
 
 

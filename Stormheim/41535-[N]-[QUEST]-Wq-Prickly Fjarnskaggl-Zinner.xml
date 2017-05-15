@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41535)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2888.853" Y="448.4271" Z="15.82433" />
+				<MoveTo NAV="Fly" X="2888.853" Y="448.4271" Z="15.82433" />
 				<PickUp Nav="Fly" QuestName="Prickly Fjarnskaggl" QuestId="41535" GiverName="" GiverId="" />
 
 <Objective QuestName="Prickly Fjarnskaggl" QuestId="41535" Type="CollectItem" ItemId="140960" CollectCount="10" />
@@ -187,8 +187,8 @@
 
 -->
 		<While Condition="WorldQuestInfo.HasWorldQuest(41535)" >	
-				<RunTo X="2888.853" Y="448.4271" Z="15.82433" />		
-			<CustomBehavior File="InteractWith" MobIds="248028" QuestId="41535">
+				<MoveTo NAV="Fly" X="2888.853" Y="448.4271" Z="15.82433" />		
+			<CustomBehavior File="InteractWith" MobIds="248028" PreInteractMountStrategy="Dismount" QuestId="41535">
 				<HuntingGrounds>
 			<Hotspot X="2725.62" Y="317.7222" Z="10.78397" />
 			<Hotspot X="2781.964" Y="315.5382" Z="4.23137" />

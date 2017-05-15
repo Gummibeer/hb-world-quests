@@ -158,11 +158,11 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42964)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="2367.27" Y="1451.939" Z="42.84003" /> 
+				<MoveTo NAV="Fly" X="2367.27" Y="1451.939" Z="42.84003" /> 
 				<Objective QuestName="DANGER: Lagertha" QuestId="42964" Type="KillMob" Nav="Fly" MobId="109015" KillCount="1" />
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42964)" >	
-				<RunTo X="2367.27" Y="1451.939" Z="42.84003" />		
+				<MoveTo NAV="Fly" X="2367.27" Y="1451.939" Z="42.84003" />		
 			<CustomBehavior File="KillUntilComplete" MobIds="109015" QuestId="42964">
 				<HuntingGrounds>
 					<Hotspot X="2367.27" Y="1451.939" Z="42.84003" />

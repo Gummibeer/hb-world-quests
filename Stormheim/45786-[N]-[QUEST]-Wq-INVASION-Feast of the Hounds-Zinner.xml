@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(45786)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="3718.774" Y="2820.565" Z="313.2034" /> 
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="3718.774" Y="2820.565" Z="313.2034" /> 
 				<PickUp Nav="Fly" QuestName="Feast of the Hounds" QuestId="45786" GiverName="" GiverId="" />
 
 				<Objective QuestName="Feast of the Hounds" QuestId="45786" Type="KillMob" MobId="118305" KillCount="13" />
@@ -185,7 +185,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(45786)" >	
-				<RunTo X="3718.774" Y="2820.565" Z="313.2034" /> 		
+				<MoveTo NAV="Fly" X="3718.774" Y="2820.565" Z="313.2034" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="118305, 118280, 118415, 117850, 117837, 117883, 118410" TerminateWhen="!WorldQuestInfo.HasWorldQuest(45786)" >
 				<HuntingGrounds>
 					<Hotspot X="3718.774" Y="2820.565" Z="313.2034" />
@@ -213,7 +213,7 @@
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
-	<RunTo X="3718.774" Y="2820.565" Z="313.2034" />
+	<MoveTo NAV="Fly" X="3718.774" Y="2820.565" Z="313.2034" />
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 45786-[N]-[QUEST]-Wq-INVASION-Feast of the Hounds-Zinner.xml, loading auto-loader!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
 </QuestOrder>

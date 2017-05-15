@@ -29,7 +29,7 @@ return false;", 0);]]>
     <While Condition="OnQuest" >
       <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43248] Warden Tower Assault: Blackhawk's Bulwark!&quot;);" />
       <If Condition="!HasQuest(43599)" >
-        <RunTo X="1649.385" Y="1465.858" Z="75.10288" />
+        <MoveTo NAV="Fly" X="1649.385" Y="1465.858" Z="75.10288" />
       </If>
       <CustomBehavior File="KillUntilComplete" MobIds="104289, 104290, 103757"
                 TerminateWhen="IsObjectiveComplete(2,43599) || !OnQuest"  X="1544.085" Y="1420.853" Z="171.3202" />
@@ -44,7 +44,7 @@ return false;", 0);]]>
       </CustomBehavior>
 
     </While>
-    <RunTo X="1651.95" Y="1425.198" Z="78.48785" />
+    <MoveTo NAV="Fly" X="1651.95" Y="1425.198" Z="78.48785" />
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
       <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
     </If>

@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46010)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="1856.846" Y="1940.551" Z="365.4337" /> 
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="1856.846" Y="1940.551" Z="365.4337" /> 
 				<PickUp Nav="Fly" QuestName="Bonecrusher Korgolath" QuestId="46010" GiverName="" GiverId="" />
 
 				<Objective QuestName="Bonecrusher Korgolath" QuestId="46010" Type="KillMob" MobId="117959" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46010)" >	
-				<RunTo X="1856.846" Y="1940.551" Z="365.4337" /> 		
+				<MoveTo NAV="Fly" X="1856.846" Y="1940.551" Z="365.4337" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="117959" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46010)" >
 				<HuntingGrounds>
 					<Hotspot X="1837.802" Y="1935.962" Z="363.4139" />

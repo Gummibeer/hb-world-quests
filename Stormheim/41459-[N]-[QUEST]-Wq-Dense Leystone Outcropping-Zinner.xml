@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(41459)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4665.186" Y="3048.899" Z="11.51433" /> 
+				<MoveTo NAV="Fly" X="4665.186" Y="3048.899" Z="11.51433" /> 
 				<PickUp Nav="Fly" QuestName="Dense Leystone Outcropping" QuestId="41459" GiverName="" GiverId="" />
 
 				<Objective QuestName="Dense Leystone Outcropping" QuestId="41459" Type="CollectItem" ItemId="141242" CollectCount="1" />
@@ -173,8 +173,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(41459)" >	
-				<RunTo X="4669.642" Y="3051.165" Z="11.51612"  /> 		
-				<CustomBehavior File="InteractWith" MobId="247941" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41459)" >
+				<MoveTo NAV="Fly" X="4669.642" Y="3051.165" Z="11.51612"  /> 		
+				<CustomBehavior File="InteractWith" MobId="247941" PreInteractMountStrategy="Dismount" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41459)" >
 				</CustomBehavior>
 		</While>
 	

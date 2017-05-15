@@ -157,7 +157,7 @@
 -->
 <While Condition="WorldQuestInfo.HasWorldQuest(43451)" >
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [43451] WANTED: Urgev the Flayer - WiN!&quot;);" />
-<RunTo X="3173.878" Y="1289.944" Z="117.4528" />
+<MoveTo NAV="Fly" X="3173.878" Y="1289.944" Z="117.4528" />
 
 
 <CustomBehavior File="KillUntilComplete"  QuestId="43451"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(43451)">
@@ -172,7 +172,7 @@
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 </While>
-<RunTo X="1834.259" Y="5463.502" Z="25.51882" />
+<MoveTo NAV="Fly" X="1834.259" Y="5463.502" Z="25.51882" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
 	<CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

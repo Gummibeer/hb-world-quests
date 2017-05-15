@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42820)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4548.213" Y="4636.258" Z="663.6569" /> -->
-				<RunTo X="4269.919" Y="2006.216" Z="2.725338" />
+				<!-- <MoveTo NAV="Fly" X="4548.213" Y="4636.258" Z="663.6569" /> -->
+				<MoveTo NAV="Fly" X="4269.919" Y="2006.216" Z="2.725338" />
 				<PickUp Nav="Fly" QuestName="DANGER: Aegir Wavecrusher" QuestId="42820" GiverName="" GiverId="" />
 
 				<Objective QuestName="DANGER: Aegir Wavecrusher" QuestId="42820" Type="KillMob" MobId="108885" KillCount="1" />
@@ -173,7 +173,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42820)" >	
-				<RunTo X="4269.919" Y="2006.216" Z="2.725338" /> 		
+				<MoveTo NAV="Fly" X="4269.919" Y="2006.216" Z="2.725338" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="108885" TerminateWhen="!WorldQuestInfo.HasWorldQuest(42820)" >
 				<HuntingGrounds>
 				<Hotspot X="4255.438" Y="1993.689" Z="2.730603" />

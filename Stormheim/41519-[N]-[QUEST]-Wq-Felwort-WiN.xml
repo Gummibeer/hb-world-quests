@@ -127,7 +127,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41519)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile [41519] Felwort - WiN!&quot;);" />
 
-	<RunTo X="3313.608" Y="2863.419" Z="497.8826" />
+	<MoveTo NAV="Fly" X="3313.608" Y="2863.419" Z="497.8826" />
 	<CustomBehavior File="MyCTM" X="3296.15" Y="2878.125" Z="481.3581" />
 	<CustomBehavior File="MyCTM" X="3274.578" Y="2899.003" Z="469.3103" />
 	<CustomBehavior File="InteractWith" NumOfTimes="1" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41519)" >
@@ -142,7 +142,7 @@
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 
 </While>
-<RunTo  X="3289.761" Y="2918.74" Z="450.0196" />
+<MoveTo NAV="Fly"  X="3289.761" Y="2918.74" Z="450.0196" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>

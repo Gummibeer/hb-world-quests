@@ -29,11 +29,11 @@ end
 return false;", 0);]]></CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41497)">
-        <RunTo X="4110.08" Y="2576.993" Z="230.7415" />
+        <MoveTo NAV="Fly" X="4110.08" Y="2576.993" Z="230.7415" />
       </If>
       <If Condition="HasQuest(41497)">
         <!--<GameObject Name="Wild Leystone Seam" Entry="247989" X="4147.035" Y="2600.76" Z="161.2624" />-->
-        <CustomBehavior File="InteractWith" MobIds="247989" NumOfTimes="100" NonCompeteDistance="0" Range="5" TerminateWhen="!OnQuest">
+        <CustomBehavior File="InteractWith" MobIds="247989" NumOfTimes="100" PreInteractMountStrategy="Dismount" NonCompeteDistance="0" Range="5" TerminateWhen="!OnQuest">
           <HuntingGrounds>
             <Hotspot X="4110.08" Y="2576.993" Z="230.7415" />
             <Hotspot X="4157.564" Y="2507.186" Z="205.3236" />

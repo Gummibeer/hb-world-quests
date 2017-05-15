@@ -31,11 +31,11 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41451)">
-        <RunTo X="2684.694" Y="2569.063" Z="218.7067" />
+        <MoveTo NAV="Fly" X="2684.694" Y="2569.063" Z="218.7067" />
       </If>
       <While Condition="!IsObjectiveComplete(2, 41451)">
         <!--Run Outside Wall-->
-        <RunTo X="2684.694" Y="2569.063" Z="218.7067" />
+        <MoveTo NAV="Fly" X="2684.694" Y="2569.063" Z="218.7067" />
         <!--Use Grapple-->
         <!--<WoWUnit Name="Grapple Point" Entry="91983" X="2668.16" Y="2545.319" Z="238.6316" />-->
         <CustomBehavior File="RunCode" Code="
@@ -48,7 +48,7 @@ return false;", 0);]]>
 					"/>
 
         <!--Move to first harpoon-->
-        <RunTo X="2688.918" Y="2491.47" Z="236.0785" />
+        <MoveTo NAV="Fly" X="2688.918" Y="2491.47" Z="236.0785" />
         <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2693.078" Y="2490.828" Z="236.0995" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2490);
@@ -59,7 +59,7 @@ return false;", 0);]]>
 						}
 					"/>
         <CustomBehavior File="MyCTM" X="2666.022" Y="2459.255" Z="217.1962" />
-        <RunTo X="2656.31" Y="2430.424" Z="218.5574" />
+        <MoveTo NAV="Fly" X="2656.31" Y="2430.424" Z="218.5574" />
         <!--Use Grapple-->
         <!--<WoWUnit Name="Grapple Point" Entry="92017" X="2663.793" Y="2409.675" Z="237.2711" />-->
         <CustomBehavior File="RunCode" Code="
@@ -71,7 +71,7 @@ return false;", 0);]]>
 						}
 					"/>
         <!--Move to 2nd Harpoon-->
-        <RunTo X="2674.081" Y="2425.315" Z="237.2613" />
+        <MoveTo NAV="Fly" X="2674.081" Y="2425.315" Z="237.2613" />
         <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2678.022" Y="2423.771" Z="237.2735" />-->
         <CustomBehavior File="RunCode" Code="
 						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2423);
@@ -84,7 +84,7 @@ return false;", 0);]]>
         <!--Jump Down and move to next grapple-->
         <CustomBehavior File="MyCTM" X="2650.135" Y="2416.693" Z="221.5135" />
         <If Condition="!IsObjectiveComplete(2, 41451)">
-          <RunTo X="2557.066" Y="2453.862" Z="241.3863" />
+          <MoveTo NAV="Fly" X="2557.066" Y="2453.862" Z="241.3863" />
           <!--<WoWUnit Name="Grapple Point" Entry="92072" X="2545.717" Y="2445.174" Z="260.7524" />-->
           <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(92072, u =&gt; (int)u.Y == 2445);
@@ -95,7 +95,7 @@ return false;", 0);]]>
 						}
 					"/>
           <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2543.905" Y="2423.978" Z="262.0621" />-->
-          <RunTo X="2540.693" Y="2425.438" Z="262.0634" />
+          <MoveTo NAV="Fly" X="2540.693" Y="2425.438" Z="262.0634" />
           <CustomBehavior File="RunCode" Code="
 						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2423);
 						if (Harpoon != null)
@@ -105,7 +105,7 @@ return false;", 0);]]>
 						}
 					"/>
           <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2524.704" Y="2385.554" Z="263.4633" />-->
-          <RunTo X="2522.494" Y="2388.394" Z="263.4254" />
+          <MoveTo NAV="Fly" X="2522.494" Y="2388.394" Z="263.4254" />
           <CustomBehavior File="RunCode" Code="
 						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2385);
 						if (Harpoon != null)
@@ -117,7 +117,7 @@ return false;", 0);]]>
           <CustomBehavior File="MyCTM" X="2509.345" Y="2392.088" Z="256.9182" />
         </If>
         <If Condition="!IsObjectiveComplete(2, 41451)">
-          <RunTo X="2536.368" Y="2479.173" Z="246.8343" />
+          <MoveTo NAV="Fly" X="2536.368" Y="2479.173" Z="246.8343" />
           <!--<WoWUnit Name="Grapple Point" Entry="91975" X="2544.906" Y="2487.497" Z="254.7319" />-->
           <CustomBehavior File="RunCode" Code="
 						WoWUnit grapplePoi = Unit(91975, u =&gt; (int)u.Y == 2487);
@@ -127,7 +127,7 @@ return false;", 0);]]>
 							await Coroutine.Sleep(10000);
 						}
 					"/>
-          <RunTo X="2546.574" Y="2466.969" Z="254.766" />
+          <MoveTo NAV="Fly" X="2546.574" Y="2466.969" Z="254.766" />
           <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2549.886" Y="2466.156" Z="254.7651" />-->
           <CustomBehavior File="RunCode" Code="
 						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2466);
@@ -137,7 +137,7 @@ return false;", 0);]]>
 							await Coroutine.Sleep(2000);
 						}
 					"/>
-          <RunTo X="2541.048" Y="2505.343" Z="254.3566" />
+          <MoveTo NAV="Fly" X="2541.048" Y="2505.343" Z="254.3566" />
           <!--<GameObject Name="Tideskorn Harpoon Launcher" Entry="258970" X="2543.292" Y="2510.19" Z="254.8515" />-->
           <CustomBehavior File="RunCode" Code="
 						WoWObject Harpoon = Object(258970, u =&gt; (int)u.Y == 2510);

@@ -158,7 +158,7 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(42269)" >
 				<!-- Get in range of quest to activate -->
-				<RunTo X="4866.393" Y="430.3782" Z="-53.34558" /> 
+				<MoveTo NAV="Fly" X="4866.393" Y="430.3782" Z="-53.34558" /> 
 				<PickUp Nav="Fly" QuestName="The Soultakers" QuestId="42269" GiverName="" GiverId="" />
 
 				<Objective QuestName="The Soultakers" QuestId="42269" Type="KillMob" MobId="106981" KillCount="1" />
@@ -176,7 +176,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(42269)" >	
-				<RunTo X="4866.393" Y="430.3782" Z="-53.34558" /> 		
+				<MoveTo NAV="Fly" X="4866.393" Y="430.3782" Z="-53.34558" /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="106981" TerminateWhen="IsObjectiveComplete(1, 42269)" >
 				<HuntingGrounds>
 					<Hotspot X="4864.428" Y="444.0877" Z="-53.34277" />
@@ -213,7 +213,7 @@
 
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
-<RunTo X="4808.4" Y="158.0523" Z="-10.78044" /> 
+<MoveTo NAV="Fly" X="4808.4" Y="158.0523" Z="-10.78044" /> 
 		</While>
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
