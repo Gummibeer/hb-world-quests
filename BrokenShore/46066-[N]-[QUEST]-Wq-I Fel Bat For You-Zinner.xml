@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46066)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-827.1516" Y="2439.298" Z="117.4364"  /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-827.1516" Y="2439.298" Z="117.4364"  /> 
 				<PickUp Nav="Fly" QuestName="I Fel Bat For You" QuestId="46066" GiverName="" GiverId="" />
 
 				<Objective QuestName="I Fel Bat For You" QuestId="46066" Type="KillMob" MobId="118499" KillCount="6" />
@@ -177,7 +177,7 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46066)" >	
-				<RunTo X="-827.1516" Y="2439.298" Z="117.4364"  /> 		
+				<MoveTo NAV="Fly" X="-827.1516" Y="2439.298" Z="117.4364"  /> 		
 			<CustomBehavior File="InteractWith" MobIds="118499" TerminateWhen="IsObjectiveComplete(2, 46066)" >
 				<HuntingGrounds>
 				<Hotspot X="-827.1516" Y="2439.298" Z="117.4364" />
@@ -193,7 +193,7 @@
 				<Hotspot X="-832.4425" Y="2439.302" Z="116.3855" />
 				</HuntingGrounds>
 			</CustomBehavior>
-			<CustomBehavior File="KillUntilComplete" MobIds="119578" TerminateWhen="IsObjectiveComplete(1, 46066)" >
+			<CustomBehavior File="KillUntilComplete" MobIds="119578, 118499" TerminateWhen="IsObjectiveComplete(1, 46066)" >
 				<HuntingGrounds>
 				<Hotspot X="-827.1516" Y="2439.298" Z="117.4364" />
 				<Hotspot X="-806.6785" Y="2383.147" Z="110.8888" />
@@ -214,7 +214,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="-827.1516" Y="2439.298" Z="117.4364"  />
+<MoveTo NAV="Fly" X="-827.1516" Y="2439.298" Z="117.4364"  />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
