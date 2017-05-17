@@ -157,12 +157,12 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41601)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41601-[N]-[QUEST]-Wq-Lively Mossgill Perch-Zinner.xml!&quot;);" />
 			<MoveTo NAV="Fly" X="3105.024" Y="6263.251" Z="222.1324" />		
-			<CustomBehavior File="MrFishIt" PoolId="260003" CollectItemId="134567" CollectItemCount="10" QuestId="41601" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
-			<HuntingGrounds>
+			<CustomBehavior File="MrFishIt" PoolIds="260003" CollectItemId="134567" CollectItemCount="10" QuestId="41601" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
+			<Hotspots>
 			<Hotspot X="3105.024" Y="6263.251" Z="222.1324" />
 			<Hotspot X="3173.922" Y="6319.101" Z="219.667" />
 			<Hotspot X="3101.274" Y="6402.227" Z="200.8297" />
-			</HuntingGrounds>
+			</Hotspots>
 			
 
 </CustomBehavior>
