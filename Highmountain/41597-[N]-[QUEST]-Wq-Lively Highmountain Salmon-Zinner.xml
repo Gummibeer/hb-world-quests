@@ -157,7 +157,7 @@
 <While Condition="WorldQuestInfo.HasWorldQuest(41597)" >
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41597-[N]-[QUEST]-Wq-Lively Highmountain Salmon-Zinner.xml!&quot;);" />
 			<MoveTo NAV="Fly" X="3940.084" Y="5322.434" Z="622.3524" />		
-			<CustomBehavior File="MrFishIt" PoolId="260005" CollectItemId="134400" CollectItemCount="10" QuestId="41597" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
+			<CustomBehavior File="MrFishIt" PoolId="260005" CollectItemId="134400" CollectItemCount="10" MoveToPool="True" MaxCastRange="25" MinCastRange="15" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41597)">
 			<HuntingGrounds>
 			<Hotspot X="3940.084" Y="5322.434" Z="622.3524" />
 			<Hotspot X="3987.635" Y="5384.386" Z="622.7053" />
