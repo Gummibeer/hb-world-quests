@@ -158,12 +158,12 @@
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41599-[N]-[QUEST]-Wq-Lively Cursed Queenfish-Zinner.xml!&quot;);" />
 			<MoveTo NAV="Fly" X="-1047.721" Y="6488.986" Z="0.5197011" />		
 			<CustomBehavior File="MrFishIt" PoolId="259931" MoveToPool="true" CollectItemId="134564" CollectItemCount="10" MaxCastRange="25" MinCastRange="15" TerminateWhen="!WorldQuestInfo.HasWorldQuest(41599)">
-			<HuntingGrounds>
+			<Hotspots>
 				<Hotspot X="-1047.721" Y="6488.986" Z="0.5197011" />
 				<Hotspot X="-1135.168" Y="6409.539" Z="2.32202" />
 				<Hotspot X="-1145.941" Y="6657.637" Z="1.258319" />
 				<Hotspot X="-1140.411" Y="6702.856" Z="-0.01438975" />
-			</HuntingGrounds>
+			</Hotspots>
 
 </CustomBehavior>
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
