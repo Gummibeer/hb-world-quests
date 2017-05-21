@@ -31,7 +31,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest">
       <If Condition="!HasQuest(41936)">
-        <MoveTo NAV="Fly" X="2542.041" Y="1504.683" Z="23.14341" />
+        <MoveTo NAV="Fly" X="2542.592" Y="1486.074" Z="23.24055" />
       </If>
       <While Condition="HasQuest(41936)">
         <!--<Vendor Name="Froijla Axebearer" Entry="105424" Type="Repair" Nav="Fly" X="2543.643" Y="1490.826" Z="23.14324" />-->
@@ -39,7 +39,7 @@ return false;", 0);]]>
         <!--<Vendor Name="Lafayla Mightblade" Entry="105432" Type="Repair" Nav="Fly" X="2543.921" Y="1493.806" Z="23.14333" />-->
         <!--<Vendor Name="Bretta the Bold" Entry="105399" Type="Repair" Nav="Fly" X="2546.073" Y="1491.737" Z="23.14317" />-->
         <!--<GameObject Name="Challenge Horn" Entry="248882" X="2541.878" Y="1476.432" Z="23.1042" />-->  
-        <CustomBehavior File="InteractWith" MobIds="248882" WaitForNpcs="false" TerminateWhen="!OnQuest" X="2542.041" Y="1504.683" Z="23.14341" />
+        <CustomBehavior File="InteractWith" MobIds="248881" WaitForNpcs="false" TerminateWhen="!OnQuest" X="2542.041" Y="1504.683" Z="23.14341" />
         <CustomBehavior File="KillUntilComplete" MobIds="105424, 105433, 105432, 105399" TerminateWhen="!OnQuest" X="2542.041" Y="1504.683" Z="23.14341" />
         <CustomBehavior File="WaitTimer" WaitTime="2000"/>
       </While>
