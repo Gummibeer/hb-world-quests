@@ -222,6 +222,5 @@
 	
 <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 42880-[N]-[QUEST]-WqMeeting Their Quota.xml!&quot;);" />
 <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
-    </QuestOrder> -->
     </QuestOrder>
 </HBProfile>
