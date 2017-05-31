@@ -42,7 +42,7 @@ public bool InRange => Me.Location.Distance(new Vector3(2787.88f, 4378.993f, 418
         <!--<Vendor Name="Kir'altius" Entry="103055" Type="Repair" Nav="Fly" X="2716.62" Y="4322.81" Z="438.241" />-->
         <!--<Vendor Name="Al'anath" Entry="115882" Type="Repair" Nav="Fly" X="2765.032" Y="4358.219" Z="418.8143" />-->
         <CustomBehavior File="InteractWith" MobId="103055" GossipOptions="1" WaitForNpcs="false" X="2787.88" Y="4378.993" Z="418.8143" TerminateWhen="!OnQuest" />
-        <CustomBehavior File="KillUntilComplete" MobId="115882" WaitForNpcs="false" X="2787.88" Y="4378.993" Z="418.8143" TerminateWhen="!OnQuest" />
+        <CustomBehavior File="KillUntilComplete" MobIds="115882, 115880" WaitForNpcs="false" X="2787.88" Y="4378.993" Z="418.8143" TerminateWhen="!OnQuest" />
       </If>
     </While>
     <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0">
