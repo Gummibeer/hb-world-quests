@@ -55,7 +55,7 @@ return false;", 0);]]>
     </CustomBehavior>
     <While Condition="OnQuest" >
 <MoveTo NAV="Fly" X="1472.532" Y="3569.155" Z="132.8791" />
-      <CustomBehavior File="InteractWith" MobId="266301" PreInteractMountStrategy="Dismount" TerminateWhen="IsObjectiveComplete(1, 44812) || !OnQuest" >
+      <CustomBehavior File="InteractWith" NumOfTimes="5" PreInteractMountStrategy="Dismount" MobId="266301" TerminateWhen="IsObjectiveComplete(1, 44812) || !OnQuest" >
         <HuntingGrounds>
         <Hotspot X="1525.399" Y="3532.768" Z="134.6941" />
 	<Hotspot X="1415.799" Y="3541.64" Z="132.8787" />
@@ -65,7 +65,7 @@ return false;", 0);]]>
 
         </HuntingGrounds>
       </CustomBehavior>
-      <CustomBehavior File="InteractWith" MobId="266298" PreInteractMountStrategy="Dismount" TerminateWhen="IsObjectiveComplete(2, 44812) || !OnQuest" >
+      <CustomBehavior File="InteractWith" NumOfTimes="5" PreInteractMountStrategy="Dismount" MobId="266298" TerminateWhen="IsObjectiveComplete(2, 44812) || !OnQuest" >
 	<HuntingGrounds>
 	<Hotspot X="1510.444" Y="3530.886" Z="135.8126" />
 	<Hotspot X="1507.993" Y="3632.487" Z="123.9567" />
