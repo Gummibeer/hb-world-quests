@@ -179,6 +179,7 @@
 			<CustomBehavior File="KillUntilComplete" MobIds="117065" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46006)" >
 				<HuntingGrounds>
 				<Hotspot X="3119.838" Y="2751.427" Z="393.7388" />
+				</HuntingGrounds>
 			</CustomBehavior>
 				<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
