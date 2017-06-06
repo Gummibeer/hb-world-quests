@@ -158,8 +158,10 @@
 	<CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;Loading Profile 41616-[N]-[QUEST]-Wq-Huge Runescale Koi-Zinner.xml!&quot;);" />
 			<MoveTo NAV="Fly" X="2225.165" Y="5407.603" Z="100.5446" />		
 			<CustomBehavior File="MrFishIt" PoolId="254061" CollectItemId="134574" CollectItemCount="10" QuestId="41616" MoveToPool="True" MaxCastRange="25" MinCastRange="15" >
-
-
+			<Hotspots>
+			<Hotspot X="2219.296" Y="5403.85" Z="95.93317" />
+			</Hotspots>
+		
 </CustomBehavior>
 <CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 <CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
