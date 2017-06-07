@@ -157,8 +157,8 @@
 	
 		<While Condition="WorldQuestInfo.HasWorldQuest(46068)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-864.7095" Y="2161.752" Z="1.203171" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-864.7095" Y="2161.752" Z="1.203171" /> 
 				<PickUp Nav="Fly" QuestName="Brute Wrangling" QuestId="46068" GiverName="" GiverId="" />
 
 				<Objective QuestName="Brute Wrangling" QuestId="46068" Type="KillMob" MobId="120213" KillCount="1" />
@@ -179,12 +179,12 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46068)" >	
-				<RunTo X="-864.7095" Y="2161.752" Z="1.203171" /> 
-			<CustomBehavior File="InteractWith" MobIds="120216" />
+				<MoveTo NAV="Fly" X="-864.7095" Y="2161.752" Z="1.203171" /> 
+			<CustomBehavior File="InteractWith" PreInteractMountStrategy="Dismount" MobIds="120216" />
 			<If Condition="!Me.HasAura(120213)" >
-			<RunTo X="-933.8151" Y="2248.928" Z="-0.5757948" />
+			<MoveTo NAV="Fly" X="-933.8151" Y="2248.928" Z="-0.5757948" />
 			</If>
-			<CustomBehavior File="KillUntilComplete" MobIds="118693" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46068)">
+			<CustomBehavior File="KillUntilComplete" MobIds="118693, 118683" TerminateWhen="!WorldQuestInfo.HasWorldQuest(46068)">
 				<HuntingGrounds>
 				<Hotspot X="-813.7543" Y="2173.784" Z="0.757742" />
 				<Hotspot X="-826.0123" Y="2140.652" Z="0.2422737" />
