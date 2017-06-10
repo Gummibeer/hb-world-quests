@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HBProfile>
+  <Name>41260-[N]-[QUEST]-Wq-Slab of Bacon-Zinner.xml</Name>
+  <MinDurability>0.2</MinDurability>
+  <MinFreeBagSlots>1</MinFreeBagSlots>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1000</MaxLevel>
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+  <TargetElites>true</TargetElites>
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition"><![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1018);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1018)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41260 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]></CustomBehavior>
+    <While Condition="OnQuest">
+      <If Condition="!HasQuest(41260)">
+        <MoveTo NAV="Fly" X="2514.884" Y="6300.129" Z="196.4825" />
+      </If>
+      <If Condition="HasQuest(41260)">
+        <!--<Vendor Name="Well-Fed Bear" Entry="103785" Type="Repair" Nav="Fly" X="2783.496" Y="5795.733" Z="295.1539" />-->
+        <CustomBehavior File="KillUntilComplete" MobId="103785" TerminateWhen="!OnQuest" X="2514.884" Y="6300.129" Z="196.4825 />
+      </If>
+      	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
+	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
+    </While>
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior	File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="false" />
+  </QuestOrder>
+</HBProfile>
