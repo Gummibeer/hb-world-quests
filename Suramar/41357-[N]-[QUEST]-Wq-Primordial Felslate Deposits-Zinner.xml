@@ -1,0 +1,62 @@
+<HBProfile xsi:noNamespaceSchemaLocation="../Schemas/EchoSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Original contribution by EchoTiger -->
+  <Name>41357-[N]-[QUEST]-Wq-Primordial Felslate Deposits-Zinner.xml</Name>
+
+  <MinDurability>0.3</MinDurability>
+  <MinFreeBagSlots>3</MinFreeBagSlots>
+
+  <SellGrey>true</SellGrey>
+  <SellWhite>false</SellWhite>
+  <SellGreen>false</SellGreen>
+  <SellBlue>false</SellBlue>
+  <SellPurple>false</SellPurple>
+
+  <MailGrey>false</MailGrey>
+  <MailWhite>true</MailWhite>
+  <MailGreen>true</MailGreen>
+  <MailBlue>true</MailBlue>
+  <MailPurple>true</MailPurple>
+
+  <TargetElites>true</TargetElites>
+
+
+
+  <QuestOrder>
+    <CustomBehavior File="RunCode" Type="Definition">
+      <![CDATA[public bool OnQuest => Lua.GetReturnVal<bool>(@"SetMapByID(1033);
+local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(1033)
+if (taskInfo) then
+    for i, info  in ipairs(taskInfo) do
+        if info.questId == 41357 then
+            return true;
+            end
+    end
+end
+return false;", 0);]]>
+    </CustomBehavior>
+    <While Condition="OnQuest">
+      <MoveTo NAV="Fly" X="2061.649" Y="3274.003" Z="350.9932" />
+      <CustomBehavior File="InteractWith" MobId="247699" NumOfTimes="10" PreInteractMountStrategy="Dismount" TerminateWhen="!OnQuest">
+        <HuntingGrounds>
+         <Hotspot X="2078.451" Y="3292.695" Z="351.437" />
+	<Hotspot X="2047.887" Y="3248.304" Z="343.7884" />
+	<Hotspot X="2098.092" Y="3290.469" Z="352.6859" />
+	<Hotspot X="2015.03" Y="3281.345" Z="353.0586" />
+	<Hotspot X="2054.771" Y="3333.3" Z="354.3697" />
+	<Hotspot X="2027.682" Y="3330.239" Z="353.3406" />
+	<Hotspot X="1997.174" Y="3318.188" Z="367.4882" />
+	<Hotspot X="2096.451" Y="3346.268" Z="352.307" />
+	<Hotspot X="2124.7" Y="3324.269" Z="351.8508" />
+	<Hotspot X="2057.398" Y="3357.603" Z="351.7732" />
+        </HuntingGrounds>
+      </CustomBehavior>
+    </While>
+   
+    <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
+      <CustomBehavior    File="UseItem" ItemId="141605" WaitTime="2000" />
+    </If>
+
+    <CustomBehavior File="RunCode" Code="Logging.Write(System.Windows.Media.Colors.Yellow, &quot;[Auto-Loader]: Finished World Quest 41357-[N]-[QUEST]-Wq-Primordial Felslate Deposits-Zinner.xml, loading auto-loader!&quot;);" />
+    <CustomBehavior File="LoadProfile" ProfileName="../autoloader" RememberProfile="true" />
+  </QuestOrder>
+</HBProfile>
