@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(46761)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-1381.37" Y="2782.944" Z="30.02722" /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-1381.37" Y="2782.944" Z="30.02722" /> 
 				<PickUp Nav="Fly" QuestName="Brew Bandits" QuestId="46761" GiverName="" GiverId="" />
 
 				<Objective QuestName="Brew Bandits" QuestId="46761" Type="KillMob" MobId="121321" KillCount="1" />
@@ -182,8 +182,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(46761)" >	
-				<RunTo X="-1381.37" Y="2782.944" Z="30.02722" /> 
-			<CustomBehavior File="InteractWith" MobId="121321" Gossipoption="1" TerminateWhen="IsObjectiveComplete(1, 46761)" >
+				<MoveTo NAV="Fly" X="-1381.37" Y="2782.944" Z="30.02722" /> 
+			<CustomBehavior File="InteractWith" MobId="121321" PreInteractMountStrategy="Dismount" Gossipoption="1" TerminateWhen="IsObjectiveComplete(1, 46761)" >
 			<HuntingGrounds>
 				<Hotspot X="-1381.37" Y="2782.944" Z="30.02722" />
 			</HuntingGrounds>
