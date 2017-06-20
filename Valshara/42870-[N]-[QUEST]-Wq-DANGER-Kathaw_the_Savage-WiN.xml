@@ -168,7 +168,7 @@
 	<MoveTo NAV="Fly" X="1887.264" Y="7048.514" Z="65.08116" />
 	<CustomBehavior File="KillUntilComplete"  QuestId="42870"  TerminateWhen="!WorldQuestInfo.HasWorldQuest(42870)">
 	<HuntingGrounds>
-<Hotspot X="1882.078" Y="7064.927" Z="65.61422" />
+	<Hotspot X="1888.823" Y="7094.055" Z="85.92826" />
 	</HuntingGrounds>
 	<PursuitList>
 		<PursueUnit Id="109125" Priority="1" PursueWhen="!IsObjectiveComplete(1, 42870) &amp;&amp; (UNIT.IsAlive)" />
