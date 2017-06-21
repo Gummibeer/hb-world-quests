@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(47132)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-1681.119" Y="2937.412" Z="5.837905"  /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-1681.119" Y="2937.412" Z="5.837905"  /> 
 				<PickUp Nav="Fly" QuestName="Fel Fire and Ice" QuestId="47132" GiverName="" GiverId="" />
 
 				<Objective QuestName="Fel Fire and Ice" QuestId="47132" Type="KillMob" MobId="120932" KillCount="20" />
@@ -183,27 +183,27 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(47132)" >	
-				<RunTo X="-1681.119" Y="2937.412" Z="5.837905"  /> 		
+				<MoveTo NAV="Fly" X="-1681.119" Y="2937.412" Z="5.837905"  /> 		
 			<CustomBehavior File="KillUntilComplete" MobIds="120932, 120933, 120934, 120943, 121344" TerminateWhen="!WorldQuestInfo.HasWorldQuest(47132)" >
 				<HuntingGrounds>
-				<Hotspot X="-827.1516" Y="2439.298" Z="117.4364" />
-				<Hotspot X="-806.6785" Y="2383.147" Z="110.8888" />
-				<Hotspot X="-775.2775" Y="2339.977" Z="103.7827" />
-				<Hotspot X="-769.7078" Y="2289.154" Z="98.69264" />
-				<Hotspot X="-706.0001" Y="2221.386" Z="84.15973" />
-				<Hotspot X="-668.3398" Y="2252.339" Z="84.2139" />
-				<Hotspot X="-712.5438" Y="2286.844" Z="90.40118" />
-				<Hotspot X="-748.5241" Y="2363.038" Z="103.9754" />
-				<Hotspot X="-774.5352" Y="2404.7" Z="115.7074" />
-				<Hotspot X="-785.5839" Y="2490.598" Z="130.2024" />
-				<Hotspot X="-832.4425" Y="2439.302" Z="116.3855" />
+				<Hotspot X="-1681.119" Y="2937.412" Z="5.837905" />
+				<Hotspot X="-1660.703" Y="2895.598" Z="6.032235" />
+				<Hotspot X="-1600.045" Y="2863.766" Z="21.23627" />
+				<Hotspot X="-1644.336" Y="2813.018" Z="10.39816" />
+				<Hotspot X="-1647.899" Y="2768.475" Z="16.28785" />
+				<Hotspot X="-1701.931" Y="2784.751" Z="1.402507" />
+				<Hotspot X="-1748.429" Y="2793.584" Z="1.507815" />
+				<Hotspot X="-1761.578" Y="2833.156" Z="0.4792987" />
+				<Hotspot X="-1791.778" Y="2903.971" Z="0.1509243" />
+				<Hotspot X="-1791.625" Y="2945.216" Z="0.148143" />
+				<Hotspot X="-1717.273" Y="2903.445" Z="1.585328" />
 				</HuntingGrounds>
 			</CustomBehavior>
 					
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="-1681.119" Y="2937.412" Z="5.837905" />
+<MoveTo NAV="Fly" X="-1681.119" Y="2937.412" Z="5.837905" />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
