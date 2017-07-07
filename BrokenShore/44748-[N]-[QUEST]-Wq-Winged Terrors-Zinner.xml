@@ -158,8 +158,8 @@
 		
 		<While Condition="WorldQuestInfo.HasWorldQuest(44748)" >
 				<!-- Get in range of quest to activate -->
-				<!-- <RunTo X="4808.635" Y="163.96" Z="-11.20261" /> -->
-				<RunTo X="-1722.08" Y="3014.09" Z="11.62272"  /> 
+				<!-- <MoveTo NAV="Fly" X="4808.635" Y="163.96" Z="-11.20261" /> -->
+				<MoveTo NAV="Fly" X="-1722.08" Y="3014.09" Z="11.62272"  /> 
 				<PickUp Nav="Fly" QuestName="Winged Terrors" QuestId="44748" GiverName="" GiverId="" />
 
 				<Objective QuestName="Winged Terrors" QuestId="44748" Type="KillMob" MobId="115056" KillCount="10" />
@@ -177,8 +177,8 @@
 
 </While>
 		<While Condition="WorldQuestInfo.HasWorldQuest(44748)" >	
-				<RunTo X="-1722.08" Y="3014.09" Z="11.62272"  /> 		
-			<CustomBehavior File="InteractWith" MobIds="265551" NUmOfTimes="12" Range="5" TerminateWhen="IsObjectiveComplete(2, 44748)" >
+				<MoveTo NAV="Fly" X="-1722.08" Y="3014.09" Z="11.62272"  /> 		
+			<CustomBehavior File="InteractWith" MobIds="265551, 265552, 265554 " PreInteractMountStrategy="Dismount" NumOfTimes="12" Range="5" TerminateWhen="IsObjectiveComplete(2, 44748)" >
 				<HuntingGrounds>
 				<Hotspot X="-1888.9" Y="3160.269" Z="3.41532" />
 				<Hotspot X="-1875.456" Y="3069.935" Z="0.6263872" />
@@ -216,7 +216,7 @@
 	<CustomBehavior File="Misc\RunLua" WaitTime="1500" Lua="WorldMapFrame:Show()" />
 	<CustomBehavior File="Misc\RunLua" Lua="WorldMapFrame:Hide()" />
 		</While>
-<RunTo X="-1722.08" Y="3014.09" Z="11.62272"  />
+<MoveTo NAV="Fly" X="-1722.08" Y="3014.09" Z="11.62272"  />
 <If Condition="HasItem(141605) &amp;&amp; Me.BagItems.FirstOrDefault(h =&gt; h.Entry == 141605).CooldownTimeLeft.TotalMilliseconds == 0" >
     <CustomBehavior File="UseItem" ItemId="141605" WaitTime="2000" />
 </If>
